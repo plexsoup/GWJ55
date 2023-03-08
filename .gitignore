@@ -14,3 +14,10 @@ export_presets.cfg
 .mono/
 data_*/
 mono_crash.*.json
+
+# large files
+export/
+WIP/
+
+# Mac OS X
+.DS_Store

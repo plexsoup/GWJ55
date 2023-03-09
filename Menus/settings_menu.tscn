@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://dl2ugtmw6nwcq"]
+[gd_scene load_steps=3 format=3 uid="uid://dl2ugtmw6nwcq"]
 
 [ext_resource type="PackedScene" uid="uid://dx20duhdsm1vn" path="res://Menus/Buttons/scene_change_button.tscn" id="1_hph4p"]
+[ext_resource type="PackedScene" uid="uid://dnn5t5pnixj0o" path="res://Menus/Buttons/return_to_main_button.tscn" id="2_24cbx"]
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -106,7 +107,5 @@ max_value = 1.0
 step = 0.1
 value = 0.5
 
-[node name="ReturnToMainButton" parent="Settings/VBoxContainer" instance=ExtResource("1_hph4p")]
+[node name="SceneChangeButton" parent="Settings/VBoxContainer" instance=ExtResource("2_24cbx")]
 layout_mode = 2
-text = "Return to Main Menu"
-scene_path = "res://main.tscn"

@@ -21,8 +21,8 @@ Global="*res://global.gd"
 
 [display]
 
+window/size/mode=2
 window/stretch/mode="viewport"
-window/stretch/aspect="expand"
 
 [rendering]
 

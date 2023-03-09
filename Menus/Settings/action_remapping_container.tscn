@@ -1,0 +1,16 @@
+[gd_scene load_steps=2 format=3 uid="uid://bdfxkdw1gtrqc"]
+
+[ext_resource type="Script" path="res://Menus/Settings/action_remapping_container.gd" id="1_2nuxt"]
+
+[node name="ActionRemappingContainer" type="HBoxContainer"]
+script = ExtResource("1_2nuxt")
+
+[node name="ActionNameLabel" type="Label" parent="."]
+layout_mode = 2
+text = "Action Name"
+
+[node name="ActionKeyButton" type="Button" parent="."]
+layout_mode = 2
+text = "K"
+
+[connection signal="pressed" from="ActionKeyButton" to="." method="_on_action_key_button_pressed"]

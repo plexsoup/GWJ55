@@ -1,0 +1,112 @@
+[gd_scene load_steps=2 format=3 uid="uid://dl2ugtmw6nwcq"]
+
+[ext_resource type="PackedScene" uid="uid://dx20duhdsm1vn" path="res://Menus/Buttons/scene_change_button.tscn" id="1_hph4p"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Settings" type="CenterContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Settings"]
+layout_mode = 2
+
+[node name="ControlsSceneButton" parent="Settings/VBoxContainer" instance=ExtResource("1_hph4p")]
+layout_mode = 2
+text = "Controls"
+
+[node name="Difficulty" type="HBoxContainer" parent="Settings/VBoxContainer"]
+custom_minimum_size = Vector2(300, 2.08165e-12)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Settings/VBoxContainer/Difficulty"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Difficulty"
+
+[node name="DifficultyButton" type="OptionButton" parent="Settings/VBoxContainer/Difficulty"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+item_count = 3
+selected = 1
+popup/item_0/text = "Easy"
+popup/item_0/id = 0
+popup/item_1/text = "Medium"
+popup/item_1/id = 1
+popup/item_2/text = "Hard"
+popup/item_2/id = 2
+
+[node name="Volume" type="HBoxContainer" parent="Settings/VBoxContainer"]
+custom_minimum_size = Vector2(300, 2.08165e-12)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Settings/VBoxContainer/Volume"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Volume"
+
+[node name="MasterVolumeSlider" type="HSlider" parent="Settings/VBoxContainer/Volume"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+max_value = 1.0
+step = 0.1
+value = 0.5
+
+[node name="Volume2" type="HBoxContainer" parent="Settings/VBoxContainer"]
+custom_minimum_size = Vector2(300, 2.08165e-12)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Settings/VBoxContainer/Volume2"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Music"
+
+[node name="MusicVolumeSlider" type="HSlider" parent="Settings/VBoxContainer/Volume2"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+max_value = 1.0
+step = 0.1
+value = 0.5
+
+[node name="Volume3" type="HBoxContainer" parent="Settings/VBoxContainer"]
+custom_minimum_size = Vector2(300, 2.08165e-12)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Settings/VBoxContainer/Volume3"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "SFX"
+
+[node name="SFXVolumeSlider" type="HSlider" parent="Settings/VBoxContainer/Volume3"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+max_value = 1.0
+step = 0.1
+value = 0.5
+
+[node name="ReturnToMainButton" parent="Settings/VBoxContainer" instance=ExtResource("1_hph4p")]
+layout_mode = 2
+text = "Return to Main Menu"
+scene_path = "res://main.tscn"

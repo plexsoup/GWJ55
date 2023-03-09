@@ -1,0 +1,44 @@
+[gd_scene load_steps=2 format=3 uid="uid://cyvgig2ced4e8"]
+
+[ext_resource type="PackedScene" uid="uid://d1kwrd3r7205" path="res://Menus/Whiteboard/post_it_note.tscn" id="1_mafis"]
+
+[node name="Whiteboard" type="ColorRect"]
+custom_minimum_size = Vector2(4000, 2000)
+offset_right = 4000.0
+offset_bottom = 2000.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0.792157, 0.909804, 0.980392, 1)
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+offset_right = 102.0
+offset_bottom = 26.0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 1
+theme_override_constants/shadow_offset_y = 1
+text = "Whiteboard is an experiment with tool scripts to see if Godot can be a useful design / planning application.
+
+Big Canvas. Scroll for more
+"
+
+[node name="PostItNote" parent="." instance=ExtResource("1_mafis")]
+layout_mode = 0
+offset_left = 66.0
+offset_top = 89.0
+offset_right = 266.0
+offset_bottom = 239.0
+postit_title = "PostIt Note"
+postit_description = "instantiate whiteboard/post_it_note.tscn to add notes to the board."
+
+[node name="PostItNote2" parent="." instance=ExtResource("1_mafis")]
+layout_mode = 0
+offset_left = 227.0
+offset_top = 259.0
+offset_right = 427.0
+offset_bottom = 498.0
+postit_title = "PostIt Note"
+postit_description = "post_it_notes have a tool script, so the text should change when you alter the postit_title or postit_description in the inspector"
+note_color = Color(0.431373, 0.376471, 0.0941176, 1)

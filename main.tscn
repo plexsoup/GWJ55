@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://oj6nxss4frcy"]
+[gd_scene load_steps=3 format=3 uid="uid://oj6nxss4frcy"]
 
 [ext_resource type="Script" path="res://main.gd" id="1_ci38h"]
+[ext_resource type="PackedScene" uid="uid://cyvgig2ced4e8" path="res://Menus/Whiteboard/whiteboard.tscn" id="2_sw6ch"]
 
 [node name="Main" type="Control"]
 layout_mode = 3
@@ -10,3 +11,42 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_ci38h")
+
+[node name="TabContainer" type="TabContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MainMenu" type="MarginContainer" parent="TabContainer"]
+layout_mode = 2
+
+[node name="CenterContainer" type="CenterContainer" parent="TabContainer/MainMenu"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="TabContainer/MainMenu/CenterContainer"]
+layout_mode = 2
+
+[node name="PlayGameButton" type="Button" parent="TabContainer/MainMenu/CenterContainer/VBoxContainer"]
+layout_mode = 2
+text = "Play Game"
+
+[node name="Settings" type="MarginContainer" parent="TabContainer"]
+visible = false
+layout_mode = 2
+
+[node name="Testing" type="MarginContainer" parent="TabContainer"]
+visible = false
+layout_mode = 2
+
+[node name="DesignNotes" type="MarginContainer" parent="TabContainer"]
+visible = false
+layout_mode = 2
+
+[node name="ScrollContainer" type="ScrollContainer" parent="TabContainer/DesignNotes"]
+layout_mode = 2
+
+[node name="Whiteboard" parent="TabContainer/DesignNotes/ScrollContainer" instance=ExtResource("2_sw6ch")]
+layout_mode = 2

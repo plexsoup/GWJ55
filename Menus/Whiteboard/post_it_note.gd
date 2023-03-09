@@ -41,7 +41,7 @@ func get_postit_description() -> String:
 	return postit_description
 
 ## Description: find hash tags in Description text and modify color of note
-func locate_tags():
-	var first_hashtag_index = %DescriptionLabel.text.find("#")
-	
+#func locate_tags():
+#	var first_hashtag_index = %DescriptionLabel.text.find("#")
+#
 

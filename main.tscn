@@ -1,11 +1,23 @@
-[gd_scene load_steps=7 format=3 uid="uid://oj6nxss4frcy"]
+[gd_scene load_steps=11 format=3 uid="uid://oj6nxss4frcy"]
 
+[ext_resource type="Theme" uid="uid://bslc43xuou6nj" path="res://Themes/main_theme.tres" id="1_a4cjj"]
 [ext_resource type="Script" path="res://main.gd" id="1_ci38h"]
 [ext_resource type="PackedScene" uid="uid://cyvgig2ced4e8" path="res://Menus/Whiteboard/whiteboard.tscn" id="2_sw6ch"]
 [ext_resource type="PackedScene" uid="uid://dx20duhdsm1vn" path="res://Menus/Buttons/scene_change_button.tscn" id="2_w73us"]
+[ext_resource type="Texture2D" uid="uid://b7joq1f8eak7h" path="res://icon.svg" id="3_26ewr"]
 [ext_resource type="PackedScene" uid="uid://dl2ugtmw6nwcq" path="res://Menus/settings_menu.tscn" id="3_566l7"]
 [ext_resource type="PackedScene" uid="uid://cgxuckinuwvvi" path="res://Menus/Buttons/quit_button.tscn" id="4_5kj1g"]
 [ext_resource type="PackedScene" uid="uid://c50prk3xgh6et" path="res://Menus/Credits/credits.tscn" id="4_d1ppv"]
+
+[sub_resource type="Gradient" id="Gradient_00mvw"]
+offsets = PackedFloat32Array(0.432258, 0.483871, 0.548387)
+colors = PackedColorArray(0.7216, 0.80196, 0.82, 1, 0.563473, 0.705534, 0.472073, 1, 0.23532, 0.37, 0.2257, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_lympn"]
+gradient = SubResource("Gradient_00mvw")
+height = 256
+fill_from = Vector2(0.5, 0)
+fill_to = Vector2(0.5, 1)
 
 [node name="Main" type="Control"]
 layout_mode = 3
@@ -14,7 +26,17 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("1_a4cjj")
 script = ExtResource("1_ci38h")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("GradientTexture2D_lympn")
 
 [node name="TabContainer" type="TabContainer" parent="."]
 layout_mode = 1
@@ -27,28 +49,63 @@ grow_vertical = 2
 [node name="MainMenu" type="MarginContainer" parent="TabContainer"]
 layout_mode = 2
 
-[node name="CenterContainer" type="CenterContainer" parent="TabContainer/MainMenu"]
+[node name="CenterContainer" type="HBoxContainer" parent="TabContainer/MainMenu"]
 layout_mode = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="TabContainer/MainMenu/CenterContainer"]
+[node name="LeftSide" type="MarginContainer" parent="TabContainer/MainMenu/CenterContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/margin_left = 30
+theme_override_constants/margin_top = 30
+theme_override_constants/margin_right = 30
+theme_override_constants/margin_bottom = 30
+
+[node name="VBoxContainer" type="VBoxContainer" parent="TabContainer/MainMenu/CenterContainer/LeftSide"]
 layout_mode = 2
 
-[node name="PlayGameButton" parent="TabContainer/MainMenu/CenterContainer/VBoxContainer" instance=ExtResource("2_w73us")]
+[node name="Label" type="Label" parent="TabContainer/MainMenu/CenterContainer/LeftSide/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 36
+text = "Wicked Awesome Game"
+horizontal_alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="TabContainer/MainMenu/CenterContainer/LeftSide/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+texture = ExtResource("3_26ewr")
+expand_mode = 5
+
+[node name="RightSide" type="MarginContainer" parent="TabContainer/MainMenu/CenterContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/margin_left = 30
+theme_override_constants/margin_top = 30
+theme_override_constants/margin_right = 30
+theme_override_constants/margin_bottom = 30
+
+[node name="VBoxContainer" type="VBoxContainer" parent="TabContainer/MainMenu/CenterContainer/RightSide"]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 25
+alignment = 1
+
+[node name="PlayGameButton" parent="TabContainer/MainMenu/CenterContainer/RightSide/VBoxContainer" instance=ExtResource("2_w73us")]
 layout_mode = 2
 text = "Play Game"
 
-[node name="SettingsButton" parent="TabContainer/MainMenu/CenterContainer/VBoxContainer" instance=ExtResource("2_w73us")]
+[node name="SettingsButton" parent="TabContainer/MainMenu/CenterContainer/RightSide/VBoxContainer" instance=ExtResource("2_w73us")]
 layout_mode = 2
 text = "Settings"
 new_scene = ExtResource("3_566l7")
 
-[node name="CreditsButton" parent="TabContainer/MainMenu/CenterContainer/VBoxContainer" instance=ExtResource("2_w73us")]
+[node name="CreditsButton" parent="TabContainer/MainMenu/CenterContainer/RightSide/VBoxContainer" instance=ExtResource("2_w73us")]
 layout_mode = 2
 text = "Credits
 "
 new_scene = ExtResource("4_d1ppv")
 
-[node name="QuitButton" parent="TabContainer/MainMenu/CenterContainer/VBoxContainer" instance=ExtResource("4_5kj1g")]
+[node name="QuitButton" parent="TabContainer/MainMenu/CenterContainer/RightSide/VBoxContainer" instance=ExtResource("4_5kj1g")]
 layout_mode = 2
 
 [node name="Testing" type="MarginContainer" parent="TabContainer"]

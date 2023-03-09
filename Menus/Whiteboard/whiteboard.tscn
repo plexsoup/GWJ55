@@ -31,7 +31,7 @@ offset_top = 89.0
 offset_right = 266.0
 offset_bottom = 239.0
 postit_title = "PostIt Note"
-postit_description = "instantiate whiteboard/post_it_note.tscn to add notes to the board."
+postit_description = "instantiate whiteboard/post_it_note.tscn to add notes to the board in the Godot inspector."
 
 [node name="PostItNote2" parent="." instance=ExtResource("1_mafis")]
 layout_mode = 0

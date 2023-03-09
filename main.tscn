@@ -1,7 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://oj6nxss4frcy"]
+[gd_scene load_steps=5 format=3 uid="uid://oj6nxss4frcy"]
 
 [ext_resource type="Script" path="res://main.gd" id="1_ci38h"]
 [ext_resource type="PackedScene" uid="uid://cyvgig2ced4e8" path="res://Menus/Whiteboard/whiteboard.tscn" id="2_sw6ch"]
+[ext_resource type="PackedScene" uid="uid://dx20duhdsm1vn" path="res://Menus/Buttons/scene_change_button.tscn" id="2_w73us"]
+[ext_resource type="PackedScene" uid="uid://dl2ugtmw6nwcq" path="res://Menus/settings_menu.tscn" id="3_566l7"]
 
 [node name="Main" type="Control"]
 layout_mode = 3
@@ -29,17 +31,31 @@ layout_mode = 2
 [node name="VBoxContainer" type="VBoxContainer" parent="TabContainer/MainMenu/CenterContainer"]
 layout_mode = 2
 
-[node name="PlayGameButton" type="Button" parent="TabContainer/MainMenu/CenterContainer/VBoxContainer"]
+[node name="PlayGameButton" parent="TabContainer/MainMenu/CenterContainer/VBoxContainer" instance=ExtResource("2_w73us")]
 layout_mode = 2
 text = "Play Game"
 
-[node name="Settings" type="MarginContainer" parent="TabContainer"]
-visible = false
+[node name="SettingsButton" parent="TabContainer/MainMenu/CenterContainer/VBoxContainer" instance=ExtResource("2_w73us")]
 layout_mode = 2
+text = "Settings"
+new_scene = ExtResource("3_566l7")
 
 [node name="Testing" type="MarginContainer" parent="TabContainer"]
 visible = false
 layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="TabContainer/Testing"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="TestScene01" parent="TabContainer/Testing/VBoxContainer" instance=ExtResource("2_w73us")]
+layout_mode = 2
+text = "Test Scene 01"
+
+[node name="TestScene02" parent="TabContainer/Testing/VBoxContainer" instance=ExtResource("2_w73us")]
+layout_mode = 2
+text = "Test Scene 02"
 
 [node name="DesignNotes" type="MarginContainer" parent="TabContainer"]
 visible = false

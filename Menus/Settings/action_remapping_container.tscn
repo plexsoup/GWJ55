@@ -6,11 +6,15 @@
 script = ExtResource("1_2nuxt")
 
 [node name="ActionNameLabel" type="Label" parent="."]
+custom_minimum_size = Vector2(150, 2.08165e-12)
 layout_mode = 2
+size_flags_horizontal = 3
 text = "Action Name"
 
 [node name="ActionKeyButton" type="Button" parent="."]
+custom_minimum_size = Vector2(75, 2.08165e-12)
 layout_mode = 2
+size_flags_horizontal = 3
 text = "K"
 
 [connection signal="pressed" from="ActionKeyButton" to="." method="_on_action_key_button_pressed"]

@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://cyvgig2ced4e8"]
+[gd_scene load_steps=3 format=3 uid="uid://cyvgig2ced4e8"]
 
 [ext_resource type="PackedScene" uid="uid://d1kwrd3r7205" path="res://Menus/Whiteboard/post_it_note.tscn" id="1_mafis"]
+[ext_resource type="Texture2D" uid="uid://j3wk0ak6xqwp" path="res://Menus/Whiteboard/Theme.png" id="2_q5nbw"]
 
 [node name="Whiteboard" type="ColorRect"]
 custom_minimum_size = Vector2(4000, 2000)
@@ -31,10 +32,10 @@ autowrap_mode = 2
 
 [node name="Note1_postits" parent="." instance=ExtResource("1_mafis")]
 layout_mode = 0
-offset_left = 521.0
-offset_top = 83.0
-offset_right = 721.0
-offset_bottom = 244.0
+offset_left = 1981.0
+offset_top = 205.0
+offset_right = 2181.0
+offset_bottom = 366.0
 postit_title = "PostIt Note"
 postit_description = "instantiate whiteboard/post_it_note.tscn to add notes to the board in the Godot inspector."
 
@@ -50,10 +51,15 @@ postit_description = "Whiteboard is an experiment with tool scripts to see if Go
 
 [node name="Note3" parent="." instance=ExtResource("1_mafis")]
 layout_mode = 0
-offset_left = 641.0
-offset_top = 294.0
-offset_right = 841.0
-offset_bottom = 533.0
+offset_left = 2101.0
+offset_top = 416.0
+offset_right = 2301.0
+offset_bottom = 655.0
 postit_title = "PostIt Note"
 postit_description = "post_it_notes have a tool script, so the text should change when you alter the postit_title or postit_description in the inspector"
 note_color = Color(0.431373, 0.376471, 0.0941176, 1)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(854, 414)
+scale = Vector2(0.512367, 0.512367)
+texture = ExtResource("2_q5nbw")

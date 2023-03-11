@@ -11,9 +11,7 @@ func _ready():
 		if action_name in InputMap.get_actions():
 			$ActionKeyButton.text = InputMap.action_get_events(action_name)[0].as_text()
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
+
 
 func _unhandled_key_input(event):
 	if listening:

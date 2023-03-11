@@ -4,7 +4,7 @@ extends CharacterBody3D
 const SPEED = 5.0
 const JUMP_VELOCITY = 4.5
 
-const TURN_SPEED = 0.6
+const TURN_SPEED = PI / 16.0
 
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
@@ -12,7 +12,6 @@ var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 
 var current_map
 
-var desired_rotation = Vector3.ZERO
 
 
 @onready var input_controller = $VirtualInputController
@@ -66,15 +65,24 @@ func move(delta):
 
 
 
-func orient_mesh(delta):
+func orient_mesh(_delta):
+	var desired_y_rotation : float
 	# temporarily flip the mesh using scale.x.
 	# later, I'll probably add in smooth rotation around the y axis.
 	var visuals = $Visuals
 	if velocity.x > 0:
-		visuals.scale.x = -abs(visuals.scale.x)
+		#visuals.scale.x = abs(visuals.scale.x)
+	
+		desired_y_rotation = 0.0
+	
 		
 	else:
-		visuals.scale.x = abs(visuals.scale.x)
+		#visuals.scale.x = -abs(visuals.scale.x)
 
+		desired_y_rotation = PI
+	
+	visuals.rotation.y = lerp(visuals.rotation.y, desired_y_rotation, TURN_SPEED)
+	
+	
 	
 	

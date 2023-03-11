@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://bl1mmp8ysb4r0"]
+[gd_scene load_steps=7 format=3 uid="uid://bl1mmp8ysb4r0"]
 
-[ext_resource type="Texture2D" uid="uid://b7joq1f8eak7h" path="res://icon.svg" id="1_mxnqj"]
+[ext_resource type="Texture2D" uid="uid://c7r0ql75cnkow" path="res://Art/Cat_Icon.png" id="1_84gql"]
 [ext_resource type="PackedScene" uid="uid://dx20duhdsm1vn" path="res://Menus/Buttons/scene_change_button.tscn" id="2_do5ro"]
 [ext_resource type="PackedScene" uid="uid://dl2ugtmw6nwcq" path="res://Menus/settings_menu.tscn" id="3_2xwuf"]
+[ext_resource type="PackedScene" uid="uid://bqw8mxix8u7pw" path="res://Scenes/Maps/Level01/level_01.tscn" id="3_aooqi"]
 [ext_resource type="PackedScene" uid="uid://c50prk3xgh6et" path="res://Menus/Credits/credits.tscn" id="4_jksgs"]
 [ext_resource type="PackedScene" uid="uid://cgxuckinuwvvi" path="res://Menus/Buttons/quit_button.tscn" id="5_k18lj"]
 
@@ -40,7 +41,7 @@ horizontal_alignment = 1
 custom_minimum_size = Vector2(0, 400)
 layout_mode = 2
 size_flags_horizontal = 3
-texture = ExtResource("1_mxnqj")
+texture = ExtResource("1_84gql")
 expand_mode = 3
 stretch_mode = 5
 
@@ -62,6 +63,7 @@ alignment = 1
 [node name="PlayGameButton" parent="CenterContainer/RightSide/VBoxContainer" instance=ExtResource("2_do5ro")]
 layout_mode = 2
 text = "Play Game"
+new_scene = ExtResource("3_aooqi")
 
 [node name="SettingsButton" parent="CenterContainer/RightSide/VBoxContainer" instance=ExtResource("2_do5ro")]
 layout_mode = 2

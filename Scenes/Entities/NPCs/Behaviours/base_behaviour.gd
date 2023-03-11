@@ -31,8 +31,9 @@ func _process(_delta):
 		if ticks > last_poll_time + polling_interval:
 			last_poll_time = ticks
 			
-			self.update_input_controller()
+			update_input_controller()
 
 func update_input_controller():
+	print("Base")
 	# override this in subclasses
 	pass

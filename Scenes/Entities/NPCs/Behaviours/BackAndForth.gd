@@ -3,6 +3,13 @@
 extends BaseNPCBehaviour
 # Base NPC Behaiour calls update_input_controller() at a specified polling interval
 
+func _ready():
+	super._ready()
+
+func _process(delta):
+	super._process(delta)
+
+
 func update_input_controller():
 	if current_direction.x < 0 and $RayCastLeft.is_colliding():
 		entity.input_controller.move_left = 1.0

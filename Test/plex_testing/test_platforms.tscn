@@ -1,0 +1,45 @@
+[gd_scene load_steps=5 format=3 uid="uid://bnnklp68l0blk"]
+
+[ext_resource type="PackedScene" uid="uid://b8rti3p03uckw" path="res://Scenes/Entities/NPCs/npc.tscn" id="1_5gkol"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_sxe31"]
+size = Vector3(49.8815, 1, 4.96573)
+
+[sub_resource type="BoxMesh" id="BoxMesh_rp8lh"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_x6uxd"]
+size = Vector3(10.3591, 1, 5.40557)
+
+[node name="TestPlatforms" type="Node3D"]
+
+[node name="NPC" parent="." instance=ExtResource("1_5gkol")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.08165e-12, 13.8581, 2.08165e-12)
+
+[node name="NPC2" parent="." instance=ExtResource("1_5gkol")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.08165e-12, 0.0787678, 2.08165e-12)
+
+[node name="Floor" type="StaticBody3D" parent="."]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 2.08165e-12, -0.5, 2.08165e-12)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Floor"]
+shape = SubResource("BoxShape3D_sxe31")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Floor"]
+transform = Transform3D(50, 0, 0, 0, 1, 0, 1.42109e-14, 0, 5, 0, 0, 0)
+mesh = SubResource("BoxMesh_rp8lh")
+
+[node name="Platform2" type="StaticBody3D" parent="."]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 2.08165e-12, 13.2748, -0.0492306)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Platform2"]
+shape = SubResource("BoxShape3D_x6uxd")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Platform2"]
+transform = Transform3D(10, 0, -1.2029e-14, 0, 1, 0, 2.4058e-14, 0, 5, 0, 0, 0)
+mesh = SubResource("BoxMesh_rp8lh")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0978775, 8.18558, 17.0094)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.685615, 0.69104, -0.228901, -9.06766e-17, 0.31444, 0.949277, 0.727964, -0.650839, 0.215585, 0, 16.3394, 13.2547)

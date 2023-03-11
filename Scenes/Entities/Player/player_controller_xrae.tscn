@@ -6,7 +6,7 @@
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_gajrw"]
 
 [node name="player_controller_xrae" type="CharacterBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.116, 1.85996, 4.10416)
+axis_lock_linear_z = true
 script = ExtResource("1_ed03t")
 jump_height = 8.0
 jump_time_to_peak = 0.5

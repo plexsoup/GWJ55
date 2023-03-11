@@ -4,26 +4,28 @@
 [ext_resource type="Script" path="res://Scenes/Entities/NPCs/VirtualInputController.gd" id="2_lsx3y"]
 [ext_resource type="Script" path="res://Scenes/Entities/NPCs/Behaviours/BackAndForth.gd" id="3_acit6"]
 
-[sub_resource type="CapsuleMesh" id="CapsuleMesh_86ekc"]
+[sub_resource type="BoxMesh" id="BoxMesh_udtc5"]
 
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_foec5"]
+[sub_resource type="BoxShape3D" id="BoxShape3D_xi6xj"]
 
 [node name="NPC" type="CharacterBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.08165e-12, 2.08165e-12, 2.08165e-12)
+axis_lock_linear_y = true
 script = ExtResource("1_t13r0")
 
 [node name="Visuals" type="Node3D" parent="."]
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Visuals"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
-mesh = SubResource("CapsuleMesh_86ekc")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.508848, 0)
+mesh = SubResource("BoxMesh_udtc5")
 skeleton = NodePath("../..")
 
 [node name="Hurtbox" type="Area3D" parent="Visuals"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.491152, 0)
 
 [node name="HitBox" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
-shape = SubResource("CapsuleShape3D_foec5")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.508848, 0)
+shape = SubResource("BoxShape3D_xi6xj")
 
 [node name="VirtualInputController" type="Node" parent="."]
 script = ExtResource("2_lsx3y")

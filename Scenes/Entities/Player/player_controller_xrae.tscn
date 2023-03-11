@@ -11,9 +11,9 @@ height = 2.4
 [node name="player_controller_xrae" type="CharacterBody3D"]
 axis_lock_linear_z = true
 script = ExtResource("1_ed03t")
-jump_height = 8.0
-jump_time_to_peak = 0.5
-jump_time_to_descent = 0.4
+jump_height = 3.0
+jump_time_to_peak = 0.3
+jump_time_to_descent = 0.2
 
 [node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0949152, 0)

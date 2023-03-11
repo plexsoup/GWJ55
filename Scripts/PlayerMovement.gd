@@ -3,12 +3,14 @@ extends CharacterBody3D
 @export var jump_height : float
 @export var jump_time_to_peak : float
 @export var jump_time_to_descent : float
+@export var inverted_x : bool = true
 
 @onready var jump_velocity : float = (2.0 * jump_height) / jump_time_to_peak
 @onready var jump_gravity : float = (-2.0 * jump_height) / (jump_time_to_peak * jump_time_to_peak)
 @onready var fall_gravity : float = (-2.0 * jump_height) / (jump_time_to_descent * jump_time_to_descent)
 @onready var coyote_time = $CoyoteTime
 @onready var jump_buffer = $JumpBuffer
+
 
 const SPEED = 10.0
 var buffered_jump = false
@@ -30,7 +32,12 @@ func _physics_process(delta):
 		buffered_jump = false
 	
 	#Move
-	var input_dir = Input.get_axis("move_right", "move_left")
+	
+	var input_dir
+	if inverted_x:
+		input_dir = Input.get_axis("move_right", "move_left")
+	else:
+		input_dir = Input.get_axis("move_left", "move_right")
 	var direction = (transform.basis * Vector3(input_dir, 0, 0)).normalized()
 	if direction:
 		velocity.x = direction.x * SPEED

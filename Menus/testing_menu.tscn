@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://b16s3dclhkliq"]
+[gd_scene load_steps=4 format=3 uid="uid://b16s3dclhkliq"]
 
 [ext_resource type="PackedScene" uid="uid://dx20duhdsm1vn" path="res://Menus/Buttons/scene_change_button.tscn" id="1_aqtb8"]
 [ext_resource type="PackedScene" uid="uid://bnnklp68l0blk" path="res://Test/plex_testing/test_platforms.tscn" id="2_6v74s"]
+[ext_resource type="PackedScene" uid="uid://bjjvqgmysp8y6" path="res://Scenes/Maps/MovementLab/movement_lab.tscn" id="3_4wqga"]
 
 [node name="Testing" type="MarginContainer"]
 anchors_preset = 15
@@ -23,7 +24,8 @@ new_scene = ExtResource("2_6v74s")
 
 [node name="TestScene02" parent="VBoxContainer" instance=ExtResource("1_aqtb8")]
 layout_mode = 2
-text = "Test Scene 02"
+text = "xRae Movement Lab"
+new_scene = ExtResource("3_4wqga")
 
 [node name="TestScene03" parent="VBoxContainer" instance=ExtResource("1_aqtb8")]
 layout_mode = 2

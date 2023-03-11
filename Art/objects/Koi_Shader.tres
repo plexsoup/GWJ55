@@ -1,0 +1,7 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://bhdw60gyguhxg"]
+
+[ext_resource type="Shader" uid="uid://bmtq1uvntaeqs" path="res://Scenes/Objects/3D_Meshes.tres" id="1_up1ar"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_up1ar")

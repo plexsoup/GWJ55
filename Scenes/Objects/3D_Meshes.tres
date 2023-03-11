@@ -1,0 +1,28 @@
+[gd_resource type="VisualShader" load_steps=3 format=3 uid="uid://bmtq1uvntaeqs"]
+
+[ext_resource type="Texture2D" uid="uid://rcak68s3q0cu" path="res://Art/objects/koifish.png" id="1_ju3py"]
+
+[sub_resource type="VisualShaderNodeTexture" id="VisualShaderNodeTexture_kf0x5"]
+texture = ExtResource("1_ju3py")
+
+[resource]
+code = "shader_type spatial;
+uniform sampler2D tex_frg_2;
+
+
+
+void fragment() {
+// Texture2D:2
+	vec4 n_out2p0 = texture(tex_frg_2, UV);
+
+
+// Output:0
+	ALBEDO = vec3(n_out2p0.xyz);
+
+
+}
+"
+graph_offset = Vector2(-169, 59)
+nodes/fragment/2/node = SubResource("VisualShaderNodeTexture_kf0x5")
+nodes/fragment/2/position = Vector2(-80, 120)
+nodes/fragment/connections = PackedInt32Array(2, 0, 0, 0)

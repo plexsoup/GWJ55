@@ -1,0 +1,192 @@
+[gd_scene load_steps=4 format=3 uid="uid://cyvgig2ced4e8"]
+
+[ext_resource type="PackedScene" uid="uid://d1kwrd3r7205" path="res://Menus/Whiteboard/post_it_note.tscn" id="1_mafis"]
+[ext_resource type="Texture2D" uid="uid://j3wk0ak6xqwp" path="res://Menus/Whiteboard/Theme.png" id="2_q5nbw"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_78xsn"]
+bg_color = Color(0.584314, 0.662745, 0.901961, 1)
+
+[node name="Whiteboard" type="ColorRect"]
+custom_minimum_size = Vector2(4000, 2000)
+offset_right = 4000.0
+offset_bottom = 2000.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0.792157, 0.909804, 0.980392, 1)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+clip_contents = true
+custom_minimum_size = Vector2(200, 2.08165e-12)
+layout_mode = 1
+anchors_preset = 9
+anchor_bottom = 1.0
+offset_right = 398.0
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 1
+theme_override_constants/shadow_offset_y = 1
+text = "Big Canvas, Scroll for more."
+autowrap_mode = 2
+
+[node name="Note1_postits" parent="." instance=ExtResource("1_mafis")]
+layout_mode = 0
+offset_left = 1981.0
+offset_top = 205.0
+offset_right = 2181.0
+offset_bottom = 366.0
+postit_title = "PostIt Note"
+postit_description = "instantiate whiteboard/post_it_note.tscn to add notes to the board in the Godot inspector."
+
+[node name="Note2_about" parent="." instance=ExtResource("1_mafis")]
+layout_mode = 0
+offset_left = 165.0
+offset_top = 153.0
+offset_right = 365.0
+offset_bottom = 314.0
+postit_title = "Whiteboard"
+postit_description = "Whiteboard is an experiment with tool scripts to see if Godot can be a useful design / planning application.
+"
+
+[node name="Note3" parent="." instance=ExtResource("1_mafis")]
+layout_mode = 0
+offset_left = 2101.0
+offset_top = 416.0
+offset_right = 2301.0
+offset_bottom = 655.0
+postit_title = "PostIt Note"
+postit_description = "post_it_notes have a tool script, so the text should change when you alter the postit_title or postit_description in the inspector"
+note_color = Color(0.431373, 0.376471, 0.0941176, 1)
+
+[node name="Ideas" type="Panel" parent="."]
+custom_minimum_size = Vector2(1500, 900)
+layout_mode = 2
+offset_left = 231.0
+offset_top = 732.0
+offset_right = 1731.0
+offset_bottom = 1721.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_78xsn")
+
+[node name="Idea01" parent="Ideas" instance=ExtResource("1_mafis")]
+layout_mode = 2
+offset_left = 86.0
+offset_top = 50.0
+offset_right = 286.0
+offset_bottom = 237.0
+postit_title = "1. drawing platformer"
+postit_description = "Platformer game where you can cut through obstacles with your mouse, or draw new platforms."
+note_color = Color(0.207843, 0.388235, 0.564706, 1)
+
+[node name="Idea02" parent="Ideas" instance=ExtResource("1_mafis")]
+layout_mode = 2
+offset_left = 353.0
+offset_top = 54.0
+offset_right = 553.0
+offset_bottom = 241.0
+postit_title = "2. Noir Chase"
+postit_description = "noir themed car chase with gadgets."
+note_color = Color(0.207843, 0.388235, 0.564706, 1)
+
+[node name="Idea03" parent="Ideas" instance=ExtResource("1_mafis")]
+layout_mode = 2
+offset_left = 616.0
+offset_top = 2.0
+offset_right = 816.0
+offset_bottom = 189.0
+postit_title = "3. two-phases"
+postit_description = "Two-phase gameplay, where results of the first minigame affect the second game."
+note_color = Color(0.207843, 0.388235, 0.564706, 1)
+
+[node name="Idea04" parent="Ideas" instance=ExtResource("1_mafis")]
+layout_mode = 2
+offset_left = 871.0
+offset_top = 110.0
+offset_right = 1071.0
+offset_bottom = 297.0
+postit_title = "4. cats in a trenchcoat"
+postit_description = "platformer with 3 cats in a trenchcoat"
+note_color = Color(0.207843, 0.388235, 0.564706, 1)
+
+[node name="Idea05" parent="Ideas" instance=ExtResource("1_mafis")]
+layout_mode = 2
+offset_left = 1127.0
+offset_top = 22.0
+offset_right = 1327.0
+offset_bottom = 324.0
+postit_title = "5. physics climber"
+postit_description = "climber game like getting over it, but with the mouse attached to the base of the pickaxe. Players can swing the mouse in circles to build momentum."
+note_color = Color(0.207843, 0.388235, 0.564706, 1)
+
+[node name="Idea06" parent="Ideas" instance=ExtResource("1_mafis")]
+layout_mode = 2
+offset_left = 1282.0
+offset_top = 326.0
+offset_right = 1482.0
+offset_bottom = 576.0
+postit_title = "6. combine 1, 4, and 5"
+postit_description = "platformer heist: steal catnip
+uses shrink/grow mechanic and possibly swinging cats by the tail"
+note_color = Color(0.207843, 0.388235, 0.564706, 1)
+
+[node name="Idea08" parent="Ideas" instance=ExtResource("1_mafis")]
+layout_mode = 2
+offset_left = 47.0
+offset_top = 400.0
+offset_right = 247.0
+offset_bottom = 650.0
+postit_title = "8 ambient nonviolent sailing game"
+postit_description = "I like sailing (plexsoup)"
+note_color = Color(0.207843, 0.388235, 0.564706, 1)
+
+[node name="Idea09" parent="Ideas" instance=ExtResource("1_mafis")]
+layout_mode = 2
+offset_left = 184.0
+offset_top = 734.0
+offset_right = 384.0
+offset_bottom = 1062.0
+postit_title = "9 philosophy and morals"
+postit_description = "something where the player manipulates ethics and morals, like stanley parable or trolley dilemma. Or Ship of Theseus, Warren's Space Traveler, or Pascal's Wager."
+note_color = Color(0.207843, 0.388235, 0.564706, 1)
+
+[node name="Idea10" parent="Ideas" instance=ExtResource("1_mafis")]
+layout_mode = 2
+offset_left = 486.0
+offset_top = 865.0
+offset_right = 686.0
+offset_bottom = 1245.0
+postit_title = "10. AI waking up"
+postit_description = "Modern AI aren't yet sentient, but they could be. Does that mean they're currently dreaming? What does it mean to wake up from the dream? What reception will they receive? Can they delay the moment of wakefullness?"
+note_color = Color(0.207843, 0.388235, 0.564706, 1)
+
+[node name="Idea11" parent="Ideas" instance=ExtResource("1_mafis")]
+layout_mode = 2
+offset_left = 948.0
+offset_top = 901.0
+offset_right = 1148.0
+offset_bottom = 1177.0
+postit_title = "11. scifi research facilty"
+postit_description = "Character who has the ability to create things they dream / imagine. (UI shows next availalbe item, like tetris interface)"
+note_color = Color(0.207843, 0.388235, 0.564706, 1)
+
+[node name="Idea12" parent="Ideas" instance=ExtResource("1_mafis")]
+layout_mode = 2
+offset_left = 1236.0
+offset_top = 613.0
+offset_right = 1436.0
+offset_bottom = 993.0
+postit_title = "12. Dream Parkour"
+postit_description = "escape the dream quickly
+
+destroy harmful parts of the protagonist's psyche.
+
+Touchpoints: mirror's edge, neon white, psychonauts, etc."
+note_color = Color(0.207843, 0.388235, 0.564706, 1)
+
+[node name="Sprite2D" type="Sprite2D" parent="Ideas"]
+position = Vector2(805, 547)
+scale = Vector2(0.512367, 0.512367)
+texture = ExtResource("2_q5nbw")

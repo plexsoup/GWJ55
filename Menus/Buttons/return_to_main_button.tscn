@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://dnn5t5pnixj0o"]
+
+[ext_resource type="PackedScene" uid="uid://dx20duhdsm1vn" path="res://Menus/Buttons/scene_change_button.tscn" id="1_uerwr"]
+
+[node name="SceneChangeButton" instance=ExtResource("1_uerwr")]
+text = "Return to Main"
+scene_path = "res://main.tscn"

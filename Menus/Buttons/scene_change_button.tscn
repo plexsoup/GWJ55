@@ -1,0 +1,20 @@
+[gd_scene load_steps=5 format=3 uid="uid://dx20duhdsm1vn"]
+
+[ext_resource type="Script" path="res://Menus/Buttons/scene_change_button.gd" id="1_jd3wu"]
+[ext_resource type="PackedScene" uid="uid://cakkghby15ea5" path="res://sfx/temporary_sound.tscn" id="2_a0pbc"]
+[ext_resource type="AudioStream" uid="uid://cxexix7ol1j0b" path="res://Menus/Buttons/click_placeholder.wav" id="3_ieldf"]
+[ext_resource type="AudioStream" uid="uid://bo5kpftf6kcdq" path="res://Menus/Buttons/hover_placeholder.wav" id="4_iwjxg"]
+
+[node name="SceneChangeButton" type="Button"]
+text = "ChangeScene"
+script = ExtResource("1_jd3wu")
+
+[node name="ClickNoise" parent="." instance=ExtResource("2_a0pbc")]
+stream = ExtResource("3_ieldf")
+
+[node name="HoverNoise" parent="." instance=ExtResource("2_a0pbc")]
+stream = ExtResource("4_iwjxg")
+volume_db = -12.0
+
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="pressed" from="." to="." method="_on_pressed"]

@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://cakkghby15ea5"]
+
+[ext_resource type="Script" path="res://sfx/temporary_sound.gd" id="1_ioi76"]
+
+[node name="TemporarySound" type="AudioStreamPlayer"]
+script = ExtResource("1_ioi76")

@@ -1,0 +1,24 @@
+[gd_scene load_steps=2 format=3 uid="uid://b16s3dclhkliq"]
+
+[ext_resource type="PackedScene" uid="uid://dx20duhdsm1vn" path="res://Menus/Buttons/scene_change_button.tscn" id="1_aqtb8"]
+
+[node name="Testing" type="MarginContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/separation = 25
+
+[node name="TestScene01" parent="VBoxContainer" instance=ExtResource("1_aqtb8")]
+layout_mode = 2
+text = "Test Scene 01"
+
+[node name="TestScene02" parent="VBoxContainer" instance=ExtResource("1_aqtb8")]
+layout_mode = 2
+text = "Test Scene 02"

@@ -1,21 +1,26 @@
 [gd_scene load_steps=5 format=3 uid="uid://326lsgrnmjo8"]
 
 [ext_resource type="Script" path="res://Scripts/PlayerMovement.gd" id="1_ed03t"]
-[ext_resource type="Texture2D" uid="uid://b7joq1f8eak7h" path="res://icon.svg" id="2_o7r7i"]
-[ext_resource type="PackedScene" uid="uid://dh4qpayo68p6b" path="res://GUI/player_hud.tscn" id="3_oumx6"]
+[ext_resource type="SpriteFrames" uid="uid://ctdke3w7iqqd1" path="res://player_sprite_frames.tres" id="3_ix5dx"]
+[ext_resource type="PackedScene" path="res://GUI/player_hud.tscn" id="3_oumx6"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_gajrw"]
+radius = 1.2
+height = 2.4
 
 [node name="player_controller_xrae" type="CharacterBody3D"]
 axis_lock_linear_z = true
 script = ExtResource("1_ed03t")
-jump_height = 8.0
-jump_time_to_peak = 0.5
-jump_time_to_descent = 0.4
+jump_height = 3.0
+jump_time_to_peak = 0.3
+jump_time_to_descent = 0.2
 
-[node name="Sprite3D" type="Sprite3D" parent="."]
-transform = Transform3D(0.878709, 0, 0, 0, 1.75445, 0, 0, 0, 1, 0, 0, 0)
-texture = ExtResource("2_o7r7i")
+[node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0949152, 0)
+pixel_size = 0.005
+sprite_frames = ExtResource("3_ix5dx")
+animation = &"Fall_Start"
+speed_scale = 2.0
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("CapsuleShape3D_gajrw")

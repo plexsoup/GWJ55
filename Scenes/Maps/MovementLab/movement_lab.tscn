@@ -1,10 +1,10 @@
 [gd_scene load_steps=6 format=3 uid="uid://bjjvqgmysp8y6"]
 
 [ext_resource type="MeshLibrary" uid="uid://dmrpx4ab0214p" path="res://Scenes/Maps/GridMap/Mesh.tres" id="1_eango"]
-[ext_resource type="PackedScene" uid="uid://cmd16bdree5a7" path="res://Scenes/Objects/fall_reset_volume.tscn" id="4_k711y"]
+[ext_resource type="PackedScene" path="res://Scenes/Objects/fall_reset_volume.tscn" id="4_k711y"]
 [ext_resource type="PackedScene" uid="uid://326lsgrnmjo8" path="res://Scenes/Entities/Player/player_controller_xrae.tscn" id="4_wsnar"]
-[ext_resource type="PackedScene" uid="uid://cmgxa2xc5uuvw" path="res://Scenes/Entities/NPCs/vacuum_cleaner.tscn" id="5_72utf"]
-[ext_resource type="PackedScene" uid="uid://eb3wwyaluatx" path="res://Scenes/Objects/trigger_volume_win.tscn" id="5_ltb1g"]
+[ext_resource type="PackedScene" path="res://Scenes/Entities/NPCs/vacuum_cleaner.tscn" id="5_72utf"]
+[ext_resource type="PackedScene" path="res://Scenes/Objects/trigger_volume_win.tscn" id="5_ltb1g"]
 
 [node name="MovementLab" type="Node3D"]
 
@@ -35,6 +35,9 @@ next_scene_path = "res://Menus/win_screen.tscn"
 
 [node name="player_controller_xrae" parent="." instance=ExtResource("4_wsnar")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.71993, 1.52753, 5.13539)
+jump_height = 3.0
+jump_time_to_peak = 0.3
+jump_time_to_descent = 0.2
 
 [node name="NPCs" type="Node3D" parent="."]
 

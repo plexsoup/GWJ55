@@ -1,8 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://bjjvqgmysp8y6"]
+[gd_scene load_steps=7 format=3 uid="uid://bjjvqgmysp8y6"]
 
 [ext_resource type="MeshLibrary" uid="uid://dmrpx4ab0214p" path="res://Scenes/Maps/GridMap/Mesh.tres" id="1_eango"]
 [ext_resource type="Script" path="res://Scripts/PlayerMovement.gd" id="2_7yr2h"]
 [ext_resource type="Texture2D" uid="uid://b7joq1f8eak7h" path="res://icon.svg" id="3_11d61"]
+[ext_resource type="PackedScene" uid="uid://cmd16bdree5a7" path="res://Scenes/Objects/fall_reset_volume.tscn" id="4_k711y"]
+[ext_resource type="PackedScene" uid="uid://eb3wwyaluatx" path="res://Scenes/Objects/trigger_volume_win.tscn" id="5_ltb1g"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_gajrw"]
 
@@ -17,26 +19,26 @@ data = {
 }
 metadata/_editor_floor_ = Vector3(0, 0, 0)
 
-[node name="CharacterBody3D" type="CharacterBody3D" parent="."]
+[node name="player" type="CharacterBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.116, 1.85996, 4.10416)
 script = ExtResource("2_7yr2h")
 jump_height = 8.0
 jump_time_to_peak = 0.5
 jump_time_to_descent = 0.4
 
-[node name="Sprite3D" type="Sprite3D" parent="CharacterBody3D"]
+[node name="Sprite3D" type="Sprite3D" parent="player"]
 transform = Transform3D(0.878709, 0, 0, 0, 1.75445, 0, 0, 0, 1, 0, 0, 0)
 lod_bias = 10.0
 texture = ExtResource("3_11d61")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="CharacterBody3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="player"]
 shape = SubResource("CapsuleShape3D_gajrw")
 
-[node name="CoyoteTime" type="Timer" parent="CharacterBody3D"]
+[node name="CoyoteTime" type="Timer" parent="player"]
 wait_time = 0.1
 one_shot = true
 
-[node name="JumpBuffer" type="Timer" parent="CharacterBody3D"]
+[node name="JumpBuffer" type="Timer" parent="player"]
 wait_time = 0.1
 one_shot = true
 
@@ -50,4 +52,10 @@ fov = 15.0
 near = 50.0
 far = 500.0
 
-[connection signal="timeout" from="CharacterBody3D/JumpBuffer" to="CharacterBody3D" method="_on_jump_buffer_timeout"]
+[node name="FallResetVolume" parent="." instance=ExtResource("4_k711y")]
+
+[node name="TriggerVolumeWin" parent="." instance=ExtResource("5_ltb1g")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -27.9109, 31.1969, 5.62351)
+next_scene_path = "res://Scenes/Maps/Level01/level_01.tscn"
+
+[connection signal="timeout" from="player/JumpBuffer" to="player" method="_on_jump_buffer_timeout"]

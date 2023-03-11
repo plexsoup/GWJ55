@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://bqw8mxix8u7pw"]
+[gd_scene load_steps=7 format=3 uid="uid://bqw8mxix8u7pw"]
 
 [ext_resource type="MeshLibrary" uid="uid://dmrpx4ab0214p" path="res://Scenes/Maps/GridMap/Mesh.tres" id="1_gbexs"]
 [ext_resource type="Script" path="res://Scenes/Maps/base_level.gd" id="1_n8fyu"]
 [ext_resource type="PackedScene" uid="uid://cmgxa2xc5uuvw" path="res://Scenes/Entities/NPCs/vacuum_cleaner.tscn" id="2_kg6v0"]
 [ext_resource type="PackedScene" uid="uid://326lsgrnmjo8" path="res://Scenes/Entities/Player/player_controller_xrae.tscn" id="3_2vdfa"]
 [ext_resource type="PackedScene" uid="uid://cmd16bdree5a7" path="res://Scenes/Objects/fall_reset_volume.tscn" id="5_3x88f"]
+[ext_resource type="PackedScene" uid="uid://eb3wwyaluatx" path="res://Scenes/Objects/trigger_volume_win.tscn" id="6_umfkp"]
 
 [node name="Level01" type="Node3D"]
 script = ExtResource("1_n8fyu")
@@ -45,3 +46,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.6121, 11.5129, 0.178238)
 inverted_x = false
 
 [node name="FallResetVolume" parent="." instance=ExtResource("5_3x88f")]
+
+[node name="TriggerVolumeWin" parent="." instance=ExtResource("6_umfkp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.82789, 20.4697, 0)
+next_scene_path = "res://Scenes/Maps/MovementLab/movement_lab.tscn"

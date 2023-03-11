@@ -1,0 +1,25 @@
+[gd_scene load_steps=5 format=3 uid="uid://eb3wwyaluatx"]
+
+[ext_resource type="Script" path="res://Scenes/Objects/trigger_volume_win.gd" id="1_ghko6"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_df404"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_t4y0c"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ofaro"]
+transparency = 1
+albedo_color = Color(1, 1, 0.54902, 0.34902)
+
+[node name="TriggerVolumeWin" type="Area3D"]
+script = ExtResource("1_ghko6")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 0, 1.52804, 0)
+shape = SubResource("BoxShape3D_df404")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 0, 1.52804, 0)
+mesh = SubResource("BoxMesh_t4y0c")
+surface_material_override/0 = SubResource("StandardMaterial3D_ofaro")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

@@ -1,10 +1,11 @@
-[gd_scene load_steps=9 format=3 uid="uid://bqw8mxix8u7pw"]
+[gd_scene load_steps=10 format=3 uid="uid://bqw8mxix8u7pw"]
 
 [ext_resource type="MeshLibrary" uid="uid://dmrpx4ab0214p" path="res://Scenes/Maps/GridMap/Mesh.tres" id="1_gbexs"]
 [ext_resource type="Script" path="res://Scenes/Maps/base_level.gd" id="1_n8fyu"]
 [ext_resource type="PackedScene" uid="uid://cm2o1lkpf6s0w" path="res://Scenes/Entities/NPCs/vacuum_cleaner.tscn" id="2_kg6v0"]
 [ext_resource type="PackedScene" uid="uid://de4flp4q72qe5" path="res://Scenes/Entities/Player/player_controller_xrae.tscn" id="3_2vdfa"]
 [ext_resource type="PackedScene" uid="uid://crvvpifd7a146" path="res://Scenes/Entities/NPCs/pressure_plate.tscn" id="3_3bafh"]
+[ext_resource type="PackedScene" uid="uid://ted21c8mecho" path="res://Scenes/Entities/NPCs/switch.tscn" id="4_bysw5"]
 [ext_resource type="PackedScene" path="res://Scenes/Objects/fall_reset_volume.tscn" id="5_3x88f"]
 [ext_resource type="PackedScene" path="res://Scenes/Objects/trigger_volume_win.tscn" id="6_umfkp"]
 [ext_resource type="PackedScene" uid="uid://cbs51rpoxintc" path="res://Scenes/Entities/NPCs/hair_dryer.tscn" id="7_xr8v7"]
@@ -22,22 +23,33 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 11.0568, 29.0487)
 
 [node name="VacuumCleaner" parent="NPCs" instance=ExtResource("2_kg6v0")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.40651, -2.04408, 0.200352)
+collision_layer = 2
+collision_mask = 5
 axis_lock_linear_y = false
 
 [node name="VacuumCleaner2" parent="NPCs" instance=ExtResource("2_kg6v0")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.13874, 8.20869, 0.0539308)
+collision_layer = 2
+collision_mask = 5
 axis_lock_linear_y = false
 
 [node name="VacuumCleaner3" parent="NPCs" instance=ExtResource("2_kg6v0")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.9669, 16.5099, 0.0539308)
+collision_layer = 2
+collision_mask = 5
 axis_lock_linear_y = false
 
 [node name="VacuumCleaner4" parent="NPCs" instance=ExtResource("2_kg6v0")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.658735, 19.7511, 0.0539308)
+collision_layer = 2
+collision_mask = 5
 axis_lock_linear_y = false
 
 [node name="pressure_plate" parent="NPCs" instance=ExtResource("3_3bafh")]
 transform = Transform3D(1, 0, 0, 0, 0.5, 0, 0, 0, 1, 16.4439, 8.057, 0.037962)
+
+[node name="switch" parent="NPCs" instance=ExtResource("4_bysw5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.99696, 10.1651, -1.72138)
 
 [node name="player_controller_xrae" parent="." instance=ExtResource("3_2vdfa")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.6121, 11.5129, 0.178238)
@@ -58,3 +70,6 @@ data = {
 
 [node name="HairDryer" parent="." instance=ExtResource("7_xr8v7")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.1093, 12.7239, 2.08165e-12)
+collision_layer = 2
+collision_mask = 5
+axis_lock_linear_y = false

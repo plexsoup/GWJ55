@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://cjk0fbax45jl3"]
+
+[ext_resource type="Script" path="res://Scenes/Entities/NPCs/Behaviours/VirtualInputController.gd" id="1_mq2qd"]
+
+[node name="VirtualInputController" type="Node"]
+script = ExtResource("1_mq2qd")

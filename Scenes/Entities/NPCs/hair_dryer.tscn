@@ -1,0 +1,34 @@
+[gd_scene load_steps=5 format=3 uid="uid://b7i0k6nxh67dt"]
+
+[ext_resource type="PackedScene" uid="uid://b8rti3p03uckw" path="res://Scenes/Entities/NPCs/npc.tscn" id="1_mn5qa"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_n46pu"]
+size = Vector3(1, 1, 1.5)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_frniy"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_pw2t4"]
+
+[node name="HairDryer" instance=ExtResource("1_mn5qa")]
+
+[node name="MeshInstance3D" parent="Visuals" index="0"]
+visible = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Visuals/Hurtbox" index="0"]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 2.15998, 1.36221, 0)
+shape = SubResource("BoxShape3D_n46pu")
+
+[node name="Barrel" type="MeshInstance3D" parent="Visuals" index="2"]
+transform = Transform3D(-0.146049, 0.989277, 0, -0.989277, -0.146049, 0, 0, 0, 1, 0, 1.59823, 0)
+mesh = SubResource("CylinderMesh_frniy")
+
+[node name="Handle" type="MeshInstance3D" parent="Visuals" index="3"]
+transform = Transform3D(-0.988078, -0.153952, 0, 0.153952, -0.988078, 0, 0, 0, 0.486423, -1.01969, 1.07578, 0)
+mesh = SubResource("CapsuleMesh_pw2t4")
+
+[node name="BackAndForth" parent="Behaviours" index="0"]
+active = false
+
+[node name="JumpScare" parent="Behaviours" index="1"]
+active = true
+polling_interval = 50

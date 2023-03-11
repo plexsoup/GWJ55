@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://b8rti3p03uckw"]
+[gd_scene load_steps=7 format=3 uid="uid://b8rti3p03uckw"]
 
 [ext_resource type="Script" path="res://Scenes/Entities/NPCs/npc.gd" id="1_t13r0"]
-[ext_resource type="Script" path="res://Scenes/Entities/NPCs/VirtualInputController.gd" id="2_lsx3y"]
-[ext_resource type="Script" path="res://Scenes/Entities/NPCs/Behaviours/BackAndForth.gd" id="3_acit6"]
+[ext_resource type="PackedScene" uid="uid://cjk0fbax45jl3" path="res://Scenes/Entities/NPCs/Behaviours/virtual_input_controller.tscn" id="2_85tmj"]
+[ext_resource type="PackedScene" uid="uid://bqe4y0cbhefd8" path="res://Scenes/Entities/NPCs/Behaviours/back_and_forth.tscn" id="3_kspxs"]
+[ext_resource type="PackedScene" uid="uid://d0rerk6xellrg" path="res://Scenes/Entities/NPCs/Behaviours/jump_scare.tscn" id="4_fwjoq"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_udtc5"]
 
@@ -27,18 +28,12 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.491152, 0)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.508848, 0)
 shape = SubResource("BoxShape3D_xi6xj")
 
-[node name="VirtualInputController" type="Node" parent="."]
-script = ExtResource("2_lsx3y")
+[node name="VirtualInputController" parent="." instance=ExtResource("2_85tmj")]
 
 [node name="Behaviours" type="Node3D" parent="."]
 
-[node name="BackAndForth" type="Node3D" parent="Behaviours"]
-script = ExtResource("3_acit6")
+[node name="BackAndForth" parent="Behaviours" instance=ExtResource("3_kspxs")]
 
-[node name="RayCastLeft" type="RayCast3D" parent="Behaviours/BackAndForth"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.01355, 0.4507, -0.0989584)
-
-[node name="RayCastRight" type="RayCast3D" parent="Behaviours/BackAndForth"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.03993, 0.4507, -0.0989584)
+[node name="JumpScare" parent="Behaviours" instance=ExtResource("4_fwjoq")]
 
 [connection signal="body_entered" from="Visuals/Hurtbox" to="." method="_on_hurtbox_body_entered"]

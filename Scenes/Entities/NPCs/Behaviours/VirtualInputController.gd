@@ -32,6 +32,11 @@ func get_vector(_negX, _posX, _negY, _posY):
 
 func is_action_just_pressed(actionName):
 	# for jumping or whatever
-	return actions_just_pressed[actionName]
+	if actions_just_pressed[actionName] == true:
+		# reset the action and report
+		actions_just_pressed[actionName] = false
+		return true
+	else:
+		return false
 	
 	

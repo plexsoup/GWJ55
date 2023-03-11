@@ -2,17 +2,18 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cdetqxlx4qwx4"
-path.s3tc="res://.godot/imported/Cat_land_Windup.png-f8eda576c95b8e97258982de4414927d.s3tc.ctex"
+uid="uid://c8k8sytreosgf"
+path.s3tc="res://.godot/imported/yarn_ball_yarn_ball.png-334315f05594bf5385dbefeccfa0a0ff.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
+generator_parameters={}
 
 [deps]
 
-source_file="res://Art/Cat_land_Windup.png"
-dest_files=["res://.godot/imported/Cat_land_Windup.png-f8eda576c95b8e97258982de4414927d.s3tc.ctex"]
+source_file="res://Art/objects/yarn_ball_yarn_ball.png"
+dest_files=["res://.godot/imported/yarn_ball_yarn_ball.png-334315f05594bf5385dbefeccfa0a0ff.s3tc.ctex"]
 
 [params]
 

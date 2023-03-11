@@ -1,0 +1,35 @@
+[gd_scene load_steps=6 format=3 uid="uid://b8rti3p03uckw"]
+
+[ext_resource type="Script" path="res://Scenes/Entities/NPCs/npc.gd" id="1_t13r0"]
+[ext_resource type="Script" path="res://Scenes/Entities/NPCs/VirtualInputController.gd" id="2_lsx3y"]
+[ext_resource type="Script" path="res://Scenes/Entities/NPCs/Behaviours/BackAndForth.gd" id="3_acit6"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_86ekc"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_foec5"]
+
+[node name="NPC" type="CharacterBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.08165e-12, 2.08165e-12, 2.08165e-12)
+script = ExtResource("1_t13r0")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+mesh = SubResource("CapsuleMesh_86ekc")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+shape = SubResource("CapsuleShape3D_foec5")
+
+[node name="VirtualInputController" type="Node" parent="."]
+script = ExtResource("2_lsx3y")
+
+[node name="Behaviours" type="Node3D" parent="."]
+
+[node name="BackAndForth" type="Node3D" parent="Behaviours"]
+script = ExtResource("3_acit6")
+
+[node name="RayCastLeft" type="RayCast3D" parent="Behaviours/BackAndForth"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.01355, 0.4507, -0.0989584)
+
+[node name="RayCastRight" type="RayCast3D" parent="Behaviours/BackAndForth"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.03993, 0.4507, -0.0989584)

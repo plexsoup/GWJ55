@@ -1,0 +1,33 @@
+[gd_scene load_steps=3 format=3 uid="uid://bqw8mxix8u7pw"]
+
+[ext_resource type="MeshLibrary" uid="uid://dmrpx4ab0214p" path="res://Scenes/Maps/GridMap/Mesh.tres" id="1_gbexs"]
+[ext_resource type="PackedScene" uid="uid://cmgxa2xc5uuvw" path="res://Scenes/Entities/NPCs/vacuum_cleaner.tscn" id="2_kg6v0"]
+
+[node name="Level01" type="Node3D"]
+
+[node name="GridMap" type="GridMap" parent="."]
+mesh_library = ExtResource("1_gbexs")
+data = {
+"cells": PackedInt32Array(65532, 0, 0, 65533, 0, 0, 65534, 0, 0, 65535, 0, 0, 0, 0, 0, 1, 0, 0, 2, 0, 0, 3, 0, 0, 4, 0, 0, 327678, 65535, 0, 327679, 65535, 0, 262144, 65535, 0, 262149, 65535, 0, 262150, 65535, 0, 262151, 65535, 0, 393218, 65535, 0, 393217, 65535, 0, 393216, 65535, 0, 458751, 65535, 0, 589824, 65535, 0, 655359, 65535, 0, 655358, 65535, 0, 655357, 65535, 0, 655356, 65535, 0, 65532, 65535, 0, 65533, 65535, 0, 65534, 65535, 0, 65535, 65535, 0, 0, 65535, 0, 1, 65535, 0, 2, 65535, 0, 3, 65535, 0, 4, 65535, 0, 327678, 0, 0, 327679, 0, 0, 262145, 0, 0, 262144, 0, 0, 262145, 65535, 0, 262149, 0, 0, 262150, 0, 0, 262151, 0, 0, 393218, 0, 0, 393217, 0, 0, 393216, 0, 0, 458751, 0, 0, 589824, 0, 0, 655359, 0, 0, 655357, 0, 0, 655358, 0, 0, 655356, 0, 0)
+}
+metadata/_editor_floor_ = Vector3(0, 9, 0)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.822889, 0.469704, -0.319738, 0, 0.562718, 0.826649, 0.568203, -0.68024, 0.463055, 0, 17.0726, 7.14953)
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 11.0568, 21.595)
+
+[node name="NPCs" type="Node3D" parent="."]
+
+[node name="VacuumCleaner" parent="NPCs" instance=ExtResource("2_kg6v0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.40651, 1.71222, 0.816763)
+
+[node name="VacuumCleaner2" parent="NPCs" instance=ExtResource("2_kg6v0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.13874, 9.59149, 0.670342)
+
+[node name="VacuumCleaner3" parent="NPCs" instance=ExtResource("2_kg6v0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.658735, 13.7248, 0.670342)
+
+[node name="VacuumCleaner4" parent="NPCs" instance=ExtResource("2_kg6v0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.658735, 19.7511, 0.670342)

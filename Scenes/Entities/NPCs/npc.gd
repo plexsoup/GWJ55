@@ -65,7 +65,7 @@ func move(delta):
 
 
 
-func orient_mesh(delta):
+func orient_mesh(_delta):
 	var desired_y_rotation : float
 	# temporarily flip the mesh using scale.x.
 	# later, I'll probably add in smooth rotation around the y axis.

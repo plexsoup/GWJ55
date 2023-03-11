@@ -15,12 +15,10 @@ func _ready():
 	pass # Replace with function body.
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
 
 
-func get_vector(negX, posX, negY, posY):
+
+func get_vector(_negX, _posX, _negY, _posY):
 	var resultVector = Vector3.ZERO
 	resultVector += Vector3.LEFT * move_left
 	resultVector += Vector3.RIGHT * move_right

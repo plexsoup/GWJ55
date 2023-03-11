@@ -4,10 +4,15 @@ extends CharacterBody3D
 const SPEED = 5.0
 const JUMP_VELOCITY = 4.5
 
+const TURN_SPEED = 0.6
+
+
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 
-var current_level
+var current_map
+
+var desired_rotation = Vector3.ZERO
 
 
 @onready var input_controller = $VirtualInputController
@@ -16,10 +21,10 @@ var current_level
 
 func _ready():
 	if Global.current_map != null:
-		current_level = Global.current_map
+		current_map = Global.current_map
 	else: # current_map isn't ready yet.
 		await get_tree().create_timer(0.25).timeout
-		current_level = Global.current_map
+		current_map = Global.current_map
 	
 	for behaviour in $Behaviours.get_children():
 		if behaviour.has_method("init"):
@@ -28,6 +33,7 @@ func _ready():
 
 func _physics_process(delta):
 	move(delta)
+	orient_mesh(delta)
 
 
 func move(delta):
@@ -44,7 +50,11 @@ func move(delta):
 	
 	
 	var input_dir = input_controller.get_vector("move_left", "move_right", "move_up", "move_down")
+
 	var direction = (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
+	# note the transform.basis never changes, because it's a 2d platformer. we're just reorienting the mesh.
+	
+
 	if direction:
 		velocity.x = direction.x * SPEED
 		velocity.z = direction.z * SPEED
@@ -53,3 +63,18 @@ func move(delta):
 		velocity.z = move_toward(velocity.z, 0, SPEED)
 
 	move_and_slide()
+
+
+
+func orient_mesh(delta):
+	# temporarily flip the mesh using scale.x.
+	# later, I'll probably add in smooth rotation around the y axis.
+	var visuals = $Visuals
+	if velocity.x > 0:
+		visuals.scale.x = -abs(visuals.scale.x)
+		
+	else:
+		visuals.scale.x = abs(visuals.scale.x)
+
+	
+	

@@ -1,0 +1,21 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://b7q2ey7bt45xr"
+path="res://.godot/imported/pipe_3way.obj-ae5ecb594f5c849417ac8589cf8e4d72.mesh"
+
+[deps]
+
+files=["res://.godot/imported/pipe_3way.obj-ae5ecb594f5c849417ac8589cf8e4d72.mesh"]
+
+source_file="res://Art/level_pieces/pipe_3way.obj"
+dest_files=["res://.godot/imported/pipe_3way.obj-ae5ecb594f5c849417ac8589cf8e4d72.mesh", "res://.godot/imported/pipe_3way.obj-ae5ecb594f5c849417ac8589cf8e4d72.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true

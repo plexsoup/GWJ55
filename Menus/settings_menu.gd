@@ -13,7 +13,7 @@ func _ready():
 	pass # Replace with function body.
 
 
-func _process(delta):
+func _process(_delta):
 	if dragging:
 		var msec = Time.get_ticks_msec()
 		if msec > last_time_polled + polling_interval:
@@ -21,8 +21,7 @@ func _process(delta):
 			var volumeLinear = active_slider.value
 			var volumeDB = linear_to_db(volumeLinear)
 			AudioServer.set_bus_volume_db(active_bus, volumeDB)
-			print("volume linear = ", volumeLinear)
-			print("volume db = ", volumeDB)
+
 
 func _on_master_volume_slider_drag_started():
 	active_bus = AudioServer.get_bus_index("Master")
@@ -31,7 +30,7 @@ func _on_master_volume_slider_drag_started():
 	%MusicStream.play()
 
 
-func _on_master_volume_slider_drag_ended(value_changed):
+func _on_master_volume_slider_drag_ended(_value_changed):
 	dragging = false
 	%MusicStream.stop()
 
@@ -43,7 +42,7 @@ func _on_sfx_volume_slider_drag_started():
 	%SFXStream.play()
 	
 
-func _on_sfx_volume_slider_drag_ended(value_changed):
+func _on_sfx_volume_slider_drag_ended(_value_changed):
 	dragging = false
 	%SFXStream.stop()
 
@@ -57,6 +56,6 @@ func _on_music_volume_slider_drag_started():
 
 
 
-func _on_music_volume_slider_drag_ended(value_changed):
+func _on_music_volume_slider_drag_ended(_value_changed):
 	%MusicStream.stop()
 	

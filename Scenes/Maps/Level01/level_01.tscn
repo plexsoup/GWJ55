@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://bqw8mxix8u7pw"]
+[gd_scene load_steps=8 format=3 uid="uid://bqw8mxix8u7pw"]
 
 [ext_resource type="MeshLibrary" uid="uid://dmrpx4ab0214p" path="res://Scenes/Maps/GridMap/Mesh.tres" id="1_gbexs"]
 [ext_resource type="Script" path="res://Scenes/Maps/base_level.gd" id="1_n8fyu"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://326lsgrnmjo8" path="res://Scenes/Entities/Player/player_controller_xrae.tscn" id="3_2vdfa"]
 [ext_resource type="PackedScene" uid="uid://cmd16bdree5a7" path="res://Scenes/Objects/fall_reset_volume.tscn" id="5_3x88f"]
 [ext_resource type="PackedScene" uid="uid://eb3wwyaluatx" path="res://Scenes/Objects/trigger_volume_win.tscn" id="6_umfkp"]
+[ext_resource type="PackedScene" uid="uid://b7i0k6nxh67dt" path="res://Scenes/Entities/NPCs/hair_dryer.tscn" id="7_xr8v7"]
 
 [node name="Level01" type="Node3D"]
 script = ExtResource("1_n8fyu")
@@ -50,3 +51,6 @@ mesh_library = ExtResource("1_gbexs")
 data = {
 "cells": PackedInt32Array(65530, 1, 0, 65531, 1, 0, 65532, 1, 0, 65533, 1, 0, 65534, 1, 0, 65535, 1, 0, 0, 1, 0, 1, 1, 0, 2, 1, 0, 3, 1, 0, 5, 65532, 0, 6, 65532, 0, 7, 65532, 0, 8, 65532, 0, 1, 65532, 0, 0, 65532, 0, 65535, 65532, 0, 65534, 65532, 0, 65532, 65526, 0, 65533, 65526, 0, 65534, 65526, 0, 65535, 65526, 0, 0, 65526, 0, 1, 65526, 0, 2, 65526, 0, 3, 65526, 0, 7, 65528, 0, 8, 65528, 0, 9, 65528, 0, 10, 65528, 0, 65530, 65530, 0, 65529, 65530, 0, 65528, 65530, 0, 65527, 65530, 0, 65526, 65530, 0, 65525, 65530, 0, 65524, 65530, 0, 65523, 65530, 0, 65522, 65530, 0, 10, 0, 0, 11, 0, 0, 12, 0, 0, 13, 65521, 0, 12, 65521, 0, 11, 65521, 0, 10, 65521, 0, 9, 65521, 0, 8, 65521, 0, 7, 65521, 0, 6, 65521, 0, 5, 65521, 0, 4, 65521, 0, 3, 65521, 0)
 }
+
+[node name="HairDryer" parent="." instance=ExtResource("7_xr8v7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.1093, 12.7239, 2.08165e-12)

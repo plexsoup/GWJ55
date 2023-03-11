@@ -43,7 +43,7 @@ func move(delta):
 		velocity.y -= gravity * delta
 
 	# Handle Jump.
-	if input_controller.actions_pressed["jump"] == true and is_on_floor():
+	if input_controller.is_action_just_pressed("jump") == true and is_on_floor():
 		velocity.y = JUMP_VELOCITY
 
 	# Get the input direction and handle the movement/deceleration.

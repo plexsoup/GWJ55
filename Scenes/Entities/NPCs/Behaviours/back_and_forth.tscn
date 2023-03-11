@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=3 uid="uid://bqe4y0cbhefd8"]
+
+[ext_resource type="Script" path="res://Scenes/Entities/NPCs/Behaviours/BackAndForth.gd" id="1_ek53n"]
+
+[node name="BackAndForth" type="Node3D"]
+script = ExtResource("1_ek53n")
+active = true
+
+[node name="RayCastLeft" type="RayCast3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.01355, 0.4507, -0.0989584)
+
+[node name="RayCastRight" type="RayCast3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.03993, 0.4507, -0.0989584)

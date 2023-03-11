@@ -3,8 +3,9 @@ extends CharacterBody3D
 
 const SPEED = 5.0
 const JUMP_VELOCITY = 4.5
-
 const TURN_SPEED = PI / 16.0
+
+@export var damage : int = 1
 
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
@@ -16,6 +17,7 @@ var current_map
 
 @onready var input_controller = $VirtualInputController
 
+signal hit
 
 
 func _ready():
@@ -86,3 +88,12 @@ func orient_mesh(_delta):
 	
 	
 	
+
+
+func _on_hurtbox_body_entered(body):
+	
+	if "player" in body.name.to_lower():
+		if not hit.is_connected(body._on_hit) and body.has_method("_on_hit"):
+			hit.connect(body._on_hit)
+		hit.emit(damage)
+

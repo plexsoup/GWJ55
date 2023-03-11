@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://cmgxa2xc5uuvw"]
+[gd_scene load_steps=7 format=3 uid="uid://cmgxa2xc5uuvw"]
 
 [ext_resource type="PackedScene" uid="uid://b8rti3p03uckw" path="res://Scenes/Entities/NPCs/npc.tscn" id="1_61f12"]
 
@@ -9,6 +9,9 @@
 [sub_resource type="BoxMesh" id="BoxMesh_w1uvf"]
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_afg06"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_vye7k"]
+size = Vector3(1, 1, 2.14004)
 
 [node name="VacuumCleaner" instance=ExtResource("1_61f12")]
 
@@ -33,3 +36,7 @@ mesh = SubResource("BoxMesh_w1uvf")
 [node name="Handle" type="MeshInstance3D" parent="Visuals/VacuumCleaner" index="3"]
 transform = Transform3D(0.257719, 0, 0, 0, -4.37114e-08, -0.257719, 0, 1, -1.12653e-08, 1.32478, 2.17531, 0)
 mesh = SubResource("CylinderMesh_afg06")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Visuals/Hurtbox" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.954028, 1.14386, 0)
+shape = SubResource("BoxShape3D_vye7k")

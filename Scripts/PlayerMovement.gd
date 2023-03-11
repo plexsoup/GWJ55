@@ -15,6 +15,10 @@ extends CharacterBody3D
 const SPEED = 10.0
 var buffered_jump = false
 
+func _ready():
+	Global.current_player = self
+	
+	
 func _physics_process(delta):
 	
 	var was_on_floor = is_on_floor()
@@ -55,3 +59,13 @@ func jump():
 
 func _on_jump_buffer_timeout():
 	buffered_jump = false
+
+func _on_hit(damage):
+	Global.player_stats["health"] -= damage
+	$HUD._on_hit()
+
+	if Global.player_stats["health"] < 1:
+		begin_dying()
+	
+func begin_dying():
+	print("Player died")

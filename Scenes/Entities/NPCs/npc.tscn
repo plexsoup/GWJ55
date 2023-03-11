@@ -40,3 +40,5 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.01355, 0.4507, -0.0989584)
 
 [node name="RayCastRight" type="RayCast3D" parent="Behaviours/BackAndForth"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.03993, 0.4507, -0.0989584)
+
+[connection signal="body_entered" from="Visuals/Hurtbox" to="." method="_on_hurtbox_body_entered"]

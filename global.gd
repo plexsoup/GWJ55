@@ -9,3 +9,5 @@ var player_stats = {
 	"health":9,
 }
 
+func reset_player():
+	player_stats["health"] = player_stats["health_max"]

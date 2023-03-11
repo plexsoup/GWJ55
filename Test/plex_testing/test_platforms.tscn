@@ -1,40 +1,35 @@
 [gd_scene load_steps=5 format=3 uid="uid://bnnklp68l0blk"]
 
 [ext_resource type="PackedScene" uid="uid://b8rti3p03uckw" path="res://Scenes/Entities/NPCs/npc.tscn" id="1_5gkol"]
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_sxe31"]
-size = Vector3(49.8815, 1, 4.96573)
-
-[sub_resource type="BoxMesh" id="BoxMesh_rp8lh"]
+[ext_resource type="MeshLibrary" uid="uid://dmrpx4ab0214p" path="res://Scenes/Maps/GridMap/Mesh.tres" id="2_vqema"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_x6uxd"]
 size = Vector3(10.3591, 1, 5.40557)
 
+[sub_resource type="BoxMesh" id="BoxMesh_rp8lh"]
+
 [node name="TestPlatforms" type="Node3D"]
+
+[node name="GridMap" type="GridMap" parent="."]
+mesh_library = ExtResource("2_vqema")
+data = {
+"cells": PackedInt32Array(65527, 0, 0, 65528, 0, 0, 65529, 0, 0, 65530, 0, 0, 65531, 0, 0, 65532, 0, 0, 65533, 0, 0, 65534, 0, 0, 65535, 0, 0, 0, 0, 0, 1, 0, 0, 2, 0, 0, 3, 0, 0, 4, 0, 0, 4, 65535, 0, 5, 65535, 0, 6, 65535, 0, 6, 0, 0, 7, 0, 0, 8, 0, 0, 9, 0, 0, 10, 0, 0, 6, 1, 0, 5, 1, 0, 5, 0, 0, 11, 0, 0, 12, 0, 0, 10, 1, 0, 9, 1, 0, 2, 1, 0, 1, 1, 0, 0, 1, 0, 65535, 1, 0, 65534, 1, 0, 65533, 1, 0, 65532, 1, 0, 65531, 1, 0, 65530, 1, 0, 65526, 0, 0, 65525, 0, 0, 65525, 1, 0, 2, 65535, 0, 3, 65535, 0, 1, 65535, 0, 0, 65535, 0, 65535, 65535, 0, 65534, 65535, 0, 65533, 65535, 0, 65532, 65535, 0, 65531, 65535, 0, 65530, 65535, 0, 65529, 65535, 0, 65528, 65535, 0, 65527, 65535, 0, 65526, 65535, 0, 65525, 65535, 0, 65526, 1, 0, 65527, 1, 0, 65528, 1, 0, 65529, 1, 0, 4, 1, 0, 3, 1, 0, 7, 1, 0, 9, 65535, 0, 10, 65535, 0, 11, 65535, 0, 8, 65535, 0, 7, 65535, 0, 12, 65535, 0, 13, 65535, 0, 8, 1, 0, 327685, 65535, 0, 327685, 0, 0, 327684, 0, 0, 327683, 0, 0, 327682, 0, 0, 327681, 0, 0, 327680, 0, 0, 393215, 0, 0, 393214, 0, 0, 393213, 0, 0, 393212, 0, 0, 393211, 0, 0, 393210, 0, 0, 393209, 0, 0, 393208, 0, 0, 393209, 65535, 0, 393210, 65535, 0, 393211, 65535, 0, 393212, 65535, 0, 393213, 65535, 0, 393214, 65535, 0, 393215, 65535, 0, 327680, 65535, 0, 327681, 65535, 0, 327682, 65535, 0, 327683, 65535, 0, 327684, 65535, 0)
+}
+metadata/_editor_floor_ = Vector3(0, 5, 0)
 
 [node name="NPC" parent="." instance=ExtResource("1_5gkol")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.08165e-12, 13.8581, 2.08165e-12)
 
 [node name="NPC2" parent="." instance=ExtResource("1_5gkol")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.08165e-12, 0.0787678, 2.08165e-12)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.08165e-12, 1.6576, 2.08165e-12)
 
-[node name="Floor" type="StaticBody3D" parent="."]
-transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 2.08165e-12, -0.5, 2.08165e-12)
+[node name="BonusPlatform" type="StaticBody3D" parent="."]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 2.08165e-12, 22.6831, -0.0492306)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Floor"]
-shape = SubResource("BoxShape3D_sxe31")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Floor"]
-transform = Transform3D(50, 0, 0, 0, 1, 0, 1.42109e-14, 0, 5, 0, 0, 0)
-mesh = SubResource("BoxMesh_rp8lh")
-
-[node name="Platform2" type="StaticBody3D" parent="."]
-transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 2.08165e-12, 13.2748, -0.0492306)
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Platform2"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="BonusPlatform"]
 shape = SubResource("BoxShape3D_x6uxd")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Platform2"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="BonusPlatform"]
 transform = Transform3D(10, 0, -1.2029e-14, 0, 1, 0, 2.4058e-14, 0, 5, 0, 0, 0)
 mesh = SubResource("BoxMesh_rp8lh")
 

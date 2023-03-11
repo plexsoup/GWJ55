@@ -87,6 +87,15 @@ zoom_in={
 ]
 }
 
+[layer_names]
+
+3d_physics/layer_1="Player"
+3d_physics/layer_2="NPCs"
+3d_physics/layer_3="Platforms"
+3d_physics/layer_4="EnemyProjectiles"
+3d_physics/layer_5="PlayerProjectiles"
+3d_physics/layer_6="EnvironmentHazards"
+
 [rendering]
 
 renderer/rendering_method.mobile="gl_compatibility"

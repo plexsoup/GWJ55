@@ -8,7 +8,13 @@ var move_up : float = 0.0
 var move_down : float = 0.0
 
 var jump : bool = false
-
+var actions_pressed = {
+	"jump":false,
+	"move_left":false,
+	"move_right":false,
+	"move_up":false,
+	"move_down":false
+}
 
 # Called when the node enters the scene tree for the first time.
 func _ready():

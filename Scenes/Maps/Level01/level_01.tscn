@@ -34,4 +34,5 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.658735, 13.7248, 0.670342)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.658735, 19.7511, 0.670342)
 
 [node name="player_controller_xrae" parent="." instance=ExtResource("3_2vdfa")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.3244, 5.99565, 4.10416)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.6121, 11.5129, 0.178238)
+inverted_x = false

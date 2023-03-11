@@ -40,3 +40,6 @@ func is_action_just_pressed(actionName):
 		return false
 	
 	
+func press(actionName):
+	actions_just_pressed[actionName] = true
+	

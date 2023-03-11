@@ -1,6 +1,6 @@
-[gd_scene load_steps=7 format=3 uid="uid://cmgxa2xc5uuvw"]
+[gd_scene load_steps=7 format=3 uid="uid://cm2o1lkpf6s0w"]
 
-[ext_resource type="PackedScene" uid="uid://b8rti3p03uckw" path="res://Scenes/Entities/NPCs/npc.tscn" id="1_61f12"]
+[ext_resource type="PackedScene" uid="uid://bpr26601pqhqe" path="res://Scenes/Entities/NPCs/npc.tscn" id="1_61f12"]
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_vad55"]
 

@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://cmd16bdree5a7"]
+
+[ext_resource type="Script" path="res://Scenes/Objects/fall_reset_volume.gd" id="1_ank1g"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_5u833"]
+size = Vector3(143.358, 21.6483, 26.7456)
+
+[node name="FallResetVolume" type="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -18.47, 0)
+collision_layer = 32
+script = ExtResource("1_ank1g")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_5u833")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

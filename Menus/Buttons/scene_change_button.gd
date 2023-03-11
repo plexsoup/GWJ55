@@ -14,9 +14,9 @@ func _ready():
 func _on_pressed():
 	$ClickNoise.start()
 	if new_scene != null:
-		get_tree().change_scene_to_packed(new_scene)
+		StageManager.change_scene_to_packed(new_scene)
 	elif scene_path != "":
-		get_tree().change_scene_to_file(scene_path)
+		StageManager.change_scene_to_file(scene_path)
 
 
 

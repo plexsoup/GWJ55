@@ -1,4 +1,4 @@
-[gd_scene load_steps=44 format=3 uid="uid://ihtqtt4yrixk"]
+[gd_scene load_steps=45 format=3 uid="uid://ihtqtt4yrixk"]
 
 [ext_resource type="PackedScene" uid="uid://cybfyhs1s6maf" path="res://Art/level_pieces/pipe_3way.glb" id="1_2obje"]
 [ext_resource type="Texture2D" uid="uid://458wfcstwugh" path="res://Art/Cat_Idle.png" id="2_0qkiq"]
@@ -9,6 +9,7 @@
 [ext_resource type="Shader" uid="uid://bp60xdb0f748y" path="res://Scenes/Objects/PlatformShader.tres" id="7_6hssm"]
 [ext_resource type="Texture2D" uid="uid://72xsijy6xpxg" path="res://Art/level_pieces/platform_circle1_platform_circle1.png" id="8_aifwo"]
 [ext_resource type="MeshLibrary" uid="uid://benh13wyjx6qf" path="res://Art/level_pieces/Level_Mesh_Libary.tres" id="9_8l173"]
+[ext_resource type="PackedScene" uid="uid://rl576sfkkmbl" path="res://Art/objects/koifish2.0.glb" id="10_3fvdr"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_4c7tq"]
 atlas = ExtResource("2_0qkiq")
@@ -389,3 +390,20 @@ data = {
 "cells": PackedInt32Array(0, 5, 0, 0, 6, 0, 65536, 6, 3, 65536, 5, 3, 131072, 6, 786434, 131072, 5, 524290)
 }
 metadata/_editor_floor_ = Vector3(0, 2, 0)
+
+[node name="koifish20" parent="." index="9" instance=ExtResource("10_3fvdr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.133, 0.115199, 9.25341)
+
+[node name="Skeleton3D" parent="koifish20/koifish_armature" index="0"]
+bones/0/rotation = Quaternion(-0.0568104, 0.00822636, 0.0322209, 0.997831)
+bones/1/rotation = Quaternion(0.00988197, -0.0131667, -0.00125157, 0.999864)
+bones/2/rotation = Quaternion(-0.732226, -0.454714, -0.467672, 0.195867)
+bones/3/rotation = Quaternion(-0.634403, 0.369678, 0.63171, 0.248623)
+bones/4/rotation = Quaternion(0.99676, 0.0405096, -0.0257321, 0.0645451)
+bones/5/rotation = Quaternion(-0.00377839, -0.0686053, -0.0749275, 0.994819)
+bones/6/rotation = Quaternion(0.044359, 0.0385942, -0.00193351, 0.998268)
+bones/7/position = Vector3(-0.0364401, 0.83016, -0.317728)
+bones/7/rotation = Quaternion(-0.150788, 0.147792, 0.305137, 0.928608)
+bones/8/rotation = Quaternion(0.0147825, -0.334351, -0.711103, 0.618323)
+
+[editable path="koifish20"]

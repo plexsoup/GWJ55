@@ -31,7 +31,7 @@ far = 500.0
 
 [node name="TriggerVolumeWin" parent="." instance=ExtResource("5_ltb1g")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -27.9109, 31.1969, 5.62351)
-next_scene_path = "res://Scenes/Maps/Level01/level_01.tscn"
+next_scene_path = "res://Menus/win_screen.tscn"
 
 [node name="player_controller_xrae" parent="." instance=ExtResource("4_wsnar")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.71993, 1.52753, 5.13539)

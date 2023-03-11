@@ -1,0 +1,73 @@
+[gd_scene load_steps=6 format=3 uid="uid://ivpcuj0u77bl"]
+
+[ext_resource type="Texture2D" uid="uid://c7r0ql75cnkow" path="res://Art/Cat_Icon.png" id="1_a5o4u"]
+[ext_resource type="PackedScene" uid="uid://dx20duhdsm1vn" path="res://Menus/Buttons/scene_change_button.tscn" id="2_cllni"]
+
+[sub_resource type="Gradient" id="Gradient_oaqkf"]
+colors = PackedColorArray(0.60933, 0.60933, 0.60933, 1, 0.505344, 0.505344, 0.505344, 1)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_3k00f"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_lxoil"]
+color_ramp = SubResource("Gradient_oaqkf")
+noise = SubResource("FastNoiseLite_3k00f")
+
+[node name="DeathScreen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("NoiseTexture2D_lxoil")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 30
+theme_override_constants/margin_top = 30
+theme_override_constants/margin_right = 30
+theme_override_constants/margin_bottom = 30
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="LeftImage" type="TextureRect" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+texture = ExtResource("1_a5o4u")
+stretch_mode = 5
+flip_h = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 50
+alignment = 1
+
+[node name="CongratulationsText" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 72
+text = "You achieved
+everything... 
+but it was all
+a dream."
+horizontal_alignment = 1
+
+[node name="ReturnToMain" parent="MarginContainer/HBoxContainer/VBoxContainer" instance=ExtResource("2_cllni")]
+custom_minimum_size = Vector2(175, 55)
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Main Menu"
+scene_path = "res://main.tscn"

@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://d25fnws4lumek"]
+
+[ext_resource type="Texture2D" uid="uid://c7r0ql75cnkow" path="res://Art/Cat_Icon.png" id="1_0m0td"]
+
+[node name="LifeIcon" type="TextureRect"]
+custom_minimum_size = Vector2(32, 32)
+texture = ExtResource("1_0m0td")
+expand_mode = 1

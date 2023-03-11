@@ -1,0 +1,48 @@
+[gd_scene load_steps=3 format=3 uid="uid://dh4qpayo68p6b"]
+
+[ext_resource type="Script" path="res://GUI/player_hud.gd" id="1_bo2l7"]
+[ext_resource type="PackedScene" uid="uid://d25fnws4lumek" path="res://GUI/life_icon.tscn" id="2_ld1aw"]
+
+[node name="PlayerHUD" type="CanvasLayer"]
+script = ExtResource("1_bo2l7")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="HealthBox" type="HBoxContainer" parent="Control"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="LifeIcon" parent="Control/HealthBox" instance=ExtResource("2_ld1aw")]
+layout_mode = 2
+
+[node name="LifeIcon2" parent="Control/HealthBox" instance=ExtResource("2_ld1aw")]
+layout_mode = 2
+
+[node name="LifeIcon3" parent="Control/HealthBox" instance=ExtResource("2_ld1aw")]
+layout_mode = 2
+
+[node name="LifeIcon4" parent="Control/HealthBox" instance=ExtResource("2_ld1aw")]
+layout_mode = 2
+
+[node name="LifeIcon5" parent="Control/HealthBox" instance=ExtResource("2_ld1aw")]
+layout_mode = 2
+
+[node name="LifeIcon6" parent="Control/HealthBox" instance=ExtResource("2_ld1aw")]
+layout_mode = 2
+
+[node name="LifeIcon7" parent="Control/HealthBox" instance=ExtResource("2_ld1aw")]
+layout_mode = 2
+
+[node name="LifeIcon8" parent="Control/HealthBox" instance=ExtResource("2_ld1aw")]
+layout_mode = 2
+
+[node name="LifeIcon9" parent="Control/HealthBox" instance=ExtResource("2_ld1aw")]
+layout_mode = 2

@@ -1,26 +1,21 @@
-[gd_scene load_steps=6 format=3 uid="uid://bg4a4sly7rhvt"]
+[gd_scene load_steps=2 format=3 uid="uid://dhdyxpw0w0ibv"]
 
-[ext_resource type="Script" path="res://Scenes/Maps/base_level.gd" id="1_ks1ho"]
-[ext_resource type="MeshLibrary" uid="uid://2b1l75l303ti" path="res://Art/level_pieces/Level_Mesh_LibaryNEW.tres" id="2_wwgoi"]
-[ext_resource type="PackedScene" uid="uid://b0ntje4l232oj" path="res://Scenes/Entities/Player/player_controller_xrae.tscn" id="3_n5s2n"]
-[ext_resource type="PackedScene" uid="uid://eb3wwyaluatx" path="res://Scenes/Objects/trigger_volume_win.tscn" id="4_7cnvn"]
-[ext_resource type="PackedScene" uid="uid://cmd16bdree5a7" path="res://Scenes/Objects/fall_reset_volume.tscn" id="5_vajsc"]
+[ext_resource type="PackedScene" uid="uid://cjiok7gin5bk5" path="res://Scenes/Maps/base_level.tscn" id="1_7s8hn"]
 
-[node name="Level02" type="Node3D"]
-script = ExtResource("1_ks1ho")
+[node name="Level03" instance=ExtResource("1_7s8hn")]
 
-[node name="GridMap" type="GridMap" parent="."]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0)
-mesh_library = ExtResource("2_wwgoi")
+[node name="PlatformGridMap-placeholder" parent="." index="0"]
 data = {
-"cells": PackedInt32Array(8, 65535, 917508, 6, 0, 917508, 3, 1, 917508, 0, 1, 917508, 65533, 2, 917508, 65531, 0, 917509, 65534, 65534, 196610, 3, 65533, 917509, 8, 65533, 917509, 65534, 65533, 589826, 65535, 65533, 720898, 65535, 65534, 65538, 65534, 0, 458757)
+"cells": PackedInt32Array(65530, 1, 0, 65531, 1, 0, 65532, 1, 0, 65533, 1, 0, 65534, 1, 0, 65535, 1, 0, 0, 1, 0, 1, 1, 0, 2, 1, 0, 3, 1, 0, 10, 0, 0, 11, 0, 0, 12, 0, 0, 65530, 65534, 0, 65529, 65534, 0, 65528, 65534, 0, 65527, 65534, 0, 65526, 65534, 0, 65527, 65530, 0, 65528, 65530, 0, 65529, 65530, 0, 65531, 65534, 0, 65532, 65534, 0, 65524, 65532, 0, 65523, 65532, 0, 65522, 65532, 0)
 }
 
-[node name="player_controller_xrae" parent="." instance=ExtResource("3_n5s2n")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.13865, -2.20913, 0)
+[node name="player" parent="." index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.29572, 10.4673, 0)
 
-[node name="TriggerVolumeWin" parent="." instance=ExtResource("4_7cnvn")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.2596, 5.81568, 0)
+[node name="TriggerVolumeWin" parent="." index="7"]
+next_scene_path = "res://Scenes/Maps/Level04/level_04.tscn"
 
-[node name="FallResetVolume" parent="." instance=ExtResource("5_vajsc")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -34.6601, 0)
+[node name="Label3D" type="Label3D" parent="." index="8"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19.8606, 24.1561, 0)
+text = "3"
+font_size = 512

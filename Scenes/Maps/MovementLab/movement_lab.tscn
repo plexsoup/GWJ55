@@ -3,7 +3,7 @@
 [ext_resource type="MeshLibrary" uid="uid://dmrpx4ab0214p" path="res://Scenes/Maps/GridMap/Mesh.tres" id="1_eango"]
 [ext_resource type="PackedScene" path="res://Scenes/Objects/fall_reset_volume.tscn" id="4_k711y"]
 [ext_resource type="PackedScene" uid="uid://326lsgrnmjo8" path="res://Scenes/Entities/Player/player_controller_xrae.tscn" id="4_wsnar"]
-[ext_resource type="PackedScene" path="res://Scenes/Entities/NPCs/vacuum_cleaner.tscn" id="5_72utf"]
+[ext_resource type="PackedScene" uid="uid://cm2o1lkpf6s0w" path="res://Scenes/Entities/NPCs/vacuum_cleaner.tscn" id="5_72utf"]
 [ext_resource type="PackedScene" path="res://Scenes/Objects/trigger_volume_win.tscn" id="5_ltb1g"]
 
 [node name="MovementLab" type="Node3D"]

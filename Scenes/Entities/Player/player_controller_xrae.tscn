@@ -29,11 +29,11 @@ shape = SubResource("CapsuleShape3D_gajrw")
 wait_time = 0.1
 one_shot = true
 
-[node name="DashTimer" type="Timer" parent="."]
+[node name="DashTimer2" type="Timer" parent="."]
 wait_time = 0.1
 one_shot = true
 
-[node name="DashCooldown" type="Timer" parent="."]
+[node name="DashCooldown2" type="Timer" parent="."]
 wait_time = 0.1
 one_shot = true
 

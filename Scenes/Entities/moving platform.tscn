@@ -2,10 +2,10 @@
 
 [ext_resource type="Script" path="res://Scenes/Entities/moving platform.gd" id="1_3nq0u"]
 
-[sub_resource type="BoxMesh" id="BoxMesh_j46ps"]
+[sub_resource type="BoxShape3D" id="BoxShape3D_my2bd"]
 size = Vector3(2, 1, 2)
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_my2bd"]
+[sub_resource type="BoxMesh" id="BoxMesh_j46ps"]
 size = Vector3(2, 1, 2)
 
 [sub_resource type="Animation" id="Animation_s0r7t"]
@@ -15,8 +15,8 @@ loop_mode = 1
 tracks/0/type = "position_3d"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("..")
-tracks/0/interp = 2
+tracks/0/path = NodePath(".")
+tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = PackedFloat32Array()
 
@@ -28,17 +28,16 @@ _data = {
 [node name="moving platform" type="Node3D"]
 script = ExtResource("1_3nq0u")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-mesh = SubResource("BoxMesh_j46ps")
-metadata/_edit_group_ = true
+[node name="StaticBody3D" type="AnimatableBody3D" parent="."]
 
-[node name="StaticBody3D" type="AnimatableBody3D" parent="MeshInstance3D"]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D/StaticBody3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
 shape = SubResource("BoxShape3D_my2bd")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-root_node = NodePath("../MeshInstance3D/StaticBody3D")
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D"]
+mesh = SubResource("BoxMesh_j46ps")
+skeleton = NodePath("../..")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="StaticBody3D"]
 autoplay = "new_animation"
 libraries = {
 "": SubResource("AnimationLibrary_rf1ht")

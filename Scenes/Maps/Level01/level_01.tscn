@@ -81,7 +81,7 @@ inverted_x = false
 
 [node name="moving platform" parent="." instance=ExtResource("10_leyvi")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.74402, 4.59786, 0)
-range = Vector3(10, 0, 0)
+range = Vector3(0, 10, 0)
 speed = 3
 
 [node name="BackgroundScenery" type="Node3D" parent="."]

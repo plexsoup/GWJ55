@@ -40,3 +40,6 @@ mesh = SubResource("CylinderMesh_afg06")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Visuals/Hurtbox" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.954028, 1.14386, 0)
 shape = SubResource("BoxShape3D_vye7k")
+
+[node name="JumpScare" parent="Behaviours" index="1"]
+visible = false

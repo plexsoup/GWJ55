@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://d0rerk6xellrg"]
+[gd_scene load_steps=6 format=3 uid="uid://d0rerk6xellrg"]
 
 [ext_resource type="Script" path="res://Scenes/Entities/NPCs/Behaviours/JumpScare.gd" id="1_1valg"]
 
@@ -7,14 +7,49 @@
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_er8ja"]
 albedo_color = Color(1, 0.270588, 0.270588, 1)
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_pwkae"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_obavg"]
+size = Vector3(0.25, 0.25, 0.25)
+
 [node name="JumpScare" type="Node3D"]
 script = ExtResource("1_1valg")
 
-[node name="RayCast3D" type="RayCast3D" parent="."]
+[node name="raycast_right" type="RayCast3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.44368, 0)
-target_position = Vector3(5, -1, 2.08165e-12)
+target_position = Vector3(10, -1, 0)
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-transform = Transform3D(0.506936, 0, 0, 0, 0.506936, 0, 0, 0, 0.506936, 4.89572, 0.202729, 0)
+[node name="MeshInstance3D" type="MeshInstance3D" parent="raycast_right"]
+transform = Transform3D(0.506936, 0, 0, 0, 0.506936, 0, 0, 0, 0.506936, 9.86462, -1.24095, 0)
 mesh = SubResource("TorusMesh_nacs0")
+skeleton = NodePath("../..")
 surface_material_override/0 = SubResource("StandardMaterial3D_er8ja")
+
+[node name="raycast_left" type="RayCast3D" parent="."]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 1.44368, 0)
+target_position = Vector3(10, -1, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="raycast_left"]
+transform = Transform3D(0.506936, 0, 0, 0, 0.506936, 0, 0, 0, 0.506936, 9.96132, -1.24095, 4.42849e-07)
+mesh = SubResource("TorusMesh_nacs0")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_er8ja")
+
+[node name="HurtBox" type="Area3D" parent="."]
+collision_layer = 0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="HurtBox"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.596828, 0)
+shape = SubResource("BoxShape3D_pwkae")
+
+[node name="CPUParticles3D" type="CPUParticles3D" parent="."]
+emitting = false
+amount = 24
+one_shot = true
+explosiveness = 0.66
+mesh = SubResource("BoxMesh_obavg")
+direction = Vector3(0, 1, 0)
+initial_velocity_min = 5.0
+initial_velocity_max = 20.0
+
+[connection signal="body_entered" from="HurtBox" to="." method="_on_hurt_box_body_entered"]

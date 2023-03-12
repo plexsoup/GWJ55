@@ -1,13 +1,15 @@
 extends CharacterBody3D
 
 
-const SPEED = 5.0
-const JUMP_VELOCITY = 14.5
-const TURN_SPEED = PI / 16.0
+@export var SPEED = 4.5
+@export var JUMP_VELOCITY = 10.0
+@export var TURN_SPEED = PI / 16.0
 
 @export var damage : int = 1
+@export var flying : bool = false
 
-
+@export var path_to_follow : NodePath
+var path : PathFollow3D
 
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
@@ -40,40 +42,46 @@ func _physics_process(delta):
 
 
 func move(delta):
-	# Add the gravity.
-	var fake_gravity = gravity
-	if velocity.y < 0 :
-		fake_gravity *= 2.0 # fall faster than you jump
-	if not is_on_floor():
-		velocity.y -= fake_gravity * delta
-	else: 
-		velocity.y = 0.0
+	
+	apply_gravity(delta)
 
 
 	# Handle Jump.
 	if input_controller.is_action_just_pressed("jump") == true and is_on_floor():
-		print("jumped")
 		velocity.y = JUMP_VELOCITY
 
-	# Get the input direction and handle the movement/deceleration.
-	# As good practice, you should replace UI actions with custom gameplay actions.
-	
-	
-	var input_dir = input_controller.get_vector("move_left", "move_right", "move_up", "move_down")
+	# Get the input direction from the virtual controller and handle the movement/deceleration.
+	var input_dir = input_controller.get_vector("move_left", "move_right", "move_down", "move_up")
 
-	var direction = (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
-	# note the transform.basis never changes, because it's a 2d platformer. we're just reorienting the mesh.
-	
+	#var direction = (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
+	var direction = (transform.basis * Vector3(input_dir.x, input_dir.y, 0)).normalized()
+
+	# note the transform.basis never changes.
+	# 	We're just reorienting the mesh.
+	# 	This might change if we add ramps and stuff.
 
 	if direction:
 		velocity.x = direction.x * SPEED
 		velocity.z = direction.z * SPEED
+		if flying:
+			velocity.y = direction.y * SPEED
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 		velocity.z = move_toward(velocity.z, 0, SPEED)
+		if flying:
+			velocity.y = move_toward(velocity.y, 0, SPEED)
 
 	move_and_slide()
 
+func apply_gravity(delta):
+	if not flying:
+		var fake_gravity = gravity
+		if velocity.y < 0 :
+			fake_gravity *= 2.0 # fall faster than you jump
+		if not is_on_floor():
+			velocity.y -= fake_gravity * delta
+		else: 
+			velocity.y = 0.0
 
 
 func orient_mesh(_delta):
@@ -106,3 +114,16 @@ func _on_hurtbox_body_entered(body):
 			hit.connect(body._on_hit)
 		hit.emit(damage)
 
+
+func _on_player_sighted(body, originator): 
+	# one of the behaviours has notified us they saw the player.
+	# tell the other behaviours, in case they need to change something.
+	
+	# for example, FollowPath might want to disable itself.
+	
+	if "player" in body.name.to_lower():
+		for behaviour in $Behaviours.get_children():
+			if behaviour != originator and behaviour.active:
+				if behaviour.has_method("_on_entity_sighted_player"):
+					behaviour._on_entity_sighted_player()
+		

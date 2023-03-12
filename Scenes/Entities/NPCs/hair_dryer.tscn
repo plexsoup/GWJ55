@@ -10,6 +10,7 @@ size = Vector3(1, 1, 1.5)
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_pw2t4"]
 
 [node name="HairDryer" instance=ExtResource("1_mn5qa")]
+SPEED = 10.0
 
 [node name="MeshInstance3D" parent="Visuals" index="0"]
 visible = false

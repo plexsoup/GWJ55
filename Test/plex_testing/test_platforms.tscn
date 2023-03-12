@@ -1,7 +1,12 @@
-[gd_scene load_steps=5 format=3 uid="uid://bnnklp68l0blk"]
+[gd_scene load_steps=10 format=3 uid="uid://bnnklp68l0blk"]
 
+[ext_resource type="PackedScene" uid="uid://crvvpifd7a146" path="res://Scenes/Entities/NPCs/pressure_plate.tscn" id="2_lsbdv"]
 [ext_resource type="MeshLibrary" uid="uid://dmrpx4ab0214p" path="res://Scenes/Maps/GridMap/Mesh.tres" id="2_vqema"]
-[ext_resource type="PackedScene" uid="uid://cmgxa2xc5uuvw" path="res://Scenes/Entities/NPCs/vacuum_cleaner.tscn" id="3_ahnqt"]
+[ext_resource type="PackedScene" uid="uid://dd3fox603os7x" path="res://Scenes/Entities/moving platform.tscn" id="3_s7bmn"]
+[ext_resource type="PackedScene" uid="uid://cey6vaorec8ca" path="res://Scenes/Entities/Player/player_controller.tscn" id="4_l2b20"]
+[ext_resource type="PackedScene" uid="uid://cm2o1lkpf6s0w" path="res://Scenes/Entities/NPCs/vacuum_cleaner.tscn" id="5_4adni"]
+[ext_resource type="PackedScene" uid="uid://cbs51rpoxintc" path="res://Scenes/Entities/NPCs/hair_dryer.tscn" id="6_h23nw"]
+[ext_resource type="PackedScene" uid="uid://d1glm81lxipwi" path="res://Scenes/Entities/NPCs/eagle.tscn" id="7_x8q4w"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_x6uxd"]
 size = Vector3(10.3591, 1, 5.40557)
@@ -33,8 +38,25 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0978775, 8.18558, 17.0094)
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(0.685615, 0.69104, -0.228901, -9.06766e-17, 0.31444, 0.949277, 0.727964, -0.650839, 0.215585, 0, 16.3394, 13.2547)
 
-[node name="VacuumCleaner" parent="." instance=ExtResource("3_ahnqt")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.39426, 1.80589, 2.08165e-12)
+[node name="pressure_plate" parent="." instance=ExtResource("2_lsbdv")]
+transform = Transform3D(1, 0, 0, 0, 0.5, 0, 0, 0, 1, 0, 2.66417, 0)
 
-[node name="VacuumCleaner2" parent="." instance=ExtResource("3_ahnqt")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.08165e-12, 11.8158, 2.08165e-12)
+[node name="moving platform" parent="." instance=ExtResource("3_s7bmn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.9438, 0)
+range = Vector3(10, 2.08165e-12, 2.08165e-12)
+speed = 5
+
+[node name="player_controller_xrae" parent="." instance=ExtResource("4_l2b20")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.59927, 3.11722, 0)
+inverted_x = false
+
+[node name="NPCs" type="Node3D" parent="."]
+
+[node name="VacuumCleaner" parent="NPCs" instance=ExtResource("5_4adni")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.08165e-12, 11.791, 2.08165e-12)
+
+[node name="HairDryer" parent="NPCs" instance=ExtResource("6_h23nw")]
+transform = Transform3D(1, 0, 0, 0, 0.997868, 0.0652638, 0, -0.0652638, 0.997868, -14.2443, 4.24943, 2.08165e-12)
+
+[node name="Eagle" parent="NPCs" instance=ExtResource("7_x8q4w")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.08165e-12, 15.9891, 2.08165e-12)

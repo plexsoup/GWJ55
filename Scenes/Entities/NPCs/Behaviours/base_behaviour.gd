@@ -7,7 +7,10 @@ extends Node3D
 class_name BaseNPCBehaviour
 
 
-@export var active : bool = false
+@export var active : bool = false # poorly named variable. This is the master switch.
+
+enum States { PAUSED, PLAYING } # only works when the active bool is true.
+var state : States = States.PLAYING
 
 var entity : CharacterBody3D
 
@@ -34,6 +37,13 @@ func _process(_delta):
 			update_input_controller()
 
 func update_input_controller():
-	print("Base")
+	print("FYI: Object ", entity.name , " has not overridden the update_input_controller class")
 	# override this in subclasses
 	pass
+
+
+func is_stopped():
+	if state == States.PAUSED:
+		return true
+	else:
+		return false

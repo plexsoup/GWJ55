@@ -1,8 +1,13 @@
-[gd_scene load_steps=4 format=3 uid="uid://b16s3dclhkliq"]
+[gd_scene load_steps=9 format=3 uid="uid://b16s3dclhkliq"]
 
 [ext_resource type="PackedScene" uid="uid://dx20duhdsm1vn" path="res://Menus/Buttons/scene_change_button.tscn" id="1_aqtb8"]
+[ext_resource type="PackedScene" uid="uid://bqw8mxix8u7pw" path="res://Scenes/Maps/Level01/level_01.tscn" id="2_6rmrs"]
 [ext_resource type="PackedScene" uid="uid://bnnklp68l0blk" path="res://Test/plex_testing/test_platforms.tscn" id="2_6v74s"]
 [ext_resource type="PackedScene" uid="uid://bjjvqgmysp8y6" path="res://Scenes/Maps/MovementLab/movement_lab.tscn" id="3_4wqga"]
+[ext_resource type="PackedScene" uid="uid://d3idy65kr1aj4" path="res://Scenes/Maps/Level02/level_02.tscn" id="3_j6kru"]
+[ext_resource type="PackedScene" uid="uid://dhdyxpw0w0ibv" path="res://Scenes/Maps/Level03/level_03.tscn" id="4_fm5t8"]
+[ext_resource type="PackedScene" uid="uid://bla22wxqy284c" path="res://Scenes/Maps/Level04/level_04.tscn" id="5_mm826"]
+[ext_resource type="PackedScene" uid="uid://tb4i47076brs" path="res://Scenes/Maps/Level05/level_05.tscn" id="6_obsck"]
 
 [node name="Testing" type="MarginContainer"]
 anchors_preset = 15
@@ -11,34 +16,70 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
 layout_mode = 2
-size_flags_horizontal = 4
+theme_override_constants/separation = 25
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 6
 size_flags_vertical = 4
 theme_override_constants/separation = 25
 
-[node name="TestScene01" parent="VBoxContainer" instance=ExtResource("1_aqtb8")]
+[node name="Label" type="Label" parent="HBoxContainer/VBoxContainer2"]
 layout_mode = 2
-text = "Test Platforms with NPC back and forth behaviour"
+text = "Game Levels"
+
+[node name="Level01" parent="HBoxContainer/VBoxContainer2" instance=ExtResource("1_aqtb8")]
+layout_mode = 2
+text = "Level 01
+"
+new_scene = ExtResource("2_6rmrs")
+
+[node name="Level02" parent="HBoxContainer/VBoxContainer2" instance=ExtResource("1_aqtb8")]
+layout_mode = 2
+text = "Level 02"
+new_scene = ExtResource("3_j6kru")
+
+[node name="Level03" parent="HBoxContainer/VBoxContainer2" instance=ExtResource("1_aqtb8")]
+layout_mode = 2
+text = "Level 03"
+new_scene = ExtResource("4_fm5t8")
+
+[node name="Level04" parent="HBoxContainer/VBoxContainer2" instance=ExtResource("1_aqtb8")]
+layout_mode = 2
+text = "Level 04"
+new_scene = ExtResource("5_mm826")
+
+[node name="Level05" parent="HBoxContainer/VBoxContainer2" instance=ExtResource("1_aqtb8")]
+layout_mode = 2
+text = "Level 05"
+new_scene = ExtResource("6_obsck")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 4
+theme_override_constants/separation = 25
+
+[node name="Label" type="Label" parent="HBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "Miscellaneous Testing"
+
+[node name="TestScene01" parent="HBoxContainer/VBoxContainer" instance=ExtResource("1_aqtb8")]
+layout_mode = 2
+text = "Test Platforms"
 new_scene = ExtResource("2_6v74s")
 
-[node name="TestScene02" parent="VBoxContainer" instance=ExtResource("1_aqtb8")]
+[node name="TestScene02" parent="HBoxContainer/VBoxContainer" instance=ExtResource("1_aqtb8")]
 layout_mode = 2
 text = "xRae Movement Lab"
 new_scene = ExtResource("3_4wqga")
 
-[node name="TestScene03" parent="VBoxContainer" instance=ExtResource("1_aqtb8")]
+[node name="TestScene03" parent="HBoxContainer/VBoxContainer" instance=ExtResource("1_aqtb8")]
 layout_mode = 2
 text = "Test Scene 03"
 
-[node name="TestScene04" parent="VBoxContainer" instance=ExtResource("1_aqtb8")]
+[node name="TestScene04" parent="HBoxContainer/VBoxContainer" instance=ExtResource("1_aqtb8")]
 layout_mode = 2
 text = "Test Scene 04"
-
-[node name="TestScene05" parent="VBoxContainer" instance=ExtResource("1_aqtb8")]
-layout_mode = 2
-text = "Test Scene 05"
-
-[node name="TestScene06" parent="VBoxContainer" instance=ExtResource("1_aqtb8")]
-layout_mode = 2
-text = "Test Scene 06"

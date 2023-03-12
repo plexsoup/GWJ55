@@ -1,6 +1,7 @@
 extends BaseNPCBehaviour
 
-# note, if you override _process() or _ready(), you'll lose that behaviour from the superclass.
+var leaping : bool = false
+
 
 func _ready():
 	super._ready()
@@ -17,10 +18,12 @@ func _process(delta):
 func update_input_controller():
 	if active and entity != null and is_instance_valid(entity):
 		# once per polling interval
-		if $RayCast3D.is_colliding():
-			#entity.input_controller.move_right = 1.0
+		if $RayCast3D.is_colliding() and not leaping:
 			#entity.input_controller.jump = true
 			#entity.input_controller.actions_just_pressed["jump"] = true
-			entity.input_controller.press("move_right")
-			entity.input_controller.press("jump")
-			
+			entity.input_controller.press_key("move_right")
+			entity.input_controller.press_key("jump")
+		elif leaping:
+			if entity.is_on_ground():
+				entity.input_controller.release_key("move_right")
+				entity.input_controller.release_key("jump")

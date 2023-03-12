@@ -2,10 +2,12 @@ extends CharacterBody3D
 
 
 const SPEED = 5.0
-const JUMP_VELOCITY = 45.5
+const JUMP_VELOCITY = 14.5
 const TURN_SPEED = PI / 16.0
 
 @export var damage : int = 1
+
+
 
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
@@ -39,13 +41,17 @@ func _physics_process(delta):
 
 func move(delta):
 	# Add the gravity.
+	var fake_gravity = gravity
+	if velocity.y < 0 :
+		fake_gravity *= 2.0 # fall faster than you jump
 	if not is_on_floor():
-		velocity.y -= gravity * delta
+		velocity.y -= fake_gravity * delta
 	else: 
 		velocity.y = 0.0
 
+
 	# Handle Jump.
-	if input_controller.is_action_just_pressed("jump") == true:
+	if input_controller.is_action_just_pressed("jump") == true and is_on_floor():
 		print("jumped")
 		velocity.y = JUMP_VELOCITY
 

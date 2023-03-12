@@ -26,6 +26,9 @@ mesh = SubResource("CylinderMesh_frniy")
 transform = Transform3D(-0.988078, -0.153952, 0, 0.153952, -0.988078, 0, 0, 0, 0.486423, -1.01969, 1.07578, 0)
 mesh = SubResource("CapsuleMesh_pw2t4")
 
+[node name="BackAndForth" parent="Behaviours" index="0"]
+active = false
+
 [node name="JumpScare" parent="Behaviours" index="1"]
 active = true
 polling_interval = 50

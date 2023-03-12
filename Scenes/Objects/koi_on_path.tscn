@@ -309,13 +309,12 @@ script = ExtResource("1_naify")
 curve = SubResource("Curve3D_0m5rv")
 
 [node name="PathFollow3D" type="PathFollow3D" parent="Path3D"]
-transform = Transform3D(0.18637, -0.0879741, -0.978492, 0, 0.995941, -0.089544, 0.982319, 0.0166909, 0.185644, 181.038, -117.977, 19.0388)
-progress = 658.62
+transform = Transform3D(-4.37045e-08, 0, 0.999964, 0, 0.999958, 0, -0.999842, 0, -4.37098e-08, 2.08165e-12, 2.08165e-12, 2.08165e-12)
 rotation_mode = 2
 
 [node name="koifish22" type="Node3D" parent="Path3D/PathFollow3D"]
 unique_name_in_owner = true
-transform = Transform3D(2.24681, 0, -3.12212e-13, 0, 12.9891, 0, -2.21386e-14, 0, 12.9892, 0.338341, 0.747254, -21.3758)
+transform = Transform3D(10, 0, 9.85335e-14, 0, 10, 0, -9.85335e-14, 0, 10, 0.338341, 0.747254, -21.3758)
 
 [node name="koifish_armature" type="Node3D" parent="Path3D/PathFollow3D/koifish22"]
 transform = Transform3D(1, 0, 0, 0, 0, -1, 0, 1, 0, -0.13, 0.191365, -0.602572)

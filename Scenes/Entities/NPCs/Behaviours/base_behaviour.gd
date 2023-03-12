@@ -34,6 +34,6 @@ func _process(_delta):
 			update_input_controller()
 
 func update_input_controller():
-	print("Base")
+	print("FYI: Object ", entity.name , " has not overridden the update_input_controller class")
 	# override this in subclasses
 	pass

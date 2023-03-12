@@ -58,3 +58,14 @@ func release_key(actionName):
 	actions_pressed[actionName] = false
 	if "move" in actionName:
 		set(actionName, 0.0)
+
+func release_all_keys():
+	for actionName in actions_pressed.keys():
+		actions_pressed[actionName] = false
+	for actionName in actions_just_pressed.keys():
+		actions_just_pressed[actionName] = false
+	move_left = 0.0
+	move_right = 0.0
+	move_down = 0.0
+	move_up = 0.0
+	

@@ -1,7 +1,6 @@
-[gd_scene load_steps=5 format=3 uid="uid://bnnklp68l0blk"]
+[gd_scene load_steps=4 format=3 uid="uid://bnnklp68l0blk"]
 
 [ext_resource type="MeshLibrary" uid="uid://dmrpx4ab0214p" path="res://Scenes/Maps/GridMap/Mesh.tres" id="2_vqema"]
-[ext_resource type="PackedScene" uid="uid://cmgxa2xc5uuvw" path="res://Scenes/Entities/NPCs/vacuum_cleaner.tscn" id="3_ahnqt"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_x6uxd"]
 size = Vector3(10.3591, 1, 5.40557)
@@ -32,9 +31,3 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0978775, 8.18558, 17.0094)
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(0.685615, 0.69104, -0.228901, -9.06766e-17, 0.31444, 0.949277, 0.727964, -0.650839, 0.215585, 0, 16.3394, 13.2547)
-
-[node name="VacuumCleaner" parent="." instance=ExtResource("3_ahnqt")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.39426, 1.80589, 2.08165e-12)
-
-[node name="VacuumCleaner2" parent="." instance=ExtResource("3_ahnqt")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.08165e-12, 11.8158, 2.08165e-12)

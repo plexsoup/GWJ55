@@ -6,7 +6,7 @@ extends CharacterBody3D
 @export var TURN_SPEED = PI / 16.0
 
 @export var damage : int = 1
-
+@export var flying : bool = false
 
 
 
@@ -40,14 +40,8 @@ func _physics_process(delta):
 
 
 func move(delta):
-	# Add the gravity.
-	var fake_gravity = gravity
-	if velocity.y < 0 :
-		fake_gravity *= 2.0 # fall faster than you jump
-	if not is_on_floor():
-		velocity.y -= fake_gravity * delta
-	else: 
-		velocity.y = 0.0
+	
+	apply_gravity(delta)
 
 
 	# Handle Jump.
@@ -73,6 +67,15 @@ func move(delta):
 
 	move_and_slide()
 
+func apply_gravity(delta):
+	if not flying:
+		var fake_gravity = gravity
+		if velocity.y < 0 :
+			fake_gravity *= 2.0 # fall faster than you jump
+		if not is_on_floor():
+			velocity.y -= fake_gravity * delta
+		else: 
+			velocity.y = 0.0
 
 
 func orient_mesh(_delta):

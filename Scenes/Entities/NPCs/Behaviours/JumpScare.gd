@@ -56,7 +56,8 @@ func die():
 func _on_hurt_box_body_entered(body):
 	if "player" in body.name.to_lower():
 		if body.has_method("_on_hit"):
-			hit.connect(body._on_hit)
+			if not hit.is_connected(body._on_hit):
+				hit.connect(body._on_hit)
 			hit.emit(1)
 			explode_violently()
 

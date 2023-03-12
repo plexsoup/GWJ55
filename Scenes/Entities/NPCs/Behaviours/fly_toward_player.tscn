@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://j57m5cgcl0ws"]
+
+[ext_resource type="Script" path="res://Scenes/Entities/NPCs/Behaviours/fly_toward_player.gd" id="1_4w80d"]
+
+[node name="FlyTowardPlayer" type="Node3D"]
+script = ExtResource("1_4w80d")

@@ -1,7 +1,7 @@
 [gd_scene load_steps=27 format=3 uid="uid://dqfcbqhpxbsj8"]
 
 [ext_resource type="ArrayMesh" uid="uid://bsexfpxknlu2h" path="res://Art/level_pieces/pipe_straight.obj" id="1_i4c1p"]
-[ext_resource type="Shader" uid="uid://cqq8q305sgqdl" path="res://Art/level_pieces/Pipe_Shader.tres" id="2_ieh3h"]
+[ext_resource type="Shader" uid="uid://jqx3qm42bku3" path="res://Art/level_pieces/Pipe_Shader.tres" id="2_ieh3h"]
 [ext_resource type="ArrayMesh" uid="uid://cw0aynujs72mi" path="res://Art/level_pieces/pipe_curved.obj" id="3_yxxbl"]
 [ext_resource type="ArrayMesh" uid="uid://b7q2ey7bt45xr" path="res://Art/level_pieces/pipe_3way.obj" id="4_6b6qk"]
 [ext_resource type="ArrayMesh" uid="uid://ddhu57p8rr1bt" path="res://Art/level_pieces/pipe_4way.obj" id="5_q835y"]

@@ -56,25 +56,17 @@ volumetric_fog_ambient_inject = 0.02
 
 [sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_ffjay"]
 dof_blur_far_enabled = true
-dof_blur_far_distance = 14.25
+dof_blur_far_distance = 16.45
 dof_blur_near_distance = 2.31
 dof_blur_near_transition = 173.48
 dof_blur_amount = 0.09
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_x0y8x"]
 shading_mode = 2
-vertex_color_use_as_albedo = true
 albedo_color = Color(0.105882, 0.47451, 0.278431, 1)
 albedo_texture = ExtResource("1_abb0e")
-metallic = 1.0
-metallic_specular = 1.0
-metallic_texture = ExtResource("1_abb0e")
-metallic_texture_channel = 1
-roughness = 0.1
-rim_enabled = true
 ao_light_affect = 0.13
 subsurf_scatter_strength = 0.04
-detail_enabled = true
 detail_blend_mode = 3
 detail_albedo = ExtResource("1_abb0e")
 
@@ -718,7 +710,7 @@ buffer = PackedFloat32Array(1.18583, 0, -1.27149, -6.19074, -0.0804799, 1.73516,
 render_priority = 0
 shader = ExtResource("17_5ku2d")
 shader_parameter/FloatParameter = 1.0
-shader_parameter/ColorParameter = Color(0.203922, 0.482353, 0.94902, 1)
+shader_parameter/ColorParameter = Color(0.2, 0.505882, 0.580392, 1)
 
 [sub_resource type="QuadMesh" id="QuadMesh_wyfn7"]
 material = SubResource("ShaderMaterial_8ulik")
@@ -756,37 +748,31 @@ shape = SubResource("BoxShape3D_vm1t3")
 
 [node name="Grass" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.998057, 0.0228776, 0.0579565, -0.0256304, 0.998556, 0.0472077, -0.0567928, -0.0486014, 0.997202, -0.649586, 0.239282, -1.50431)
-visible = false
 mesh = SubResource("QuadMesh_pj4vg")
 skeleton = NodePath("")
 
 [node name="Grass3" type="MeshInstance3D" parent="."]
-transform = Transform3D(1.81201, 0.0415352, 0.105222, -0.046533, 1.81292, 0.0857074, -0.103109, -0.0882377, 1.81046, -6.99655, 0.283567, -3.18912)
-visible = false
+transform = Transform3D(1.81201, 0.0415352, 0.105222, -0.046533, 1.81292, 0.0857074, -0.103109, -0.0882377, 1.81046, -6.9043, 0.35871, -1.60181)
 mesh = SubResource("QuadMesh_pj4vg")
 skeleton = NodePath("")
 
 [node name="Grass5" type="MeshInstance3D" parent="."]
-transform = Transform3D(3.44559, 0.0789805, 0.200083, -0.0884839, 3.44732, 0.162975, -0.196065, -0.167787, 3.44265, -6.7225, 0.479079, 1.42032)
-visible = false
+transform = Transform3D(5.98803, 0.137259, 0.347721, -0.153775, 5.99103, 0.283231, -0.340738, -0.291594, 5.98292, -12.5551, 1.46809, -1.05349)
 mesh = SubResource("QuadMesh_pj4vg")
 skeleton = NodePath("")
 
 [node name="Grass6" type="MeshInstance3D" parent="."]
-transform = Transform3D(3.44559, 0.0789805, 0.200083, -0.0884839, 3.44732, 0.162975, -0.196065, -0.167787, 3.44265, 4.54117, 1.03849, 1.83076)
-visible = false
+transform = Transform3D(3.44559, 0.0789805, 0.200083, -0.0884839, 3.44732, 0.162975, -0.196065, -0.167787, 3.44265, 4.23056, 0.850201, -2.18401)
 mesh = SubResource("QuadMesh_pj4vg")
 skeleton = NodePath("")
 
 [node name="Grass4" type="MeshInstance3D" parent="."]
-transform = Transform3D(1.81201, 0.0415352, 0.105222, -0.046533, 1.81292, 0.0857074, -0.103109, -0.0882377, 1.81046, 6.73656, 0.283567, -3.18912)
-visible = false
+transform = Transform3D(3.12671, 0.0685268, 0.108118, -0.0802949, 2.99104, 0.0880666, -0.177919, -0.145579, 1.86029, 6.43724, 0.514336, -2.26434)
 mesh = SubResource("QuadMesh_pj4vg")
 skeleton = NodePath("")
 
 [node name="Grass2" type="MeshInstance3D" parent="."]
-transform = Transform3D(3.35512, 0.0769065, 0.19483, -0.0861605, 3.3568, 0.158696, -0.190918, -0.163381, 3.35225, 5.97646, 0.665281, -3.62536)
-visible = false
+transform = Transform3D(4.14042, 0.0949072, 0.19483, -0.106327, 4.14249, 0.158696, -0.235604, -0.201622, 3.35225, 8.93869, 0.660145, -2.3365)
 mesh = SubResource("QuadMesh_pj4vg")
 skeleton = NodePath("")
 
@@ -1131,7 +1117,6 @@ mesh = SubResource("RibbonTrailMesh_lcwch")
 
 [node name="MultiMeshInstance3D2" type="MultiMeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.274102, 0.224286, 12.507)
-visible = false
 multimesh = SubResource("MultiMesh_ya8mn")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]

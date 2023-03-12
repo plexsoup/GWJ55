@@ -66,10 +66,11 @@ func move(delta):
 		if flying:
 			velocity.y = direction.y * SPEED
 	else:
-		velocity.x = move_toward(velocity.x, 0, SPEED)
-		velocity.z = move_toward(velocity.z, 0, SPEED)
-		if flying:
-			velocity.y = move_toward(velocity.y, 0, SPEED)
+		pass
+#		velocity.x = move_toward(velocity.x, 0, SPEED)
+#		velocity.z = move_toward(velocity.z, 0, SPEED)
+#		if flying:
+#			velocity.y = move_toward(velocity.y, 0, SPEED)
 
 	move_and_slide()
 

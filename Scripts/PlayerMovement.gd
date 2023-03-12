@@ -118,7 +118,7 @@ func handle_jump():
 func move():
 	var fall_modifier = clamp(abs(velocity.z), 1, 2)
 	if inverted_x:
-		input_dir = Input.get_axis("move_right", "move_left")
+		input_dir = Input.get_axis("move_left", "move_right")
 	else:
 		input_dir = Input.get_axis("move_left", "move_right")
 	var direction = (transform.basis * Vector3(input_dir, 0, 0)).normalized()

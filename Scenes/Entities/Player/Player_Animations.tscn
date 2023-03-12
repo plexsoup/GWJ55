@@ -290,4 +290,4 @@ animations = [{
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.92541, 0)
 sprite_frames = SubResource("SpriteFrames_xbtmm")
 animation = &"Run"
-frame_progress = 0.761337
+frame_progress = 0.899065

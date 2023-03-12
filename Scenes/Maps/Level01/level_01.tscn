@@ -2,10 +2,10 @@
 
 [ext_resource type="MeshLibrary" uid="uid://dmrpx4ab0214p" path="res://Scenes/Maps/GridMap/Mesh.tres" id="1_gbexs"]
 [ext_resource type="Script" path="res://Scenes/Maps/base_level.gd" id="1_n8fyu"]
-[ext_resource type="PackedScene" uid="uid://cmgxa2xc5uuvw" path="res://Scenes/Entities/NPCs/vacuum_cleaner.tscn" id="2_kg6v0"]
+[ext_resource type="PackedScene" path="res://Scenes/Entities/NPCs/vacuum_cleaner.tscn" id="2_kg6v0"]
 [ext_resource type="PackedScene" uid="uid://326lsgrnmjo8" path="res://Scenes/Entities/Player/player_controller_xrae.tscn" id="3_2vdfa"]
-[ext_resource type="PackedScene" uid="uid://cmd16bdree5a7" path="res://Scenes/Objects/fall_reset_volume.tscn" id="5_3x88f"]
-[ext_resource type="PackedScene" uid="uid://eb3wwyaluatx" path="res://Scenes/Objects/trigger_volume_win.tscn" id="6_umfkp"]
+[ext_resource type="PackedScene" path="res://Scenes/Objects/fall_reset_volume.tscn" id="5_3x88f"]
+[ext_resource type="PackedScene" path="res://Scenes/Objects/trigger_volume_win.tscn" id="6_umfkp"]
 
 [node name="Level01" type="Node3D"]
 script = ExtResource("1_n8fyu")

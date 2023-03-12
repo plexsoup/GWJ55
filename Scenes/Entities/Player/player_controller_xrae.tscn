@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://Scripts/PlayerMovement.gd" id="1_ed03t"]
 [ext_resource type="Texture2D" uid="uid://b7joq1f8eak7h" path="res://icon.svg" id="2_o7r7i"]
-[ext_resource type="PackedScene" uid="uid://dh4qpayo68p6b" path="res://GUI/player_hud.tscn" id="3_oumx6"]
+[ext_resource type="PackedScene" path="res://GUI/player_hud.tscn" id="3_oumx6"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_gajrw"]
 

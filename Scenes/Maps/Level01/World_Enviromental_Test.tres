@@ -1,0 +1,32 @@
+[gd_resource type="VisualShader" load_steps=3 format=3 uid="uid://b6tvmi84swcvw"]
+
+[ext_resource type="Texture2D" uid="uid://dpcrrd3eamfyo" path="res://Art/Foliage/Grass.png" id="1_7edhi"]
+
+[sub_resource type="VisualShaderNodeTexture" id="VisualShaderNodeTexture_jbnv3"]
+expanded_output_ports = [0]
+texture = ExtResource("1_7edhi")
+
+[resource]
+code = "shader_type spatial;
+uniform sampler2D tex_frg_2;
+
+
+
+void fragment() {
+// Texture2D:2
+	vec4 n_out2p0 = texture(tex_frg_2, UV);
+	float n_out2p4 = n_out2p0.a;
+
+
+// Output:0
+	ALBEDO = vec3(n_out2p0.xyz);
+	ALPHA = n_out2p4;
+
+
+}
+"
+graph_offset = Vector2(-279.78, 101.965)
+nodes/fragment/0/position = Vector2(420, 140)
+nodes/fragment/2/node = SubResource("VisualShaderNodeTexture_jbnv3")
+nodes/fragment/2/position = Vector2(-20, 120)
+nodes/fragment/connections = PackedInt32Array(2, 4, 0, 1, 2, 0, 0, 0)

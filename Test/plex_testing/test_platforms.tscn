@@ -59,4 +59,4 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.08165e-12, 11.791, 2.08165e
 transform = Transform3D(1, 0, 0, 0, 0.997868, 0.0652638, 0, -0.0652638, 0.997868, -14.2443, 4.24943, 2.08165e-12)
 
 [node name="Eagle" parent="NPCs" instance=ExtResource("7_x8q4w")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.08165e-12, 6.92191, 2.08165e-12)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.08165e-12, 15.9891, 2.08165e-12)

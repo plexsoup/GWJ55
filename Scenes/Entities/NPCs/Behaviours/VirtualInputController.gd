@@ -69,3 +69,22 @@ func release_all_keys():
 	move_down = 0.0
 	move_up = 0.0
 	
+func press_stick_toward(localPosition):
+	var dead_zone = 0.01
+	localPosition = localPosition.normalized()
+
+	release_all_keys()
+
+	if localPosition.x < -dead_zone:
+		move_right = localPosition.x
+		actions_pressed["move_left"] = true
+	elif localPosition.x > dead_zone:
+		move_left = localPosition.x
+		actions_pressed["move_right"] = true
+	if localPosition.y <- dead_zone:
+		move_down = localPosition.y
+		actions_pressed["move_down"] = true
+	elif localPosition.y > dead_zone:
+		move_up = localPosition.y
+		actions_pressed["move_up"] = true
+		

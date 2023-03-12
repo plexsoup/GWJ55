@@ -1,7 +1,8 @@
-[gd_scene load_steps=12 format=3 uid="uid://d1glm81lxipwi"]
+[gd_scene load_steps=13 format=3 uid="uid://d1glm81lxipwi"]
 
 [ext_resource type="PackedScene" uid="uid://bpr26601pqhqe" path="res://Scenes/Entities/NPCs/npc.tscn" id="1_k1xww"]
 [ext_resource type="PackedScene" uid="uid://j57m5cgcl0ws" path="res://Scenes/Entities/NPCs/Behaviours/fly_toward_player.tscn" id="2_b0f3y"]
+[ext_resource type="PackedScene" uid="uid://bww0cc21sdxai" path="res://Scenes/Entities/NPCs/Behaviours/follow_path.tscn" id="3_fv0dk"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_38law"]
 size = Vector3(5.73996, 1, 3.38872)
@@ -146,6 +147,9 @@ active = false
 visible = false
 
 [node name="FlyTowardPlayer" parent="Behaviours" index="2" instance=ExtResource("2_b0f3y")]
+active = true
+
+[node name="FollowPath" parent="Behaviours" index="3" instance=ExtResource("3_fv0dk")]
 active = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." index="4"]

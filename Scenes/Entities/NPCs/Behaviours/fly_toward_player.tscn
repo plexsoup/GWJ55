@@ -4,3 +4,9 @@
 
 [node name="FlyTowardPlayer" type="Node3D"]
 script = ExtResource("1_4w80d")
+
+[node name="RayCast3D" type="RayCast3D" parent="."]
+target_position = Vector3(2.08165e-12, 2.08165e-12, -8)
+collision_mask = 5
+debug_shape_custom_color = Color(0.623529, 0, 0, 1)
+debug_shape_thickness = 5

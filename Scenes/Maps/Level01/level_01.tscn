@@ -3,12 +3,12 @@
 [ext_resource type="MeshLibrary" uid="uid://dmrpx4ab0214p" path="res://Scenes/Maps/GridMap/Mesh.tres" id="1_gbexs"]
 [ext_resource type="Script" path="res://Scenes/Maps/base_level.gd" id="1_n8fyu"]
 [ext_resource type="PackedScene" uid="uid://cm2o1lkpf6s0w" path="res://Scenes/Entities/NPCs/vacuum_cleaner.tscn" id="2_kg6v0"]
-[ext_resource type="PackedScene" uid="uid://de4flp4q72qe5" path="res://Scenes/Entities/Player/player_controller_xrae.tscn" id="3_2vdfa"]
 [ext_resource type="PackedScene" uid="uid://crvvpifd7a146" path="res://Scenes/Entities/NPCs/pressure_plate.tscn" id="3_3bafh"]
 [ext_resource type="PackedScene" uid="uid://ted21c8mecho" path="res://Scenes/Entities/NPCs/switch.tscn" id="4_bysw5"]
 [ext_resource type="PackedScene" path="res://Scenes/Objects/fall_reset_volume.tscn" id="5_3x88f"]
 [ext_resource type="PackedScene" path="res://Scenes/Objects/trigger_volume_win.tscn" id="6_umfkp"]
-[ext_resource type="PackedScene" uid="uid://cbs51rpoxintc" path="res://Scenes/Entities/NPCs/hair_dryer.tscn" id="7_xr8v7"]
+[ext_resource type="PackedScene" uid="uid://b7i0k6nxh67dt" path="res://Scenes/Entities/NPCs/hair_dryer.tscn" id="7_xr8v7"]
+[ext_resource type="PackedScene" uid="uid://cey6vaorec8ca" path="res://Scenes/Entities/Player/player_controller.tscn" id="9_5f8ps"]
 
 [node name="Level01" type="Node3D"]
 script = ExtResource("1_n8fyu")
@@ -51,10 +51,6 @@ transform = Transform3D(1, 0, 0, 0, 0.5, 0, 0, 0, 1, 16.4439, 8.057, 0.037962)
 [node name="switch" parent="NPCs" instance=ExtResource("4_bysw5")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.99696, 10.1651, -1.72138)
 
-[node name="player_controller_xrae" parent="." instance=ExtResource("3_2vdfa")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.6121, 11.5129, 0.178238)
-inverted_x = false
-
 [node name="FallResetVolume" parent="." instance=ExtResource("5_3x88f")]
 
 [node name="TriggerVolumeWin" parent="." instance=ExtResource("6_umfkp")]
@@ -73,3 +69,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.1093, 12.7239, 2.08165e-1
 collision_layer = 2
 collision_mask = 5
 axis_lock_linear_y = false
+
+[node name="player_controller_xrae" parent="." instance=ExtResource("9_5f8ps")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.1021, 10.4673, 0)
+inverted_x = false

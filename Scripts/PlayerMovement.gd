@@ -11,8 +11,8 @@ extends CharacterBody3D
 @onready var coyote_time = $CoyoteTime
 @onready var jump_buffer = $JumpBuffer
 @onready var animated_sprite = $AnimatedSprite3D
-@onready var dash_timer = $DashTimer2
-@onready var dash_cooldown = $DashCooldown2
+@onready var dash_timer = $DashTimer
+@onready var dash_cooldown = $DashCooldown
 
 const SPEED = 10.0
 var buffered_jump = false

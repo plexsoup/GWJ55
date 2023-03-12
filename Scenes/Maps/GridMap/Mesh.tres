@@ -1,4 +1,4 @@
-[gd_resource type="MeshLibrary" load_steps=5 format=3 uid="uid://dmrpx4ab0214p"]
+[gd_resource type="MeshLibrary" load_steps=7 format=3 uid="uid://dmrpx4ab0214p"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_qx454"]
 
@@ -17,6 +17,13 @@ image = SubResource("Image_cgh53")
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_djyao"]
 data = PackedVector3Array(-0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, -0.5)
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fgwx5"]
+albedo_color = Color(0.203922, 0.192157, 1, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_2i65b"]
+material = SubResource("StandardMaterial3D_fgwx5")
+size = Vector3(3, 0.5, 1)
+
 [resource]
 item/0/name = "MeshInstance3D"
 item/0/mesh = SubResource("BoxMesh_qx454")
@@ -25,3 +32,9 @@ item/0/shapes = [SubResource("ConcavePolygonShape3D_djyao"), Transform3D(2, 0, 0
 item/0/navigation_mesh_transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 item/0/navigation_layers = 1
 item/0/preview = SubResource("ImageTexture_0ajqn")
+item/1/name = "DeadlyTile"
+item/1/mesh = SubResource("BoxMesh_2i65b")
+item/1/mesh_transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+item/1/shapes = []
+item/1/navigation_mesh_transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+item/1/navigation_layers = 1

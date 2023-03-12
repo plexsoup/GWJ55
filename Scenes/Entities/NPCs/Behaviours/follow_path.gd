@@ -26,7 +26,7 @@ func init(entityObj : CharacterBody3D):
 			path = get_node(path_to_follow)
 
 		else:
-			printerr(self.name, " needs a path_to_follow. Making one from template")
+			#printerr(self.name, " needs a path_to_follow. Making one from template")
 			make_a_path()
 		
 		setup_path_follower()

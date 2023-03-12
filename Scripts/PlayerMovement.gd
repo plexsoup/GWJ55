@@ -45,11 +45,12 @@ func handle_dash():
 		if animated_sprite.flip_h:
 			direction = 1
 		velocity.x = direction * SPEED * 5
+		velocity.y = 0
 		dashing = true
 		dash_timer.start()
 		dash_usable = false
 	if dash_timer.is_stopped() and dashing:
-		velocity.x = 0
+		velocity.x = velocity.x/5
 		dash_cooldown.start()
 		dashing = false
 		on_dash_cooldown = true

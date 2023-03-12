@@ -30,7 +30,7 @@ wait_time = 0.1
 one_shot = true
 
 [node name="DashTimer" type="Timer" parent="."]
-wait_time = 0.1
+wait_time = 0.08
 one_shot = true
 
 [node name="DashCooldown" type="Timer" parent="."]

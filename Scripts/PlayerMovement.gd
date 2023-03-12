@@ -87,7 +87,7 @@ func animate():
 
 func set_gravity_states(delta):
 	was_on_floor = is_on_floor()
-	if not is_on_floor() and !dashing:
+	if not is_on_floor() and !dashing and !on_dash_cooldown:
 		velocity.y += get_gravity() * delta
 
 func update_gravity_states():
@@ -116,15 +116,16 @@ func handle_jump():
 		buffered_jump = false
 
 func move():
+	var fall_modifier = clamp(abs(velocity.z), 1, 2)
 	if inverted_x:
 		input_dir = Input.get_axis("move_right", "move_left")
 	else:
 		input_dir = Input.get_axis("move_left", "move_right")
 	var direction = (transform.basis * Vector3(input_dir, 0, 0)).normalized()
-	if direction:
-		velocity.x = direction.x * SPEED
+	if input_dir != 0:
+		velocity.x = direction.x * SPEED * fall_modifier
 	else:
-		velocity.x = move_toward(velocity.x, 0, SPEED)
+		velocity.x = move_toward(velocity.x, 0, SPEED/5 * fall_modifier)
 
 func get_gravity() -> float:
 	return jump_gravity if velocity.y > 0.0 else fall_gravity

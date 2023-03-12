@@ -13,7 +13,15 @@ var actions_just_pressed = {
 	"move_left":false,
 	"move_right":false,
 	"move_up":false,
-	"move_down":false
+	"move_down":false,
+}
+
+var actions_pressed = {
+	"jump":false,
+	"move_left":false,
+	"move_right":false,
+	"move_up":false,
+	"move_down":false,
 }
 
 # Called when the node enters the scene tree for the first time.
@@ -40,6 +48,13 @@ func is_action_just_pressed(actionName):
 		return false
 	
 	
-func press(actionName):
+func press_key(actionName):
+	actions_pressed[actionName] = true
 	actions_just_pressed[actionName] = true
+	if "move" in actionName:
+		set(actionName, 1.0)
 	
+func release_key(actionName):
+	actions_pressed[actionName] = false
+	if "move" in actionName:
+		set(actionName, 0.0)

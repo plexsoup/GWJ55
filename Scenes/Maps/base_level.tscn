@@ -1,0 +1,41 @@
+[gd_scene load_steps=6 format=3 uid="uid://cjiok7gin5bk5"]
+
+[ext_resource type="Script" path="res://Scenes/Maps/base_level.gd" id="1_6w6t1"]
+[ext_resource type="PackedScene" uid="uid://cmd16bdree5a7" path="res://Scenes/Objects/fall_reset_volume.tscn" id="6_da3v7"]
+[ext_resource type="PackedScene" uid="uid://eb3wwyaluatx" path="res://Scenes/Objects/trigger_volume_win.tscn" id="7_ed1vt"]
+[ext_resource type="MeshLibrary" uid="uid://dmrpx4ab0214p" path="res://Scenes/Maps/GridMap/Mesh.tres" id="8_3qldt"]
+[ext_resource type="PackedScene" uid="uid://cey6vaorec8ca" path="res://Scenes/Entities/Player/player_controller.tscn" id="10_hwjpx"]
+
+[node name="Level01" type="Node3D"]
+script = ExtResource("1_6w6t1")
+
+[node name="PlatformGridMap-placeholder" type="GridMap" parent="."]
+transform = Transform3D(1, 0, 0, 0, -1.31134e-07, -1, 0, 3, -4.37114e-08, 0, 0, -3)
+mesh_library = ExtResource("8_3qldt")
+data = {
+"cells": PackedInt32Array(65530, 1, 0, 65531, 1, 0, 65532, 1, 0, 65533, 1, 0, 65534, 1, 0, 65535, 1, 0, 0, 1, 0, 1, 1, 0, 2, 1, 0, 3, 1, 0, 5, 65532, 0, 6, 65532, 0, 7, 65532, 0, 8, 65532, 0, 1, 65532, 0, 0, 65532, 0, 65535, 65532, 0, 65534, 65532, 0, 65532, 65526, 0, 65533, 65526, 0, 65534, 65526, 0, 65535, 65526, 0, 0, 65526, 0, 1, 65526, 0, 2, 65526, 0, 3, 65526, 0, 7, 65528, 0, 8, 65528, 0, 9, 65528, 0, 10, 65528, 0, 65530, 65530, 0, 65529, 65530, 0, 65528, 65530, 0, 65527, 65530, 0, 65526, 65530, 0, 65525, 65530, 0, 65524, 65530, 0, 65523, 65530, 0, 65522, 65530, 0, 10, 0, 0, 11, 0, 0, 12, 0, 0, 13, 65521, 0, 12, 65521, 0, 11, 65521, 0, 10, 65521, 0, 9, 65521, 0, 8, 65521, 0, 7, 65521, 0, 6, 65521, 0, 5, 65521, 0, 4, 65521, 0, 3, 65521, 0, 65530, 65534, 0, 65529, 65534, 0, 65528, 65534, 0, 65527, 65534, 0, 65526, 65534, 0, 65532, 65527, 0, 65531, 65527, 0, 4, 65522, 0, 4, 65523, 0, 3, 65523, 0, 2, 65523, 0, 1, 65523, 0)
+}
+
+[node name="player" parent="." instance=ExtResource("10_hwjpx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.1021, 10.4673, 0)
+inverted_x = false
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 11.0568, 29.0487)
+
+[node name="NPCs" type="Node3D" parent="."]
+
+[node name="EnvironmentalHazards" type="Node3D" parent="."]
+
+[node name="MovingPlatforms" type="Node3D" parent="."]
+
+[node name="Lighting" type="Node3D" parent="."]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="Lighting"]
+transform = Transform3D(0.822889, 0.469704, -0.319738, 0, 0.562718, 0.826649, 0.568203, -0.68024, 0.463054, 0, 39.1774, 14.9607)
+
+[node name="TriggerVolumeWin" parent="." instance=ExtResource("7_ed1vt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19.2879, 13.0145, 0)
+
+[node name="FallResetVolume" parent="." instance=ExtResource("6_da3v7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -28.167, 0)

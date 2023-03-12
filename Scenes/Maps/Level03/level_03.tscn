@@ -1,0 +1,21 @@
+[gd_scene load_steps=2 format=3 uid="uid://dhdyxpw0w0ibv"]
+
+[ext_resource type="PackedScene" uid="uid://cjiok7gin5bk5" path="res://Scenes/Maps/base_level.tscn" id="1_7s8hn"]
+
+[node name="Level03" instance=ExtResource("1_7s8hn")]
+
+[node name="PlatformGridMap-placeholder" parent="." index="0"]
+data = {
+"cells": PackedInt32Array(65530, 1, 0, 65531, 1, 0, 65532, 1, 0, 65533, 1, 0, 65534, 1, 0, 65535, 1, 0, 0, 1, 0, 1, 1, 0, 2, 1, 0, 3, 1, 0, 10, 0, 0, 11, 0, 0, 12, 0, 0, 65530, 65534, 0, 65529, 65534, 0, 65528, 65534, 0, 65527, 65534, 0, 65526, 65534, 0, 65527, 65530, 0, 65528, 65530, 0, 65529, 65530, 0, 65531, 65534, 0, 65532, 65534, 0, 65524, 65532, 0, 65523, 65532, 0, 65522, 65532, 0)
+}
+
+[node name="player" parent="." index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.29572, 10.4673, 0)
+
+[node name="TriggerVolumeWin" parent="." index="7"]
+next_scene_path = "res://Scenes/Maps/Level04/level_04.tscn"
+
+[node name="Label3D" type="Label3D" parent="." index="8"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19.8606, 24.1561, 0)
+text = "3"
+font_size = 512

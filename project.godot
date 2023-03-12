@@ -99,6 +99,10 @@ zoom_in={
 3d_physics/layer_5="PlayerProjectiles"
 3d_physics/layer_6="EnvironmentHazards"
 
+[physics]
+
+3d/default_gravity=20.0
+
 [rendering]
 
 renderer/rendering_method.mobile="gl_compatibility"

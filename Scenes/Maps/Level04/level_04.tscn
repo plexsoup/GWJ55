@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=3 uid="uid://bla22wxqy284c"]
+
+[ext_resource type="PackedScene" uid="uid://cjiok7gin5bk5" path="res://Scenes/Maps/base_level.tscn" id="1_txbkn"]
+
+[node name="Level04" instance=ExtResource("1_txbkn")]
+
+[node name="TriggerVolumeWin" parent="." index="7"]
+next_scene_path = "res://Scenes/Maps/Level05/level_05.tscn"
+
+[node name="Label3D" type="Label3D" parent="." index="8"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19.8606, 29.1417, 0)
+text = "4"
+font_size = 512

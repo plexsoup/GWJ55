@@ -12,12 +12,12 @@ func _process(delta):
 
 func update_input_controller():
 	if current_direction.x < 0 and $RayCastLeft.is_colliding():
-		entity.input_controller.move_left = 1.0
-		entity.input_controller.move_right = 0.0
+		entity.input_controller.press_key("move_left")
+		entity.input_controller.release_key("move_right")
 		
 	elif current_direction.x > 0 and $RayCastRight.is_colliding():
-		entity.input_controller.move_right = 1.0
-		entity.input_controller.move_left = 0.0
+		entity.input_controller.press_key("move_right")
+		entity.input_controller.release_key("move_left")
 		
 	else: # turn around, your raycast is whiffing air
 		current_direction *= -1.0

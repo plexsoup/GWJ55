@@ -1,16 +1,19 @@
-[gd_scene load_steps=61 format=3 uid="uid://byvg06a3l0cpj"]
+[gd_scene load_steps=71 format=3 uid="uid://byvg06a3l0cpj"]
 
 [ext_resource type="Texture2D" uid="uid://cmcj1tm1dhmwn" path="res://Art/Cat_Fall_Windup.png" id="2_cjgrc"]
 [ext_resource type="Script" path="res://Scripts/PlayerMovement.gd" id="2_vqwq8"]
 [ext_resource type="Texture2D" uid="uid://458wfcstwugh" path="res://Art/Cat_Idle.png" id="3_ltnvv"]
 [ext_resource type="Texture2D" uid="uid://5awgyxymv41t" path="res://Art/Cat_Run_Windup.png" id="4_6duiq"]
+[ext_resource type="Texture2D" uid="uid://cdetqxlx4qwx4" path="res://Art/Cat_land_Windup.png" id="6_5tvqo"]
 [ext_resource type="Texture2D" uid="uid://dsjvq50qcvct0" path="res://Art/Cat_push.png" id="6_7e35y"]
 [ext_resource type="Texture2D" uid="uid://5ovbk08gixfi" path="res://Art/Cat_Run.png" id="7_fhem4"]
 [ext_resource type="PackedScene" path="res://GUI/player_hud.tscn" id="8_3hkgl"]
 [ext_resource type="Texture2D" uid="uid://dhqiombkor0j" path="res://Art/Foliage/Bush_1.png" id="8_ysrpf"]
 [ext_resource type="Texture2D" uid="uid://dpcrrd3eamfyo" path="res://Art/Foliage/Grass.png" id="9_j8fnp"]
+[ext_resource type="MeshLibrary" uid="uid://2b1l75l303ti" path="res://Art/level_pieces/Level_Mesh_LibaryNEW.tres" id="10_44f4d"]
 [ext_resource type="Texture2D" uid="uid://rcak68s3q0cu" path="res://Art/objects/koifish.png" id="10_fxtxf"]
 [ext_resource type="MeshLibrary" uid="uid://dmrpx4ab0214p" path="res://Scenes/Maps/GridMap/Mesh.tres" id="11_lme0n"]
+[ext_resource type="AudioStream" uid="uid://duw2alt76ngnd" path="res://Music/Title_Theme_2_Test.mp3" id="13_um4nw"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_bur4h"]
 sky_top_color = Color(0.74902, 0.27451, 0.662745, 1)
@@ -22,6 +25,7 @@ sky_material = SubResource("ProceduralSkyMaterial_bur4h")
 
 [sub_resource type="Environment" id="Environment_eytns"]
 background_mode = 2
+background_energy_multiplier = 1.17
 sky = SubResource("Sky_cgvj2")
 ambient_light_source = 3
 ambient_light_color = Color(0.643137, 0.384314, 1, 1)
@@ -39,17 +43,20 @@ ssil_enabled = true
 ssil_intensity = 1.51
 sdfgi_enabled = true
 glow_enabled = true
+fog_light_color = Color(0.729412, 0.470588, 0.470588, 1)
 volumetric_fog_enabled = true
 volumetric_fog_density = 0.021
 volumetric_fog_albedo = Color(0.631373, 0.482353, 0.435294, 1)
 volumetric_fog_emission = Color(0.780392, 0.478431, 0.486275, 1)
+volumetric_fog_detail_spread = 1.51572
+volumetric_fog_ambient_inject = 0.02
 
 [sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_ffjay"]
 dof_blur_far_enabled = true
 dof_blur_far_distance = 14.25
 dof_blur_near_distance = 2.31
 dof_blur_near_transition = 173.48
-dof_blur_amount = 0.05
+dof_blur_amount = 0.09
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_x0y8x"]
 albedo_color = Color(0.105882, 0.47451, 0.278431, 1)
@@ -93,13 +100,13 @@ region = Rect2(0, 0, 512, 512)
 atlas = ExtResource("3_ltnvv")
 region = Rect2(512, 0, 512, 512)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_k6vkq"]
-atlas = ExtResource("3_ltnvv")
-region = Rect2(1024, 0, 512, 512)
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_2fdli"]
 atlas = ExtResource("3_ltnvv")
 region = Rect2(1536, 0, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k6vkq"]
+atlas = ExtResource("3_ltnvv")
+region = Rect2(1024, 0, 512, 512)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_nsug2"]
 atlas = ExtResource("7_fhem4")
@@ -112,6 +119,34 @@ region = Rect2(2560, 0, 512, 512)
 [sub_resource type="AtlasTexture" id="AtlasTexture_3n2f2"]
 atlas = ExtResource("7_fhem4")
 region = Rect2(1536, 0, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0lvqt"]
+atlas = ExtResource("6_5tvqo")
+region = Rect2(0, 0, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0f3lc"]
+atlas = ExtResource("6_5tvqo")
+region = Rect2(512, 0, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qcbnw"]
+atlas = ExtResource("6_5tvqo")
+region = Rect2(1024, 0, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a362v"]
+atlas = ExtResource("6_5tvqo")
+region = Rect2(1536, 0, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k7brr"]
+atlas = ExtResource("6_5tvqo")
+region = Rect2(2048, 0, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jt2cu"]
+atlas = ExtResource("6_5tvqo")
+region = Rect2(2560, 0, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mrask"]
+atlas = ExtResource("6_5tvqo")
+region = Rect2(3072, 0, 512, 512)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ifpsn"]
 atlas = ExtResource("6_7e35y")
@@ -198,24 +233,24 @@ animations = [{
 "speed": 5.0
 }, {
 "frames": [{
-"duration": 1.0,
+"duration": 3.0,
 "texture": SubResource("AtlasTexture_tnl03")
 }, {
-"duration": 1.0,
+"duration": 3.0,
 "texture": SubResource("AtlasTexture_ohdbk")
 }, {
-"duration": 2.0,
-"texture": SubResource("AtlasTexture_k6vkq")
-}, {
-"duration": 1.0,
+"duration": 3.0,
 "texture": SubResource("AtlasTexture_2fdli")
 }, {
-"duration": 1.0,
+"duration": 4.0,
+"texture": SubResource("AtlasTexture_k6vkq")
+}, {
+"duration": 3.0,
 "texture": SubResource("AtlasTexture_ohdbk")
 }],
 "loop": true,
 "name": &"Idle",
-"speed": 5.0
+"speed": 8.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -229,6 +264,32 @@ animations = [{
 }],
 "loop": true,
 "name": &"Jump_Start",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0lvqt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0f3lc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qcbnw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a362v")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k7brr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jt2cu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mrask")
+}],
+"loop": true,
+"name": &"Landing",
 "speed": 5.0
 }, {
 "frames": [{
@@ -249,7 +310,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"Push",
-"speed": 5.0
+"speed": 2.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -292,9 +353,8 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_gajrw"]
-radius = 1.2
-height = 2.4
+[sub_resource type="BoxShape3D" id="BoxShape3D_d2crk"]
+size = Vector3(4.9314, 3.57918, 0.608661)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bp0br"]
 albedo_texture = ExtResource("10_fxtxf")
@@ -636,15 +696,26 @@ mesh = SubResource("BoxMesh_3gnd6")
 [node name="StaticBody3D" type="StaticBody3D" parent="Ground"]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Ground/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.437894, 0)
 shape = SubResource("BoxShape3D_vm1t3")
 
 [node name="Grass" type="MeshInstance3D" parent="."]
-transform = Transform3D(0.998057, 0.0228776, 0.0579565, -0.0256304, 0.998556, 0.0472077, -0.0567928, -0.0486014, 0.997202, -0.595217, 0.283567, -0.568839)
+transform = Transform3D(0.998057, 0.0228776, 0.0579565, -0.0256304, 0.998556, 0.0472077, -0.0567928, -0.0486014, 0.997202, -0.649586, 0.239282, -1.50431)
 mesh = SubResource("QuadMesh_pj4vg")
 skeleton = NodePath("")
 
 [node name="Grass3" type="MeshInstance3D" parent="."]
 transform = Transform3D(1.81201, 0.0415352, 0.105222, -0.046533, 1.81292, 0.0857074, -0.103109, -0.0882377, 1.81046, -6.99655, 0.283567, -3.18912)
+mesh = SubResource("QuadMesh_pj4vg")
+skeleton = NodePath("")
+
+[node name="Grass5" type="MeshInstance3D" parent="."]
+transform = Transform3D(3.44559, 0.0789805, 0.200083, -0.0884839, 3.44732, 0.162975, -0.196065, -0.167787, 3.44265, -6.7225, 0.479079, 1.42032)
+mesh = SubResource("QuadMesh_pj4vg")
+skeleton = NodePath("")
+
+[node name="Grass6" type="MeshInstance3D" parent="."]
+transform = Transform3D(3.44559, 0.0789805, 0.200083, -0.0884839, 3.44732, 0.162975, -0.196065, -0.167787, 3.44265, 4.54117, 1.03849, 1.83076)
 mesh = SubResource("QuadMesh_pj4vg")
 skeleton = NodePath("")
 
@@ -659,8 +730,7 @@ mesh = SubResource("QuadMesh_pj4vg")
 skeleton = NodePath("")
 
 [node name="player_controller_xrae" type="CharacterBody3D" parent="."]
-process_priority = 1
-transform = Transform3D(0.417611, 0, 0, 0, 0.417611, 0, 0, 0, 0.417611, 0, -0.12163, 0)
+transform = Transform3D(0.417611, 0, 0, 0, 0.417611, 0, 0, 0, 0.417611, 0, 4.64451, -0.576354)
 axis_lock_linear_z = true
 script = ExtResource("2_vqwq8")
 jump_height = 3.0
@@ -670,6 +740,7 @@ inverted_x = false
 
 [node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="player_controller_xrae"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.22762, 0)
+gi_lightmap_scale = 1
 shaded = true
 alpha_cut = 2
 alpha_antialiasing_mode = 2
@@ -677,11 +748,12 @@ alpha_antialiasing_edge = 0.09
 render_priority = 1
 sprite_frames = SubResource("SpriteFrames_wrs1q")
 animation = &"Idle"
+frame_progress = 0.383787
 speed_scale = 2.0
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="player_controller_xrae"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.15097, 0)
-shape = SubResource("CapsuleShape3D_gajrw")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0630292, 1.87102, 0.0499761)
+shape = SubResource("BoxShape3D_d2crk")
 
 [node name="CoyoteTime" type="Timer" parent="player_controller_xrae"]
 wait_time = 0.1
@@ -701,14 +773,21 @@ one_shot = true
 
 [node name="HUD" parent="player_controller_xrae" instance=ExtResource("8_3hkgl")]
 
+[node name="SpotLight3D" type="SpotLight3D" parent="player_controller_xrae"]
+transform = Transform3D(-2.27757, 0.43971, 0.594416, 0.686505, 0.542736, 2.22893, 0.274567, 2.29043, -0.642278, 1.60021, 8.63496, -2.35253)
+light_color = Color(0.862745, 0.486275, 0.560784, 1)
+light_energy = 4.071
+shadow_enabled = true
+distance_fade_enabled = true
+
 [node name="Camera3D" type="Camera3D" parent="player_controller_xrae"]
-transform = Transform3D(2.39457, 0, 0, 0, 2.39227, 0.105118, 0, -0.105118, 2.39227, 0.512121, 6.04396, 11.6935)
+transform = Transform3D(2.39457, 0, 0, 0, 2.39226, 0.105118, 0, -0.105118, 2.39226, -0.0484618, 5.41516, 11.4035)
 current = true
-fov = 65.4
+fov = 63.7
 
 [node name="koifish21" type="Node3D" parent="."]
 unique_name_in_owner = true
-transform = Transform3D(-0.481971, 0, 2.19451, 0, 2.24681, 0, -2.19451, 0, -0.481971, 4.41915, 3.31786, -3.82327)
+transform = Transform3D(-0.481971, -0.0686632, 2.19344, -3.72529e-09, 2.24571, 0.0702998, -2.19451, 0.0150802, -0.481735, -16.0141, 3.77274, -8.44094)
 
 [node name="koifish_armature" type="Node3D" parent="koifish21"]
 transform = Transform3D(1, 0, 0, 0, 0, -1, 0, 1, 0, -0.13, 0.191365, -0.602572)
@@ -796,7 +875,103 @@ libraries = {
 "": SubResource("AnimationLibrary_gucqa")
 }
 
+[node name="koifish22" type="Node3D" parent="."]
+unique_name_in_owner = true
+transform = Transform3D(0.0698307, 0, 12.9829, 0, 12.9891, 0, -2.24573, 0, 0.403702, 27.8244, 5.82809, -32.194)
+
+[node name="koifish_armature" type="Node3D" parent="koifish22"]
+transform = Transform3D(1, 0, 0, 0, 0, -1, 0, 1, 0, -0.13, 0.191365, -0.602572)
+
+[node name="Skeleton3D" type="Skeleton3D" parent="koifish22/koifish_armature"]
+bones/0/name = "body.mid"
+bones/0/parent = -1
+bones/0/rest = Transform3D(1, -8.49045e-18, 8.82156e-18, 8.82156e-18, 0.999269, -0.0382376, -8.49045e-18, 0.0382376, 0.999269, 0, 0.299315, -0.0294408)
+bones/0/enabled = true
+bones/0/position = Vector3(0, 0.299315, -0.0294408)
+bones/0/rotation = Quaternion(0.0191223, 4.32879e-18, 4.32879e-18, 0.999817)
+bones/0/scale = Vector3(1, 1, 1)
+bones/1/name = "body.head"
+bones/1/parent = 0
+bones/1/rest = Transform3D(1, -3.45614e-18, 3.51189e-18, 3.50837e-18, 0.999888, -0.0149808, -3.45972e-18, 0.0149808, 0.999888, 1.49012e-08, 0.769943, -1.30385e-08)
+bones/1/enabled = true
+bones/1/position = Vector3(1.49012e-08, 0.769943, -1.30385e-08)
+bones/1/rotation = Quaternion(0.00788316, 0.0151497, 0.02303, 0.999589)
+bones/1/scale = Vector3(1, 1, 1)
+bones/2/name = "fin.left"
+bones/2/parent = 1
+bones/2/rest = Transform3D(-0.0392876, 0.821846, 0.568354, 0.180155, -0.553646, 0.813031, 0.982853, 0.134334, -0.126308, 0.233783, 0.143199, 0.262942)
+bones/2/enabled = true
+bones/2/position = Vector3(0.233783, 0.143199, 0.262942)
+bones/2/rotation = Quaternion(-0.640443, -0.391136, -0.605522, 0.264933)
+bones/2/scale = Vector3(1, 1, 1)
+bones/3/name = "fin.right"
+bones/3/parent = 1
+bones/3/rest = Transform3D(-0.0392876, -0.821846, -0.568354, -0.180155, -0.553646, 0.813031, -0.982853, 0.134334, -0.126308, -0.233783, 0.143199, 0.262942)
+bones/3/enabled = true
+bones/3/position = Vector3(-0.233783, 0.143199, 0.262942)
+bones/3/rotation = Quaternion(-0.640443, 0.391136, 0.605522, 0.264933)
+bones/3/scale = Vector3(1, 1, 1)
+bones/4/name = "body.lower"
+bones/4/parent = -1
+bones/4/rest = Transform3D(1, 1.42109e-14, 1.19209e-06, -4.43557e-08, -0.999307, 0.0372082, 1.19127e-06, -0.0372082, -0.999307, 0, 0.299315, -0.0294408)
+bones/4/enabled = true
+bones/4/position = Vector3(0, 0.299315, -0.0294408)
+bones/4/rotation = Quaternion(-0.999827, 1.10908e-08, -5.95943e-07, 0.0186073)
+bones/4/scale = Vector3(1, 1, 1)
+bones/5/name = "body.lowest"
+bones/5/parent = 4
+bones/5/rest = Transform3D(1, -1.37301e-07, 7.93313e-09, 1.37301e-07, 0.993345, -0.115176, 7.93347e-09, 0.115176, 0.993345, 1.86332e-08, 0.923117, -2.08616e-08)
+bones/5/enabled = true
+bones/5/position = Vector3(1.86332e-08, 0.923117, -2.08616e-08)
+bones/5/rotation = Quaternion(0.0576842, -8.60746e-14, 6.87649e-08, 0.998335)
+bones/5/scale = Vector3(1, 1, 1)
+bones/6/name = "body.fins"
+bones/6/parent = 5
+bones/6/rest = Transform3D(1, -8.83121e-08, 3.27582e-09, 8.83121e-08, 0.997252, -0.0740816, 3.27548e-09, 0.0740816, 0.997252, -3.9395e-09, 0.451772, 1.63913e-08)
+bones/6/enabled = true
+bones/6/position = Vector3(-3.9395e-09, 0.451772, 1.63913e-08)
+bones/6/rotation = Quaternion(0.0370663, 8.45461e-14, 4.41864e-08, 0.999313)
+bones/6/scale = Vector3(1, 1, 1)
+bones/7/name = "dorsalfin.upper"
+bones/7/parent = 4
+bones/7/rest = Transform3D(1, 3.51962e-07, -9.00532e-07, -7.03923e-08, 0.955421, 0.295247, 9.64303e-07, -0.295247, 0.955421, 4.13502e-07, 0.851861, -0.33124)
+bones/7/enabled = true
+bones/7/position = Vector3(4.13502e-07, 0.851861, -0.33124)
+bones/7/rotation = Quaternion(-0.149297, -4.71493e-07, -1.06785e-07, 0.988792)
+bones/7/scale = Vector3(1, 1, 1)
+bones/8/name = "dorsalfin.lower"
+bones/8/parent = 7
+bones/8/rest = Transform3D(1, -7.96384e-08, 1.36941e-08, 7.96384e-08, 0.942563, -0.334028, 1.36939e-08, 0.334028, 0.942563, 5.49059e-09, 0.19597, 6.2585e-09)
+bones/8/enabled = true
+bones/8/position = Vector3(5.49059e-09, 0.19597, 6.2585e-09)
+bones/8/rotation = Quaternion(0.169465, 5.45234e-14, 4.04036e-08, 0.985536)
+bones/8/scale = Vector3(1, 1, 1)
+bones/9/name = "neutral_bone"
+bones/9/parent = -1
+bones/9/rest = Transform3D(1, 0, 0, 0, 0, 1, 0, -1, 0, 0, 0, 0)
+bones/9/enabled = true
+bones/9/position = Vector3(0, 0, 0)
+bones/9/rotation = Quaternion(-0.707107, 0, 0, 0.707107)
+bones/9/scale = Vector3(1, 1, 1)
+
+[node name="koifish" type="MeshInstance3D" parent="koifish22/koifish_armature/Skeleton3D"]
+material_override = SubResource("StandardMaterial3D_bp0br")
+mesh = SubResource("ArrayMesh_usfyt")
+skin = SubResource("Skin_xn6vo")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="koifish22"]
+autoplay = "koifish_armature001"
+libraries = {
+"": SubResource("AnimationLibrary_gucqa")
+}
+
 [node name="GridMap" type="GridMap" parent="."]
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 0, 0, 0)
+mesh_library = ExtResource("10_44f4d")
+data = {
+"cells": PackedInt32Array(65534, 65534, 1441793, 131070, 65534, 1376257, 131071, 65534, 4, 65536, 65534, 327682, 65535, 65534, 1507330, 65533, 65534, 1376259, 131068, 65534, 1441796, 65532, 65534, 1245186, 3, 65533, 1245185, 65539, 65533, 262144, 65539, 65534, 262148, -65533, 65533, 3, -131069, 65533, 3, -4, 65534, 1310724, -65541, 65534, 1310723, -131070, 65530, 1310723, -65534, 65530, 1310723, 2, 65530, 1310723, 65538, 65531, 1310723, 131073, 65532, 1376257, 65537, 65532, 524291, 1, 65532, 524291, -65535, 65532, 524291, 131074, 65532, 1507330, 131072, 65532, 1048581, 131074, 65531, 1310725, 3, 65535, 1048581, 0, 65533, 1048579, -65536, 65533, 1048579, 65536, 65533, 786434, 65536, 65532, 524290, 0, 65531, 524292)
+}
+metadata/_editor_floor_ = Vector3(0, 0, 0)
 
 [node name="koifish20" type="Node3D" parent="."]
 unique_name_in_owner = true
@@ -896,6 +1071,10 @@ mesh = SubResource("QuadMesh_hitp0")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.274102, 0.167746, 0.835481)
 multimesh = SubResource("MultiMesh_ya8mn")
 
+[node name="MultiMeshInstance3D2" type="MultiMeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.274102, 0.224286, 12.507)
+multimesh = SubResource("MultiMesh_ya8mn")
+
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.0632956, 0.997995, 0, -0.997995, 0.0632956, 0, 0.355515, -5.60548)
 visible = false
@@ -904,7 +1083,11 @@ mesh = SubResource("QuadMesh_mc5tx")
 [node name="GridMap2" type="GridMap" parent="."]
 mesh_library = ExtResource("11_lme0n")
 data = {
-"cells": PackedInt32Array(6, 0, 0)
+"cells": PackedInt32Array(5, 65535, 524288, 65534, 65535, 720896)
 }
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("13_um4nw")
+autoplay = true
 
 [connection signal="timeout" from="player_controller_xrae/JumpBuffer" to="player_controller_xrae" method="_on_jump_buffer_timeout" flags=18]

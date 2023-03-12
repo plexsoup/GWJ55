@@ -25,6 +25,10 @@ StageManager="*res://Scripts/stage_manager.gd"
 window/size/mode=2
 window/stretch/mode="viewport"
 
+[dotnet]
+
+project/assembly_name="GWJ55"
+
 [importer_defaults]
 
 oggvorbisstr={

@@ -1,8 +1,8 @@
 [gd_scene load_steps=5 format=3 uid="uid://b0ntje4l232oj"]
 
 [ext_resource type="Script" path="res://Scripts/PlayerMovement.gd" id="1_ed03t"]
-[ext_resource type="SpriteFrames" uid="uid://kdd1owelec0f" path="res://player_sprite_frames.tres" id="3_ix5dx"]
-[ext_resource type="PackedScene" path="res://GUI/player_hud.tscn" id="3_oumx6"]
+[ext_resource type="SpriteFrames" uid="uid://bkm20v777m12k" path="res://player_sprite_frames.tres" id="3_ix5dx"]
+[ext_resource type="PackedScene" uid="uid://dh4qpayo68p6b" path="res://GUI/player_hud.tscn" id="3_oumx6"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_gajrw"]
 radius = 1.2

@@ -11,6 +11,8 @@ extends CharacterBody3D
 @onready var coyote_time = $CoyoteTime
 @onready var jump_buffer = $JumpBuffer
 @onready var animated_sprite = $AnimatedSprite3D
+@onready var dash_timer = $DashTimer
+@onready var dash_cooldown = $DashCooldown
 
 const SPEED = 10.0
 var buffered_jump = false
@@ -19,6 +21,9 @@ var double_jump = false
 var animation_state = "Idle"
 var input_dir
 var jumping = false
+var dashing = false
+var on_dash_cooldown = false
+var dash_usable = true
 
 func _ready():
 	Global.current_player = self
@@ -26,12 +31,30 @@ func _ready():
 func _physics_process(delta):
 
 	set_gravity_states(delta)
-	handle_jump()
-	move()
+	handle_dash()
+	if !dashing and !on_dash_cooldown:
+		handle_jump()
+		move()
 	move_and_slide()
 	update_gravity_states()
 	animate()
 	
+func handle_dash():
+	if Input.is_action_just_pressed("dash") and !dashing and !on_dash_cooldown and dash_usable:
+		var direction = -1
+		if animated_sprite.flip_h:
+			direction = 1
+		velocity.x = direction * SPEED * 5
+		dashing = true
+		dash_timer.start()
+		dash_usable = false
+	if dash_timer.is_stopped() and dashing:
+		velocity.x = 0
+		dash_cooldown.start()
+		dashing = false
+		on_dash_cooldown = true
+	if on_dash_cooldown and dash_cooldown.is_stopped():
+		on_dash_cooldown = false
 func animate():
 	var previous_animation_state = animation_state
 	if input_dir > 0:
@@ -63,7 +86,7 @@ func animate():
 
 func set_gravity_states(delta):
 	was_on_floor = is_on_floor()
-	if not is_on_floor():
+	if not is_on_floor() and !dashing:
 		velocity.y += get_gravity() * delta
 
 func update_gravity_states():
@@ -71,6 +94,8 @@ func update_gravity_states():
 		coyote_time.start()
 	if !was_on_floor and is_on_floor():
 		double_jump = false
+	if is_on_floor():
+		dash_usable = true
 		
 func handle_jump():
 	#On floor or coyote time

@@ -35,9 +35,6 @@ next_scene_path = "res://Menus/win_screen.tscn"
 
 [node name="player_controller_xrae" parent="." instance=ExtResource("4_wsnar")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.71993, 1.52753, 5.13539)
-jump_height = 3.0
-jump_time_to_peak = 0.3
-jump_time_to_descent = 0.2
 
 [node name="NPCs" type="Node3D" parent="."]
 

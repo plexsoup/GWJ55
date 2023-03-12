@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://bqw8mxix8u7pw"]
+[gd_scene load_steps=13 format=3 uid="uid://bqw8mxix8u7pw"]
 
 [ext_resource type="MeshLibrary" uid="uid://dmrpx4ab0214p" path="res://Scenes/Maps/GridMap/Mesh.tres" id="1_gbexs"]
 [ext_resource type="Script" path="res://Scenes/Maps/base_level.gd" id="1_n8fyu"]
@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://cbs51rpoxintc" path="res://Scenes/Entities/NPCs/hair_dryer.tscn" id="7_xr8v7"]
 [ext_resource type="PackedScene" uid="uid://cey6vaorec8ca" path="res://Scenes/Entities/Player/player_controller.tscn" id="9_5f8ps"]
 [ext_resource type="PackedScene" uid="uid://dd3fox603os7x" path="res://Scenes/Entities/moving platform.tscn" id="10_leyvi"]
+[ext_resource type="PackedScene" uid="uid://c4rndh2lw447j" path="res://Scenes/Objects/koi_on_path.tscn" id="12_2k2nj"]
 
 [node name="Level01" type="Node3D"]
 script = ExtResource("1_n8fyu")
@@ -79,3 +80,9 @@ inverted_x = false
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.74402, 4.59786, 0)
 range = Vector3(10, 0, 0)
 speed = 3
+
+[node name="BackgroundScenery" type="Node3D" parent="."]
+
+[node name="KoiOnPath" parent="BackgroundScenery" instance=ExtResource("12_2k2nj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -153.873)
+speed = 30.0

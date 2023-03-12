@@ -666,6 +666,7 @@ script = ExtResource("2_vqwq8")
 jump_height = 3.0
 jump_time_to_peak = 0.3
 jump_time_to_descent = 0.2
+inverted_x = false
 
 [node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="player_controller_xrae"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.22762, 0)

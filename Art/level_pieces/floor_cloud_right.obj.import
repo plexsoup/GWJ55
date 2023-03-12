@@ -1,0 +1,21 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://bn7ecki5i0q78"
+path="res://.godot/imported/floor_cloud_right.obj-15badafd47c39a8be88a71e52abd108e.mesh"
+
+[deps]
+
+files=["res://.godot/imported/floor_cloud_right.obj-15badafd47c39a8be88a71e52abd108e.mesh"]
+
+source_file="res://Art/level_pieces/floor_cloud_right.obj"
+dest_files=["res://.godot/imported/floor_cloud_right.obj-15badafd47c39a8be88a71e52abd108e.mesh", "res://.godot/imported/floor_cloud_right.obj-15badafd47c39a8be88a71e52abd108e.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true

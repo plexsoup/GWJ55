@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://ted21c8mecho"]
+
+[ext_resource type="Script" path="res://Scenes/Entities/NPCs/switch.gd" id="1_pmruv"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_cg2br"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_4mjk6"]
+
+[node name="switch" type="MeshInstance3D"]
+mesh = SubResource("BoxMesh_cg2br")
+script = ExtResource("1_pmruv")
+
+[node name="Area3D" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.52421)
+shape = SubResource("BoxShape3D_4mjk6")
+
+[connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]

@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://cxk2vfiijvded"]
+
+[ext_resource type="Script" path="res://Test/plex_testing/character3d_npc_test.gd" id="1_tamjk"]
+
+[node name="Node3D" type="CharacterBody3D"]
+script = ExtResource("1_tamjk")

@@ -2,7 +2,7 @@ extends CharacterBody3D
 
 
 const SPEED = 5.0
-const JUMP_VELOCITY = 4.5
+const JUMP_VELOCITY = 45.5
 const TURN_SPEED = PI / 16.0
 
 @export var damage : int = 1
@@ -41,9 +41,12 @@ func move(delta):
 	# Add the gravity.
 	if not is_on_floor():
 		velocity.y -= gravity * delta
+	else: 
+		velocity.y = 0.0
 
 	# Handle Jump.
-	if input_controller.actions_pressed["jump"] == true and is_on_floor():
+	if input_controller.is_action_just_pressed("jump") == true:
+		print("jumped")
 		velocity.y = JUMP_VELOCITY
 
 	# Get the input direction and handle the movement/deceleration.

@@ -1,0 +1,21 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://2s4xn2ncqbt6"
+path="res://.godot/imported/platform_circle1.obj-9b1ed1695188810b1fbce5dff13db5fb.mesh"
+
+[deps]
+
+files=["res://.godot/imported/platform_circle1.obj-9b1ed1695188810b1fbce5dff13db5fb.mesh"]
+
+source_file="res://Art/level_pieces/platform_circle1.obj"
+dest_files=["res://.godot/imported/platform_circle1.obj-9b1ed1695188810b1fbce5dff13db5fb.mesh", "res://.godot/imported/platform_circle1.obj-9b1ed1695188810b1fbce5dff13db5fb.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true

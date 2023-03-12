@@ -1,4 +1,4 @@
-[gd_scene load_steps=60 format=3 uid="uid://byvg06a3l0cpj"]
+[gd_scene load_steps=61 format=3 uid="uid://byvg06a3l0cpj"]
 
 [ext_resource type="Texture2D" uid="uid://cmcj1tm1dhmwn" path="res://Art/Cat_Fall_Windup.png" id="2_cjgrc"]
 [ext_resource type="Script" path="res://Scripts/PlayerMovement.gd" id="2_vqwq8"]
@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://dhqiombkor0j" path="res://Art/Foliage/Bush_1.png" id="8_ysrpf"]
 [ext_resource type="Texture2D" uid="uid://dpcrrd3eamfyo" path="res://Art/Foliage/Grass.png" id="9_j8fnp"]
 [ext_resource type="Texture2D" uid="uid://rcak68s3q0cu" path="res://Art/objects/koifish.png" id="10_fxtxf"]
+[ext_resource type="MeshLibrary" uid="uid://dmrpx4ab0214p" path="res://Scenes/Maps/GridMap/Mesh.tres" id="11_lme0n"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_bur4h"]
 sky_top_color = Color(0.74902, 0.27451, 0.662745, 1)
@@ -898,5 +899,11 @@ multimesh = SubResource("MultiMesh_ya8mn")
 transform = Transform3D(1, 0, 0, 0, 0.0632956, 0.997995, 0, -0.997995, 0.0632956, 0, 0.355515, -5.60548)
 visible = false
 mesh = SubResource("QuadMesh_mc5tx")
+
+[node name="GridMap2" type="GridMap" parent="."]
+mesh_library = ExtResource("11_lme0n")
+data = {
+"cells": PackedInt32Array(6, 0, 0)
+}
 
 [connection signal="timeout" from="player_controller_xrae/JumpBuffer" to="player_controller_xrae" method="_on_jump_buffer_timeout" flags=18]

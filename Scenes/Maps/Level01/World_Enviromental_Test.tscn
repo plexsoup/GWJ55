@@ -1,7 +1,7 @@
-[gd_scene load_steps=109 format=3 uid="uid://byvg06a3l0cpj"]
+[gd_scene load_steps=111 format=3 uid="uid://byvg06a3l0cpj"]
 
-[ext_resource type="PackedScene" uid="uid://bvrm4ton3t0ik" path="res://WorldEnvironments/world_environment_kyvari.tscn" id="1_68g7v"]
 [ext_resource type="Texture2D" uid="uid://dxcf84i0i3ptv" path="res://Art/Foliage/Grass_text.png" id="1_abb0e"]
+[ext_resource type="Environment" uid="uid://cwy6umphyte2k" path="res://Shaders/Envrioment_1Shader.tres" id="3_ea8ns"]
 [ext_resource type="Texture2D" uid="uid://dhqiombkor0j" path="res://Art/Foliage/Bush_1.png" id="8_ysrpf"]
 [ext_resource type="MeshLibrary" uid="uid://2b1l75l303ti" path="res://Art/level_pieces/Level_Mesh_LibaryNEW.tres" id="10_44f4d"]
 [ext_resource type="Texture2D" uid="uid://rcak68s3q0cu" path="res://Art/objects/koifish.png" id="10_fxtxf"]
@@ -314,6 +314,12 @@ _data = {
 "koifish_armatureAction": SubResource("Animation_7ewbp")
 }
 
+[sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_ffjay"]
+dof_blur_far_distance = 38.87
+dof_blur_near_distance = 2.31
+dof_blur_near_transition = 173.48
+dof_blur_amount = 0.09
+
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_x0y8x"]
 shading_mode = 2
 albedo_color = Color(0.105882, 0.47451, 0.278431, 1)
@@ -364,6 +370,13 @@ _data = {
 "tilts": PackedFloat32Array(0, 0, 0, 0, 0, 0, 0)
 }
 point_count = 7
+
+[sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_caw2f"]
+dof_blur_far_enabled = true
+dof_blur_far_distance = 20.47
+dof_blur_far_transition = 85.31
+dof_blur_near_enabled = true
+dof_blur_near_distance = 6.29
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fw104"]
 transparency = 1
@@ -1069,44 +1082,23 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 114.407, 9.36877, -0.5)
 [node name="KoiOnPath" parent="background_koi" instance=ExtResource("20_reu1l")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -122.951, 3.52203, -30.2115)
 
-[node name="PathFollow3D" parent="background_koi/KoiOnPath/Path3D" index="0"]
-transform = Transform3D(-4.37045e-08, 0, 0.999964, 0, 0.999958, 0, -0.999842, 0, -4.37098e-08, 2.08165e-12, 2.08165e-12, 2.08165e-12)
-
 [node name="KoiOnPath2" parent="background_koi" instance=ExtResource("20_reu1l")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -122.951, 3.52203, -30.2115)
-
-[node name="PathFollow3D" parent="background_koi/KoiOnPath2/Path3D" index="0"]
-transform = Transform3D(-4.37045e-08, 0, 0.999964, 0, 0.999958, 0, -0.999842, 0, -4.37098e-08, 2.08165e-12, 2.08165e-12, 2.08165e-12)
 
 [node name="KoiOnPath3" parent="background_koi" instance=ExtResource("20_reu1l")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -122.951, 3.52203, -30.2115)
 
-[node name="PathFollow3D" parent="background_koi/KoiOnPath3/Path3D" index="0"]
-transform = Transform3D(-4.37045e-08, 0, 0.999964, 0, 0.999958, 0, -0.999842, 0, -4.37098e-08, 2.08165e-12, 2.08165e-12, 2.08165e-12)
-
 [node name="KoiOnPath4" parent="background_koi" instance=ExtResource("20_reu1l")]
 transform = Transform3D(0.506914, 0, 0, 0, 0.492565, 0, 0, 0, 0.765546, -74.394, 2.39013, -45.0174)
-
-[node name="PathFollow3D" parent="background_koi/KoiOnPath4/Path3D" index="0"]
-transform = Transform3D(-4.37045e-08, 0, 0.999964, 0, 0.999958, 0, -0.999842, 0, -4.37098e-08, 2.08165e-12, 2.08165e-12, 2.08165e-12)
 
 [node name="KoiOnPath5" parent="background_koi" instance=ExtResource("20_reu1l")]
 transform = Transform3D(0.506914, 0, 0, 0, 0.492565, 0, 0, 0, 0.765546, -74.394, -13.9081, -33.4344)
 
-[node name="PathFollow3D" parent="background_koi/KoiOnPath5/Path3D" index="0"]
-transform = Transform3D(-4.37045e-08, 0, 0.999964, 0, 0.999958, 0, -0.999842, 0, -4.37098e-08, 2.08165e-12, 2.08165e-12, 2.08165e-12)
-
 [node name="KoiOnPath6" parent="background_koi" instance=ExtResource("20_reu1l")]
 transform = Transform3D(0.506914, 0, 0, 0, 0.492565, 0, 0, 0, 0.765546, -123.416, -6.85305, -51.2732)
 
-[node name="PathFollow3D" parent="background_koi/KoiOnPath6/Path3D" index="0"]
-transform = Transform3D(-4.37045e-08, 0, 0.999964, 0, 0.999958, 0, -0.999842, 0, -4.37098e-08, 2.08165e-12, 2.08165e-12, 2.08165e-12)
-
 [node name="KoiOnPath7" parent="background_koi" instance=ExtResource("20_reu1l")]
 transform = Transform3D(0.506914, 0, 0, 0, 0.492565, 0, 0, 0, 0.765546, -123.632, -1.81481, 2.9837)
-
-[node name="PathFollow3D" parent="background_koi/KoiOnPath7/Path3D" index="0"]
-transform = Transform3D(-4.37045e-08, 0, 0.999964, 0, 0.999958, 0, -0.999842, 0, -4.37098e-08, 2.08165e-12, 2.08165e-12, 2.08165e-12)
 
 [node name="koifish20" type="Node3D" parent="background_koi"]
 unique_name_in_owner = true
@@ -1288,7 +1280,10 @@ libraries = {
 "": SubResource("AnimationLibrary_gucqa")
 }
 
-[node name="WorldEnvironment" parent="." instance=ExtResource("1_68g7v")]
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+unique_name_in_owner = true
+environment = ExtResource("3_ea8ns")
+camera_attributes = SubResource("CameraAttributesPractical_ffjay")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(-0.909656, -0.266168, -0.318875, -0.378806, 0.846536, 0.37401, 0.17039, 0.461012, -0.870882, 0, 0, 0)
@@ -1376,8 +1371,6 @@ inverted_x = false
 
 [node name="AnimatedSprite3D" parent="NPCs/player_controller_xrae" index="0"]
 shaded = true
-animation = &"Jump_Idle"
-frame_progress = 0.999534
 
 [node name="SpotLight3D" type="SpotLight3D" parent="NPCs/player_controller_xrae"]
 transform = Transform3D(-0.951136, 0.183627, 0.248235, 0.286692, 0.226653, 0.930826, 0.114662, 0.956509, -0.268222, 0.75282, 1.26788, -0.656712)
@@ -1388,6 +1381,7 @@ distance_fade_enabled = true
 
 [node name="Camera3D" type="Camera3D" parent="NPCs/player_controller_xrae"]
 transform = Transform3D(1, 0, 0, 0, 0.999036, 0.0438985, 0, -0.0438985, 0.999036, -0.0202382, 2.11699, 7.6366)
+attributes = SubResource("CameraAttributesPractical_caw2f")
 current = true
 fov = 65.3
 near = 0.059
@@ -1406,6 +1400,7 @@ skeleton = NodePath("")
 
 [node name="Grass5" type="MeshInstance3D" parent="Grasses"]
 transform = Transform3D(5.98803, 0.137259, 0.347721, -0.153775, 5.99103, 0.283231, -0.340738, -0.291594, 5.98292, -12.5551, 1.46809, -1.05349)
+sorting_offset = 1.0
 mesh = SubResource("QuadMesh_pj4vg")
 skeleton = NodePath("")
 
@@ -1431,7 +1426,8 @@ mesh = SubResource("RibbonTrailMesh_lcwch")
 skeleton = NodePath("../..")
 
 [node name="Sprite3D" type="Sprite3D" parent="Grasses"]
-transform = Transform3D(3.56674, 0, 0, 0, 3.56674, 0, 0, 0, 1, 85.1816, 26.277, -75.7988)
+transform = Transform3D(3.56674, 0, 0, 0, 3.56674, 0, 0, 0, 1, 60.931, 26.277, -52.1746)
+billboard = 1
 texture = ExtResource("17_33gk6")
 
 [node name="Sprite3D2" type="Sprite3D" parent="Grasses"]

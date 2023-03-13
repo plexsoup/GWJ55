@@ -7,9 +7,9 @@
 [ext_resource type="Texture2D" uid="uid://5awgyxymv41t" path="res://Art/Cat_Run_Windup.png" id="4_i61x5"]
 [ext_resource type="Texture2D" uid="uid://cdetqxlx4qwx4" path="res://Art/Cat_land_Windup.png" id="5_3pabt"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_0hiv2"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_8q42n"]
 atlas = ExtResource("1_u3bol")
-region = Rect2(3584, 0, 512, 512)
+region = Rect2(2048, 0, 512, 512)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_yrgp0"]
 atlas = ExtResource("1_u3bol")
@@ -179,7 +179,7 @@ region = Rect2(0, 0, 512, 512)
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_0hiv2")
+"texture": SubResource("AtlasTexture_8q42n")
 }],
 "loop": true,
 "name": &"Fall",

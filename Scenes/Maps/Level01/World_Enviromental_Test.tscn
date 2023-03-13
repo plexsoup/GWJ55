@@ -1357,16 +1357,17 @@ shaded = true
 animation = &"Idle_Jump"
 
 [node name="SpotLight3D" type="SpotLight3D" parent="NPCs/player_controller_xrae"]
-transform = Transform3D(-0.951137, 0.183627, 0.248235, 0.286692, 0.226653, 0.930826, 0.114662, 0.956509, -0.268222, -1.29164, 1.87259, -1.79196)
+transform = Transform3D(-0.951136, 0.183627, 0.248235, 0.286692, 0.226653, 0.930826, 0.114662, 0.956509, -0.268222, 0.75282, 1.26788, -0.656712)
 light_color = Color(0.862745, 0.486275, 0.560784, 1)
 light_energy = 4.071
 shadow_enabled = true
 distance_fade_enabled = true
 
 [node name="Camera3D" type="Camera3D" parent="NPCs/player_controller_xrae"]
-transform = Transform3D(1, 0, 0, 0, 0.999036, 0.0438985, 0, -0.0438985, 0.999036, -0.0202382, 1.8091, 7.33461)
+transform = Transform3D(1, 0, 0, 0, 0.999036, 0.0438985, 0, -0.0438985, 0.999036, -0.0202382, 2.11699, 7.6366)
 current = true
-fov = 63.7
+fov = 65.3
+near = 0.059
 
 [node name="Grasses" type="Node3D" parent="."]
 

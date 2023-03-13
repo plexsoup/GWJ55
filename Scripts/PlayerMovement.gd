@@ -14,7 +14,7 @@ extends CharacterBody3D
 @onready var dash_timer = $DashTimer
 @onready var dash_cooldown = $DashCooldown
 
-const SPEED = 10.0
+const SPEED = 11.0
 var buffered_jump = false
 var was_on_floor
 var double_jump = false
@@ -121,7 +121,7 @@ func handle_jump():
 		buffered_jump = false
 
 func move():
-	var fall_modifier = clamp(abs(velocity.z), 1, 2)
+	var fall_modifier = abs(clamp(velocity.y, -1.2, -1))
 	if inverted_x:
 		input_dir = Input.get_axis("move_right", "move_left")
 	else:

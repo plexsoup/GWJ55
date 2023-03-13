@@ -45,3 +45,12 @@ position = Vector2(268, 20)
 
 [node name="LifeIcon9" parent="Control/HealthBox" instance=ExtResource("2_ld1aw")]
 position = Vector2(305, 19)
+
+[node name="FPSLabel" type="Label" parent="Control"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -40.0
+offset_bottom = 23.0
+grow_horizontal = 0

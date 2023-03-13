@@ -56,11 +56,12 @@ func _process(delta):
 
 		if path_follower != null and is_instance_valid(path_follower):
 			path_follower.progress += follow_speed * delta
-			entity.global_position = lerp(entity.global_position, path_follower.global_position, 0.8)
+			#entity.global_position = lerp(entity.global_position, path_follower.global_position, 0.8)
 	
 func update_input_controller():
-	
-	pass
+	var direction = path_follower.global_position - entity.global_position
+	entity.input_controller.press_stick_toward(direction)
+	#pass
 	
 func _on_entity_sighted_player():
 	if stop_when_player_sighted:

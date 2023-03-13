@@ -15,3 +15,6 @@ func _on_hit():
 		else:
 			lifeIcon.hide()
 		
+func _process(delta):
+	if $Control/FPSLabel.visible:
+		$Control/FPSLabel.text = "FPS: " + str(Performance.get_monitor(Performance.TIME_FPS)) 

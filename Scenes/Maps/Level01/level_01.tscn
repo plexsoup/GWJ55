@@ -44,24 +44,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.658735, 19.7511, 0.0539308)
 collision_layer = 2
 collision_mask = 5
 
-[node name="pressure_plate" parent="NPCs" instance=ExtResource("3_3bafh")]
-transform = Transform3D(1, 0, 0, 0, 0.5, 0, 0, 0, 1, 16.4439, 8.057, 0.037962)
-
-[node name="DeadlyTile" parent="NPCs" instance=ExtResource("4_g1uya")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.2541, 8.22683, 0.457918)
-skeleton = NodePath("../..")
-
-[node name="switch" parent="NPCs" instance=ExtResource("4_bysw5")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.99696, 10.1651, -1.72138)
-
 [node name="Eagle" parent="NPCs" instance=ExtResource("6_1w156")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.03152, 22.1018, 2.08165e-12)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.4139, 22.2206, 2.08165e-12)
 
-[node name="FallResetVolume" parent="." instance=ExtResource("5_3x88f")]
-
-[node name="TriggerVolumeWin" parent="." instance=ExtResource("6_umfkp")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.0896, 31.198, 0)
-next_scene_path = "res://Scenes/Maps/MovementLab/movement_lab.tscn"
+[node name="HairDryer" parent="NPCs" instance=ExtResource("7_xr8v7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.936156, 20.9791, 2.08165e-12)
 
 [node name="GridMap2" type="GridMap" parent="."]
 transform = Transform3D(1, 0, 0, 0, -1.31134e-07, -1, 0, 3, -4.37114e-08, 0, 0, -3)
@@ -70,21 +57,33 @@ data = {
 "cells": PackedInt32Array(65530, 1, 0, 65531, 1, 0, 65532, 1, 0, 65533, 1, 0, 65534, 1, 0, 65535, 1, 0, 0, 1, 0, 1, 1, 0, 2, 1, 0, 3, 1, 0, 5, 65532, 0, 6, 65532, 0, 7, 65532, 0, 8, 65532, 0, 1, 65532, 0, 0, 65532, 0, 65535, 65532, 0, 65534, 65532, 0, 65532, 65526, 0, 65533, 65526, 0, 65534, 65526, 0, 65535, 65526, 0, 0, 65526, 0, 1, 65526, 0, 2, 65526, 0, 3, 65526, 0, 7, 65528, 0, 8, 65528, 0, 9, 65528, 0, 10, 65528, 0, 65530, 65530, 0, 65529, 65530, 0, 65528, 65530, 0, 65527, 65530, 0, 65526, 65530, 0, 65525, 65530, 0, 65524, 65530, 0, 65523, 65530, 0, 65522, 65530, 0, 10, 0, 0, 11, 0, 0, 12, 0, 0, 13, 65521, 0, 12, 65521, 0, 11, 65521, 0, 10, 65521, 0, 9, 65521, 0, 8, 65521, 0, 7, 65521, 0, 6, 65521, 0, 5, 65521, 0, 4, 65521, 0, 3, 65521, 0, 65530, 65534, 0, 65529, 65534, 0, 65528, 65534, 0, 65527, 65534, 0, 65526, 65534, 0, 65532, 65527, 0, 65531, 65527, 0, 4, 65522, 0, 4, 65523, 0, 3, 65523, 0, 2, 65523, 0, 1, 65523, 0)
 }
 
-[node name="HairDryer" parent="." instance=ExtResource("7_xr8v7")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.1093, 12.7239, 2.08165e-12)
-collision_layer = 2
-collision_mask = 5
-
 [node name="player_controller_xrae" parent="." instance=ExtResource("9_5f8ps")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.1021, 10.4673, 0)
 inverted_x = false
 
 [node name="moving platform" parent="." instance=ExtResource("10_leyvi")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.74402, 4.59786, 0)
-range = Vector3(10, 0, 0)
-speed = 3
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.74402, 1.06222, 0)
+range = Vector3(0, 8, 0)
+speed = 4
 
 [node name="BackgroundScenery" type="Node3D" parent="."]
 
-[editable path="NPCs/Eagle"]
-[editable path="NPCs/Eagle/Behaviours/FollowPath"]
+[node name="DynamicObjects" type="Node3D" parent="."]
+
+[node name="pressure_plate" parent="DynamicObjects" instance=ExtResource("3_3bafh")]
+transform = Transform3D(1, 0, 0, 0, 0.5, 0, 0, 0, 1, 16.4439, 8.057, 0.037962)
+skeleton = NodePath("../../NPCs")
+
+[node name="DeadlyTile" parent="DynamicObjects" instance=ExtResource("4_g1uya")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.2541, 8.22683, 0.457918)
+skeleton = NodePath("../..")
+
+[node name="switch" parent="DynamicObjects" instance=ExtResource("4_bysw5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.99696, 10.1651, -1.72138)
+skeleton = NodePath("../../NPCs")
+
+[node name="FallResetVolume" parent="DynamicObjects" instance=ExtResource("5_3x88f")]
+
+[node name="TriggerVolumeWin" parent="DynamicObjects" instance=ExtResource("6_umfkp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.0896, 31.198, 0)
+next_scene_path = "res://Scenes/Maps/Level02/level_02.tscn"

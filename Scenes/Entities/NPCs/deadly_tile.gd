@@ -17,5 +17,6 @@ func _on_area_3d_body_entered(body):
 	print("deadly tile hit")
 	if "player" in body.name.to_lower():
 			print("player hit deadly tile")
-			hit.connect(body._on_hit)
+			if not hit.is_connected(body._on_hit):
+				hit.connect(body._on_hit)
 			hit.emit(1)

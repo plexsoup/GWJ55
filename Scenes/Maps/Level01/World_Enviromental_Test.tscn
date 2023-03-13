@@ -25,8 +25,8 @@
 [ext_resource type="PackedScene" uid="uid://cm2o1lkpf6s0w" path="res://Scenes/Entities/NPCs/vacuum_cleaner.tscn" id="23_3jrl8"]
 [ext_resource type="PackedScene" uid="uid://cbs51rpoxintc" path="res://Scenes/Entities/NPCs/hair_dryer.tscn" id="24_a3fyh"]
 [ext_resource type="PackedScene" uid="uid://d1glm81lxipwi" path="res://Scenes/Entities/NPCs/eagle.tscn" id="25_muld7"]
-[ext_resource type="PackedScene" uid="uid://cmd16bdree5a7" path="res://Scenes/Objects/fall_reset_volume.tscn" id="26_ieupb"]
-[ext_resource type="PackedScene" uid="uid://eb3wwyaluatx" path="res://Scenes/Objects/trigger_volume_win.tscn" id="27_lcsah"]
+[ext_resource type="PackedScene" path="res://Scenes/Objects/fall_reset_volume.tscn" id="26_ieupb"]
+[ext_resource type="PackedScene" path="res://Scenes/Objects/trigger_volume_win.tscn" id="27_lcsah"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bp0br"]
 albedo_texture = ExtResource("10_fxtxf")
@@ -1638,8 +1638,7 @@ alpha_antialiasing_mode = 2
 alpha_antialiasing_edge = 0.09
 render_priority = 1
 sprite_frames = SubResource("SpriteFrames_wrs1q")
-animation = &"Push"
-frame_progress = 0.0526118
+animation = &"Fall"
 speed_scale = 2.0
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="player_controller_xrae"]

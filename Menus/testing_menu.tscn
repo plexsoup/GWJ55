@@ -66,19 +66,20 @@ theme_override_constants/separation = 25
 layout_mode = 2
 text = "Miscellaneous Testing"
 
-[node name="TestScene01" parent="HBoxContainer/VBoxContainer" instance=ExtResource("1_aqtb8")]
+[node name="PlexPlatform" parent="HBoxContainer/VBoxContainer" instance=ExtResource("1_aqtb8")]
 layout_mode = 2
-text = "Test Platforms"
+text = "plexsoup enemies"
 new_scene = ExtResource("2_6v74s")
 
-[node name="TestScene02" parent="HBoxContainer/VBoxContainer" instance=ExtResource("1_aqtb8")]
+[node name="xRaeMovement" parent="HBoxContainer/VBoxContainer" instance=ExtResource("1_aqtb8")]
 layout_mode = 2
 text = "xRae Movement Lab"
 new_scene = ExtResource("3_4wqga")
 
-[node name="TestScene03" parent="HBoxContainer/VBoxContainer" instance=ExtResource("1_aqtb8")]
+[node name="kyvariArt" parent="HBoxContainer/VBoxContainer" instance=ExtResource("1_aqtb8")]
 layout_mode = 2
-text = "Test Scene 03"
+text = "Kyvari Scenery"
+scene_path = "res://Scenes/Maps/Level01/World_Enviromental_Test.tscn"
 
 [node name="TestScene04" parent="HBoxContainer/VBoxContainer" instance=ExtResource("1_aqtb8")]
 layout_mode = 2

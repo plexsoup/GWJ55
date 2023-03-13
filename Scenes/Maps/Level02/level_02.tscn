@@ -1,13 +1,54 @@
-[gd_scene load_steps=2 format=3 uid="uid://d3idy65kr1aj4"]
+[gd_scene load_steps=7 format=3 uid="uid://d3idy65kr1aj4"]
 
-[ext_resource type="PackedScene" uid="uid://cjiok7gin5bk5" path="res://Scenes/Maps/base_level.tscn" id="1_gjaek"]
+[ext_resource type="Script" path="res://Scenes/Maps/base_level.gd" id="1_32anb"]
+[ext_resource type="PackedScene" uid="uid://cey6vaorec8ca" path="res://Scenes/Entities/Player/player_controller.tscn" id="2_sy3r3"]
+[ext_resource type="PackedScene" uid="uid://eb3wwyaluatx" path="res://Scenes/Objects/trigger_volume_win.tscn" id="3_jwchp"]
+[ext_resource type="PackedScene" uid="uid://cmd16bdree5a7" path="res://Scenes/Objects/fall_reset_volume.tscn" id="4_gpvvn"]
+[ext_resource type="MeshLibrary" uid="uid://dxt45ji2spk5c" path="res://MeshLibraries/CatTowerMeshLibrary.tres" id="5_aakgp"]
+[ext_resource type="PackedScene" uid="uid://dd3fox603os7x" path="res://Scenes/Entities/moving platform.tscn" id="6_25c3s"]
 
-[node name="Level02" instance=ExtResource("1_gjaek")]
+[node name="Level02" type="Node3D"]
+script = ExtResource("1_32anb")
 
-[node name="PlatformGridMap-placeholder" parent="." index="0"]
-data = {
-"cells": PackedInt32Array(65530, 1, 0, 65531, 1, 0, 65532, 1, 0, 65533, 1, 0, 65534, 1, 0, 65535, 1, 0, 0, 1, 0, 1, 1, 0, 2, 1, 0, 3, 1, 0, 5, 65532, 0, 6, 65532, 0, 7, 65532, 0, 8, 65532, 0, 1, 65532, 0, 0, 65532, 0, 65535, 65532, 0, 65534, 65532, 0, 65532, 65526, 0, 65533, 65526, 0, 65534, 65526, 0, 65535, 65526, 0, 0, 65526, 0, 1, 65526, 0, 2, 65526, 0, 3, 65526, 0, 7, 65528, 0, 8, 65528, 0, 9, 65528, 0, 10, 65528, 0, 65530, 65530, 0, 65529, 65530, 0, 65528, 65530, 0, 65527, 65530, 0, 65526, 65530, 0, 65525, 65530, 0, 65524, 65530, 0, 65523, 65530, 0, 65522, 65530, 0, 10, 0, 0, 11, 0, 0, 12, 0, 0, 13, 65521, 0, 12, 65521, 0, 8, 65521, 0, 6, 65521, 0, 5, 65521, 0, 4, 65521, 0, 3, 65521, 0, 65530, 65534, 0, 65529, 65534, 0, 65528, 65534, 0, 65527, 65534, 0, 65526, 65534, 0, 65532, 65527, 0, 65531, 65527, 0, 4, 65522, 0, 4, 65523, 0, 3, 65523, 0, 2, 65523, 0, 1, 65523, 0)
-}
+[node name="player" parent="." instance=ExtResource("2_sy3r3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.1021, -8.63668, 0)
+inverted_x = false
 
-[node name="TriggerVolumeWin" parent="." index="7"]
+[node name="Camera3D" type="Camera3D" parent="player"]
+transform = Transform3D(1, 0, 0, 0, 0.985118, 0.171878, 0, -0.171878, 0.985118, -1.69857, 7.01185, 22.835)
+
+[node name="NPCs" type="Node3D" parent="."]
+
+[node name="EnvironmentalHazards" type="Node3D" parent="."]
+
+[node name="MovingPlatforms" type="Node3D" parent="."]
+
+[node name="moving platform" parent="MovingPlatforms" instance=ExtResource("6_25c3s")]
+transform = Transform3D(2.63456, 0, 0, 0, 1, 0, 0, 0, 2.63456, 63.7753, -15.1926, 0)
+range = Vector3(4, 2.08165e-12, 2.08165e-12)
+speed = 2
+
+[node name="PlatformDestinationViz" parent="MovingPlatforms/moving platform" index="2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, 2.08165e-12)
+
+[node name="Lighting" type="Node3D" parent="."]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="Lighting"]
+transform = Transform3D(0.822889, 0.469704, -0.319738, 0, 0.562718, 0.826649, 0.568203, -0.68024, 0.463054, 0, 39.1774, 14.9607)
+
+[node name="TriggerVolumeWin" parent="." instance=ExtResource("3_jwchp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 99.317, -9.21002, 0)
 next_scene_path = "res://Scenes/Maps/Level03/level_03.tscn"
+
+[node name="FallResetVolume" parent="." instance=ExtResource("4_gpvvn")]
+transform = Transform3D(2.17854, 0, 0, 0, 1, 0, 0, 0, 1, 65.2304, -36.8709, 0)
+
+[node name="GridMap3" type="GridMap" parent="."]
+transform = Transform3D(4, 0, -6.09838e-23, -6.09838e-23, -1.74846e-07, -4, 0, 4, -1.74846e-07, 2.08165e-12, 2.08165e-12, -4)
+mesh_library = ExtResource("5_aakgp")
+data = {
+"cells": PackedInt32Array(1, 1, 196611, 2, 1, 196611, 3, 1, 196611, 4, 1, 196611, 5, 1, 196611, 6, 1, 196611, 7, 1, 720898, 9, 1, 458754, 10, 1, 1114115, 7, 0, 1179650, 7, 65534, 720898, 6, 65534, 196611, 5, 65534, 196610, 5, 65533, 983045, 8, 65535, 786434, 8, 65534, 983043, 8, 65533, 196608, 8, 65532, 983043, 8, 65531, 983044, 9, 0, 196611, 10, 0, 983042, 10, 65535, 458754, 11, 65535, 983042, 11, 65534, 983044, 10, 65532, 983044, 10, 65533, 983042, 9, 65533, 196611, 13, 65533, 983044, 11, 1, 1114115, 12, 1, 1114115, 13, 1, 65538, 13, 0, 983043, 13, 65535, 983043, 13, 65534, 983043, 7, 65535, 786434, -65529, 65535, 655363, -131065, 65535, 655363, -196601, 65535, 655362, -196601, 0, 983043, -196601, 1, 983043, -196601, 2, 983043, -196601, 3, 983043, 8, 0, 1114115, 9, 2, 720896, 9, 3, 786435, 8, 2, 196611, 7, 2, 196610, -65529, 0, 1441795, -131065, 0, 1441794, -131064, 0, 1245187, -131063, 0, 327682, -131063, 1, 327683, -131063, 2, 327683, -131063, 3, 327683)
+}
+metadata/_editor_floor_ = Vector3(0, -2, 0)
+
+[editable path="MovingPlatforms/moving platform"]

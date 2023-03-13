@@ -28,5 +28,5 @@ func _process(delta):
 func move_to_platform_destination():
 	var platform = get_parent()
 	if platform.get("range") is Vector3:
-		global_position = platform.global_position + platform.range
+		global_position = platform.global_position + (platform.range * platform.scale)
 	

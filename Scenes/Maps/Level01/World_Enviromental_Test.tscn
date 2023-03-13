@@ -1,4 +1,4 @@
-[gd_scene load_steps=88 format=3 uid="uid://byvg06a3l0cpj"]
+[gd_scene load_steps=151 format=3 uid="uid://byvg06a3l0cpj"]
 
 [ext_resource type="Texture2D" uid="uid://dxcf84i0i3ptv" path="res://Art/Foliage/Grass_text.png" id="1_abb0e"]
 [ext_resource type="Texture2D" uid="uid://cmcj1tm1dhmwn" path="res://Art/Cat_Fall_Windup.png" id="2_cjgrc"]
@@ -19,6 +19,8 @@
 [ext_resource type="Shader" uid="uid://d4ecwwqt03cly" path="res://Art/Foliage/Water.tres" id="17_5ku2d"]
 [ext_resource type="Shader" uid="uid://pxqkd0ijemto" path="res://Shaders/Water.tres" id="17_j8hnx"]
 [ext_resource type="PackedScene" uid="uid://cseyl680mfxsw" path="res://Art/objects/yarn_ball.glb" id="18_sw616"]
+[ext_resource type="Script" path="res://Scenes/Entities/moving platform.gd" id="19_gd1y5"]
+[ext_resource type="PackedScene" uid="uid://c4rndh2lw447j" path="res://Scenes/Objects/koi_on_path.tscn" id="20_reu1l"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_bur4h"]
 sky_top_color = Color(0.74902, 0.27451, 0.662745, 1)
@@ -261,7 +263,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"Idle",
-"speed": 8.0
+"speed": 10.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -722,6 +724,128 @@ size = Vector2(34.678, 8.973)
 subdivide_width = 200
 subdivide_depth = 200
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_my2bd"]
+size = Vector3(2, 1, 2)
+
+[sub_resource type="BoxMesh" id="BoxMesh_j46ps"]
+size = Vector3(2, 1, 2)
+
+[sub_resource type="Animation" id="Animation_2axor"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_s0r7t"]
+resource_name = "new_animation"
+length = 6.0
+loop_mode = 1
+tracks/0/type = "position_3d"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array()
+tracks/1/type = "position_3d"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = PackedFloat32Array()
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = false
+tracks/2/path = NodePath(".:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(),
+"transitions": PackedFloat32Array(),
+"update": 0,
+"values": []
+}
+
+[sub_resource type="Animation" id="Animation_85g74"]
+resource_name = "new_animation_2"
+length = 6.0
+loop_mode = 1
+tracks/0/type = "position_3d"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array()
+tracks/1/type = "position_3d"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = PackedFloat32Array()
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = false
+tracks/2/path = NodePath(".:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(),
+"transitions": PackedFloat32Array(),
+"update": 0,
+"values": []
+}
+
+[sub_resource type="Animation" id="Animation_akc1y"]
+resource_name = "new_animation_3"
+length = 6.0
+loop_mode = 1
+tracks/0/type = "position_3d"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array()
+tracks/1/type = "position_3d"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = PackedFloat32Array()
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = false
+tracks/2/path = NodePath(".:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(),
+"transitions": PackedFloat32Array(),
+"update": 0,
+"values": []
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_rf1ht"]
+_data = {
+"RESET": SubResource("Animation_2axor"),
+"new_animation": SubResource("Animation_s0r7t"),
+"new_animation_2": SubResource("Animation_85g74"),
+"new_animation_3": SubResource("Animation_akc1y")
+}
+
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_o60ao"]
 render_priority = 0
 shader = ExtResource("17_5ku2d")
@@ -734,6 +858,530 @@ shader_parameter/ClearCoat = 0.0
 material = SubResource("ShaderMaterial_o60ao")
 radius = 1.019
 height = 1.981
+radial_segments = 130
+rings = 86
+
+[sub_resource type="VisualShaderNodeVectorOp" id="VisualShaderNodeVectorOp_dt1pr"]
+default_input_values = [0, Quaternion(0, 0, 0, 0), 1, Quaternion(0, 0, 0, 0)]
+op_type = 2
+operator = 2
+
+[sub_resource type="VisualShaderNodeVectorOp" id="VisualShaderNodeVectorOp_jycl5"]
+default_input_values = [0, Quaternion(0, 0, 0, 0), 1, Quaternion(1, 1.25, 1.25, 1.25)]
+op_type = 2
+operator = 5
+
+[sub_resource type="VisualShaderNodeFloatConstant" id="VisualShaderNodeFloatConstant_mij8r"]
+constant = 0.8
+
+[sub_resource type="VisualShaderNodeFloatConstant" id="VisualShaderNodeFloatConstant_scb7s"]
+constant = 1.0
+
+[sub_resource type="VisualShaderNodeFloatConstant" id="VisualShaderNodeFloatConstant_goybr"]
+constant = 30.0
+
+[sub_resource type="VisualShaderNodeInput" id="VisualShaderNodeInput_li3nf"]
+
+[sub_resource type="VisualShaderNodeFloatParameter" id="VisualShaderNodeFloatParameter_jmb5t"]
+parameter_name = "ClearCoat"
+hint = 1
+max = 100.0
+default_value_enabled = true
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_ylhkm"]
+noise_type = 2
+frequency = 0.051
+fractal_type = 0
+cellular_distance_function = 1
+cellular_jitter = 1.563
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_n11ws"]
+width = 848
+height = 465
+seamless = true
+noise = SubResource("FastNoiseLite_ylhkm")
+
+[sub_resource type="VisualShaderNodeTexture" id="VisualShaderNodeTexture_uh0tb"]
+texture = SubResource("NoiseTexture2D_n11ws")
+
+[sub_resource type="VisualShaderNodeColorParameter" id="VisualShaderNodeColorParameter_mkadl"]
+parameter_name = "ColorParameter"
+default_value_enabled = true
+default_value = Color(0.10844, 0.397392, 0.688247, 1)
+
+[sub_resource type="VisualShaderNodeVectorOp" id="VisualShaderNodeVectorOp_2r7ar"]
+default_input_values = [0, Quaternion(0, 0, 0, 0), 1, Quaternion(0, 0, 0, 0)]
+op_type = 2
+
+[sub_resource type="VisualShaderNodeUVFunc" id="VisualShaderNodeUVFunc_kfnhb"]
+default_input_values = [1, Vector2(0.03, 0.01), 2, Vector2(0, 0)]
+
+[sub_resource type="VisualShaderNodeInput" id="VisualShaderNodeInput_ba7hj"]
+input_name = "time"
+
+[sub_resource type="VisualShaderNodeInput" id="VisualShaderNodeInput_dpj3e"]
+input_name = "time"
+
+[sub_resource type="VisualShaderNodeUVFunc" id="VisualShaderNodeUVFunc_73sg3"]
+default_input_values = [1, Vector2(-0.01, -0.01), 2, Vector2(0, 0)]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_ovrsw"]
+noise_type = 2
+seed = 8
+frequency = 0.069
+fractal_type = 0
+cellular_distance_function = 1
+cellular_jitter = 1.563
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_ddfrj"]
+width = 848
+height = 465
+seamless = true
+noise = SubResource("FastNoiseLite_ovrsw")
+
+[sub_resource type="VisualShaderNodeTexture" id="VisualShaderNodeTexture_3xpuq"]
+texture = SubResource("NoiseTexture2D_ddfrj")
+
+[sub_resource type="VisualShaderNodeVectorOp" id="VisualShaderNodeVectorOp_1r1cf"]
+default_input_values = [0, Quaternion(0, 0, 0, 0), 1, Quaternion(0, 0, 0, 0)]
+op_type = 2
+
+[sub_resource type="VisualShaderNodeInput" id="VisualShaderNodeInput_ml3nq"]
+output_port_for_preview = 0
+input_name = "specular"
+
+[sub_resource type="VisualShaderNodeVectorOp" id="VisualShaderNodeVectorOp_3mvc7"]
+default_input_values = [0, Quaternion(0, 0, 0, 0), 1, Quaternion(0, 0, 0, 0)]
+op_type = 2
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_4qe4e"]
+noise_type = 2
+frequency = 0.051
+fractal_type = 0
+cellular_distance_function = 1
+cellular_jitter = 1.563
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_kttlr"]
+width = 848
+height = 465
+seamless = true
+noise = SubResource("FastNoiseLite_4qe4e")
+
+[sub_resource type="VisualShaderNodeTexture" id="VisualShaderNodeTexture_8woap"]
+texture = SubResource("NoiseTexture2D_kttlr")
+
+[sub_resource type="VisualShaderNodeUVFunc" id="VisualShaderNodeUVFunc_mj378"]
+default_input_values = [1, Vector2(0.02, 0.05), 2, Vector2(0, 0)]
+
+[sub_resource type="VisualShaderNodeInput" id="VisualShaderNodeInput_vow8w"]
+input_name = "time"
+
+[sub_resource type="VisualShaderNodeInput" id="VisualShaderNodeInput_qpeg4"]
+input_name = "time"
+
+[sub_resource type="VisualShaderNodeUVFunc" id="VisualShaderNodeUVFunc_qn4d6"]
+default_input_values = [1, Vector2(-0.04, -0.05), 2, Vector2(0, 0)]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_o0s1e"]
+noise_type = 2
+seed = 8
+frequency = 0.069
+fractal_type = 0
+cellular_distance_function = 1
+cellular_jitter = 1.563
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_iaeo5"]
+width = 848
+height = 465
+seamless = true
+noise = SubResource("FastNoiseLite_o0s1e")
+
+[sub_resource type="VisualShaderNodeTexture" id="VisualShaderNodeTexture_74jft"]
+texture = SubResource("NoiseTexture2D_iaeo5")
+
+[sub_resource type="VisualShaderNodeVectorOp" id="VisualShaderNodeVectorOp_34qcw"]
+default_input_values = [0, Quaternion(0, 0, 0, 0), 1, Quaternion(0, 0, 0, 0)]
+op_type = 2
+operator = 2
+
+[sub_resource type="VisualShaderNodeInput" id="VisualShaderNodeInput_adjh3"]
+input_name = "light_color"
+
+[sub_resource type="VisualShaderNodeInput" id="VisualShaderNodeInput_gl3gm"]
+input_name = "time"
+
+[sub_resource type="VisualShaderNodeInput" id="VisualShaderNodeInput_dc8gc"]
+input_name = "time"
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_yu6o2"]
+noise_type = 2
+seed = 8
+frequency = 0.069
+fractal_type = 0
+cellular_distance_function = 1
+cellular_jitter = 1.563
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_1ykpo"]
+width = 848
+height = 465
+seamless = true
+noise = SubResource("FastNoiseLite_yu6o2")
+
+[sub_resource type="VisualShaderNodeTexture" id="VisualShaderNodeTexture_caqje"]
+texture = SubResource("NoiseTexture2D_1ykpo")
+
+[sub_resource type="VisualShaderNodeVectorOp" id="VisualShaderNodeVectorOp_wiqtq"]
+default_input_values = [0, Quaternion(0, 0, 0, 0), 1, Quaternion(0, 0, 0, 0)]
+op_type = 2
+operator = 2
+
+[sub_resource type="VisualShaderNodeFloatParameter" id="VisualShaderNodeFloatParameter_wun3s"]
+parameter_name = "Vertex_Roughness"
+default_value_enabled = true
+default_value = 0.1
+
+[sub_resource type="VisualShaderNodeVectorOp" id="VisualShaderNodeVectorOp_ugedp"]
+default_input_values = [0, Vector3(0, 0, 0), 1, Vector3(0.5, 0.5, 0.5)]
+operator = 2
+
+[sub_resource type="VisualShaderNodeVec4Parameter" id="VisualShaderNodeVec4Parameter_rs7nr"]
+parameter_name = "Wave_Height"
+default_value_enabled = true
+default_value = Vector4(1, 1, 1, 1)
+
+[sub_resource type="VisualShaderNodeUVFunc" id="VisualShaderNodeUVFunc_whj0f"]
+default_input_values = [1, Vector2(0.03, 0.01), 2, Vector2(0, 0)]
+
+[sub_resource type="VisualShaderNodeUVFunc" id="VisualShaderNodeUVFunc_8rwt6"]
+default_input_values = [1, Vector2(-0.01, -0.01), 2, Vector2(0, 0)]
+
+[sub_resource type="VisualShaderNodeInput" id="VisualShaderNodeInput_vv62x"]
+input_name = "vertex"
+
+[sub_resource type="VisualShaderNodeInput" id="VisualShaderNodeInput_vfoox"]
+input_name = "normal"
+
+[sub_resource type="VisualShaderNodeMultiplyAdd" id="VisualShaderNodeMultiplyAdd_8sp8q"]
+default_input_values = [0, Vector4(0, 0, 0, 0), 1, Vector4(1, 1, 1, 1), 2, Vector4(0, 0, 0, 0)]
+op_type = 3
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_vve0j"]
+noise_type = 2
+frequency = 0.051
+fractal_type = 0
+cellular_distance_function = 1
+cellular_jitter = 1.563
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_1hmi3"]
+width = 848
+height = 465
+seamless = true
+noise = SubResource("FastNoiseLite_vve0j")
+
+[sub_resource type="VisualShaderNodeTexture" id="VisualShaderNodeTexture_canj7"]
+texture = SubResource("NoiseTexture2D_1hmi3")
+
+[sub_resource type="VisualShader" id="VisualShader_ywofg"]
+code = "shader_type spatial;
+uniform sampler2D tex_vtx_8;
+uniform sampler2D tex_vtx_13;
+uniform vec4 Wave_Height = vec4(1.000000, 1.000000, 1.000000, 1.000000);
+uniform float Vertex_Roughness = 0.10000000149012;
+uniform sampler2D tex_frg_2;
+uniform sampler2D tex_frg_9;
+uniform vec4 ColorParameter : source_color = vec4(0.108440, 0.397392, 0.688247, 1.000000);
+uniform float ClearCoat : hint_range(0, 100) = 0;
+uniform sampler2D tex_lgt_2;
+uniform sampler2D tex_lgt_7;
+
+
+
+void vertex() {
+// Input:10
+	float n_out10p0 = TIME;
+
+
+// UVFunc:18
+	vec2 n_in18p1 = vec2(0.03000, 0.01000);
+	vec2 n_out18p0 = vec2(n_out10p0) * n_in18p1 + UV;
+
+
+// Texture2D:8
+	vec4 n_out8p0 = texture(tex_vtx_8, n_out18p0);
+
+
+// Input:11
+	float n_out11p0 = TIME;
+
+
+// UVFunc:19
+	vec2 n_in19p1 = vec2(-0.01000, -0.01000);
+	vec2 n_out19p0 = vec2(n_out11p0) * n_in19p1 + UV;
+
+
+// Texture2D:13
+	vec4 n_out13p0 = texture(tex_vtx_13, n_out19p0);
+
+
+// VectorOp:14
+	vec4 n_out14p0 = n_out8p0 * n_out13p0;
+
+
+// Input:6
+	vec3 n_out6p0 = NORMAL;
+
+
+// Vector4Parameter:17
+	vec4 n_out17p0 = Wave_Height;
+
+
+// VectorOp:16
+	vec3 n_out16p0 = n_out6p0 * vec3(n_out17p0.xyz);
+
+
+// Input:5
+	vec3 n_out5p0 = VERTEX;
+
+
+// MultiplyAdd:7
+	vec4 n_out7p0 = fma(n_out14p0, vec4(n_out16p0, 0.0), vec4(n_out5p0, 0.0));
+
+
+// FloatParameter:15
+	float n_out15p0 = Vertex_Roughness;
+
+
+// Output:0
+	VERTEX = vec3(n_out7p0.xyz);
+	ROUGHNESS = n_out15p0;
+
+
+}
+
+void fragment() {
+// Input:6
+	float n_out6p0 = TIME;
+
+
+// UVFunc:5
+	vec2 n_in5p1 = vec2(0.03000, 0.01000);
+	vec2 n_out5p0 = vec2(n_out6p0) * n_in5p1 + UV;
+
+
+// Texture2D:2
+	vec4 n_out2p0 = texture(tex_frg_2, n_out5p0);
+
+
+// Input:7
+	float n_out7p0 = TIME;
+
+
+// UVFunc:8
+	vec2 n_in8p1 = vec2(-0.01000, -0.01000);
+	vec2 n_out8p0 = vec2(n_out7p0) * n_in8p1 + UV;
+
+
+// Texture2D:9
+	vec4 n_out9p0 = texture(tex_frg_9, n_out8p0);
+
+
+// VectorOp:10
+	vec4 n_out10p0 = n_out2p0 * n_out9p0;
+
+
+// VectorOp:11
+	vec4 n_in11p1 = vec4(1.00000, 1.25000, 1.25000, 1.25000);
+	vec4 n_out11p0 = pow(n_out10p0, n_in11p1);
+
+
+// ColorParameter:3
+	vec4 n_out3p0 = ColorParameter;
+
+
+// VectorOp:4
+	vec4 n_out4p0 = n_out11p0 + n_out3p0;
+
+
+// FloatConstant:12
+	float n_out12p0 = 0.800000;
+
+
+// FloatConstant:14
+	float n_out14p0 = 30.000000;
+
+
+// FloatConstant:13
+	float n_out13p0 = 1.000000;
+
+
+// FloatParameter:17
+	float n_out17p0 = ClearCoat;
+
+
+// Output:0
+	ALBEDO = vec3(n_out4p0.xyz);
+	ALPHA = n_out12p0;
+	METALLIC = n_out14p0;
+	ROUGHNESS = n_out13p0;
+	SPECULAR = n_out4p0.x;
+	AO = n_out14p0;
+	NORMAL = vec3(n_out4p0.xyz);
+	CLEARCOAT = n_out17p0;
+	SSS_STRENGTH = n_out14p0;
+
+
+}
+
+void light() {
+// Input:4
+	float n_out4p0 = TIME;
+
+
+// UVFunc:3
+	vec2 n_in3p1 = vec2(0.02000, 0.05000);
+	vec2 n_out3p0 = vec2(n_out4p0) * n_in3p1 + UV;
+
+
+// Texture2D:2
+	vec4 n_out2p0 = texture(tex_lgt_2, n_out3p0);
+
+
+// Input:5
+	float n_out5p0 = TIME;
+
+
+// UVFunc:6
+	vec2 n_in6p1 = vec2(-0.04000, -0.05000);
+	vec2 n_out6p0 = vec2(n_out5p0) * n_in6p1 + UV;
+
+
+// Texture2D:7
+	vec4 n_out7p0 = texture(tex_lgt_7, n_out6p0);
+
+
+// VectorOp:8
+	vec4 n_out8p0 = n_out2p0 * n_out7p0;
+
+
+// Input:9
+	vec3 n_out9p0 = LIGHT_COLOR;
+
+
+// VectorOp:10
+	vec4 n_out10p0 = n_out8p0 + vec4(n_out9p0, 0.0);
+
+
+// Input:11
+	vec3 n_out11p0 = SPECULAR_LIGHT;
+
+
+// VectorOp:12
+	vec4 n_out12p0 = n_out8p0 + vec4(n_out11p0, 0.0);
+
+
+// Output:0
+	DIFFUSE_LIGHT = vec3(n_out10p0.xyz);
+	SPECULAR_LIGHT = vec3(n_out12p0.xyz);
+
+
+}
+"
+graph_offset = Vector2(-649.687, -162.359)
+nodes/vertex/5/node = SubResource("VisualShaderNodeInput_vv62x")
+nodes/vertex/5/position = Vector2(-780, 600)
+nodes/vertex/6/node = SubResource("VisualShaderNodeInput_vfoox")
+nodes/vertex/6/position = Vector2(-1180, 420)
+nodes/vertex/7/node = SubResource("VisualShaderNodeMultiplyAdd_8sp8q")
+nodes/vertex/7/position = Vector2(-300, 300)
+nodes/vertex/8/node = SubResource("VisualShaderNodeTexture_canj7")
+nodes/vertex/8/position = Vector2(-1860, 140)
+nodes/vertex/10/node = SubResource("VisualShaderNodeInput_gl3gm")
+nodes/vertex/10/position = Vector2(-2720, 240)
+nodes/vertex/11/node = SubResource("VisualShaderNodeInput_dc8gc")
+nodes/vertex/11/position = Vector2(-2720, 580)
+nodes/vertex/13/node = SubResource("VisualShaderNodeTexture_caqje")
+nodes/vertex/13/position = Vector2(-1750.63, 511.723)
+nodes/vertex/14/node = SubResource("VisualShaderNodeVectorOp_wiqtq")
+nodes/vertex/14/position = Vector2(-1440, 220)
+nodes/vertex/15/node = SubResource("VisualShaderNodeFloatParameter_wun3s")
+nodes/vertex/15/position = Vector2(60, 380)
+nodes/vertex/16/node = SubResource("VisualShaderNodeVectorOp_ugedp")
+nodes/vertex/16/position = Vector2(-740, 440)
+nodes/vertex/17/node = SubResource("VisualShaderNodeVec4Parameter_rs7nr")
+nodes/vertex/17/position = Vector2(-1220, 580)
+nodes/vertex/18/node = SubResource("VisualShaderNodeUVFunc_whj0f")
+nodes/vertex/18/position = Vector2(-2380, 180)
+nodes/vertex/19/node = SubResource("VisualShaderNodeUVFunc_8rwt6")
+nodes/vertex/19/position = Vector2(-2380, 520)
+nodes/vertex/connections = PackedInt32Array(7, 0, 0, 0, 5, 0, 7, 2, 8, 0, 14, 0, 13, 0, 14, 1, 14, 0, 7, 0, 15, 0, 0, 8, 6, 0, 16, 0, 16, 0, 7, 1, 17, 0, 16, 1, 11, 0, 19, 2, 10, 0, 18, 2, 19, 0, 13, 0, 18, 0, 8, 0)
+nodes/fragment/0/position = Vector2(1060, 360)
+nodes/fragment/2/node = SubResource("VisualShaderNodeTexture_uh0tb")
+nodes/fragment/2/position = Vector2(-460, 0)
+nodes/fragment/3/node = SubResource("VisualShaderNodeColorParameter_mkadl")
+nodes/fragment/3/position = Vector2(-1120, 340)
+nodes/fragment/4/node = SubResource("VisualShaderNodeVectorOp_2r7ar")
+nodes/fragment/4/position = Vector2(280, 60)
+nodes/fragment/5/node = SubResource("VisualShaderNodeUVFunc_kfnhb")
+nodes/fragment/5/position = Vector2(-760, 100)
+nodes/fragment/6/node = SubResource("VisualShaderNodeInput_ba7hj")
+nodes/fragment/6/position = Vector2(-1120, 180)
+nodes/fragment/7/node = SubResource("VisualShaderNodeInput_dpj3e")
+nodes/fragment/7/position = Vector2(-1120, 520)
+nodes/fragment/8/node = SubResource("VisualShaderNodeUVFunc_73sg3")
+nodes/fragment/8/position = Vector2(-760, 440)
+nodes/fragment/9/node = SubResource("VisualShaderNodeTexture_3xpuq")
+nodes/fragment/9/position = Vector2(-460, 340)
+nodes/fragment/10/node = SubResource("VisualShaderNodeVectorOp_dt1pr")
+nodes/fragment/10/position = Vector2(-200, 60)
+nodes/fragment/11/node = SubResource("VisualShaderNodeVectorOp_jycl5")
+nodes/fragment/11/position = Vector2(20, 60)
+nodes/fragment/12/node = SubResource("VisualShaderNodeFloatConstant_mij8r")
+nodes/fragment/12/position = Vector2(-1120, 1180)
+nodes/fragment/13/node = SubResource("VisualShaderNodeFloatConstant_scb7s")
+nodes/fragment/13/position = Vector2(-1120, 680)
+nodes/fragment/14/node = SubResource("VisualShaderNodeFloatConstant_goybr")
+nodes/fragment/14/position = Vector2(-1120, 1020)
+nodes/fragment/15/node = SubResource("VisualShaderNodeInput_li3nf")
+nodes/fragment/15/position = Vector2(-1120, 840)
+nodes/fragment/17/node = SubResource("VisualShaderNodeFloatParameter_jmb5t")
+nodes/fragment/17/position = Vector2(560, 600)
+nodes/fragment/connections = PackedInt32Array(3, 0, 4, 1, 4, 0, 0, 0, 5, 0, 2, 0, 6, 0, 5, 2, 8, 0, 9, 0, 7, 0, 8, 2, 2, 0, 10, 0, 9, 0, 10, 1, 10, 0, 11, 0, 11, 0, 4, 0, 12, 0, 0, 1, 14, 0, 0, 2, 13, 0, 0, 3, 14, 0, 0, 6, 14, 0, 0, 17, 4, 0, 0, 8, 4, 0, 0, 4, 17, 0, 0, 13)
+nodes/light/2/node = SubResource("VisualShaderNodeTexture_8woap")
+nodes/light/2/position = Vector2(-940, -40)
+nodes/light/3/node = SubResource("VisualShaderNodeUVFunc_mj378")
+nodes/light/3/position = Vector2(-1380, 60)
+nodes/light/4/node = SubResource("VisualShaderNodeInput_vow8w")
+nodes/light/4/position = Vector2(-1700, 100)
+nodes/light/5/node = SubResource("VisualShaderNodeInput_qpeg4")
+nodes/light/5/position = Vector2(-1900, 600)
+nodes/light/6/node = SubResource("VisualShaderNodeUVFunc_qn4d6")
+nodes/light/6/position = Vector2(-1640, 540)
+nodes/light/7/node = SubResource("VisualShaderNodeTexture_74jft")
+nodes/light/7/position = Vector2(-1280, 440)
+nodes/light/8/node = SubResource("VisualShaderNodeVectorOp_34qcw")
+nodes/light/8/position = Vector2(-320, 100)
+nodes/light/9/node = SubResource("VisualShaderNodeInput_adjh3")
+nodes/light/9/position = Vector2(-460, 340)
+nodes/light/10/node = SubResource("VisualShaderNodeVectorOp_1r1cf")
+nodes/light/10/position = Vector2(55.2744, 118.247)
+nodes/light/11/node = SubResource("VisualShaderNodeInput_ml3nq")
+nodes/light/11/position = Vector2(-240, 480)
+nodes/light/12/node = SubResource("VisualShaderNodeVectorOp_3mvc7")
+nodes/light/12/position = Vector2(80, 400)
+nodes/light/connections = PackedInt32Array(3, 0, 2, 0, 4, 0, 3, 2, 6, 0, 7, 0, 5, 0, 6, 2, 2, 0, 8, 0, 7, 0, 8, 1, 8, 0, 10, 0, 10, 0, 0, 0, 9, 0, 10, 1, 8, 0, 12, 0, 11, 0, 12, 1, 12, 0, 0, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ib17m"]
+render_priority = 0
+shader = SubResource("VisualShader_ywofg")
+shader_parameter/Wave_Height = Vector4(0.4, 0.1, 0.1, 4)
+shader_parameter/Vertex_Roughness = 0.1
+shader_parameter/ColorParameter = Color(0.262745, 0.619608, 0.698039, 1)
+shader_parameter/ClearCoat = 0.0
+
+[sub_resource type="SphereMesh" id="SphereMesh_xl8sj"]
+material = SubResource("ShaderMaterial_ib17m")
+radius = 2.009
+height = 2.971
 radial_segments = 130
 rings = 86
 
@@ -827,8 +1475,7 @@ alpha_antialiasing_mode = 2
 alpha_antialiasing_edge = 0.09
 render_priority = 1
 sprite_frames = SubResource("SpriteFrames_wrs1q")
-animation = &"Run"
-frame_progress = 0.902143
+animation = &"Idle"
 speed_scale = 2.0
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="player_controller_xrae"]
@@ -861,7 +1508,7 @@ shadow_enabled = true
 distance_fade_enabled = true
 
 [node name="Camera3D" type="Camera3D" parent="player_controller_xrae"]
-transform = Transform3D(2.39457, 0, 0, 0, 2.39226, 0.105118, 0, -0.105118, 2.39226, -0.0484618, 9.20889, 18.0575)
+transform = Transform3D(2.39457, 0, 0, 0, 2.39226, 0.105118, 0, -0.105118, 2.39226, -0.0484618, 8.32988, 18.0961)
 current = true
 fov = 63.7
 
@@ -870,7 +1517,7 @@ unique_name_in_owner = true
 transform = Transform3D(-0.481971, -0.0686632, 2.19344, -3.72529e-09, 2.24571, 0.0702998, -2.19451, 0.0150802, -0.481735, -16.0141, 3.77274, -8.44094)
 
 [node name="koifish_armature" type="Node3D" parent="koifish21"]
-transform = Transform3D(1, 0, 0, 0, 0, -1, 0, 1, 0, -0.13, 0.191365, -0.602572)
+transform = Transform3D(1, 0, 0, 0, -1.39698e-09, -1, 1.49012e-08, 1, 5.82077e-10, -0.13, 0.191365, -0.602573)
 
 [node name="Skeleton3D" type="Skeleton3D" parent="koifish21/koifish_armature"]
 bones/0/name = "body.mid"
@@ -955,103 +1602,13 @@ libraries = {
 "": SubResource("AnimationLibrary_gucqa")
 }
 
-[node name="koifish22" type="Node3D" parent="."]
-unique_name_in_owner = true
-transform = Transform3D(0.0698307, 0, 12.9829, 0, 12.9891, 0, -2.24573, 0, 0.403702, 27.8244, 5.82809, -32.194)
-
-[node name="koifish_armature" type="Node3D" parent="koifish22"]
-transform = Transform3D(1, 0, 0, 0, 0, -1, 0, 1, 0, -0.13, 0.191365, -0.602572)
-
-[node name="Skeleton3D" type="Skeleton3D" parent="koifish22/koifish_armature"]
-bones/0/name = "body.mid"
-bones/0/parent = -1
-bones/0/rest = Transform3D(1, -8.49045e-18, 8.82156e-18, 8.82156e-18, 0.999269, -0.0382376, -8.49045e-18, 0.0382376, 0.999269, 0, 0.299315, -0.0294408)
-bones/0/enabled = true
-bones/0/position = Vector3(0, 0.299315, -0.0294408)
-bones/0/rotation = Quaternion(0.0191223, 4.32879e-18, 4.32879e-18, 0.999817)
-bones/0/scale = Vector3(1, 1, 1)
-bones/1/name = "body.head"
-bones/1/parent = 0
-bones/1/rest = Transform3D(1, -3.45614e-18, 3.51189e-18, 3.50837e-18, 0.999888, -0.0149808, -3.45972e-18, 0.0149808, 0.999888, 1.49012e-08, 0.769943, -1.30385e-08)
-bones/1/enabled = true
-bones/1/position = Vector3(1.49012e-08, 0.769943, -1.30385e-08)
-bones/1/rotation = Quaternion(0.00788316, 0.0151497, 0.02303, 0.999589)
-bones/1/scale = Vector3(1, 1, 1)
-bones/2/name = "fin.left"
-bones/2/parent = 1
-bones/2/rest = Transform3D(-0.0392876, 0.821846, 0.568354, 0.180155, -0.553646, 0.813031, 0.982853, 0.134334, -0.126308, 0.233783, 0.143199, 0.262942)
-bones/2/enabled = true
-bones/2/position = Vector3(0.233783, 0.143199, 0.262942)
-bones/2/rotation = Quaternion(-0.640443, -0.391136, -0.605522, 0.264933)
-bones/2/scale = Vector3(1, 1, 1)
-bones/3/name = "fin.right"
-bones/3/parent = 1
-bones/3/rest = Transform3D(-0.0392876, -0.821846, -0.568354, -0.180155, -0.553646, 0.813031, -0.982853, 0.134334, -0.126308, -0.233783, 0.143199, 0.262942)
-bones/3/enabled = true
-bones/3/position = Vector3(-0.233783, 0.143199, 0.262942)
-bones/3/rotation = Quaternion(-0.640443, 0.391136, 0.605522, 0.264933)
-bones/3/scale = Vector3(1, 1, 1)
-bones/4/name = "body.lower"
-bones/4/parent = -1
-bones/4/rest = Transform3D(1, 1.42109e-14, 1.19209e-06, -4.43557e-08, -0.999307, 0.0372082, 1.19127e-06, -0.0372082, -0.999307, 0, 0.299315, -0.0294408)
-bones/4/enabled = true
-bones/4/position = Vector3(0, 0.299315, -0.0294408)
-bones/4/rotation = Quaternion(-0.999827, 1.10908e-08, -5.95943e-07, 0.0186073)
-bones/4/scale = Vector3(1, 1, 1)
-bones/5/name = "body.lowest"
-bones/5/parent = 4
-bones/5/rest = Transform3D(1, -1.37301e-07, 7.93313e-09, 1.37301e-07, 0.993345, -0.115176, 7.93347e-09, 0.115176, 0.993345, 1.86332e-08, 0.923117, -2.08616e-08)
-bones/5/enabled = true
-bones/5/position = Vector3(1.86332e-08, 0.923117, -2.08616e-08)
-bones/5/rotation = Quaternion(0.0576842, -8.60746e-14, 6.87649e-08, 0.998335)
-bones/5/scale = Vector3(1, 1, 1)
-bones/6/name = "body.fins"
-bones/6/parent = 5
-bones/6/rest = Transform3D(1, -8.83121e-08, 3.27582e-09, 8.83121e-08, 0.997252, -0.0740816, 3.27548e-09, 0.0740816, 0.997252, -3.9395e-09, 0.451772, 1.63913e-08)
-bones/6/enabled = true
-bones/6/position = Vector3(-3.9395e-09, 0.451772, 1.63913e-08)
-bones/6/rotation = Quaternion(0.0370663, 8.45461e-14, 4.41864e-08, 0.999313)
-bones/6/scale = Vector3(1, 1, 1)
-bones/7/name = "dorsalfin.upper"
-bones/7/parent = 4
-bones/7/rest = Transform3D(1, 3.51962e-07, -9.00532e-07, -7.03923e-08, 0.955421, 0.295247, 9.64303e-07, -0.295247, 0.955421, 4.13502e-07, 0.851861, -0.33124)
-bones/7/enabled = true
-bones/7/position = Vector3(4.13502e-07, 0.851861, -0.33124)
-bones/7/rotation = Quaternion(-0.149297, -4.71493e-07, -1.06785e-07, 0.988792)
-bones/7/scale = Vector3(1, 1, 1)
-bones/8/name = "dorsalfin.lower"
-bones/8/parent = 7
-bones/8/rest = Transform3D(1, -7.96384e-08, 1.36941e-08, 7.96384e-08, 0.942563, -0.334028, 1.36939e-08, 0.334028, 0.942563, 5.49059e-09, 0.19597, 6.2585e-09)
-bones/8/enabled = true
-bones/8/position = Vector3(5.49059e-09, 0.19597, 6.2585e-09)
-bones/8/rotation = Quaternion(0.169465, 5.45234e-14, 4.04036e-08, 0.985536)
-bones/8/scale = Vector3(1, 1, 1)
-bones/9/name = "neutral_bone"
-bones/9/parent = -1
-bones/9/rest = Transform3D(1, 0, 0, 0, 0, 1, 0, -1, 0, 0, 0, 0)
-bones/9/enabled = true
-bones/9/position = Vector3(0, 0, 0)
-bones/9/rotation = Quaternion(-0.707107, 0, 0, 0.707107)
-bones/9/scale = Vector3(1, 1, 1)
-
-[node name="koifish" type="MeshInstance3D" parent="koifish22/koifish_armature/Skeleton3D"]
-material_override = SubResource("StandardMaterial3D_bp0br")
-mesh = SubResource("ArrayMesh_usfyt")
-skin = SubResource("Skin_xn6vo")
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="koifish22"]
-autoplay = "koifish_armature001"
-libraries = {
-"": SubResource("AnimationLibrary_gucqa")
-}
-
 [node name="GridMap" type="GridMap" parent="."]
 transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 0, 0, 0)
 mesh_library = ExtResource("10_44f4d")
 data = {
-"cells": PackedInt32Array(65534, 65534, 1441793, 131070, 65534, 1376257, 131071, 65534, 4, 65536, 65534, 327682, 65535, 65534, 1507330, 65533, 65534, 1376259, 131068, 65534, 1441796, 65532, 65534, 1245186, 3, 65533, 1245185, 65539, 65533, 262144, 65539, 65534, 262148, -65533, 65533, 3, -131069, 65533, 3, -4, 65534, 1310724, -65541, 65534, 1310723, -131070, 65530, 1310723, -65534, 65530, 1310723, 2, 65530, 1310723, 65538, 65531, 1310723, 131073, 65532, 1376257, 65537, 65532, 524291, 1, 65532, 524291, -65535, 65532, 524291, 131074, 65532, 1507330, 131072, 65532, 1048581, 131074, 65531, 1310725, 3, 65535, 1048581, 0, 65533, 1048579, -65536, 65533, 1048579, 65536, 65533, 786434, 65536, 65532, 524290, 0, 65531, 524292)
+"cells": PackedInt32Array(65534, 65534, 1441793, 131070, 65534, 1376257, 131071, 65534, 4, 65536, 65534, 327682, 65535, 65534, 1507330, 65533, 65534, 1376259, 131068, 65534, 1441796, 65532, 65534, 1245186, 3, 65533, 1245185, 65539, 65533, 262144, 65539, 65534, 262148, -65533, 65533, 3, -131069, 65533, 3, -4, 65534, 1310724, -65541, 65534, 1310723, -131070, 65530, 1310723, -65534, 65530, 1310723, 2, 65530, 1310723, 65538, 65531, 1310723, 131073, 65532, 1376257, 65537, 65532, 524291, 1, 65532, 524291, -65535, 65532, 524291, 131074, 65532, 1507330, 131072, 65532, 1048581, 131074, 65531, 1310725, 3, 65535, 1048581, 0, 65533, 1048579, -65536, 65533, 1048579, 65536, 65533, 786434, 65536, 65532, 524290, 0, 65531, 524292, 6, 65535, 655365, -65530, 0, 655362, -65530, 1, 917507, -65527, 0, 131075, -65527, 65535, 131076, 11, 65535, 131076, 11, 0, 131075, -65525, 0, 1507330, -65526, 0, 851970, -65526, 65535, 851971, -65526, 65534, 589826, -65525, 65534, 589827, -65524, 65534, 589827, -65523, 65534, 589827, -65522, 65534, 1048578, 14, 65534, 1441796, 196624, 65535, 1441796, 262160, 65535, 1441796, 196625, 65535, 1245184, 131089, 65535, 1114112, 65553, 65535, 1310723, 16, 65534, 1310723, 65552, 65534, 1310723, 65552, 65532, 1310725, 65552, 65533, 1310725)
 }
-metadata/_editor_floor_ = Vector3(0, 0, 0)
+metadata/_editor_floor_ = Vector3(0, 1, 0)
 
 [node name="koifish20" type="Node3D" parent="."]
 unique_name_in_owner = true
@@ -1160,8 +1717,9 @@ mesh = SubResource("QuadMesh_mc5tx")
 [node name="GridMap2" type="GridMap" parent="."]
 mesh_library = ExtResource("11_lme0n")
 data = {
-"cells": PackedInt32Array(5, 65535, 524288)
+"cells": PackedInt32Array(5, 65535, 524288, 131109, 65534, 1441793, 262183, 65535, 1441792, 65576, 65535, 1441792, 131109, 65535, 1441792, 1179718, 65535, 1310720, 1179722, 65535, 1310720, 1179725, 65535, 1310720)
 }
+metadata/_editor_floor_ = Vector3(0, 18, 0)
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("13_um4nw")
@@ -1185,12 +1743,174 @@ mesh = SubResource("QuadMesh_wyfn7")
 [node name="yarn_ball" parent="." instance=ExtResource("18_sw616")]
 transform = Transform3D(1.91378, -0.130262, -0.647975, -0.4135, 1.41256, -1.3153, 0.571968, 1.45705, 1.21721, 7.22759, 6.90733, -5.93361)
 
+[node name="moving platform" type="Node3D" parent="."]
+unique_name_in_owner = true
+transform = Transform3D(2.03978, 0, 0, 0, 2.03354, 0, 0, 0, 1.90565, 103.984, 8.59267, -1.19612)
+script = ExtResource("19_gd1y5")
+range = Vector3(3, 0, 0)
+speed = 3
+
+[node name="StaticBody3D" type="AnimatableBody3D" parent="moving platform"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="moving platform/StaticBody3D"]
+shape = SubResource("BoxShape3D_my2bd")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="moving platform/StaticBody3D"]
+mesh = SubResource("BoxMesh_j46ps")
+skeleton = NodePath("../..")
+metadata/_edit_group_ = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="moving platform"]
+root_node = NodePath("../StaticBody3D")
+autoplay = "new_animation_2"
+libraries = {
+"": SubResource("AnimationLibrary_rf1ht")
+}
+
+[node name="moving platform4" type="Node3D" parent="."]
+unique_name_in_owner = true
+transform = Transform3D(2.03978, 0, 0, 0, 2.03354, 0, 0, 0, 1.90565, 160.067, 36.9483, -1.19631)
+script = ExtResource("19_gd1y5")
+range = Vector3(3, 0, 0)
+speed = 3
+
+[node name="StaticBody3D" type="AnimatableBody3D" parent="moving platform4"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="moving platform4/StaticBody3D"]
+shape = SubResource("BoxShape3D_my2bd")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="moving platform4/StaticBody3D"]
+mesh = SubResource("BoxMesh_j46ps")
+skeleton = NodePath("../..")
+metadata/_edit_group_ = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="moving platform4"]
+root_node = NodePath("../StaticBody3D")
+autoplay = "new_animation_2"
+libraries = {
+"": SubResource("AnimationLibrary_rf1ht")
+}
+
+[node name="moving platform2" type="Node3D" parent="."]
+unique_name_in_owner = true
+transform = Transform3D(2.03978, 0, 0, 0, 2.03354, 0, 0, 0, 1.90565, 125.059, 17.3028, -1.21764)
+script = ExtResource("19_gd1y5")
+range = Vector3(-5, -5, 0)
+speed = 3
+
+[node name="StaticBody3D" type="AnimatableBody3D" parent="moving platform2"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="moving platform2/StaticBody3D"]
+shape = SubResource("BoxShape3D_my2bd")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="moving platform2/StaticBody3D"]
+mesh = SubResource("BoxMesh_j46ps")
+skeleton = NodePath("../..")
+metadata/_edit_group_ = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="moving platform2"]
+root_node = NodePath("../StaticBody3D")
+autoplay = "new_animation"
+libraries = {
+"": SubResource("AnimationLibrary_rf1ht")
+}
+
+[node name="moving platform3" type="Node3D" parent="."]
+unique_name_in_owner = true
+transform = Transform3D(2.03978, 0, 0, 0, 2.03354, 0, 0, 0, 1.90565, 115.799, 17.3028, -0.777192)
+script = ExtResource("19_gd1y5")
+range = Vector3(0, 10, 0)
+speed = 3
+
+[node name="StaticBody3D" type="AnimatableBody3D" parent="moving platform3"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="moving platform3/StaticBody3D"]
+shape = SubResource("BoxShape3D_my2bd")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="moving platform3/StaticBody3D"]
+mesh = SubResource("BoxMesh_j46ps")
+skeleton = NodePath("../..")
+metadata/_edit_group_ = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="moving platform3"]
+root_node = NodePath("../StaticBody3D")
+autoplay = "new_animation_3"
+libraries = {
+"": SubResource("AnimationLibrary_rf1ht")
+}
+
+[node name="yarn_ball2" parent="." instance=ExtResource("18_sw616")]
+transform = Transform3D(1.91378, -0.130262, -0.647975, -0.4135, 1.41256, -1.3153, 0.571968, 1.45705, 1.21721, 68.6078, 16.6344, -9.87623)
+
 [node name="Waterball" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.09181, 1.4361, 0)
+transform = Transform3D(9.44731, 0, 0, 0, 6.43754, 0, 0, 0, 9.88742, 70.8214, 16.4606, -28.214)
+mesh = SubResource("SphereMesh_373hk")
+
+[node name="Waterball5" type="MeshInstance3D" parent="."]
+unique_name_in_owner = true
+transform = Transform3D(9.44731, 0, 0, 0, 6.43754, 0, 0, 0, 9.88742, 158.246, 26.4518, -12.0124)
+mesh = SubResource("SphereMesh_xl8sj")
+
+[node name="Waterball3" type="MeshInstance3D" parent="."]
+transform = Transform3D(3.60836, 0, 0, 0, 3.82818, 0, 0, 0, 3.45545, 98.1011, 1.81581, -32.3281)
+mesh = SubResource("SphereMesh_373hk")
+
+[node name="Waterball4" type="MeshInstance3D" parent="."]
+transform = Transform3D(3.60836, 0, 0, 0, 3.82818, 0, 0, 0, 3.45545, 99.887, 8.4774, -23.7464)
 mesh = SubResource("SphereMesh_373hk")
 
 [node name="Waterball2" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.09221, 1.4361, 0)
 mesh = SubResource("BoxMesh_5b7ir")
 
+[node name="KoiOnPath" parent="." instance=ExtResource("20_reu1l")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.54342, 12.8908, -30.7115)
+
+[node name="PathFollow3D" parent="KoiOnPath/Path3D" index="0"]
+transform = Transform3D(-4.37045e-08, 0, 0.999964, 0, 0.999958, 0, -0.999842, 0, -4.37098e-08, 2.08165e-12, 2.08165e-12, 2.08165e-12)
+
+[node name="KoiOnPath2" parent="." instance=ExtResource("20_reu1l")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.54342, 12.8908, -30.7115)
+
+[node name="PathFollow3D" parent="KoiOnPath2/Path3D" index="0"]
+transform = Transform3D(-4.37045e-08, 0, 0.999964, 0, 0.999958, 0, -0.999842, 0, -4.37098e-08, 2.08165e-12, 2.08165e-12, 2.08165e-12)
+
+[node name="KoiOnPath3" parent="." instance=ExtResource("20_reu1l")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.54342, 12.8908, -30.7115)
+
+[node name="PathFollow3D" parent="KoiOnPath3/Path3D" index="0"]
+transform = Transform3D(-4.37045e-08, 0, 0.999964, 0, 0.999958, 0, -0.999842, 0, -4.37098e-08, 2.08165e-12, 2.08165e-12, 2.08165e-12)
+
+[node name="KoiOnPath4" parent="." instance=ExtResource("20_reu1l")]
+transform = Transform3D(0.506914, 0, 0, 0, 0.492565, 0, 0, 0, 0.765546, 40.0133, 11.7589, -45.5174)
+
+[node name="PathFollow3D" parent="KoiOnPath4/Path3D" index="0"]
+transform = Transform3D(-4.37045e-08, 0, 0.999964, 0, 0.999958, 0, -0.999842, 0, -4.37098e-08, 2.08165e-12, 2.08165e-12, 2.08165e-12)
+
+[node name="KoiOnPath5" parent="." instance=ExtResource("20_reu1l")]
+transform = Transform3D(0.506914, 0, 0, 0, 0.492565, 0, 0, 0, 0.765546, 40.0133, -4.53936, -33.9344)
+
+[node name="PathFollow3D" parent="KoiOnPath5/Path3D" index="0"]
+transform = Transform3D(-4.37045e-08, 0, 0.999964, 0, 0.999958, 0, -0.999842, 0, -4.37098e-08, 2.08165e-12, 2.08165e-12, 2.08165e-12)
+
+[node name="KoiOnPath6" parent="." instance=ExtResource("20_reu1l")]
+transform = Transform3D(0.506914, 0, 0, 0, 0.492565, 0, 0, 0, 0.765546, -9.00891, 2.51572, -51.7732)
+
+[node name="PathFollow3D" parent="KoiOnPath6/Path3D" index="0"]
+transform = Transform3D(-4.37045e-08, 0, 0.999964, 0, 0.999958, 0, -0.999842, 0, -4.37098e-08, 2.08165e-12, 2.08165e-12, 2.08165e-12)
+
+[node name="KoiOnPath7" parent="." instance=ExtResource("20_reu1l")]
+transform = Transform3D(0.506914, 0, 0, 0, 0.492565, 0, 0, 0, 0.765546, -9.2244, 7.55396, 2.4837)
+
+[node name="PathFollow3D" parent="KoiOnPath7/Path3D" index="0"]
+transform = Transform3D(-4.37045e-08, 0, 0.999964, 0, 0.999958, 0, -0.999842, 0, -4.37098e-08, 2.08165e-12, 2.08165e-12, 2.08165e-12)
+
 [connection signal="timeout" from="player_controller_xrae/JumpBuffer" to="player_controller_xrae" method="_on_jump_buffer_timeout" flags=18]
+
+[editable path="KoiOnPath"]
+[editable path="KoiOnPath2"]
+[editable path="KoiOnPath3"]
+[editable path="KoiOnPath4"]
+[editable path="KoiOnPath5"]
+[editable path="KoiOnPath6"]
+[editable path="KoiOnPath7"]

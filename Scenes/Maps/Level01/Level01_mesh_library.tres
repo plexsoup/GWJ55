@@ -1,11 +1,11 @@
-[gd_resource type="MeshLibrary" load_steps=29 format=3 uid="uid://2b1l75l303ti"]
+[gd_resource type="MeshLibrary" load_steps=29 format=3 uid="uid://bf580u6wgai8v"]
 
-[ext_resource type="Shader" uid="uid://jqx3qm42bku3" path="res://Art/level_pieces/Pipe_Shader.tres" id="1_i18ou"]
-[ext_resource type="Shader" uid="uid://bp60xdb0f748y" path="res://Scenes/Objects/PlatformShader.tres" id="2_5bbn5"]
+[ext_resource type="Shader" uid="uid://jqx3qm42bku3" path="res://Art/level_pieces/Pipe_Shader.tres" id="1_q7bm7"]
+[ext_resource type="Shader" uid="uid://bp60xdb0f748y" path="res://Scenes/Objects/PlatformShader.tres" id="2_7kl13"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_b5b34"]
 render_priority = 0
-shader = ExtResource("1_i18ou")
+shader = ExtResource("1_q7bm7")
 shader_parameter/ColorParameter = Color(0.734838, 0.352256, 0.089409, 1)
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_yoj81"]
@@ -36,7 +36,7 @@ image = SubResource("Image_0kmr3")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_6jw2s"]
 render_priority = 0
-shader = ExtResource("1_i18ou")
+shader = ExtResource("1_q7bm7")
 shader_parameter/ColorParameter = Color(0.734838, 0.352256, 0.089409, 1)
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_jgcdx"]
@@ -67,7 +67,7 @@ image = SubResource("Image_3qlha")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_3y0mb"]
 render_priority = 0
-shader = ExtResource("1_i18ou")
+shader = ExtResource("1_q7bm7")
 shader_parameter/ColorParameter = Color(0.734838, 0.352256, 0.089409, 1)
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_u3j1b"]
@@ -98,7 +98,7 @@ image = SubResource("Image_4ewg4")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_omvhg"]
 render_priority = 0
-shader = ExtResource("1_i18ou")
+shader = ExtResource("1_q7bm7")
 shader_parameter/ColorParameter = Color(0.734838, 0.352256, 0.089409, 1)
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_174p6"]
@@ -129,7 +129,7 @@ image = SubResource("Image_8amd5")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_nc06r"]
 render_priority = 0
-shader = ExtResource("2_5bbn5")
+shader = ExtResource("2_7kl13")
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_2tdod"]
 _surfaces = [{
@@ -163,7 +163,7 @@ radius = 2.16193
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_crx40"]
 render_priority = 0
-shader = ExtResource("2_5bbn5")
+shader = ExtResource("2_7kl13")
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_bo5ck"]
 _surfaces = [{

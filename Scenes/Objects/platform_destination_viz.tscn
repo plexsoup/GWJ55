@@ -1,0 +1,15 @@
+[gd_scene load_steps=4 format=3 uid="uid://bt5w6utrspojh"]
+
+[ext_resource type="Script" path="res://Scenes/Objects/platform_destination_viz.gd" id="1_ymdvy"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_uh25j"]
+transparency = 1
+albedo_color = Color(0.254902, 1, 0.47451, 0.513726)
+
+[sub_resource type="BoxMesh" id="BoxMesh_qgb1h"]
+material = SubResource("StandardMaterial3D_uh25j")
+
+[node name="PlatformDestinationViz" type="MeshInstance3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.87478, 0)
+mesh = SubResource("BoxMesh_qgb1h")
+script = ExtResource("1_ymdvy")

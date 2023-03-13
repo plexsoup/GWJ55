@@ -33,8 +33,8 @@ func get_vector(_negX, _posX, _negY, _posY):
 	var resultVector = Vector3.ZERO
 	resultVector += Vector3.LEFT * get(_negX)
 	resultVector += Vector3.RIGHT * get(_posX)
-	resultVector += Vector3.UP * get(_negY)
-	resultVector += Vector3.DOWN * get(_posY)
+	resultVector += Vector3.UP * get(_posY)
+	resultVector += Vector3.DOWN * get(_negY)
 	return resultVector
 
 

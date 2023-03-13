@@ -22,7 +22,6 @@ StageManager="*res://Scripts/stage_manager.gd"
 
 [display]
 
-window/size/mode=2
 window/stretch/mode="viewport"
 
 [importer_defaults]

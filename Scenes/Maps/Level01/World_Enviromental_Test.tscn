@@ -58,11 +58,11 @@ material = SubResource("StandardMaterial3D_fw104")
 atlas = ExtResource("2_cjgrc")
 region = Rect2(2048, 0, 512, 512)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_ik440"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_mwxdu"]
 atlas = ExtResource("2_cjgrc")
-region = Rect2(1536, 0, 512, 512)
+region = Rect2(2048, 0, 512, 512)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_jo22l"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_cc1mt"]
 atlas = ExtResource("2_cjgrc")
 region = Rect2(2048, 0, 512, 512)
 
@@ -194,14 +194,17 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_ik440")
+"texture": SubResource("AtlasTexture_mwxdu")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_jo22l")
+"texture": SubResource("AtlasTexture_cc1mt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cc1mt")
 }],
 "loop": true,
 "name": &"Fall_Start",
-"speed": 4.0
+"speed": 3.0
 }, {
 "frames": [{
 "duration": 3.0,

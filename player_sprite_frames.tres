@@ -1,4 +1,4 @@
-[gd_resource type="SpriteFrames" load_steps=42 format=3 uid="uid://bkm20v777m12k"]
+[gd_resource type="SpriteFrames" load_steps=48 format=3 uid="uid://bkm20v777m12k"]
 
 [ext_resource type="Texture2D" uid="uid://458wfcstwugh" path="res://Art/Cat_Idle.png" id="1_koq3v"]
 [ext_resource type="Texture2D" uid="uid://cmcj1tm1dhmwn" path="res://Art/Cat_Fall_Windup.png" id="1_u3bol"]
@@ -45,6 +45,30 @@ region = Rect2(1024, 0, 512, 512)
 [sub_resource type="AtlasTexture" id="AtlasTexture_2fdli"]
 atlas = ExtResource("1_koq3v")
 region = Rect2(1536, 0, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ivto1"]
+atlas = ExtResource("4_i61x5")
+region = Rect2(0, 0, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_padp5"]
+atlas = ExtResource("4_i61x5")
+region = Rect2(512, 0, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_00cgg"]
+atlas = ExtResource("1_u3bol")
+region = Rect2(0, 0, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_frsk6"]
+atlas = ExtResource("4_i61x5")
+region = Rect2(0, 0, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mwp5s"]
+atlas = ExtResource("4_i61x5")
+region = Rect2(512, 0, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xboto"]
+atlas = ExtResource("2_teseg")
+region = Rect2(0, 0, 512, 512)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_vdsm8"]
 atlas = ExtResource("1_u3bol")
@@ -198,6 +222,34 @@ animations = [{
 }],
 "loop": true,
 "name": &"Idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ivto1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_padp5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_00cgg")
+}],
+"loop": true,
+"name": &"Idle_Jump",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_frsk6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mwp5s")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xboto")
+}],
+"loop": true,
+"name": &"Idle_Push",
 "speed": 5.0
 }, {
 "frames": [{

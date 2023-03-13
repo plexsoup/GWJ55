@@ -1440,7 +1440,8 @@ alpha_antialiasing_mode = 2
 alpha_antialiasing_edge = 0.09
 render_priority = 1
 sprite_frames = SubResource("SpriteFrames_wrs1q")
-animation = &"Idle"
+animation = &"Push"
+frame_progress = 0.0526118
 speed_scale = 2.0
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="player_controller_xrae"]

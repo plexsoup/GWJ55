@@ -44,7 +44,7 @@ shader = ExtResource("7_6hssm")
 [sub_resource type="BoxShape3D" id="BoxShape3D_by8wv"]
 size = Vector3(3.78733, 0.601536, 3.80903)
 
-[node name="Node3D" type="Node3D"]
+[node name="Node3D2" type="Node3D"]
 
 [node name="Pipe3Way" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.95878, 0, 0.35183)

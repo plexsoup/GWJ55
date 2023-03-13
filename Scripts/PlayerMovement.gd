@@ -68,17 +68,22 @@ func animate():
 				if previous_animation_state == "Idle":
 					animation_state = "Run_Start"
 				else:
-					if previous_animation_state != "Run_Start" || (previous_animation_state == "Run_Start" and animated_sprite.frame == 2):
+					if previous_animation_state != "Run_Start" || (previous_animation_state == "Run_Start" and animated_sprite.frame == animated_sprite.get_sprite_frames().get_frame_count("Run_Start") - 1):
 						animation_state = "Run"
 			else:
 				animation_state = "Push"
 		else:
-			animation_state = "Idle"
+			if previous_animation_state == "Run":
+				animation_state = "Stop"
+			elif previous_animation_state == "Stop" and animated_sprite.frame == animated_sprite.get_sprite_frames().get_frame_count("Stop") - 1:
+				animation_state = "Idle"
+			if previous_animation_state != "Run" and previous_animation_state != "Stop":
+				animation_state = "Idle"
 	else:
-		if previous_animation_state != "Jump_Start" || (previous_animation_state == "Jump_Start" and animated_sprite.frame == 2):
+		if previous_animation_state != "Jump_Start" || (previous_animation_state == "Jump_Start" and animated_sprite.frame == animated_sprite.get_sprite_frames().get_frame_count("Jump_Start") - 1):
 			if previous_animation_state != "Fall" and previous_animation_state != "Fall_Start":
 				animation_state = "Fall_Start"
-			elif previous_animation_state != "Fall_Start" || (previous_animation_state == "Fall_Start" and animated_sprite.frame == 2):
+			elif previous_animation_state != "Fall_Start" || (previous_animation_state == "Fall_Start" and animated_sprite.frame == animated_sprite.get_sprite_frames().get_frame_count("Fall_Start") - 1):
 				animation_state = "Fall"
 	if jumping and previous_animation_state != "Jump_Start":
 		animation_state = "Jump_Start"

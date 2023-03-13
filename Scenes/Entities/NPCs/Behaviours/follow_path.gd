@@ -19,7 +19,7 @@ func init(entityObj : CharacterBody3D):
 		super.init(entityObj)
 		if entity.path_to_follow != null and !entity.path_to_follow.is_empty(): # should be in the NPC base parameters
 			path_to_follow = entity.path_to_follow
-			path = get_node(path_to_follow)
+			path = entity.get_node(path_to_follow)
 
 		elif path_to_follow != null and !path_to_follow.is_empty(): # maybe someone put it on the behaviour node instead of the NPC root node
 			path_to_follow = path_to_follow

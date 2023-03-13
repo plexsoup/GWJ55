@@ -32,7 +32,7 @@ func update_input_controller():
 
 	else:
 		for raycast in raycasts:
-			if raycast.is_colliding(): # jump
+			if raycast.is_colliding() and "player" in raycast.get_collider().name.to_lower(): # jump
 				var directionName = "move_right"
 				if raycast.get_collision_point().x < entity.global_position.x:
 					directionName = "move_left"

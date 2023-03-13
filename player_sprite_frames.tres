@@ -1,4 +1,4 @@
-[gd_resource type="SpriteFrames" load_steps=32 format=3 uid="uid://bkm20v777m12k"]
+[gd_resource type="SpriteFrames" load_steps=35 format=3 uid="uid://bkm20v777m12k"]
 
 [ext_resource type="Texture2D" uid="uid://458wfcstwugh" path="res://Art/Cat_Idle.png" id="1_koq3v"]
 [ext_resource type="Texture2D" uid="uid://cmcj1tm1dhmwn" path="res://Art/Cat_Fall_Windup.png" id="1_u3bol"]
@@ -109,6 +109,18 @@ region = Rect2(512, 0, 512, 512)
 [sub_resource type="AtlasTexture" id="AtlasTexture_l87of"]
 atlas = ExtResource("4_i61x5")
 region = Rect2(1024, 0, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8dmxv"]
+atlas = ExtResource("4_i61x5")
+region = Rect2(1024, 0, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gjck2"]
+atlas = ExtResource("4_i61x5")
+region = Rect2(512, 0, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_65cis"]
+atlas = ExtResource("4_i61x5")
+region = Rect2(0, 0, 512, 512)
 
 [resource]
 animations = [{
@@ -226,5 +238,19 @@ animations = [{
 }],
 "loop": true,
 "name": &"Run_Start",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8dmxv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gjck2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_65cis")
+}],
+"loop": true,
+"name": &"Stop",
 "speed": 5.0
 }]

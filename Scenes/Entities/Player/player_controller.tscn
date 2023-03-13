@@ -20,7 +20,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0949152, 0)
 pixel_size = 0.005
 alpha_cut = 2
 sprite_frames = ExtResource("2_5te2e")
-animation = &"Fall_Start"
+animation = &"Fall"
 speed_scale = 2.0
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]

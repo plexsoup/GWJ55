@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://bvrm4ton3t0ik"]
+
+[ext_resource type="Environment" uid="uid://cwy6umphyte2k" path="res://Shaders/Envrioment_1Shader.tres" id="1_ry536"]
+
+[sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_ffjay"]
+dof_blur_far_enabled = true
+dof_blur_far_distance = 16.45
+dof_blur_near_distance = 2.31
+dof_blur_near_transition = 173.48
+dof_blur_amount = 0.09
+
+[node name="WorldEnvironment" type="WorldEnvironment"]
+environment = ExtResource("1_ry536")
+camera_attributes = SubResource("CameraAttributesPractical_ffjay")

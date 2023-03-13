@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://Scripts/PlayerMovement.gd" id="1_at8m4"]
 [ext_resource type="SpriteFrames" uid="uid://bkm20v777m12k" path="res://player_sprite_frames.tres" id="2_5te2e"]
-[ext_resource type="PackedScene" path="res://GUI/player_hud.tscn" id="3_xuxi4"]
+[ext_resource type="PackedScene" uid="uid://rau1y6yi1xhy" path="res://GUI/player_hud.tscn" id="3_xuxi4"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_gajrw"]
 radius = 1.2

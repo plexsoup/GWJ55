@@ -43,3 +43,5 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.53663, 12.0312, 5.07671)
 
 [node name="player_controller_xrae" parent="." instance=ExtResource("5_7tvea")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.1601, 16.8858, 4.30362)
+jump_time_to_peak = 0.33
+jump_time_to_descent = 0.24

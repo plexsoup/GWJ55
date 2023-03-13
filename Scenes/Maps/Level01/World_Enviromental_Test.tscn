@@ -1,4 +1,4 @@
-[gd_scene load_steps=149 format=3 uid="uid://byvg06a3l0cpj"]
+[gd_scene load_steps=148 format=3 uid="uid://byvg06a3l0cpj"]
 
 [ext_resource type="Texture2D" uid="uid://dxcf84i0i3ptv" path="res://Art/Foliage/Grass_text.png" id="1_abb0e"]
 [ext_resource type="Environment" uid="uid://cwy6umphyte2k" path="res://Shaders/Envrioment_1Shader.tres" id="1_s1ken"]
@@ -54,21 +54,17 @@ albedo_texture = ExtResource("8_ysrpf")
 [sub_resource type="QuadMesh" id="QuadMesh_pj4vg"]
 material = SubResource("StandardMaterial3D_fw104")
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_ew8d0"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_680mn"]
 atlas = ExtResource("2_cjgrc")
-region = Rect2(1024, 0, 512, 512)
+region = Rect2(2048, 0, 512, 512)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_sbb85"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_ik440"]
 atlas = ExtResource("2_cjgrc")
-region = Rect2(0, 0, 512, 512)
+region = Rect2(1536, 0, 512, 512)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_47arr"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_jo22l"]
 atlas = ExtResource("2_cjgrc")
-region = Rect2(512, 0, 512, 512)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_d42rw"]
-atlas = ExtResource("2_cjgrc")
-region = Rect2(1024, 0, 512, 512)
+region = Rect2(2048, 0, 512, 512)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_tnl03"]
 atlas = ExtResource("3_ltnvv")
@@ -190,7 +186,7 @@ region = Rect2(1024, 0, 512, 512)
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_ew8d0")
+"texture": SubResource("AtlasTexture_680mn")
 }],
 "loop": true,
 "name": &"Fall",
@@ -198,17 +194,14 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_sbb85")
+"texture": SubResource("AtlasTexture_ik440")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_47arr")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_d42rw")
+"texture": SubResource("AtlasTexture_jo22l")
 }],
 "loop": true,
 "name": &"Fall_Start",
-"speed": 5.0
+"speed": 4.0
 }, {
 "frames": [{
 "duration": 3.0,
@@ -1440,8 +1433,7 @@ alpha_antialiasing_mode = 2
 alpha_antialiasing_edge = 0.09
 render_priority = 1
 sprite_frames = SubResource("SpriteFrames_wrs1q")
-animation = &"Push"
-frame_progress = 0.0526118
+animation = &"Fall_Start"
 speed_scale = 2.0
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="player_controller_xrae"]
@@ -1832,23 +1824,44 @@ mesh = SubResource("BoxMesh_5b7ir")
 [node name="KoiOnPath" parent="." instance=ExtResource("20_reu1l")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.54342, 12.8908, -30.7115)
 
+[node name="PathFollow3D" parent="KoiOnPath/Path3D" index="0"]
+transform = Transform3D(-4.37045e-08, 0, 0.999964, 0, 0.999958, 0, -0.999842, 0, -4.37098e-08, 2.08165e-12, 2.08165e-12, 2.08165e-12)
+
 [node name="KoiOnPath2" parent="." instance=ExtResource("20_reu1l")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.54342, 12.8908, -30.7115)
+
+[node name="PathFollow3D" parent="KoiOnPath2/Path3D" index="0"]
+transform = Transform3D(-4.37045e-08, 0, 0.999964, 0, 0.999958, 0, -0.999842, 0, -4.37098e-08, 2.08165e-12, 2.08165e-12, 2.08165e-12)
 
 [node name="KoiOnPath3" parent="." instance=ExtResource("20_reu1l")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.54342, 12.8908, -30.7115)
 
+[node name="PathFollow3D" parent="KoiOnPath3/Path3D" index="0"]
+transform = Transform3D(-4.37045e-08, 0, 0.999964, 0, 0.999958, 0, -0.999842, 0, -4.37098e-08, 2.08165e-12, 2.08165e-12, 2.08165e-12)
+
 [node name="KoiOnPath4" parent="." instance=ExtResource("20_reu1l")]
 transform = Transform3D(0.506914, 0, 0, 0, 0.492565, 0, 0, 0, 0.765546, 40.0133, 11.7589, -45.5174)
+
+[node name="PathFollow3D" parent="KoiOnPath4/Path3D" index="0"]
+transform = Transform3D(-4.37045e-08, 0, 0.999964, 0, 0.999958, 0, -0.999842, 0, -4.37098e-08, 2.08165e-12, 2.08165e-12, 2.08165e-12)
 
 [node name="KoiOnPath5" parent="." instance=ExtResource("20_reu1l")]
 transform = Transform3D(0.506914, 0, 0, 0, 0.492565, 0, 0, 0, 0.765546, 40.0133, -4.53936, -33.9344)
 
+[node name="PathFollow3D" parent="KoiOnPath5/Path3D" index="0"]
+transform = Transform3D(-4.37045e-08, 0, 0.999964, 0, 0.999958, 0, -0.999842, 0, -4.37098e-08, 2.08165e-12, 2.08165e-12, 2.08165e-12)
+
 [node name="KoiOnPath6" parent="." instance=ExtResource("20_reu1l")]
 transform = Transform3D(0.506914, 0, 0, 0, 0.492565, 0, 0, 0, 0.765546, -9.00891, 2.51572, -51.7732)
 
+[node name="PathFollow3D" parent="KoiOnPath6/Path3D" index="0"]
+transform = Transform3D(-4.37045e-08, 0, 0.999964, 0, 0.999958, 0, -0.999842, 0, -4.37098e-08, 2.08165e-12, 2.08165e-12, 2.08165e-12)
+
 [node name="KoiOnPath7" parent="." instance=ExtResource("20_reu1l")]
 transform = Transform3D(0.506914, 0, 0, 0, 0.492565, 0, 0, 0, 0.765546, -9.2244, 7.55396, 2.4837)
+
+[node name="PathFollow3D" parent="KoiOnPath7/Path3D" index="0"]
+transform = Transform3D(-4.37045e-08, 0, 0.999964, 0, 0.999958, 0, -0.999842, 0, -4.37098e-08, 2.08165e-12, 2.08165e-12, 2.08165e-12)
 
 [connection signal="timeout" from="player_controller_xrae/JumpBuffer" to="player_controller_xrae" method="_on_jump_buffer_timeout" flags=18]
 

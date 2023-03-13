@@ -16,7 +16,7 @@ tracks/0/type = "position_3d"
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/path = NodePath(".")
-tracks/0/interp = 1
+tracks/0/interp = 2
 tracks/0/loop_wrap = true
 tracks/0/keys = PackedFloat32Array()
 
@@ -36,8 +36,10 @@ shape = SubResource("BoxShape3D_my2bd")
 [node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D"]
 mesh = SubResource("BoxMesh_j46ps")
 skeleton = NodePath("../..")
+metadata/_edit_group_ = true
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="StaticBody3D"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+root_node = NodePath("../StaticBody3D")
 autoplay = "new_animation"
 libraries = {
 "": SubResource("AnimationLibrary_rf1ht")

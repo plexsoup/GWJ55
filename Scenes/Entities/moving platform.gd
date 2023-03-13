@@ -1,6 +1,6 @@
 extends Node3D
 
-@export var range : Vector3
+@export var target : Vector3
 @export var speed : int
 
 @onready var animation_name = $AnimationPlayer.current_animation
@@ -15,10 +15,9 @@ extends Node3D
 func _ready():
 	animation.length = speed;
 	animation.position_track_insert_key(track, 0.0, Vector3(0, 0, 0))
-	animation.position_track_insert_key(track, speed/2.5, range)
+	animation.position_track_insert_key(track, speed/2.5, target)
 	animation.position_track_insert_key(track, speed, Vector3(0, 0, 0))
 	$AnimationPlayer.play()
-	print()
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

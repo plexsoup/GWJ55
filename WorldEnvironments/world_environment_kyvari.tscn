@@ -4,7 +4,7 @@
 
 [sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_ffjay"]
 dof_blur_far_enabled = true
-dof_blur_far_distance = 16.45
+dof_blur_far_distance = 38.87
 dof_blur_near_distance = 2.31
 dof_blur_near_transition = 173.48
 dof_blur_amount = 0.09

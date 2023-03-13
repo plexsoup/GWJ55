@@ -1068,23 +1068,44 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 114.407, 9.36877, -0.5)
 [node name="KoiOnPath" parent="background_koi" instance=ExtResource("20_reu1l")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -122.951, 3.52203, -30.2115)
 
+[node name="PathFollow3D" parent="background_koi/KoiOnPath/Path3D" index="0"]
+transform = Transform3D(-4.37045e-08, 0, 0.999964, 0, 0.999958, 0, -0.999842, 0, -4.37098e-08, 2.08165e-12, 2.08165e-12, 2.08165e-12)
+
 [node name="KoiOnPath2" parent="background_koi" instance=ExtResource("20_reu1l")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -122.951, 3.52203, -30.2115)
+
+[node name="PathFollow3D" parent="background_koi/KoiOnPath2/Path3D" index="0"]
+transform = Transform3D(-4.37045e-08, 0, 0.999964, 0, 0.999958, 0, -0.999842, 0, -4.37098e-08, 2.08165e-12, 2.08165e-12, 2.08165e-12)
 
 [node name="KoiOnPath3" parent="background_koi" instance=ExtResource("20_reu1l")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -122.951, 3.52203, -30.2115)
 
+[node name="PathFollow3D" parent="background_koi/KoiOnPath3/Path3D" index="0"]
+transform = Transform3D(-4.37045e-08, 0, 0.999964, 0, 0.999958, 0, -0.999842, 0, -4.37098e-08, 2.08165e-12, 2.08165e-12, 2.08165e-12)
+
 [node name="KoiOnPath4" parent="background_koi" instance=ExtResource("20_reu1l")]
 transform = Transform3D(0.506914, 0, 0, 0, 0.492565, 0, 0, 0, 0.765546, -74.394, 2.39013, -45.0174)
+
+[node name="PathFollow3D" parent="background_koi/KoiOnPath4/Path3D" index="0"]
+transform = Transform3D(-4.37045e-08, 0, 0.999964, 0, 0.999958, 0, -0.999842, 0, -4.37098e-08, 2.08165e-12, 2.08165e-12, 2.08165e-12)
 
 [node name="KoiOnPath5" parent="background_koi" instance=ExtResource("20_reu1l")]
 transform = Transform3D(0.506914, 0, 0, 0, 0.492565, 0, 0, 0, 0.765546, -74.394, -13.9081, -33.4344)
 
+[node name="PathFollow3D" parent="background_koi/KoiOnPath5/Path3D" index="0"]
+transform = Transform3D(-4.37045e-08, 0, 0.999964, 0, 0.999958, 0, -0.999842, 0, -4.37098e-08, 2.08165e-12, 2.08165e-12, 2.08165e-12)
+
 [node name="KoiOnPath6" parent="background_koi" instance=ExtResource("20_reu1l")]
 transform = Transform3D(0.506914, 0, 0, 0, 0.492565, 0, 0, 0, 0.765546, -123.416, -6.85305, -51.2732)
 
+[node name="PathFollow3D" parent="background_koi/KoiOnPath6/Path3D" index="0"]
+transform = Transform3D(-4.37045e-08, 0, 0.999964, 0, 0.999958, 0, -0.999842, 0, -4.37098e-08, 2.08165e-12, 2.08165e-12, 2.08165e-12)
+
 [node name="KoiOnPath7" parent="background_koi" instance=ExtResource("20_reu1l")]
 transform = Transform3D(0.506914, 0, 0, 0, 0.492565, 0, 0, 0, 0.765546, -123.632, -1.81481, 2.9837)
+
+[node name="PathFollow3D" parent="background_koi/KoiOnPath7/Path3D" index="0"]
+transform = Transform3D(-4.37045e-08, 0, 0.999964, 0, 0.999958, 0, -0.999842, 0, -4.37098e-08, 2.08165e-12, 2.08165e-12, 2.08165e-12)
 
 [node name="koifish20" type="Node3D" parent="background_koi"]
 unique_name_in_owner = true
@@ -1354,19 +1375,20 @@ inverted_x = false
 
 [node name="AnimatedSprite3D" parent="NPCs/player_controller_xrae" index="0"]
 shaded = true
-animation = &"Idle_Jump"
+animation = &"Jump_Start"
 
 [node name="SpotLight3D" type="SpotLight3D" parent="NPCs/player_controller_xrae"]
-transform = Transform3D(-0.951137, 0.183627, 0.248235, 0.286692, 0.226653, 0.930826, 0.114662, 0.956509, -0.268222, -1.29164, 1.87259, -1.79196)
+transform = Transform3D(-0.951136, 0.183627, 0.248235, 0.286692, 0.226653, 0.930826, 0.114662, 0.956509, -0.268222, 0.75282, 1.26788, -0.656712)
 light_color = Color(0.862745, 0.486275, 0.560784, 1)
 light_energy = 4.071
 shadow_enabled = true
 distance_fade_enabled = true
 
 [node name="Camera3D" type="Camera3D" parent="NPCs/player_controller_xrae"]
-transform = Transform3D(1, 0, 0, 0, 0.999036, 0.0438985, 0, -0.0438985, 0.999036, -0.0202382, 1.8091, 7.33461)
+transform = Transform3D(1, 0, 0, 0, 0.999036, 0.0438985, 0, -0.0438985, 0.999036, -0.0202382, 2.11699, 7.6366)
 current = true
-fov = 63.7
+fov = 65.3
+near = 0.059
 
 [node name="Grasses" type="Node3D" parent="."]
 

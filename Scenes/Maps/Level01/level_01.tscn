@@ -71,17 +71,14 @@ next_scene_path = "res://Scenes/Maps/Level02/level_02.tscn"
 
 [node name="moving platform" parent="DynamicObjects" instance=ExtResource("10_leyvi")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 34.0199, -8.11199, 0)
-range = Vector3(2.08165e-12, 24, 2.08165e-12)
 speed = 5
 
 [node name="moving platform2" parent="DynamicObjects" instance=ExtResource("10_leyvi")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 57.9574, 13.8536, 0)
-range = Vector3(2.08165e-12, 24, 2.08165e-12)
 speed = 5
 
 [node name="moving platform3" parent="DynamicObjects" instance=ExtResource("10_leyvi")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 91.706, 12.279, 0)
-range = Vector3(2.08165e-12, 24, 2.08165e-12)
 speed = 5
 
 [node name="player_controller_xrae" parent="." instance=ExtResource("9_5f8ps")]

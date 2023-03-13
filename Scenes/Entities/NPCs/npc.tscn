@@ -24,7 +24,10 @@ skeleton = NodePath("../..")
 [node name="Hurtbox" type="Area3D" parent="Visuals"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.491152, 0)
 
-[node name="HitBox" type="CollisionShape3D" parent="."]
+[node name="WeakSpot" type="Area3D" parent="Visuals"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.55873, 0)
+
+[node name="CollisionShapeForMovement" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.508848, 0)
 shape = SubResource("BoxShape3D_xi6xj")
 
@@ -37,3 +40,4 @@ shape = SubResource("BoxShape3D_xi6xj")
 [node name="JumpScare" parent="Behaviours" instance=ExtResource("4_fwjoq")]
 
 [connection signal="body_entered" from="Visuals/Hurtbox" to="." method="_on_hurtbox_body_entered"]
+[connection signal="body_entered" from="Visuals/WeakSpot" to="." method="_on_weak_spot_body_entered"]

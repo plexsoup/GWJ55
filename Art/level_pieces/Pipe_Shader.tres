@@ -17,6 +17,7 @@ cellular_jitter = -0.206
 noise = SubResource("FastNoiseLite_u14pc")
 
 [sub_resource type="VisualShaderNodeTexture" id="VisualShaderNodeTexture_6nfft"]
+output_port_for_preview = 0
 texture = SubResource("NoiseTexture2D_nu5x8")
 
 [sub_resource type="VisualShaderNodeVectorOp" id="VisualShaderNodeVectorOp_wxcyj"]
@@ -91,7 +92,7 @@ void fragment() {
 
 }
 "
-graph_offset = Vector2(-347.75, 47.3689)
+graph_offset = Vector2(-435.36, 250.56)
 nodes/vertex/2/node = SubResource("VisualShaderNodeTexture_6mnsp")
 nodes/vertex/2/position = Vector2(-780, 40)
 nodes/vertex/3/node = SubResource("VisualShaderNodeInput_yeyhn")
@@ -102,9 +103,9 @@ nodes/vertex/5/node = SubResource("VisualShaderNodeVectorOp_roqcw")
 nodes/vertex/5/position = Vector2(-420, 240)
 nodes/vertex/connections = PackedInt32Array(3, 0, 4, 1, 2, 0, 5, 0, 5, 0, 4, 0, 4, 0, 0, 1)
 nodes/fragment/2/node = SubResource("VisualShaderNodeColorParameter_njrxk")
-nodes/fragment/2/position = Vector2(-520, 100)
+nodes/fragment/2/position = Vector2(-620, -40)
 nodes/fragment/3/node = SubResource("VisualShaderNodeTexture_6nfft")
-nodes/fragment/3/position = Vector2(-540, 320)
+nodes/fragment/3/position = Vector2(-640, 560)
 nodes/fragment/4/node = SubResource("VisualShaderNodeVectorOp_wxcyj")
 nodes/fragment/4/position = Vector2(-60, 160)
 nodes/fragment/connections = PackedInt32Array(2, 0, 4, 0, 3, 0, 4, 1, 4, 0, 0, 0, 3, 0, 0, 9)

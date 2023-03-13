@@ -3,16 +3,16 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cmcj1tm1dhmwn"
-path.s3tc="res://.godot/imported/Cat_Fall_Windup.png-dba2209daa2b9b3c296d186b343b7805.s3tc.ctex"
+path.etc2="res://.godot/imported/Cat_Fall_Windup.png-dba2209daa2b9b3c296d186b343b7805.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://Art/Cat_Fall_Windup.png"
-dest_files=["res://.godot/imported/Cat_Fall_Windup.png-dba2209daa2b9b3c296d186b343b7805.s3tc.ctex"]
+dest_files=["res://.godot/imported/Cat_Fall_Windup.png-dba2209daa2b9b3c296d186b343b7805.etc2.ctex"]
 
 [params]
 

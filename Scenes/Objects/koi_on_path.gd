@@ -1,5 +1,6 @@
-extends MeshInstance3D
+extends Node3D
 
+@export var speed = 3.0
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -7,11 +8,5 @@ func _ready():
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(_delta):
-	pass
-
-
-func _on_area_3d_body_entered(body):
-	
-	print("pressure_plate works, detected ", body.name)
-	pass # Replace with function body.
+func _process(delta):
+	$Path3D/PathFollow3D.progress += speed * delta

@@ -128,3 +128,18 @@ func _on_player_sighted(body, originator):
 				if behaviour.has_method("_on_entity_sighted_player"):
 					behaviour._on_entity_sighted_player()
 		
+
+func begin_dying():
+	# make a noise
+	# play an animation
+	# set a timer for queue_free
+	await get_tree().create_timer(0.5)
+	queue_free()
+	
+	
+
+func _on_weak_spot_body_entered(body):
+	# player found the weakspot. die
+	if "player" in body.name.to_lower():
+		begin_dying()
+		

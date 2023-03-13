@@ -1,4 +1,4 @@
-[gd_scene load_steps=108 format=3 uid="uid://byvg06a3l0cpj"]
+[gd_scene load_steps=109 format=3 uid="uid://byvg06a3l0cpj"]
 
 [ext_resource type="PackedScene" uid="uid://bvrm4ton3t0ik" path="res://WorldEnvironments/world_environment_kyvari.tscn" id="1_68g7v"]
 [ext_resource type="Texture2D" uid="uid://dxcf84i0i3ptv" path="res://Art/Foliage/Grass_text.png" id="1_abb0e"]
@@ -11,6 +11,7 @@
 [ext_resource type="AudioStream" uid="uid://duw2alt76ngnd" path="res://Music/Title_Theme_2_Test.mp3" id="13_um4nw"]
 [ext_resource type="PackedScene" uid="uid://cey6vaorec8ca" path="res://Scenes/Entities/Player/player_controller.tscn" id="15_e27nw"]
 [ext_resource type="Shader" uid="uid://d4ecwwqt03cly" path="res://Art/Foliage/Water.tres" id="17_5ku2d"]
+[ext_resource type="Texture2D" uid="uid://dsw21j6p8hirb" path="res://Art/Foliage/Tree.png" id="17_33gk6"]
 [ext_resource type="Shader" uid="uid://pxqkd0ijemto" path="res://Shaders/Water.tres" id="17_j8hnx"]
 [ext_resource type="PackedScene" uid="uid://cseyl680mfxsw" path="res://Art/objects/yarn_ball.glb" id="18_sw616"]
 [ext_resource type="Script" path="res://Scenes/Entities/moving platform.gd" id="19_gd1y5"]
@@ -1375,7 +1376,8 @@ inverted_x = false
 
 [node name="AnimatedSprite3D" parent="NPCs/player_controller_xrae" index="0"]
 shaded = true
-animation = &"Jump_Start"
+animation = &"Jump_Idle"
+frame_progress = 0.999534
 
 [node name="SpotLight3D" type="SpotLight3D" parent="NPCs/player_controller_xrae"]
 transform = Transform3D(-0.951136, 0.183627, 0.248235, 0.286692, 0.226653, 0.930826, 0.114662, 0.956509, -0.268222, 0.75282, 1.26788, -0.656712)
@@ -1428,10 +1430,27 @@ visible = false
 mesh = SubResource("RibbonTrailMesh_lcwch")
 skeleton = NodePath("../..")
 
+[node name="Sprite3D" type="Sprite3D" parent="Grasses"]
+transform = Transform3D(3.56674, 0, 0, 0, 3.56674, 0, 0, 0, 1, 85.1816, 26.277, -75.7988)
+texture = ExtResource("17_33gk6")
+
+[node name="Sprite3D2" type="Sprite3D" parent="Grasses"]
+transform = Transform3D(3.56674, 0, 0, 0, 3.56674, 0, 0, 0, 1, -146.558, 26.277, -61.112)
+texture = ExtResource("17_33gk6")
+
+[node name="Sprite3D3" type="Sprite3D" parent="Grasses"]
+transform = Transform3D(1.52879, 0, 0, 0, 1.52879, 0, 0, 0, 1, 125.361, 19.6303, -51.9149)
+texture = ExtResource("17_33gk6")
+
 [node name="Waterballs" type="Node3D" parent="."]
 
 [node name="Waterball" type="MeshInstance3D" parent="Waterballs"]
 transform = Transform3D(9.44731, 0, 0, 0, 6.43754, 0, 0, 0, 9.88742, 70.8214, 16.4606, -28.214)
+mesh = SubResource("SphereMesh_373hk")
+skeleton = NodePath("../..")
+
+[node name="Waterball6" type="MeshInstance3D" parent="Waterballs"]
+transform = Transform3D(9.44731, 0, 0, 0, 6.43754, 0, 0, 0, 9.88742, 81.0235, -8.35541, -87.1368)
 mesh = SubResource("SphereMesh_373hk")
 skeleton = NodePath("../..")
 

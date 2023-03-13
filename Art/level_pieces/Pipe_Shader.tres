@@ -1,4 +1,4 @@
-[gd_resource type="VisualShader" load_steps=11 format=3 uid="uid://jqx3qm42bku3"]
+[gd_resource type="VisualShader" load_steps=10 format=3 uid="uid://jqx3qm42bku3"]
 
 [sub_resource type="VisualShaderNodeColorParameter" id="VisualShaderNodeColorParameter_njrxk"]
 parameter_name = "ColorParameter"
@@ -23,10 +23,6 @@ texture = SubResource("NoiseTexture2D_nu5x8")
 default_input_values = [0, Quaternion(0, 0, 0, 0), 1, Quaternion(0, 0, 0, 0)]
 op_type = 2
 operator = 2
-
-[sub_resource type="VisualShaderNodeVectorOp" id="VisualShaderNodeVectorOp_1kva3"]
-default_input_values = [0, Vector2(3.235, 0), 1, Vector2(5.364, 0)]
-op_type = 0
 
 [sub_resource type="VisualShaderNodeTexture" id="VisualShaderNodeTexture_6mnsp"]
 texture = SubResource("NoiseTexture2D_nu5x8")
@@ -88,20 +84,14 @@ void fragment() {
 	vec4 n_out4p0 = n_out2p0 * n_out3p0;
 
 
-// VectorOp:5
-	vec2 n_in5p0 = vec2(3.23500, 0.00000);
-	vec2 n_in5p1 = vec2(5.36400, 0.00000);
-	vec2 n_out5p0 = n_in5p0 + n_in5p1;
-
-
 // Output:0
 	ALBEDO = vec3(n_out4p0.xyz);
-	ROUGHNESS = n_out5p0.x;
-	NORMAL_MAP = vec3(n_out4p0.xyz);
+	NORMAL_MAP = vec3(n_out3p0.xyz);
 
 
 }
 "
+graph_offset = Vector2(-347.75, 47.3689)
 nodes/vertex/2/node = SubResource("VisualShaderNodeTexture_6mnsp")
 nodes/vertex/2/position = Vector2(-780, 40)
 nodes/vertex/3/node = SubResource("VisualShaderNodeInput_yeyhn")
@@ -117,6 +107,4 @@ nodes/fragment/3/node = SubResource("VisualShaderNodeTexture_6nfft")
 nodes/fragment/3/position = Vector2(-540, 320)
 nodes/fragment/4/node = SubResource("VisualShaderNodeVectorOp_wxcyj")
 nodes/fragment/4/position = Vector2(-60, 160)
-nodes/fragment/5/node = SubResource("VisualShaderNodeVectorOp_1kva3")
-nodes/fragment/5/position = Vector2(100, 140)
-nodes/fragment/connections = PackedInt32Array(2, 0, 4, 0, 3, 0, 4, 1, 4, 0, 0, 0, 5, 0, 0, 3, 4, 0, 0, 9)
+nodes/fragment/connections = PackedInt32Array(2, 0, 4, 0, 3, 0, 4, 1, 4, 0, 0, 0, 3, 0, 0, 9)

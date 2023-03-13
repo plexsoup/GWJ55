@@ -15,7 +15,7 @@ extends Node3D
 func _ready():
 	animation.length = speed;
 	animation.position_track_insert_key(track, 0.0, Vector3(0, 0, 0))
-	animation.position_track_insert_key(track, speed/2.0, range)
+	animation.position_track_insert_key(track, speed/2.5, range)
 	animation.position_track_insert_key(track, speed, Vector3(0, 0, 0))
 	$AnimationPlayer.play()
 	print()

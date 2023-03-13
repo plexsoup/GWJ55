@@ -25,3 +25,4 @@ WIP/
 # Mac OS X
 .DS_Store
 *.import
+/**/*.import

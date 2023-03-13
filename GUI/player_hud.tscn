@@ -1,7 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://dh4qpayo68p6b"]
+[gd_scene load_steps=3 format=3 uid="uid://rau1y6yi1xhy"]
 
 [ext_resource type="Script" path="res://GUI/player_hud.gd" id="1_bo2l7"]
-[ext_resource type="PackedScene" uid="uid://d25fnws4lumek" path="res://GUI/life_icon.tscn" id="2_ld1aw"]
+[ext_resource type="PackedScene" uid="uid://bsg1a6s6h8y7w" path="res://GUI/life_icon.tscn" id="2_ld1aw"]
 
 [node name="PlayerHUD" type="CanvasLayer"]
 script = ExtResource("1_bo2l7")
@@ -21,28 +21,27 @@ offset_right = 40.0
 offset_bottom = 40.0
 
 [node name="LifeIcon" parent="Control/HealthBox" instance=ExtResource("2_ld1aw")]
-layout_mode = 2
 
 [node name="LifeIcon2" parent="Control/HealthBox" instance=ExtResource("2_ld1aw")]
-layout_mode = 2
+position = Vector2(54, 19)
 
 [node name="LifeIcon3" parent="Control/HealthBox" instance=ExtResource("2_ld1aw")]
-layout_mode = 2
+position = Vector2(89, 19)
 
 [node name="LifeIcon4" parent="Control/HealthBox" instance=ExtResource("2_ld1aw")]
-layout_mode = 2
+position = Vector2(125, 18)
 
 [node name="LifeIcon5" parent="Control/HealthBox" instance=ExtResource("2_ld1aw")]
-layout_mode = 2
+position = Vector2(160, 19)
 
 [node name="LifeIcon6" parent="Control/HealthBox" instance=ExtResource("2_ld1aw")]
-layout_mode = 2
+position = Vector2(195, 19)
 
 [node name="LifeIcon7" parent="Control/HealthBox" instance=ExtResource("2_ld1aw")]
-layout_mode = 2
+position = Vector2(230, 20)
 
 [node name="LifeIcon8" parent="Control/HealthBox" instance=ExtResource("2_ld1aw")]
-layout_mode = 2
+position = Vector2(268, 20)
 
 [node name="LifeIcon9" parent="Control/HealthBox" instance=ExtResource("2_ld1aw")]
-layout_mode = 2
+position = Vector2(305, 19)

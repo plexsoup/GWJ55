@@ -1375,7 +1375,7 @@ inverted_x = false
 
 [node name="AnimatedSprite3D" parent="NPCs/player_controller_xrae" index="0"]
 shaded = true
-animation = &"Idle_Jump"
+animation = &"Jump_Start"
 
 [node name="SpotLight3D" type="SpotLight3D" parent="NPCs/player_controller_xrae"]
 transform = Transform3D(-0.951136, 0.183627, 0.248235, 0.286692, 0.226653, 0.930826, 0.114662, 0.956509, -0.268222, 0.75282, 1.26788, -0.656712)

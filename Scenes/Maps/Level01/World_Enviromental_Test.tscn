@@ -1,4 +1,4 @@
-[gd_scene load_steps=111 format=3 uid="uid://byvg06a3l0cpj"]
+[gd_scene load_steps=114 format=3 uid="uid://byvg06a3l0cpj"]
 
 [ext_resource type="Texture2D" uid="uid://dxcf84i0i3ptv" path="res://Art/Foliage/Grass_text.png" id="1_abb0e"]
 [ext_resource type="Environment" uid="uid://cwy6umphyte2k" path="res://Shaders/Envrioment_1Shader.tres" id="3_ea8ns"]
@@ -11,7 +11,7 @@
 [ext_resource type="AudioStream" uid="uid://duw2alt76ngnd" path="res://Music/Title_Theme_2_Test.mp3" id="13_um4nw"]
 [ext_resource type="PackedScene" uid="uid://cey6vaorec8ca" path="res://Scenes/Entities/Player/player_controller.tscn" id="15_e27nw"]
 [ext_resource type="Shader" uid="uid://d4ecwwqt03cly" path="res://Art/Foliage/Water.tres" id="17_5ku2d"]
-[ext_resource type="Texture2D" uid="uid://dsw21j6p8hirb" path="res://Art/Foliage/Tree.png" id="17_33gk6"]
+[ext_resource type="Texture2D" uid="uid://cpps3mhf4tw3t" path="res://Art/Foliage/Tree.png" id="17_33gk6"]
 [ext_resource type="Shader" uid="uid://pxqkd0ijemto" path="res://Shaders/Water.tres" id="17_j8hnx"]
 [ext_resource type="PackedScene" uid="uid://cseyl680mfxsw" path="res://Art/objects/yarn_ball.glb" id="18_sw616"]
 [ext_resource type="Script" path="res://Scenes/Entities/moving platform.gd" id="19_gd1y5"]
@@ -19,8 +19,8 @@
 [ext_resource type="PackedScene" uid="uid://cm2o1lkpf6s0w" path="res://Scenes/Entities/NPCs/vacuum_cleaner.tscn" id="23_3jrl8"]
 [ext_resource type="PackedScene" uid="uid://cbs51rpoxintc" path="res://Scenes/Entities/NPCs/hair_dryer.tscn" id="24_a3fyh"]
 [ext_resource type="PackedScene" uid="uid://d1glm81lxipwi" path="res://Scenes/Entities/NPCs/eagle.tscn" id="25_muld7"]
-[ext_resource type="PackedScene" path="res://Scenes/Objects/fall_reset_volume.tscn" id="26_ieupb"]
-[ext_resource type="PackedScene" path="res://Scenes/Objects/trigger_volume_win.tscn" id="27_lcsah"]
+[ext_resource type="PackedScene" uid="uid://cmd16bdree5a7" path="res://Scenes/Objects/fall_reset_volume.tscn" id="26_ieupb"]
+[ext_resource type="PackedScene" uid="uid://eb3wwyaluatx" path="res://Scenes/Objects/trigger_volume_win.tscn" id="27_lcsah"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bp0br"]
 albedo_texture = ExtResource("10_fxtxf")
@@ -1074,6 +1074,44 @@ _data = {
 "new_animation_3": SubResource("Animation_akc1y")
 }
 
+[sub_resource type="Animation" id="Animation_fx74u"]
+resource_name = "pan_sky"
+length = 10.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("WorldEnvironment:environment:sky_rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 9.9),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(3.48787e-16, 6.28319, 3.48787e-16)]
+}
+
+[sub_resource type="Animation" id="Animation_fpaun"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("WorldEnvironment:environment:sky_rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ajx2m"]
+_data = {
+"RESET": SubResource("Animation_fpaun"),
+"pan_sky": SubResource("Animation_fx74u")
+}
+
 [node name="Node3D" type="Node3D"]
 
 [node name="background_koi" type="Node3D" parent="."]
@@ -1082,23 +1120,44 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 114.407, 9.36877, -0.5)
 [node name="KoiOnPath" parent="background_koi" instance=ExtResource("20_reu1l")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -122.951, 3.52203, -30.2115)
 
+[node name="PathFollow3D" parent="background_koi/KoiOnPath/Path3D" index="0"]
+transform = Transform3D(-4.37045e-08, 0, 0.999964, 0, 0.999958, 0, -0.999842, 0, -4.37098e-08, 2.08165e-12, 2.08165e-12, 2.08165e-12)
+
 [node name="KoiOnPath2" parent="background_koi" instance=ExtResource("20_reu1l")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -122.951, 3.52203, -30.2115)
+
+[node name="PathFollow3D" parent="background_koi/KoiOnPath2/Path3D" index="0"]
+transform = Transform3D(-4.37045e-08, 0, 0.999964, 0, 0.999958, 0, -0.999842, 0, -4.37098e-08, 2.08165e-12, 2.08165e-12, 2.08165e-12)
 
 [node name="KoiOnPath3" parent="background_koi" instance=ExtResource("20_reu1l")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -122.951, 3.52203, -30.2115)
 
+[node name="PathFollow3D" parent="background_koi/KoiOnPath3/Path3D" index="0"]
+transform = Transform3D(-4.37045e-08, 0, 0.999964, 0, 0.999958, 0, -0.999842, 0, -4.37098e-08, 2.08165e-12, 2.08165e-12, 2.08165e-12)
+
 [node name="KoiOnPath4" parent="background_koi" instance=ExtResource("20_reu1l")]
 transform = Transform3D(0.506914, 0, 0, 0, 0.492565, 0, 0, 0, 0.765546, -74.394, 2.39013, -45.0174)
+
+[node name="PathFollow3D" parent="background_koi/KoiOnPath4/Path3D" index="0"]
+transform = Transform3D(-4.37045e-08, 0, 0.999964, 0, 0.999958, 0, -0.999842, 0, -4.37098e-08, 2.08165e-12, 2.08165e-12, 2.08165e-12)
 
 [node name="KoiOnPath5" parent="background_koi" instance=ExtResource("20_reu1l")]
 transform = Transform3D(0.506914, 0, 0, 0, 0.492565, 0, 0, 0, 0.765546, -74.394, -13.9081, -33.4344)
 
+[node name="PathFollow3D" parent="background_koi/KoiOnPath5/Path3D" index="0"]
+transform = Transform3D(-4.37045e-08, 0, 0.999964, 0, 0.999958, 0, -0.999842, 0, -4.37098e-08, 2.08165e-12, 2.08165e-12, 2.08165e-12)
+
 [node name="KoiOnPath6" parent="background_koi" instance=ExtResource("20_reu1l")]
 transform = Transform3D(0.506914, 0, 0, 0, 0.492565, 0, 0, 0, 0.765546, -123.416, -6.85305, -51.2732)
 
+[node name="PathFollow3D" parent="background_koi/KoiOnPath6/Path3D" index="0"]
+transform = Transform3D(-4.37045e-08, 0, 0.999964, 0, 0.999958, 0, -0.999842, 0, -4.37098e-08, 2.08165e-12, 2.08165e-12, 2.08165e-12)
+
 [node name="KoiOnPath7" parent="background_koi" instance=ExtResource("20_reu1l")]
 transform = Transform3D(0.506914, 0, 0, 0, 0.492565, 0, 0, 0, 0.765546, -123.632, -1.81481, 2.9837)
+
+[node name="PathFollow3D" parent="background_koi/KoiOnPath7/Path3D" index="0"]
+transform = Transform3D(-4.37045e-08, 0, 0.999964, 0, 0.999958, 0, -0.999842, 0, -4.37098e-08, 2.08165e-12, 2.08165e-12, 2.08165e-12)
 
 [node name="koifish20" type="Node3D" parent="background_koi"]
 unique_name_in_owner = true
@@ -1477,7 +1536,6 @@ skeleton = NodePath("../..")
 unique_name_in_owner = true
 transform = Transform3D(2.03978, 0, 0, 0, 2.03354, 0, 0, 0, 1.90565, 103.984, 8.59267, -1.19612)
 script = ExtResource("19_gd1y5")
-range = Vector3(3, 0, 0)
 speed = 3
 
 [node name="StaticBody3D" type="AnimatableBody3D" parent="MovingPlatforms/moving platform"]
@@ -1501,7 +1559,6 @@ libraries = {
 unique_name_in_owner = true
 transform = Transform3D(2.03978, 0, 0, 0, 2.03354, 0, 0, 0, 1.90565, 160.067, 36.9483, -1.19631)
 script = ExtResource("19_gd1y5")
-range = Vector3(3, 0, 0)
 speed = 3
 
 [node name="StaticBody3D" type="AnimatableBody3D" parent="MovingPlatforms/moving platform4"]
@@ -1525,7 +1582,6 @@ libraries = {
 unique_name_in_owner = true
 transform = Transform3D(2.03978, 0, 0, 0, 2.03354, 0, 0, 0, 1.90565, 125.059, 17.3028, -1.21764)
 script = ExtResource("19_gd1y5")
-range = Vector3(-5, -5, 0)
 speed = 3
 
 [node name="StaticBody3D" type="AnimatableBody3D" parent="MovingPlatforms/moving platform2"]
@@ -1549,7 +1605,6 @@ libraries = {
 unique_name_in_owner = true
 transform = Transform3D(2.03978, 0, 0, 0, 2.03354, 0, 0, 0, 1.90565, 115.799, 17.3028, -0.777192)
 script = ExtResource("19_gd1y5")
-range = Vector3(0, 10, 0)
 speed = 3
 
 [node name="StaticBody3D" type="AnimatableBody3D" parent="MovingPlatforms/moving platform3"]
@@ -1577,6 +1632,12 @@ transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 62.474, -51.156, -0.5)
 [node name="TriggerVolumeWin" parent="TriggerVolumes" instance=ExtResource("27_lcsah")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 160.17, 36.011, -0.5)
 next_scene_path = "res://Scenes/Maps/Level01/level_01.tscn"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "pan_sky"
+libraries = {
+"": SubResource("AnimationLibrary_ajx2m")
+}
 
 [editable path="background_koi/KoiOnPath"]
 [editable path="background_koi/KoiOnPath2"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://bqw8mxix8u7pw"]
+[gd_scene load_steps=17 format=3 uid="uid://bqw8mxix8u7pw"]
 
 [ext_resource type="Script" path="res://Scenes/Maps/base_level.gd" id="1_n8fyu"]
 [ext_resource type="PackedScene" uid="uid://cm2o1lkpf6s0w" path="res://Scenes/Entities/NPCs/vacuum_cleaner.tscn" id="2_kg6v0"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://ted21c8mecho" path="res://Scenes/Entities/NPCs/switch.tscn" id="4_bysw5"]
 [ext_resource type="PackedScene" uid="uid://iy2fvk38ehxj" path="res://Scenes/Entities/NPCs/deadly_tile.tscn" id="4_g1uya"]
 [ext_resource type="PackedScene" uid="uid://cmd16bdree5a7" path="res://Scenes/Objects/fall_reset_volume.tscn" id="5_3x88f"]
+[ext_resource type="PackedScene" uid="uid://c4rndh2lw447j" path="res://Scenes/Objects/koi_on_path.tscn" id="5_bfpeu"]
 [ext_resource type="PackedScene" uid="uid://d1glm81lxipwi" path="res://Scenes/Entities/NPCs/eagle.tscn" id="6_1w156"]
 [ext_resource type="PackedScene" uid="uid://eb3wwyaluatx" path="res://Scenes/Objects/trigger_volume_win.tscn" id="6_umfkp"]
 [ext_resource type="PackedScene" uid="uid://cbs51rpoxintc" path="res://Scenes/Entities/NPCs/hair_dryer.tscn" id="7_xr8v7"]
@@ -48,6 +49,18 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 33.0974, 32.6535, 2.08165e-12
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 108.451, 19.9106, 2.08165e-12)
 
 [node name="BackgroundScenery" type="Node3D" parent="."]
+
+[node name="KoiOnPath" parent="BackgroundScenery" instance=ExtResource("5_bfpeu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -251.004)
+speed = 28.0
+
+[node name="KoiOnPath2" parent="BackgroundScenery" instance=ExtResource("5_bfpeu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 59.9678, 0, -251.004)
+speed = 27.0
+
+[node name="KoiOnPath3" parent="BackgroundScenery" instance=ExtResource("5_bfpeu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.0597, -36.5206, -251.004)
+speed = 30.0
 
 [node name="DynamicObjects" type="Node3D" parent="."]
 

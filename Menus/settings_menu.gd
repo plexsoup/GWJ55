@@ -59,3 +59,12 @@ func _on_music_volume_slider_drag_started():
 func _on_music_volume_slider_drag_ended(_value_changed):
 	%MusicStream.stop()
 	
+
+
+func _on_graphics_button_item_selected(index):
+	if index == 0:
+		Global.user_settings["graphics"] = "low"
+		Global.low_spec = true
+	else:
+		Global.user_settings["graphics"] = "high"
+		Global.low_spec = false

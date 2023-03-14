@@ -19,3 +19,6 @@ next_scene_path = "res://Scenes/Maps/Level04/level_04.tscn"
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19.8606, 24.1561, 0)
 text = "3"
 font_size = 512
+
+[node name="Cloud_water" parent="." index="11"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -35.2345, 0)

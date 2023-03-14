@@ -56,6 +56,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 33.0974, 32.6535, 2.08165e-12
 [node name="HairDryer" parent="NPCs" instance=ExtResource("7_xr8v7")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 108.451, 19.9106, 2.08165e-12)
 
+[node name="VacuumCleaner2" parent="NPCs" instance=ExtResource("2_kg6v0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 38.5238, -10.3537, 2.08165e-12)
+
 [node name="BackgroundScenery" type="Node3D" parent="."]
 
 [node name="KoiOnPath" parent="BackgroundScenery" instance=ExtResource("5_bfpeu")]

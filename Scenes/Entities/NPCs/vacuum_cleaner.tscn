@@ -1,6 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://cm2o1lkpf6s0w"]
+[gd_scene load_steps=10 format=3 uid="uid://cm2o1lkpf6s0w"]
 
 [ext_resource type="PackedScene" uid="uid://bpr26601pqhqe" path="res://Scenes/Entities/NPCs/npc.tscn" id="1_61f12"]
+[ext_resource type="Texture2D" uid="uid://cx63ijbxf81to" path="res://Scenes/Entities/NPCs/MonsterFace01.png" id="2_f4cap"]
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_vad55"]
 
@@ -9,6 +10,13 @@
 [sub_resource type="BoxMesh" id="BoxMesh_w1uvf"]
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_afg06"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bs2or"]
+transparency = 1
+albedo_texture = ExtResource("2_f4cap")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_0sy4c"]
+material = SubResource("StandardMaterial3D_bs2or")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_vye7k"]
 size = Vector3(1, 1, 2.14004)
@@ -33,6 +41,16 @@ mesh = SubResource("BoxMesh_w1uvf")
 [node name="Handle" type="MeshInstance3D" parent="Visuals/VacuumCleaner" index="3"]
 transform = Transform3D(0.257719, 0, 0, 0, -4.37114e-08, -0.257719, 0, 1, -1.12653e-08, 1.32478, 2.17531, 0)
 mesh = SubResource("CylinderMesh_afg06")
+
+[node name="MonsterFace" type="MeshInstance3D" parent="Visuals/VacuumCleaner" index="4"]
+transform = Transform3D(-0.542097, -0.332891, -0.743613, 0.210965, 0.242248, -1.33341, 0.61133, -0.378789, -0.199251, 0.21089, 1.96951, 1.84366e-08)
+mesh = SubResource("PlaneMesh_0sy4c")
+skeleton = NodePath("../../..")
+
+[node name="MonsterFace2" type="MeshInstance3D" parent="Visuals/VacuumCleaner" index="5"]
+transform = Transform3D(0.519957, -0.355188, -0.71766, -0.353644, 0.13247, -1.34958, 0.562744, 0.41143, -0.185023, 0.444479, 1.96951, 0.556178)
+mesh = SubResource("PlaneMesh_0sy4c")
+skeleton = NodePath("../../..")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Visuals/Hurtbox" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.954028, 1.14386, 0)

@@ -3,16 +3,16 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://5awgyxymv41t"
-path.etc2="res://.godot/imported/Cat_Run_Windup.png-5c7339dc708026b9d6a73b9c78b312b1.etc2.ctex"
+path.s3tc="res://.godot/imported/Cat_Run_Windup.png-5c7339dc708026b9d6a73b9c78b312b1.s3tc.ctex"
 metadata={
-"imported_formats": ["etc2_astc"],
+"imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://Art/Cat_Run_Windup.png"
-dest_files=["res://.godot/imported/Cat_Run_Windup.png-5c7339dc708026b9d6a73b9c78b312b1.etc2.ctex"]
+dest_files=["res://.godot/imported/Cat_Run_Windup.png-5c7339dc708026b9d6a73b9c78b312b1.s3tc.ctex"]
 
 [params]
 

@@ -18,7 +18,7 @@ func _ready():
 	else:
 		hide()
 
-func _process(delta):
+func _process(_delta):
 	if Engine.is_editor_hint():
 		if Time.get_ticks_msec() > last_polling_time + polling_interval:
 			last_polling_time = Time.get_ticks_msec()
@@ -27,6 +27,6 @@ func _process(delta):
 
 func move_to_platform_destination():
 	var platform = get_parent()
-	if platform.get("range") is Vector3:
-		global_position = platform.global_position + (platform.range * platform.scale)
+	if platform.get("target") is Vector3:
+		global_position = platform.global_position + (platform.target * platform.scale)
 	

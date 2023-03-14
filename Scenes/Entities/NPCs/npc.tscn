@@ -1,23 +1,77 @@
-[gd_scene load_steps=7 format=3 uid="uid://bpr26601pqhqe"]
+[gd_scene load_steps=15 format=3 uid="uid://bpr26601pqhqe"]
 
 [ext_resource type="Script" path="res://Scenes/Entities/NPCs/npc.gd" id="1_t13r0"]
 [ext_resource type="PackedScene" uid="uid://cjk0fbax45jl3" path="res://Scenes/Entities/NPCs/Behaviours/virtual_input_controller.tscn" id="2_85tmj"]
 [ext_resource type="PackedScene" uid="uid://bqe4y0cbhefd8" path="res://Scenes/Entities/NPCs/Behaviours/back_and_forth.tscn" id="3_kspxs"]
 [ext_resource type="PackedScene" uid="uid://d0rerk6xellrg" path="res://Scenes/Entities/NPCs/Behaviours/jump_scare.tscn" id="4_fwjoq"]
+[ext_resource type="Material" uid="uid://b30wkuohpie3w" path="res://Materials/OrangeCarpetNoiseShader.tres" id="5_8jyod"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_udtc5"]
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ogmtu"]
+transparency = 1
+blend_mode = 1
+albedo_color = Color(0.752941, 0, 0.101961, 1)
+emission_enabled = true
+emission = Color(0.992157, 0.623529, 0.576471, 1)
+
+[sub_resource type="SphereMesh" id="SphereMesh_k6dm0"]
+material = SubResource("StandardMaterial3D_ogmtu")
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_f28ii"]
+
 [sub_resource type="BoxShape3D" id="BoxShape3D_xi6xj"]
+
+[sub_resource type="RibbonTrailMesh" id="RibbonTrailMesh_63yuy"]
+material = ExtResource("5_8jyod")
+
+[sub_resource type="Animation" id="Animation_8vhys"]
+resource_name = "die"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("DeathFX/CPUParticles3D:emitting")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_2ikbv"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("DeathFX/CPUParticles3D:emitting")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_2fckg"]
+_data = {
+"RESET": SubResource("Animation_2ikbv"),
+"die": SubResource("Animation_8vhys")
+}
 
 [node name="NPC" type="CharacterBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.08165e-12, 2.08165e-12, 2.08165e-12)
 axis_lock_linear_z = true
 script = ExtResource("1_t13r0")
+animation_player_location = NodePath("DefaultAnimationPlayer")
 
 [node name="Visuals" type="Node3D" parent="."]
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Visuals"]
+[node name="PlaceholderCube" type="MeshInstance3D" parent="Visuals"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.508848, 0)
+visible = false
 mesh = SubResource("BoxMesh_udtc5")
 skeleton = NodePath("../..")
 
@@ -25,7 +79,14 @@ skeleton = NodePath("../..")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.491152, 0)
 
 [node name="WeakSpot" type="Area3D" parent="Visuals"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.55873, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.51881, 0)
+collision_layer = 0
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Visuals/WeakSpot"]
+mesh = SubResource("SphereMesh_k6dm0")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Visuals/WeakSpot"]
+shape = SubResource("SphereShape3D_f28ii")
 
 [node name="CollisionShapeForMovement" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.508848, 0)
@@ -38,6 +99,26 @@ shape = SubResource("BoxShape3D_xi6xj")
 [node name="BackAndForth" parent="Behaviours" instance=ExtResource("3_kspxs")]
 
 [node name="JumpScare" parent="Behaviours" instance=ExtResource("4_fwjoq")]
+
+[node name="DeathFX" type="Node3D" parent="."]
+
+[node name="CPUParticles3D" type="CPUParticles3D" parent="DeathFX"]
+emitting = false
+amount = 22
+one_shot = true
+explosiveness = 0.67
+mesh = SubResource("RibbonTrailMesh_63yuy")
+direction = Vector3(2.08165e-12, 1, 2.08165e-12)
+spread = 22.5
+initial_velocity_min = 10.0
+initial_velocity_max = 10.0
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="DeathFX/CPUParticles3D"]
+
+[node name="DefaultAnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_2fckg")
+}
 
 [connection signal="body_entered" from="Visuals/Hurtbox" to="." method="_on_hurtbox_body_entered"]
 [connection signal="body_entered" from="Visuals/WeakSpot" to="." method="_on_weak_spot_body_entered"]

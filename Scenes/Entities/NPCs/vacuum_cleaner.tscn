@@ -15,9 +15,6 @@ size = Vector3(1, 1, 2.14004)
 
 [node name="VacuumCleaner" instance=ExtResource("1_61f12")]
 
-[node name="MeshInstance3D" parent="Visuals" index="0"]
-visible = false
-
 [node name="VacuumCleaner" type="Node3D" parent="Visuals" index="1"]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0)
 

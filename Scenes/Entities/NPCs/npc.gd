@@ -9,6 +9,7 @@ extends CharacterBody3D
 @export var flying : bool = false
 
 @export var path_to_follow : NodePath
+@export var animation_player_location : NodePath
 var path : PathFollow3D
 
 
@@ -133,8 +134,12 @@ func begin_dying():
 	# make a noise
 	# play an animation
 	# set a timer for queue_free
-	await get_tree().create_timer(0.5)
-	queue_free()
+	if !animation_player_location.is_empty():
+		var animation_player = get_node(animation_player_location)
+		if animation_player.has_animation("die"):
+			animation_player.play("die")
+			await animation_player.animation_finished
+			queue_free()
 	
 	
 

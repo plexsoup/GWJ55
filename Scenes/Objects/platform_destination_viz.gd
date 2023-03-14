@@ -18,7 +18,7 @@ func _ready():
 	else:
 		hide()
 
-func _process(delta):
+func _process(_delta):
 	if Engine.is_editor_hint():
 		if Time.get_ticks_msec() > last_polling_time + polling_interval:
 			last_polling_time = Time.get_ticks_msec()

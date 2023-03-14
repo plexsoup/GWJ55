@@ -31,22 +31,27 @@ transform = Transform3D(0.822889, 0.469704, -0.319738, 0, 0.562718, 0.826649, 0.
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 42.7914, 18.5641, 0.200352)
 collision_layer = 2
 collision_mask = 5
+animation_player_location = NodePath("")
 
 [node name="VacuumCleaner3" parent="NPCs" instance=ExtResource("2_kg6v0")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 66.0284, 34.8903, 0.0539308)
 collision_layer = 2
 collision_mask = 5
+animation_player_location = NodePath("")
 
 [node name="VacuumCleaner4" parent="NPCs" instance=ExtResource("2_kg6v0")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 88.7037, 11.3078, 0.0539308)
 collision_layer = 2
 collision_mask = 5
+animation_player_location = NodePath("")
 
 [node name="Eagle" parent="NPCs" instance=ExtResource("6_1w156")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 33.0974, 32.6535, 2.08165e-12)
+animation_player_location = NodePath("")
 
 [node name="HairDryer" parent="NPCs" instance=ExtResource("7_xr8v7")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 108.451, 19.9106, 2.08165e-12)
+animation_player_location = NodePath("")
 
 [node name="BackgroundScenery" type="Node3D" parent="."]
 

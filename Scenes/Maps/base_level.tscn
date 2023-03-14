@@ -43,14 +43,16 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.1021, 10.4673, 0)
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="Lighting"]
 transform = Transform3D(0.822889, 0.469704, -0.319738, 0, 0.562718, 0.826649, 0.568203, -0.68024, 0.463054, 0, 39.1774, 14.9607)
 
-[node name="TriggerVolumeWin" parent="." instance=ExtResource("7_ed1vt")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19.2879, 13.0145, 0)
-
-[node name="FallResetVolume" parent="." instance=ExtResource("6_da3v7")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -28.167, 0)
-
 [node name="Sky and Lighting" parent="." instance=ExtResource("6_jxpy5")]
 
 [node name="Cloud_water" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.48623, 0)
 mesh = SubResource("PlaneMesh_kw84f")
+
+[node name="DynamicObjects" type="Node3D" parent="."]
+
+[node name="TriggerVolumeWin" parent="DynamicObjects" instance=ExtResource("7_ed1vt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19.2879, 13.0145, 0)
+
+[node name="FallResetVolume" parent="DynamicObjects" instance=ExtResource("6_da3v7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -28.167, 0)

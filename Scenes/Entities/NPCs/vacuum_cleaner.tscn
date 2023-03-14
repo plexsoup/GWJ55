@@ -1,7 +1,7 @@
-[gd_scene load_steps=10 format=3 uid="uid://cm2o1lkpf6s0w"]
+[gd_scene load_steps=9 format=3 uid="uid://cm2o1lkpf6s0w"]
 
 [ext_resource type="PackedScene" uid="uid://bpr26601pqhqe" path="res://Scenes/Entities/NPCs/npc.tscn" id="1_61f12"]
-[ext_resource type="Texture2D" uid="uid://cx63ijbxf81to" path="res://Scenes/Entities/NPCs/MonsterFace01.png" id="2_f4cap"]
+[ext_resource type="Material" uid="uid://blly5mllk3bkf" path="res://Scenes/Entities/NPCs/monster_face_material.tres" id="2_mm2l4"]
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_vad55"]
 
@@ -11,12 +11,8 @@
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_afg06"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bs2or"]
-transparency = 1
-albedo_texture = ExtResource("2_f4cap")
-
 [sub_resource type="PlaneMesh" id="PlaneMesh_0sy4c"]
-material = SubResource("StandardMaterial3D_bs2or")
+material = ExtResource("2_mm2l4")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_vye7k"]
 size = Vector3(1, 1, 2.14004)

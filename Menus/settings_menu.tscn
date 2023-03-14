@@ -42,27 +42,25 @@ layout_mode = 2
 text = "Controls"
 new_scene = ExtResource("3_3v3iv")
 
-[node name="Difficulty" type="HBoxContainer" parent="Settings/VBoxContainer"]
+[node name="Graphics" type="HBoxContainer" parent="Settings/VBoxContainer"]
 custom_minimum_size = Vector2(300, 2.08165e-12)
 layout_mode = 2
 
-[node name="Label" type="Label" parent="Settings/VBoxContainer/Difficulty"]
+[node name="Label" type="Label" parent="Settings/VBoxContainer/Graphics"]
 layout_mode = 2
 size_flags_horizontal = 3
-text = "Difficulty"
+text = "Graphics"
 
-[node name="DifficultyButton" type="OptionButton" parent="Settings/VBoxContainer/Difficulty"]
+[node name="GraphicsButton" type="OptionButton" parent="Settings/VBoxContainer/Graphics"]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
-item_count = 3
+item_count = 2
 selected = 1
-popup/item_0/text = "Easy"
+popup/item_0/text = "Low"
 popup/item_0/id = 0
-popup/item_1/text = "Medium"
-popup/item_1/id = 1
-popup/item_2/text = "Hard"
-popup/item_2/id = 2
+popup/item_1/text = "High"
+popup/item_1/id = 2
 
 [node name="Volume" type="HBoxContainer" parent="Settings/VBoxContainer"]
 custom_minimum_size = Vector2(300, 2.08165e-12)
@@ -128,6 +126,7 @@ unique_name_in_owner = true
 stream = ExtResource("5_1y8sr")
 bus = &"SFX"
 
+[connection signal="item_selected" from="Settings/VBoxContainer/Graphics/GraphicsButton" to="." method="_on_graphics_button_item_selected"]
 [connection signal="drag_ended" from="Settings/VBoxContainer/Volume/MasterVolumeSlider" to="." method="_on_master_volume_slider_drag_ended"]
 [connection signal="drag_started" from="Settings/VBoxContainer/Volume/MasterVolumeSlider" to="." method="_on_master_volume_slider_drag_started"]
 [connection signal="drag_ended" from="Settings/VBoxContainer/Volume2/MusicVolumeSlider" to="." method="_on_music_volume_slider_drag_ended"]

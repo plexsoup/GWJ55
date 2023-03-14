@@ -5,6 +5,21 @@
 [ext_resource type="Shader" uid="uid://cx2ac458h8a83" path="res://Shaders/Cloud_Water.tres" id="3_goaxp"]
 [ext_resource type="MeshLibrary" uid="uid://2b1l75l303ti" path="res://Art/level_pieces/Level_Mesh_LibaryNEW.tres" id="4_26vej"]
 
+[sub_resource type="Animation" id="Animation_gsbch"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:environment:sky_rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+
 [sub_resource type="Animation" id="Animation_otf31"]
 resource_name = "Sky panning"
 length = 20.0
@@ -21,21 +36,6 @@ tracks/0/keys = {
 "values": [Vector3(0, 0, 0), Vector3(0, 6.28319, 0)]
 }
 
-[sub_resource type="Animation" id="Animation_gsbch"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:environment:sky_rotation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(0, 0, 0)]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_whbuy"]
 _data = {
 "RESET": SubResource("Animation_gsbch"),
@@ -49,13 +49,13 @@ dof_blur_far_transition = 85.14
 dof_blur_near_enabled = true
 dof_blur_near_distance = 6.29
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_q3ps7"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_wa02u"]
 render_priority = 0
 shader = ExtResource("3_goaxp")
 shader_parameter/FloatParameter = 1.0
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_n5mh4"]
-material = SubResource("ShaderMaterial_q3ps7")
+material = SubResource("ShaderMaterial_wa02u")
 size = Vector2(300, 300)
 
 [node name="Node3D" type="Node3D"]

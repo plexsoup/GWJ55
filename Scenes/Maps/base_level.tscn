@@ -31,10 +31,6 @@ data = {
 
 [node name="player" parent="." instance=ExtResource("10_hwjpx")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.1021, 10.4673, 0)
-inverted_x = false
-
-[node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 11.0568, 29.0487)
 
 [node name="NPCs" type="Node3D" parent="."]
 

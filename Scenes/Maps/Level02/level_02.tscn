@@ -24,13 +24,6 @@ size = Vector2(300, 300)
 [node name="Level02" type="Node3D"]
 script = ExtResource("1_32anb")
 
-[node name="player" parent="." instance=ExtResource("2_sy3r3")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.1021, -8.63668, 0)
-inverted_x = false
-
-[node name="Camera3D" type="Camera3D" parent="player"]
-transform = Transform3D(1, 0, 0, 0, 0.985118, 0.171878, 0, -0.171878, 0.985118, -1.69857, 7.01185, 22.835)
-
 [node name="NPCs" type="Node3D" parent="."]
 
 [node name="HairDryer" parent="NPCs" instance=ExtResource("3_d56j4")]
@@ -100,3 +93,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -20.6752, 0)
 mesh = SubResource("PlaneMesh_c8dh5")
 
 [node name="Level Music" type="AudioStreamPlayer" parent="."]
+
+[node name="player_controller_xrae" parent="." instance=ExtResource("2_sy3r3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.4794, -9.22205, 0)

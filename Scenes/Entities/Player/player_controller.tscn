@@ -12,7 +12,6 @@ height = 2.4
 [sub_resource type="BoxShape3D" id="BoxShape3D_oi770"]
 
 [node name="player_controller_xrae" type="CharacterBody3D"]
-collision_mask = 47
 axis_lock_linear_z = true
 script = ExtResource("1_at8m4")
 jump_height = 3.0
@@ -67,6 +66,7 @@ shape = SubResource("BoxShape3D_oi770")
 
 [node name="CSGBox3D" type="CSGBox3D" parent="Camera3D/Area3D/CollisionShape3D"]
 transform = Transform3D(0.9874, 0, 0, 0, 0.818657, 0, 0, 0, 0.171086, 0, 0, -0.0875635)
+visible = false
 size = Vector3(1, 1.22154, 1)
 
 [connection signal="timeout" from="JumpBuffer" to="." method="_on_jump_buffer_timeout"]

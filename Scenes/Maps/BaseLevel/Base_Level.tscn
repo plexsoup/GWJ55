@@ -1,0 +1,62 @@
+[gd_scene load_steps=8 format=3 uid="uid://hrlmlvswtu5j"]
+
+[ext_resource type="Environment" uid="uid://bmbo025oyrqsq" path="res://Shaders/World_Aesthics.tres" id="1_dc0ue"]
+[ext_resource type="PackedScene" uid="uid://cey6vaorec8ca" path="res://Scenes/Entities/Player/player_controller.tscn" id="2_ikw1k"]
+[ext_resource type="Shader" uid="uid://cx2ac458h8a83" path="res://Shaders/Cloud_Water.tres" id="3_goaxp"]
+[ext_resource type="MeshLibrary" uid="uid://2b1l75l303ti" path="res://Art/level_pieces/Level_Mesh_LibaryNEW.tres" id="4_26vej"]
+
+[sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_tf2m6"]
+dof_blur_far_enabled = true
+dof_blur_far_distance = 168.73
+dof_blur_far_transition = 85.14
+dof_blur_near_enabled = true
+dof_blur_near_distance = 6.29
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_q3ps7"]
+render_priority = 0
+shader = ExtResource("3_goaxp")
+shader_parameter/FloatParameter = 1.0
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_n5mh4"]
+material = SubResource("ShaderMaterial_q3ps7")
+size = Vector2(300, 300)
+
+[node name="Node3D" type="Node3D"]
+
+[node name="Sky and Lighting" type="WorldEnvironment" parent="."]
+environment = ExtResource("1_dc0ue")
+
+[node name="Player_Character" parent="." instance=ExtResource("2_ikw1k")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.64498, 4.66695, 0)
+inverted_x = false
+
+[node name="AnimatedSprite3D" parent="Player_Character" index="0"]
+shaded = true
+
+[node name="SpotLight3D" type="SpotLight3D" parent="Player_Character"]
+transform = Transform3D(-0.951136, 0.183627, 0.248235, 0.286692, 0.226653, 0.930826, 0.114662, 0.956509, -0.268222, 0.75282, 1.26788, -0.656712)
+light_color = Color(0.862745, 0.486275, 0.560784, 1)
+light_energy = 4.071
+shadow_enabled = true
+distance_fade_enabled = true
+
+[node name="Camera3D" type="Camera3D" parent="Player_Character"]
+transform = Transform3D(1, 0, 0, 0, 0.999036, 0.0438985, 0, -0.0438985, 0.999036, -0.0467541, 2.38917, 7.0014)
+attributes = SubResource("CameraAttributesPractical_tf2m6")
+current = true
+fov = 65.3
+near = 0.059
+
+[node name="Cloud_water" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.48623, 0)
+mesh = SubResource("PlaneMesh_n5mh4")
+
+[node name="Level_Editor" type="GridMap" parent="."]
+mesh_library = ExtResource("4_26vej")
+data = {
+"cells": PackedInt32Array(65534, 0, 4)
+}
+
+[node name="Level Music" type="AudioStreamPlayer" parent="."]
+
+[editable path="Player_Character"]

@@ -9,15 +9,8 @@ var current_player : AudioStreamPlayer
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	build_playlist()
-	if not play_this_one_first.is_empty():
-		
-		play_specific_track(get_node(play_this_one_first))
-	else:
-		play_random_track()
+	play_random_track()
 
-func play_specific_track(streamPlayer : AudioStreamPlayer):
-	streamPlayer.finished.connect(_on_song_finished)
-	streamPlayer.play()
 
 
 func build_playlist():

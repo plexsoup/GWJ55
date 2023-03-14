@@ -1,0 +1,31 @@
+[gd_scene load_steps=8 format=3 uid="uid://5dgcj4a8aej5"]
+
+[ext_resource type="Script" path="res://Music/play_random_music.gd" id="1_q26jw"]
+[ext_resource type="AudioStream" uid="uid://be2lno7owg4dl" path="res://Music/MUS_TitleThemePianoV2_9M_7-4_78.mp3" id="2_aifdc"]
+[ext_resource type="AudioStream" uid="uid://cj2m1b3iler1c" path="res://Music/MUS_TitleThemeAllV2_9M_7-4_78.mp3" id="3_q61fi"]
+[ext_resource type="AudioStream" uid="uid://6ctx2dgchhhf" path="res://Music/MUS_TitleThemeArpV2_9M_7-4_78.mp3" id="4_f5n83"]
+[ext_resource type="AudioStream" uid="uid://cedv3wga8ywj5" path="res://Music/MUS_TitleThemeBellsV2_9M_7-4_78.mp3" id="5_gak1k"]
+[ext_resource type="AudioStream" uid="uid://dltd6qp046ihi" path="res://Music/MUS_TitleThemePadBellsV2_9M_7-4_78.mp3" id="6_p4bda"]
+[ext_resource type="AudioStream" uid="uid://6kjyge7pmjvw" path="res://Music/MUS_TitleThemePadV2_9M_7-4_78.mp3" id="7_178xr"]
+
+[node name="PlayRandomMusic" type="Node"]
+script = ExtResource("1_q26jw")
+play_this_one_first = NodePath("AudioStreamPlayer1")
+
+[node name="AudioStreamPlayer1" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_aifdc")
+
+[node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_q61fi")
+
+[node name="AudioStreamPlayer3" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_f5n83")
+
+[node name="AudioStreamPlayer4" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_gak1k")
+
+[node name="AudioStreamPlayer5" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_p4bda")
+
+[node name="AudioStreamPlayer6" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_178xr")

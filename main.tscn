@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://oj6nxss4frcy"]
+[gd_scene load_steps=8 format=3 uid="uid://oj6nxss4frcy"]
 
 [ext_resource type="Theme" uid="uid://bslc43xuou6nj" path="res://Themes/main_theme.tres" id="1_a4cjj"]
 [ext_resource type="Script" path="res://main.gd" id="1_ci38h"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://bl1mmp8ysb4r0" path="res://Menus/main_menu.tscn" id="3_66nc6"]
 [ext_resource type="Texture2D" uid="uid://cddonofojo7di" path="res://Materials/horizon_gradient.tres" id="3_q1rqy"]
 [ext_resource type="PackedScene" uid="uid://b16s3dclhkliq" path="res://Menus/testing_menu.tscn" id="4_os8x6"]
+[ext_resource type="AudioStream" uid="uid://dxgn035cl4tt7" path="res://Music/MUS_TitleThemeAllV2_9M_7-4_78.mp3" id="7_xb521"]
 
 [node name="Main" type="Control"]
 layout_mode = 3
@@ -50,3 +51,9 @@ layout_mode = 2
 
 [node name="Whiteboard" parent="TabContainer/DesignNotes/ScrollContainer" instance=ExtResource("2_sw6ch")]
 layout_mode = 2
+
+[node name="TitleMusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_xb521")
+autoplay = true
+max_polyphony = 2
+bus = &"Music"

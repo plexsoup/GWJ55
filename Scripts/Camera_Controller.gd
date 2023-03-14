@@ -5,7 +5,6 @@ extends Camera3D
 @onready var collision_shape = $Area3D/CollisionShape3D
 @onready var sprite = $"../AnimatedSprite3D"
 
-@export var zoom = 10
 @export var lerp_speed = 3.0
 @export var offset = Vector2.ZERO
 
@@ -18,7 +17,7 @@ func _physics_process(delta):
 	if follow:
 		#Follow
 		var target_pos = target.global_position
-		var new_pos = Vector3(target_pos.x, target_pos.y, zoom)
+		var new_pos = Vector3(target_pos.x, target_pos.y, global_position.z)
 		var lerp_pos = lerp(global_position, new_pos, lerp_speed * delta)
 		global_position = lerp_pos
 		

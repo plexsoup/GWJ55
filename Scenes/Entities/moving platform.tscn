@@ -1,6 +1,7 @@
-[gd_scene load_steps=9 format=3 uid="uid://dd3fox603os7x"]
+[gd_scene load_steps=10 format=3 uid="uid://dd3fox603os7x"]
 
 [ext_resource type="Script" path="res://Scenes/Entities/moving platform.gd" id="1_3nq0u"]
+[ext_resource type="PackedScene" uid="uid://bt5w6utrspojh" path="res://Scenes/Objects/platform_destination_viz.tscn" id="2_1k6my"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_my2bd"]
 size = Vector3(2, 1, 2)
@@ -126,8 +127,12 @@ _data = {
 
 [node name="moving platform" type="Node3D"]
 script = ExtResource("1_3nq0u")
+target = Vector3(2.08165e-12, 10, 2.08165e-12)
+speed = 3
 
 [node name="StaticBody3D" type="AnimatableBody3D" parent="."]
+collision_layer = 4
+collision_mask = 3
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
 shape = SubResource("BoxShape3D_my2bd")
@@ -143,3 +148,8 @@ autoplay = "new_animation"
 libraries = {
 "": SubResource("AnimationLibrary_rf1ht")
 }
+
+[node name="PlatformDestinationViz" parent="." instance=ExtResource("2_1k6my")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.08165e-12, 10, 2.08165e-12)
+
+[connection signal="child_exiting_tree" from="." to="." method="_on_child_exiting_tree"]

@@ -17,19 +17,16 @@ func _physics_process(delta):
 	if follow:
 		#Follow
 		var target_pos = target.global_position
-		var new_pos = Vector3(target_pos.x, target_pos.y, global_position.z)
-		var lerp_pos = lerp(global_position, new_pos, lerp_speed*2 * delta)
-		global_position = lerp_pos
+		var lerp_x = lerp(global_position.x, target_pos.x, lerp_speed*2 * delta)
+		global_position.x = lerp_x
 		
 		#Look Ahead
 		var x_distance_from_player = global_position.x - target_pos.x
-		var target_x_offset = -x_distance_from_player * 2
+		var target_x_offset = -x_distance_from_player * 3
 		var lerpX = lerp(h_offset, target_x_offset, lerp_speed * delta)
 		h_offset = lerpX
-	elif target.velocity.x == 0:
-		#Look Center
-		var lerpX = lerp(h_offset, 0.0, lerp_speed/10 * delta)
-		h_offset = lerpX
+	var y = lerp(global_position.y, target.global_position.y, lerp_speed * 10 * delta)
+	global_position.y = y
 		
 func _on_area_3d_body_exited(body):
 	if body == target:

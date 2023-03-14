@@ -151,3 +151,5 @@ libraries = {
 
 [node name="PlatformDestinationViz" parent="." instance=ExtResource("2_1k6my")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.08165e-12, 10, 2.08165e-12)
+
+[connection signal="child_exiting_tree" from="." to="." method="_on_child_exiting_tree"]

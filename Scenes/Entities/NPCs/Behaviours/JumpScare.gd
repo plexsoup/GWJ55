@@ -41,17 +41,19 @@ func update_input_controller():
 				leaping = true
 
 
-func explode_violently():
-	
-	$CPUParticles3D.emitting = true
-	await get_tree().create_timer(.5).timeout
-	die()
+# removed because we decided that hair dryers should only die in the water.
 
-func die():
-	if entity.has_method("die"):
-		entity.die()
-	else:
-		entity.queue_free()
+#func explode_violently():
+#
+#	$CPUParticles3D.emitting = true
+#	await get_tree().create_timer(.5).timeout
+#	die()
+#
+#func die():
+#	if entity.has_method("die"):
+#		entity.die()
+#	else:
+#		entity.queue_free()
 
 func _on_hurt_box_body_entered(body):
 	if "player" in body.name.to_lower():
@@ -59,7 +61,7 @@ func _on_hurt_box_body_entered(body):
 			if not hit.is_connected(body._on_hit):
 				hit.connect(body._on_hit)
 			hit.emit(1)
-			explode_violently()
+			#explode_violently()
 
 
 

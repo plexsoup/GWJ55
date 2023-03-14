@@ -11,6 +11,7 @@ size = Vector3(1, 1, 1.5)
 
 [node name="HairDryer" instance=ExtResource("1_mn5qa")]
 SPEED = 10.0
+electrical = true
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Visuals/Hurtbox" index="0"]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 2.15998, 1.36221, 0)
@@ -27,6 +28,7 @@ mesh = SubResource("CapsuleMesh_pw2t4")
 [node name="WeakSpot" parent="Visuals" index="4"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.19615, 2.22885, 0)
 visible = false
+collision_layer = 0
 collision_mask = 0
 monitoring = false
 monitorable = false

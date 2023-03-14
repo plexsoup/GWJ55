@@ -13,10 +13,14 @@ func _ready():
 	tween = get_tree().create_tween()
 	tween.set_ease(tween.EASE_IN_OUT)
 	tween.tween_property($StaticBody3D,"global_position",startPos + (target * scale), speed)
-	tween.chain().tween_property($StaticBody3D, "global_position", startPos, speed)
+	tween.tween_property($StaticBody3D, "global_position", startPos, speed)
 	tween.set_loops()
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
 	pass
+
+
+func _on_child_exiting_tree(_node):
+	tween.kill()

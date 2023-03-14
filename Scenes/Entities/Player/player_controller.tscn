@@ -12,6 +12,7 @@ height = 2.4
 [sub_resource type="BoxShape3D" id="BoxShape3D_oi770"]
 
 [node name="player_controller_xrae" type="CharacterBody3D"]
+collision_mask = 47
 axis_lock_linear_z = true
 script = ExtResource("1_at8m4")
 jump_height = 3.0

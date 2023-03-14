@@ -1082,23 +1082,44 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 114.407, 9.36877, -0.5)
 [node name="KoiOnPath" parent="background_koi" instance=ExtResource("20_reu1l")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -122.951, 3.52203, -30.2115)
 
+[node name="PathFollow3D" parent="background_koi/KoiOnPath/Path3D" index="0"]
+transform = Transform3D(-4.37045e-08, 0, 0.999964, 0, 0.999958, 0, -0.999842, 0, -4.37098e-08, 2.08165e-12, 2.08165e-12, 2.08165e-12)
+
 [node name="KoiOnPath2" parent="background_koi" instance=ExtResource("20_reu1l")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -122.951, 3.52203, -30.2115)
+
+[node name="PathFollow3D" parent="background_koi/KoiOnPath2/Path3D" index="0"]
+transform = Transform3D(-4.37045e-08, 0, 0.999964, 0, 0.999958, 0, -0.999842, 0, -4.37098e-08, 2.08165e-12, 2.08165e-12, 2.08165e-12)
 
 [node name="KoiOnPath3" parent="background_koi" instance=ExtResource("20_reu1l")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -122.951, 3.52203, -30.2115)
 
+[node name="PathFollow3D" parent="background_koi/KoiOnPath3/Path3D" index="0"]
+transform = Transform3D(-4.37045e-08, 0, 0.999964, 0, 0.999958, 0, -0.999842, 0, -4.37098e-08, 2.08165e-12, 2.08165e-12, 2.08165e-12)
+
 [node name="KoiOnPath4" parent="background_koi" instance=ExtResource("20_reu1l")]
 transform = Transform3D(0.506914, 0, 0, 0, 0.492565, 0, 0, 0, 0.765546, -74.394, 2.39013, -45.0174)
+
+[node name="PathFollow3D" parent="background_koi/KoiOnPath4/Path3D" index="0"]
+transform = Transform3D(-4.37045e-08, 0, 0.999964, 0, 0.999958, 0, -0.999842, 0, -4.37098e-08, 2.08165e-12, 2.08165e-12, 2.08165e-12)
 
 [node name="KoiOnPath5" parent="background_koi" instance=ExtResource("20_reu1l")]
 transform = Transform3D(0.506914, 0, 0, 0, 0.492565, 0, 0, 0, 0.765546, -74.394, -13.9081, -33.4344)
 
+[node name="PathFollow3D" parent="background_koi/KoiOnPath5/Path3D" index="0"]
+transform = Transform3D(-4.37045e-08, 0, 0.999964, 0, 0.999958, 0, -0.999842, 0, -4.37098e-08, 2.08165e-12, 2.08165e-12, 2.08165e-12)
+
 [node name="KoiOnPath6" parent="background_koi" instance=ExtResource("20_reu1l")]
 transform = Transform3D(0.506914, 0, 0, 0, 0.492565, 0, 0, 0, 0.765546, -123.416, -6.85305, -51.2732)
 
+[node name="PathFollow3D" parent="background_koi/KoiOnPath6/Path3D" index="0"]
+transform = Transform3D(-4.37045e-08, 0, 0.999964, 0, 0.999958, 0, -0.999842, 0, -4.37098e-08, 2.08165e-12, 2.08165e-12, 2.08165e-12)
+
 [node name="KoiOnPath7" parent="background_koi" instance=ExtResource("20_reu1l")]
 transform = Transform3D(0.506914, 0, 0, 0, 0.492565, 0, 0, 0, 0.765546, -123.632, -1.81481, 2.9837)
+
+[node name="PathFollow3D" parent="background_koi/KoiOnPath7/Path3D" index="0"]
+transform = Transform3D(-4.37045e-08, 0, 0.999964, 0, 0.999958, 0, -0.999842, 0, -4.37098e-08, 2.08165e-12, 2.08165e-12, 2.08165e-12)
 
 [node name="koifish20" type="Node3D" parent="background_koi"]
 unique_name_in_owner = true
@@ -1477,7 +1498,6 @@ skeleton = NodePath("../..")
 unique_name_in_owner = true
 transform = Transform3D(2.03978, 0, 0, 0, 2.03354, 0, 0, 0, 1.90565, 103.984, 8.59267, -1.19612)
 script = ExtResource("19_gd1y5")
-range = Vector3(3, 0, 0)
 speed = 3
 
 [node name="StaticBody3D" type="AnimatableBody3D" parent="MovingPlatforms/moving platform"]
@@ -1501,7 +1521,6 @@ libraries = {
 unique_name_in_owner = true
 transform = Transform3D(2.03978, 0, 0, 0, 2.03354, 0, 0, 0, 1.90565, 160.067, 36.9483, -1.19631)
 script = ExtResource("19_gd1y5")
-range = Vector3(3, 0, 0)
 speed = 3
 
 [node name="StaticBody3D" type="AnimatableBody3D" parent="MovingPlatforms/moving platform4"]
@@ -1525,7 +1544,6 @@ libraries = {
 unique_name_in_owner = true
 transform = Transform3D(2.03978, 0, 0, 0, 2.03354, 0, 0, 0, 1.90565, 125.059, 17.3028, -1.21764)
 script = ExtResource("19_gd1y5")
-range = Vector3(-5, -5, 0)
 speed = 3
 
 [node name="StaticBody3D" type="AnimatableBody3D" parent="MovingPlatforms/moving platform2"]
@@ -1549,7 +1567,6 @@ libraries = {
 unique_name_in_owner = true
 transform = Transform3D(2.03978, 0, 0, 0, 2.03354, 0, 0, 0, 1.90565, 115.799, 17.3028, -0.777192)
 script = ExtResource("19_gd1y5")
-range = Vector3(0, 10, 0)
 speed = 3
 
 [node name="StaticBody3D" type="AnimatableBody3D" parent="MovingPlatforms/moving platform3"]

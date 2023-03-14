@@ -11,6 +11,7 @@ sky_material = SubResource("PanoramaSkyMaterial_ilhoy")
 [resource]
 background_mode = 2
 sky = SubResource("Sky_4segj")
+sky_rotation = Vector3(0, 0.914553, 0)
 ambient_light_source = 3
 ambient_light_energy = 9.76
 ssao_enabled = true

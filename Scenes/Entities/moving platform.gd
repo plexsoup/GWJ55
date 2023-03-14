@@ -9,10 +9,11 @@ var tween
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	var startPos = global_position
 	tween = get_tree().create_tween()
 	tween.set_ease(tween.EASE_IN_OUT)
-	tween.tween_property($StaticBody3D,"position",target, speed)
-	tween.chain().tween_property($StaticBody3D, "position", position, speed)
+	tween.tween_property($StaticBody3D,"global_position",startPos + (target * scale), speed)
+	tween.chain().tween_property($StaticBody3D, "global_position", startPos, speed)
 	tween.set_loops()
 
 

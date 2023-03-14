@@ -14,18 +14,24 @@ play_this_one_first = NodePath("AudioStreamPlayer1")
 
 [node name="AudioStreamPlayer1" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("2_aifdc")
+bus = &"Music"
 
 [node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_q61fi")
+bus = &"Music"
 
 [node name="AudioStreamPlayer3" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("4_f5n83")
+bus = &"Music"
 
 [node name="AudioStreamPlayer4" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("5_gak1k")
+bus = &"Music"
 
 [node name="AudioStreamPlayer5" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("6_p4bda")
+bus = &"Music"
 
 [node name="AudioStreamPlayer6" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("7_178xr")
+bus = &"Music"

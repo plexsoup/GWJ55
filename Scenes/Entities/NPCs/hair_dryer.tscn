@@ -10,7 +10,8 @@ size = Vector3(1, 1, 1.5)
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_pw2t4"]
 
 [node name="HairDryer" instance=ExtResource("1_mn5qa")]
-SPEED = 10.0
+SPEED = 9.0
+JUMP_VELOCITY = 16.0
 electrical = true
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Visuals/Hurtbox" index="0"]

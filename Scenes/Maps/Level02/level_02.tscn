@@ -45,6 +45,10 @@ transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 68.2238, -18.0739, 0)
 transform = Transform3D(4, 0, 0, 0, 1, 0, 0, 0, 4, 27.506, 17.1118, 0)
 target = Vector3(2.08165e-12, -26, 2.08165e-12)
 
+[node name="moving platform3" parent="MovingPlatforms" instance=ExtResource("6_25c3s")]
+transform = Transform3D(4, 0, 0, 0, 1, 0, 0, 0, 4, 57.3333, 18.2983, 0)
+target = Vector3(2.08165e-12, 16, 2.08165e-12)
+
 [node name="moving platform2" parent="MovingPlatforms" instance=ExtResource("6_25c3s")]
 transform = Transform3D(2, 0, 0, 0, 1, 0, 0, 0, 2, 63.506, -12.2712, 0)
 target = Vector3(5, 2.08165e-12, 2.08165e-12)

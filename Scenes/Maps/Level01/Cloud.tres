@@ -1,0 +1,67 @@
+[gd_resource type="VisualShader" load_steps=7 format=3 uid="uid://1dnh2yy8mbjr"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_kgdip"]
+seed = 7
+frequency = 0.001
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_wrn18"]
+seamless = true
+noise = SubResource("FastNoiseLite_kgdip")
+
+[sub_resource type="VisualShaderNodeTexture" id="VisualShaderNodeTexture_15ypu"]
+texture = SubResource("NoiseTexture2D_wrn18")
+
+[sub_resource type="VisualShaderNodeUVFunc" id="VisualShaderNodeUVFunc_3gqpy"]
+default_input_values = [1, Vector2(0.2, 0), 2, Vector2(0, 0)]
+
+[sub_resource type="VisualShaderNodeInput" id="VisualShaderNodeInput_setxt"]
+input_name = "time"
+
+[sub_resource type="VisualShaderNodeVectorOp" id="VisualShaderNodeVectorOp_0vxt4"]
+default_input_values = [0, Quaternion(0, 0, 0, 0), 1, Quaternion(0.5, 0, 0, 0)]
+op_type = 2
+operator = 5
+
+[resource]
+code = "shader_type spatial;
+uniform sampler2D tex_frg_2;
+
+
+
+void fragment() {
+// Input:4
+	float n_out4p0 = TIME;
+
+
+// UVFunc:3
+	vec2 n_in3p1 = vec2(0.20000, 0.00000);
+	vec2 n_out3p0 = vec2(n_out4p0) * n_in3p1 + UV;
+
+
+// Texture2D:2
+	vec4 n_out2p0 = texture(tex_frg_2, n_out3p0);
+
+
+// VectorOp:5
+	vec4 n_in5p1 = vec4(0.50000, 0.00000, 0.00000, 0.00000);
+	vec4 n_out5p0 = pow(n_out2p0, n_in5p1);
+
+
+// Output:0
+	ALBEDO = vec3(n_out2p0.xyz);
+	ALPHA = n_out5p0.x;
+
+
+}
+"
+graph_offset = Vector2(-488.592, -64.093)
+nodes/fragment/0/position = Vector2(460, 80)
+nodes/fragment/2/node = SubResource("VisualShaderNodeTexture_15ypu")
+nodes/fragment/2/position = Vector2(-120, -40)
+nodes/fragment/3/node = SubResource("VisualShaderNodeUVFunc_3gqpy")
+nodes/fragment/3/position = Vector2(-400, 0)
+nodes/fragment/4/node = SubResource("VisualShaderNodeInput_setxt")
+nodes/fragment/4/position = Vector2(-740, 60)
+nodes/fragment/5/node = SubResource("VisualShaderNodeVectorOp_0vxt4")
+nodes/fragment/5/position = Vector2(280, 180)
+nodes/fragment/connections = PackedInt32Array(2, 0, 0, 0, 4, 0, 3, 2, 3, 0, 2, 0, 2, 0, 5, 0, 5, 0, 0, 1)

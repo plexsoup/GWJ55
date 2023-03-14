@@ -155,5 +155,4 @@ surface_material_override/0 = ExtResource("6_3i75d")
 [node name="StaticBody3D" type="StaticBody3D" parent="Cylinder_no_caps"]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Cylinder_no_caps/StaticBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 shape = SubResource("ConvexPolygonShape3D_wgdxs")

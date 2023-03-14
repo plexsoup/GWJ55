@@ -3,7 +3,6 @@ extends CharacterBody3D
 @export var jump_height : float
 @export var jump_time_to_peak : float
 @export var jump_time_to_descent : float
-@export var inverted_x : bool = true
 
 @onready var jump_velocity : float = (2.0 * jump_height) / jump_time_to_peak
 @onready var jump_gravity : float = (-2.0 * jump_height) / (jump_time_to_peak * jump_time_to_peak)
@@ -122,10 +121,7 @@ func handle_jump():
 
 func move():
 	var fall_modifier = abs(clamp(velocity.y, -1.2, -1))
-	if inverted_x:
-		input_dir = Input.get_axis("move_right", "move_left")
-	else:
-		input_dir = Input.get_axis("move_left", "move_right")
+	input_dir = Input.get_axis("move_left", "move_right")
 	var direction = (transform.basis * Vector3(input_dir, 0, 0)).normalized()
 	if input_dir != 0:
 		velocity.x = direction.x * SPEED * fall_modifier

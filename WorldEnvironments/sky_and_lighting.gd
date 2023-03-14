@@ -15,7 +15,9 @@ func _ready():
 		if Global.low_spec == false:
 			set_environment(load("res://Shaders/World_Aesthics.tres"))
 
-
+func change_graphics_settings():
+	set_low_spec(Global.low_spec)
+	
 func set_low_spec(value : bool):
 	if value == true:
 		set_environment(load("res://Shaders/World_Aesthics_low_spec.tres"))

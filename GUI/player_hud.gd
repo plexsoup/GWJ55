@@ -6,6 +6,7 @@ var player
 func _ready():
 	player = get_parent()
 	_on_hit() # set the health bar.
+	%SettingsPanel.hide()
 
 
 func _on_hit():
@@ -22,3 +23,7 @@ func _process(_delta):
 
 func _on_button_pressed():
 	StageManager.reset_level()
+
+
+func _on_settings_panel_toggle_button_toggled(button_pressed):
+	%SettingsPanel.visible = button_pressed

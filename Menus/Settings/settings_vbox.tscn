@@ -1,0 +1,108 @@
+[gd_scene load_steps=7 format=3 uid="uid://h8iu8rth0qey"]
+
+[ext_resource type="Script" path="res://Menus/settings_menu.gd" id="1_6mpaw"]
+[ext_resource type="PackedScene" uid="uid://dx20duhdsm1vn" path="res://Menus/Buttons/scene_change_button.tscn" id="1_ev48l"]
+[ext_resource type="PackedScene" uid="uid://3pb74me2v4v0" path="res://Menus/Settings/remap_controls.tscn" id="2_jttnc"]
+[ext_resource type="PackedScene" uid="uid://dnn5t5pnixj0o" path="res://Menus/Buttons/return_to_main_button.tscn" id="3_0ruj8"]
+[ext_resource type="AudioStream" uid="uid://80hjx4t7rq67" path="res://Menus/Settings/OldTimeyMusic.ogg" id="5_g4bha"]
+[ext_resource type="AudioStream" uid="uid://cblr8qax3agyo" path="res://Menus/Settings/sfx_sampler.ogg" id="6_0heve"]
+
+[node name="VBoxContainer" type="VBoxContainer"]
+script = ExtResource("1_6mpaw")
+
+[node name="ControlsSceneButton" parent="." instance=ExtResource("1_ev48l")]
+layout_mode = 2
+text = "Controls"
+new_scene = ExtResource("2_jttnc")
+
+[node name="Graphics" type="HBoxContainer" parent="."]
+custom_minimum_size = Vector2(300, 2.08165e-12)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Graphics"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Graphics"
+
+[node name="GraphicsButton" type="OptionButton" parent="Graphics"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+item_count = 2
+selected = 1
+popup/item_0/text = "Low"
+popup/item_0/id = 0
+popup/item_1/text = "High"
+popup/item_1/id = 2
+
+[node name="Volume" type="HBoxContainer" parent="."]
+custom_minimum_size = Vector2(300, 2.08165e-12)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Volume"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Volume"
+
+[node name="MasterVolumeSlider" type="HSlider" parent="Volume"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+max_value = 1.0
+step = 0.1
+value = 0.5
+
+[node name="Volume2" type="HBoxContainer" parent="."]
+custom_minimum_size = Vector2(300, 2.08165e-12)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Volume2"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Music"
+
+[node name="MusicVolumeSlider" type="HSlider" parent="Volume2"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+max_value = 1.0
+step = 0.1
+value = 0.5
+
+[node name="Volume3" type="HBoxContainer" parent="."]
+custom_minimum_size = Vector2(300, 2.08165e-12)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Volume3"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "SFX"
+
+[node name="SFXVolumeSlider" type="HSlider" parent="Volume3"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+max_value = 1.0
+step = 0.1
+value = 0.5
+
+[node name="SceneChangeButton" parent="." instance=ExtResource("3_0ruj8")]
+layout_mode = 2
+
+[node name="MusicStream" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("5_g4bha")
+bus = &"Music"
+
+[node name="SFXStream" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("6_0heve")
+bus = &"SFX"
+
+[connection signal="item_selected" from="Graphics/GraphicsButton" to="." method="_on_graphics_button_item_selected"]
+[connection signal="drag_ended" from="Volume/MasterVolumeSlider" to="." method="_on_master_volume_slider_drag_ended"]
+[connection signal="drag_started" from="Volume/MasterVolumeSlider" to="." method="_on_master_volume_slider_drag_started"]
+[connection signal="drag_ended" from="Volume2/MusicVolumeSlider" to="." method="_on_music_volume_slider_drag_ended"]
+[connection signal="drag_started" from="Volume2/MusicVolumeSlider" to="." method="_on_music_volume_slider_drag_started"]
+[connection signal="drag_ended" from="Volume3/SFXVolumeSlider" to="." method="_on_sfx_volume_slider_drag_ended"]
+[connection signal="drag_started" from="Volume3/SFXVolumeSlider" to="." method="_on_sfx_volume_slider_drag_started"]

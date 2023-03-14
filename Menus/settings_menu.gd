@@ -27,12 +27,12 @@ func _on_master_volume_slider_drag_started():
 	active_bus = AudioServer.get_bus_index("Master")
 	active_slider = %MasterVolumeSlider
 	dragging = true
-	%MusicStream.play()
+	#%MusicStream.play()
 
 
 func _on_master_volume_slider_drag_ended(_value_changed):
 	dragging = false
-	%MusicStream.stop()
+	#%MusicStream.stop()
 
 
 func _on_sfx_volume_slider_drag_started():
@@ -52,7 +52,7 @@ func _on_music_volume_slider_drag_started():
 	active_bus = AudioServer.get_bus_index("Music")
 	active_slider = %MusicVolumeSlider
 	dragging = true
-	%MusicStream.play()
+	#%MusicStream.play()
 
 
 
@@ -68,3 +68,6 @@ func _on_graphics_button_item_selected(index):
 	else:
 		Global.user_settings["graphics"] = "high"
 		Global.low_spec = false
+
+	if StageManager.current_map.has_method("change_graphics_settings"):
+		StageManager.current_map.change_graphics_settings()

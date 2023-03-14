@@ -1,0 +1,21 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://c2tf7sntjmx84"
+path="res://.godot/imported/hair_dryer.obj-8d5cce863dd0f733a03068a3e27acab0.mesh"
+
+[deps]
+
+files=["res://.godot/imported/hair_dryer.obj-8d5cce863dd0f733a03068a3e27acab0.mesh"]
+
+source_file="res://Art/objects/hair_dryer.obj"
+dest_files=["res://.godot/imported/hair_dryer.obj-8d5cce863dd0f733a03068a3e27acab0.mesh", "res://.godot/imported/hair_dryer.obj-8d5cce863dd0f733a03068a3e27acab0.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true

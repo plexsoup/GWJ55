@@ -1,11 +1,11 @@
 [gd_resource type="SpriteFrames" load_steps=49 format=3 uid="uid://bkm20v777m12k"]
 
-[ext_resource type="Texture2D" uid="uid://bq80ed20cg442" path="res://Art/Cat_Idle.png" id="1_koq3v"]
-[ext_resource type="Texture2D" uid="uid://cvf5a07esi54p" path="res://Art/Cat_Fall_Windup.png" id="1_u3bol"]
-[ext_resource type="Texture2D" uid="uid://bp2utulmx0fsl" path="res://Art/Cat_push.png" id="2_teseg"]
-[ext_resource type="Texture2D" uid="uid://ck5odnayrg5es" path="res://Art/Cat_Run.png" id="3_jwolh"]
-[ext_resource type="Texture2D" uid="uid://cncl8ye4rvu0v" path="res://Art/Cat_Run_Windup.png" id="4_i61x5"]
-[ext_resource type="Texture2D" uid="uid://b36mrdvrihjf5" path="res://Art/Cat_land_Windup.png" id="5_3pabt"]
+[ext_resource type="Texture2D" uid="uid://b7smtgd4yoxkp" path="res://Art/Cat_Idle.png" id="1_koq3v"]
+[ext_resource type="Texture2D" uid="uid://beinh6sdqb5wv" path="res://Art/Cat_Fall_Windup.png" id="1_u3bol"]
+[ext_resource type="Texture2D" uid="uid://dc1xw7abxx516" path="res://Art/Cat_push.png" id="2_teseg"]
+[ext_resource type="Texture2D" uid="uid://bea0decrm1x5u" path="res://Art/Cat_Run.png" id="3_jwolh"]
+[ext_resource type="Texture2D" uid="uid://1nxc0qrabk0g" path="res://Art/Cat_Run_Windup.png" id="4_i61x5"]
+[ext_resource type="Texture2D" uid="uid://b7boihtyce6y0" path="res://Art/Cat_land_Windup.png" id="5_3pabt"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_8q42n"]
 atlas = ExtResource("1_u3bol")

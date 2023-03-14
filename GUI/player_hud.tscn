@@ -46,11 +46,23 @@ position = Vector2(268, 20)
 [node name="LifeIcon9" parent="Control/HealthBox" instance=ExtResource("2_ld1aw")]
 position = Vector2(305, 19)
 
-[node name="FPSLabel" type="Label" parent="Control"]
+[node name="VBoxContainer" type="VBoxContainer" parent="Control"]
 layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
 offset_left = -40.0
-offset_bottom = 23.0
+offset_bottom = 40.0
 grow_horizontal = 0
+
+[node name="Button" type="Button" parent="Control/VBoxContainer"]
+layout_mode = 2
+text = "Restart Level"
+
+[node name="FPSLabel" type="Label" parent="Control/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "FPS"
+horizontal_alignment = 2
+
+[connection signal="pressed" from="Control/VBoxContainer/Button" to="." method="_on_button_pressed"]

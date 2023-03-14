@@ -54,5 +54,3 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -28.167, 0)
 [node name="Cloud_water" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.48623, 0)
 mesh = SubResource("PlaneMesh_kw84f")
-
-[node name="Level Music" type="AudioStreamPlayer" parent="."]

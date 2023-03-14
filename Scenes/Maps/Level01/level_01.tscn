@@ -147,7 +147,5 @@ mesh = SubResource("BoxMesh_iiylx")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -21.1383, 0)
 mesh = SubResource("PlaneMesh_5oawa")
 
-[node name="Level Music" type="AudioStreamPlayer" parent="."]
-
 [node name="player_controller_xrae" parent="." instance=ExtResource("9_5f8ps")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.204, -8.22787, 2.08165e-12)

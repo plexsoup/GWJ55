@@ -3,6 +3,7 @@ extends Node
 
 var current_map
 var current_player
+var current_hud
 
 var low_spec : bool = false
 

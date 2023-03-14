@@ -5,6 +5,7 @@ var player
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	player = get_parent()
+	Global.current_hud = self
 	_on_hit() # set the health bar.
 	%SettingsPanel.hide()
 
@@ -27,3 +28,8 @@ func _on_button_pressed():
 
 func _on_settings_panel_toggle_button_toggled(button_pressed):
 	%SettingsPanel.visible = button_pressed
+	
+func hide_settings():
+	%SettingsPanel.visible = false
+	%SettingsPanelToggleButton.set_pressed(false)
+	

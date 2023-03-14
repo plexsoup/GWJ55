@@ -69,5 +69,8 @@ func _on_graphics_button_item_selected(index):
 		Global.user_settings["graphics"] = "high"
 		Global.low_spec = false
 
-	if StageManager.current_map.has_method("change_graphics_settings"):
+	if StageManager.current_map != null and StageManager.current_map.has_method("change_graphics_settings"):
 		StageManager.current_map.change_graphics_settings()
+	if Global.current_hud != null and Global.current_hud.has_method("hide_settings"):
+		Global.current_hud.hide_settings()
+	

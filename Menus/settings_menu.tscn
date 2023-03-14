@@ -1,7 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://dl2ugtmw6nwcq"]
+[gd_scene load_steps=5 format=3 uid="uid://dl2ugtmw6nwcq"]
 
 [ext_resource type="PackedScene" uid="uid://h8iu8rth0qey" path="res://Menus/Settings/settings_vbox.tscn" id="2_k47ca"]
 [ext_resource type="Texture2D" uid="uid://cddonofojo7di" path="res://Materials/horizon_gradient.tres" id="2_tuyhb"]
+[ext_resource type="PackedScene" uid="uid://dx20duhdsm1vn" path="res://Menus/Buttons/scene_change_button.tscn" id="3_27nhk"]
+[ext_resource type="PackedScene" uid="uid://3pb74me2v4v0" path="res://Menus/Settings/remap_controls.tscn" id="4_k47hu"]
 
 [node name="SettingsMenu" type="Control"]
 layout_mode = 3
@@ -30,3 +32,10 @@ grow_vertical = 2
 
 [node name="VBoxContainer" parent="Settings" instance=ExtResource("2_k47ca")]
 layout_mode = 2
+
+[node name="ControlsSceneButton2" parent="Settings/VBoxContainer" instance=ExtResource("3_27nhk")]
+layout_mode = 2
+text = "Controls"
+new_scene = ExtResource("4_k47hu")
+
+[editable path="Settings/VBoxContainer"]

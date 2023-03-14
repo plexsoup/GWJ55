@@ -1,12 +1,15 @@
-[gd_scene load_steps=8 format=3 uid="uid://d3idy65kr1aj4"]
+[gd_scene load_steps=11 format=3 uid="uid://d3idy65kr1aj4"]
 
 [ext_resource type="Script" path="res://Scenes/Maps/base_level.gd" id="1_32anb"]
 [ext_resource type="PackedScene" uid="uid://cey6vaorec8ca" path="res://Scenes/Entities/Player/player_controller.tscn" id="2_sy3r3"]
+[ext_resource type="PackedScene" uid="uid://cbs51rpoxintc" path="res://Scenes/Entities/NPCs/hair_dryer.tscn" id="3_d56j4"]
 [ext_resource type="PackedScene" uid="uid://eb3wwyaluatx" path="res://Scenes/Objects/trigger_volume_win.tscn" id="3_jwchp"]
 [ext_resource type="PackedScene" uid="uid://cmd16bdree5a7" path="res://Scenes/Objects/fall_reset_volume.tscn" id="4_gpvvn"]
+[ext_resource type="PackedScene" uid="uid://iy2fvk38ehxj" path="res://Scenes/Entities/NPCs/deadly_tile.tscn" id="5_44ukx"]
 [ext_resource type="PackedScene" uid="uid://dd3fox603os7x" path="res://Scenes/Entities/moving platform.tscn" id="6_25c3s"]
 [ext_resource type="MeshLibrary" uid="uid://bwnlh1tt3m4sd" path="res://MeshLibraries/cat_tower_no_light.tres" id="6_bm50k"]
 [ext_resource type="PackedScene" uid="uid://c4rndh2lw447j" path="res://Scenes/Objects/koi_on_path.tscn" id="7_7imp2"]
+[ext_resource type="PackedScene" uid="uid://bt5w6utrspojh" path="res://Scenes/Objects/platform_destination_viz.tscn" id="7_8i3sv"]
 
 [node name="Level02" type="Node3D"]
 script = ExtResource("1_32anb")
@@ -20,16 +23,42 @@ transform = Transform3D(1, 0, 0, 0, 0.985118, 0.171878, 0, -0.171878, 0.985118, 
 
 [node name="NPCs" type="Node3D" parent="."]
 
+[node name="HairDryer" parent="NPCs" instance=ExtResource("3_d56j4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 88.6458, 27.2789, 2.08165e-12)
+collision_layer = 1
+collision_mask = 1
+
+[node name="Hurtbox" parent="NPCs/HairDryer/Visuals" index="1"]
+collision_layer = 1
+
+[node name="WeakSpot" parent="NPCs/HairDryer/Visuals" index="4"]
+collision_layer = 0
+
 [node name="EnvironmentalHazards" type="Node3D" parent="."]
 
 [node name="FallResetVolume" parent="EnvironmentalHazards" instance=ExtResource("4_gpvvn")]
 transform = Transform3D(2.17854, 0, 0, 0, 1, 0, 0, 0, 1, 65.2304, -36.8709, 0)
 
+[node name="DeadlyTile" parent="EnvironmentalHazards" instance=ExtResource("5_44ukx")]
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 74.497, 22.7796, 0)
+
 [node name="MovingPlatforms" type="Node3D" parent="."]
 
 [node name="moving platform" parent="MovingPlatforms" instance=ExtResource("6_25c3s")]
-transform = Transform3D(2.63456, 0, 0, 0, 1, 0, 0, 0, 2.63456, 63.7753, -15.1926, 0)
-speed = 2
+transform = Transform3D(2.63456, 0, 0, 0, 1, 0, 0, 0, 2.63456, 34.4539, -8.23809, 0)
+target = Vector3(2.08165e-12, 26, 2.08165e-12)
+speed = 4
+
+[node name="PlatformDestinationViz" parent="MovingPlatforms/moving platform" instance=ExtResource("7_8i3sv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 26, 2.08165e-12)
+
+[node name="moving platform2" parent="MovingPlatforms" instance=ExtResource("6_25c3s")]
+transform = Transform3D(2.63456, 0, 0, 0, 1, 0, 0, 0, 2.63456, 56.6886, 13.5341, 0)
+target = Vector3(2.08165e-12, 26, 2.08165e-12)
+speed = 4
+
+[node name="PlatformDestinationViz" parent="MovingPlatforms/moving platform2" instance=ExtResource("7_8i3sv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 26, 2.08165e-12)
 
 [node name="Lighting" type="Node3D" parent="."]
 
@@ -48,6 +77,8 @@ next_scene_path = "res://Scenes/Maps/Level03/level_03.tscn"
 [node name="GridMap3" type="GridMap" parent="."]
 transform = Transform3D(4, 0, -6.09838e-23, -6.09838e-23, -1.74846e-07, -4, 0, 4, -1.74846e-07, 2.08165e-12, 2.08165e-12, -4)
 mesh_library = ExtResource("6_bm50k")
+collision_layer = 4
+collision_mask = 3
 data = {
 "cells": PackedInt32Array(1, 1, 196611, 2, 1, 196611, 3, 1, 196611, 4, 1, 196611, 5, 1, 196611, 6, 1, 196611, 7, 1, 720898, 9, 1, 589826, 10, 1, 1114115, 7, 0, 1179650, 7, 65534, 720898, 6, 65534, 196611, 5, 65534, 196610, 5, 65533, 983045, 8, 65535, 786434, 8, 65534, 983043, 8, 65533, 196608, 8, 65532, 983043, 8, 65531, 983044, 9, 0, 196611, 10, 0, 983042, 10, 65535, 458754, 11, 65535, 983042, 11, 65534, 983044, 10, 65532, 983044, 10, 65533, 983042, 9, 65533, 196611, 13, 65533, 983044, 11, 1, 1114115, 12, 1, 1114115, 13, 1, 65538, 13, 0, 983043, 13, 65535, 983043, 13, 65534, 983043, 7, 65535, 786434, -65529, 65535, 655363, -131065, 65535, 655363, -196601, 65535, 655362, -196601, 0, 983043, -196601, 1, 983043, -196601, 2, 983043, -196601, 3, 983043, 8, 0, 1114115, 9, 2, 720896, 9, 3, 786435, 8, 2, 196611, 7, 2, 196610, -65529, 0, 1441795, -131065, 0, 1441794, -131064, 0, 1245187, -131063, 0, 327682, -131063, 2, 327683, -131063, 3, 327683, -131069, 65534, 458758, -131069, 0, 458758, -131069, 2, 458758, -131066, 1, 1114118, -131064, 1, 1114118, -131062, 1, 1114118, -131061, 1, 589830, -131057, 1, 720902)
 }
@@ -61,4 +92,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -161.767)
 [node name="KoiOnPath2" parent="BackgroundScenery" instance=ExtResource("7_7imp2")]
 transform = Transform3D(0.705562, 0, 0.708648, 0, 1, 0, -0.708648, 0, 0.705562, 0, 19.2296, -74.5973)
 
+[editable path="NPCs/HairDryer"]
 [editable path="MovingPlatforms/moving platform"]
+[editable path="MovingPlatforms/moving platform2"]

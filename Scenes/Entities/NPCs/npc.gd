@@ -7,6 +7,7 @@ extends CharacterBody3D
 
 @export var damage : int = 1
 @export var flying : bool = false
+@export var electrical : bool = false
 
 @export var path_to_follow : NodePath
 @export var animation_player_location : NodePath
@@ -36,6 +37,8 @@ func _ready():
 		if behaviour.has_method("init"):
 			behaviour.init(self)
 
+	if "dryer" in name:
+		electrical = true
 
 func _physics_process(delta):
 	move(delta)
@@ -149,7 +152,12 @@ func begin_dying():
 	
 
 func _on_weak_spot_body_entered(body):
-	# player found the weakspot. die
-	if "player" in body.name.to_lower():
+	if $Visuals/WeakSpot.monitoring and "player" in body.name.to_lower():
+		print("death by player, " + self.name)
 		begin_dying()
 		
+func _on_electrocuted(): # from water
+	if electrical:
+		print("NPC death by electrocution, " + self.name)
+		begin_dying()
+

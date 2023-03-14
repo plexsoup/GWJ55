@@ -26,6 +26,10 @@ mesh = SubResource("CapsuleMesh_pw2t4")
 
 [node name="WeakSpot" parent="Visuals" index="4"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.19615, 2.22885, 0)
+visible = false
+collision_mask = 0
+monitoring = false
+monitorable = false
 
 [node name="BackAndForth" parent="Behaviours" index="0"]
 active = false

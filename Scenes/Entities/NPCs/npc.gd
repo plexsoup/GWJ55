@@ -134,13 +134,18 @@ func begin_dying():
 	# make a noise
 	# play an animation
 	# set a timer for queue_free
-	if !animation_player_location.is_empty():
-		var animation_player = get_node(animation_player_location)
-		if animation_player.has_animation("die"):
-			animation_player.play("die")
-			await animation_player.animation_finished
-			queue_free()
-	
+	var animation_player : AnimationPlayer = $DefaultAnimationPlayer
+	if not animation_player_location.is_empty():
+		animation_player = get_node(animation_player_location)
+
+	if animation_player.has_animation("die"):
+		animation_player.play("die")
+		await animation_player.animation_finished
+		queue_free()
+	else:
+		await get_tree().create_timer(0.5).timeout
+		queue_free()
+		
 	
 
 func _on_weak_spot_body_entered(body):

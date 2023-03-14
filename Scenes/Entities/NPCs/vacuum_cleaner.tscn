@@ -38,5 +38,8 @@ mesh = SubResource("CylinderMesh_afg06")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.954028, 1.14386, 0)
 shape = SubResource("BoxShape3D_vye7k")
 
+[node name="WeakSpot" parent="Visuals" index="3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.59841, 1.07064, 0)
+
 [node name="JumpScare" parent="Behaviours" index="1"]
 visible = false

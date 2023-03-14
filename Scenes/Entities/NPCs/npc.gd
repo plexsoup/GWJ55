@@ -7,6 +7,7 @@ extends CharacterBody3D
 
 @export var damage : int = 1
 @export var flying : bool = false
+@export var electrical : bool = false
 
 @export var path_to_follow : NodePath
 @export var animation_player_location : NodePath
@@ -36,6 +37,8 @@ func _ready():
 		if behaviour.has_method("init"):
 			behaviour.init(self)
 
+	if "dryer" in name:
+		electrical = true
 
 func _physics_process(delta):
 	move(delta)
@@ -134,17 +137,27 @@ func begin_dying():
 	# make a noise
 	# play an animation
 	# set a timer for queue_free
-	if !animation_player_location.is_empty():
-		var animation_player = get_node(animation_player_location)
-		if animation_player.has_animation("die"):
-			animation_player.play("die")
-			await animation_player.animation_finished
-			queue_free()
-	
+	var animation_player : AnimationPlayer = $DefaultAnimationPlayer
+	if not animation_player_location.is_empty():
+		animation_player = get_node(animation_player_location)
+
+	if animation_player.has_animation("die"):
+		animation_player.play("die")
+		await animation_player.animation_finished
+		queue_free()
+	else:
+		await get_tree().create_timer(0.5).timeout
+		queue_free()
+		
 	
 
 func _on_weak_spot_body_entered(body):
-	# player found the weakspot. die
-	if "player" in body.name.to_lower():
+	if $Visuals/WeakSpot.monitoring and "player" in body.name.to_lower():
+		print("death by player, " + self.name)
 		begin_dying()
 		
+func _on_electrocuted(): # from water
+	if electrical:
+		print("NPC death by electrocution, " + self.name)
+		begin_dying()
+

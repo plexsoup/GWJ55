@@ -1,35 +1,61 @@
-[gd_scene load_steps=8 format=3 uid="uid://d3idy65kr1aj4"]
+[gd_scene load_steps=14 format=3 uid="uid://d3idy65kr1aj4"]
 
 [ext_resource type="Script" path="res://Scenes/Maps/base_level.gd" id="1_32anb"]
 [ext_resource type="PackedScene" uid="uid://cey6vaorec8ca" path="res://Scenes/Entities/Player/player_controller.tscn" id="2_sy3r3"]
+[ext_resource type="PackedScene" uid="uid://cbs51rpoxintc" path="res://Scenes/Entities/NPCs/hair_dryer.tscn" id="3_d56j4"]
 [ext_resource type="PackedScene" uid="uid://eb3wwyaluatx" path="res://Scenes/Objects/trigger_volume_win.tscn" id="3_jwchp"]
 [ext_resource type="PackedScene" uid="uid://cmd16bdree5a7" path="res://Scenes/Objects/fall_reset_volume.tscn" id="4_gpvvn"]
+[ext_resource type="PackedScene" uid="uid://iy2fvk38ehxj" path="res://Scenes/Entities/NPCs/deadly_tile.tscn" id="5_44ukx"]
 [ext_resource type="PackedScene" uid="uid://dd3fox603os7x" path="res://Scenes/Entities/moving platform.tscn" id="6_25c3s"]
 [ext_resource type="MeshLibrary" uid="uid://bwnlh1tt3m4sd" path="res://MeshLibraries/cat_tower_no_light.tres" id="6_bm50k"]
 [ext_resource type="PackedScene" uid="uid://c4rndh2lw447j" path="res://Scenes/Objects/koi_on_path.tscn" id="7_7imp2"]
+[ext_resource type="PackedScene" uid="uid://ch0xqdmee1xnu" path="res://WorldEnvironments/sky_and_lighting.tscn" id="10_1trkd"]
+[ext_resource type="Shader" uid="uid://cx2ac458h8a83" path="res://Shaders/Cloud_Water.tres" id="11_ebqaw"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_vc76f"]
+render_priority = 0
+shader = ExtResource("11_ebqaw")
+shader_parameter/FloatParameter = 1.0
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_c8dh5"]
+material = SubResource("ShaderMaterial_vc76f")
+size = Vector2(300, 300)
 
 [node name="Level02" type="Node3D"]
 script = ExtResource("1_32anb")
 
-[node name="player" parent="." instance=ExtResource("2_sy3r3")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.1021, -8.63668, 0)
-inverted_x = false
-
-[node name="Camera3D" type="Camera3D" parent="player"]
-transform = Transform3D(1, 0, 0, 0, 0.985118, 0.171878, 0, -0.171878, 0.985118, -1.69857, 7.01185, 22.835)
-
 [node name="NPCs" type="Node3D" parent="."]
+
+[node name="HairDryer" parent="NPCs" instance=ExtResource("3_d56j4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 85.5351, -9.76057, 2.08165e-12)
+
+[node name="HairDryer2" parent="NPCs" instance=ExtResource("3_d56j4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 85.5351, 28.3059, 2.08165e-12)
 
 [node name="EnvironmentalHazards" type="Node3D" parent="."]
 
 [node name="FallResetVolume" parent="EnvironmentalHazards" instance=ExtResource("4_gpvvn")]
 transform = Transform3D(2.17854, 0, 0, 0, 1, 0, 0, 0, 1, 65.2304, -36.8709, 0)
 
+[node name="DeadlyTile" parent="EnvironmentalHazards" instance=ExtResource("5_44ukx")]
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 74.497, 22.7796, 0)
+
+[node name="DeadlyTile2" parent="EnvironmentalHazards" instance=ExtResource("5_44ukx")]
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 68.2238, -18.0739, 0)
+
 [node name="MovingPlatforms" type="Node3D" parent="."]
 
 [node name="moving platform" parent="MovingPlatforms" instance=ExtResource("6_25c3s")]
-transform = Transform3D(2.63456, 0, 0, 0, 1, 0, 0, 0, 2.63456, 63.7753, -15.1926, 0)
-speed = 2
+transform = Transform3D(4, 0, 0, 0, 1, 0, 0, 0, 4, 27.506, 17.1118, 0)
+target = Vector3(2.08165e-12, -26, 2.08165e-12)
+
+[node name="moving platform3" parent="MovingPlatforms" instance=ExtResource("6_25c3s")]
+transform = Transform3D(4, 0, 0, 0, 1, 0, 0, 0, 4, 57.3333, 18.2983, 0)
+target = Vector3(2.08165e-12, 16, 2.08165e-12)
+
+[node name="moving platform2" parent="MovingPlatforms" instance=ExtResource("6_25c3s")]
+transform = Transform3D(2, 0, 0, 0, 1, 0, 0, 0, 2, 63.506, -12.2712, 0)
+target = Vector3(5, 2.08165e-12, 2.08165e-12)
 
 [node name="Lighting" type="Node3D" parent="."]
 
@@ -38,9 +64,6 @@ transform = Transform3D(0.822889, 0.469704, -0.319738, 0, 0.562718, 0.826649, 0.
 light_energy = 0.25
 shadow_enabled = true
 
-[node name="OmniLight3D" type="OmniLight3D" parent="Lighting"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 60.2064, -15.5931, 2.39396)
-
 [node name="TriggerVolumeWin" parent="." instance=ExtResource("3_jwchp")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 99.317, -9.21002, 0)
 next_scene_path = "res://Scenes/Maps/Level03/level_03.tscn"
@@ -48,6 +71,8 @@ next_scene_path = "res://Scenes/Maps/Level03/level_03.tscn"
 [node name="GridMap3" type="GridMap" parent="."]
 transform = Transform3D(4, 0, -6.09838e-23, -6.09838e-23, -1.74846e-07, -4, 0, 4, -1.74846e-07, 2.08165e-12, 2.08165e-12, -4)
 mesh_library = ExtResource("6_bm50k")
+collision_layer = 4
+collision_mask = 3
 data = {
 "cells": PackedInt32Array(1, 1, 196611, 2, 1, 196611, 3, 1, 196611, 4, 1, 196611, 5, 1, 196611, 6, 1, 196611, 7, 1, 720898, 9, 1, 589826, 10, 1, 1114115, 7, 0, 1179650, 7, 65534, 720898, 6, 65534, 196611, 5, 65534, 196610, 5, 65533, 983045, 8, 65535, 786434, 8, 65534, 983043, 8, 65533, 196608, 8, 65532, 983043, 8, 65531, 983044, 9, 0, 196611, 10, 0, 983042, 10, 65535, 458754, 11, 65535, 983042, 11, 65534, 983044, 10, 65532, 983044, 10, 65533, 983042, 9, 65533, 196611, 13, 65533, 983044, 11, 1, 1114115, 12, 1, 1114115, 13, 1, 65538, 13, 0, 983043, 13, 65535, 983043, 13, 65534, 983043, 7, 65535, 786434, -65529, 65535, 655363, -131065, 65535, 655363, -196601, 65535, 655362, -196601, 0, 983043, -196601, 1, 983043, -196601, 2, 983043, -196601, 3, 983043, 8, 0, 1114115, 9, 2, 720896, 9, 3, 786435, 8, 2, 196611, 7, 2, 196610, -65529, 0, 1441795, -131065, 0, 1441794, -131064, 0, 1245187, -131063, 0, 327682, -131063, 2, 327683, -131063, 3, 327683, -131069, 65534, 458758, -131069, 0, 458758, -131069, 2, 458758, -131066, 1, 1114118, -131064, 1, 1114118, -131062, 1, 1114118, -131061, 1, 589830, -131057, 1, 720902)
 }
@@ -61,4 +86,13 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -161.767)
 [node name="KoiOnPath2" parent="BackgroundScenery" instance=ExtResource("7_7imp2")]
 transform = Transform3D(0.705562, 0, 0.708648, 0, 1, 0, -0.708648, 0, 0.705562, 0, 19.2296, -74.5973)
 
-[editable path="MovingPlatforms/moving platform"]
+[node name="Sky and Lighting" parent="." instance=ExtResource("10_1trkd")]
+
+[node name="Cloud_water" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -20.6752, 0)
+mesh = SubResource("PlaneMesh_c8dh5")
+
+[node name="Level Music" type="AudioStreamPlayer" parent="."]
+
+[node name="player_controller_xrae" parent="." instance=ExtResource("2_sy3r3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.4794, -9.22205, 0)

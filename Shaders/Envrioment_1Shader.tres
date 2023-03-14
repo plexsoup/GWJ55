@@ -1,6 +1,6 @@
 [gd_resource type="Environment" load_steps=4 format=3 uid="uid://cwy6umphyte2k"]
 
-[ext_resource type="Texture2D" uid="uid://b7rxasxc61f2a" path="res://Art/Sky.png" id="1_8860j"]
+[ext_resource type="Texture2D" uid="uid://mf1bj2t0wgsv" path="res://Art/Sky.png" id="1_8860j"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_ilhoy"]
 panorama = ExtResource("1_8860j")
@@ -11,6 +11,7 @@ sky_material = SubResource("PanoramaSkyMaterial_ilhoy")
 [resource]
 background_mode = 2
 sky = SubResource("Sky_4segj")
+sky_rotation = Vector3(5.58059e-17, 1.00531, 5.58059e-17)
 ambient_light_source = 3
 ambient_light_energy = 9.76
 ssao_enabled = true

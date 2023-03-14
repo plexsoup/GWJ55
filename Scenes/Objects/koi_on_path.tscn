@@ -1,6 +1,6 @@
 [gd_scene load_steps=12 format=3 uid="uid://c4rndh2lw447j"]
 
-[ext_resource type="Texture2D" uid="uid://rcak68s3q0cu" path="res://Art/objects/koifish.png" id="1_imcdf"]
+[ext_resource type="Texture2D" uid="uid://8aguo7lhvuxj" path="res://Art/objects/koifish.png" id="1_imcdf"]
 [ext_resource type="Script" path="res://Scenes/Objects/koi_on_path.gd" id="1_naify"]
 
 [sub_resource type="Curve3D" id="Curve3D_0m5rv"]

@@ -16,5 +16,9 @@ func _on_hit():
 			lifeIcon.hide()
 		
 func _process(_delta):
-	if $Control/FPSLabel.visible:
-		$Control/FPSLabel.text = "FPS: " + str(Performance.get_monitor(Performance.TIME_FPS)) 
+	if %FPSLabel.visible:
+		%FPSLabel.text = "FPS: " + str(Performance.get_monitor(Performance.TIME_FPS)) 
+
+
+func _on_button_pressed():
+	StageManager.reset_level()

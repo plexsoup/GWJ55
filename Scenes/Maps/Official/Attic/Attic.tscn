@@ -1,0 +1,143 @@
+[gd_scene load_steps=13 format=3 uid="uid://dv6mgvqyrydae"]
+
+[ext_resource type="PackedScene" uid="uid://cjiok7gin5bk5" path="res://Scenes/Maps/base_level.tscn" id="1_0tska"]
+[ext_resource type="MeshLibrary" uid="uid://dmh5e52qprx6r" path="res://MeshLibraries/cat_tower_plex.tres" id="2_18ox2"]
+[ext_resource type="Texture2D" uid="uid://26kvqtbad4tv" path="res://Scenes/Maps/Official/Attic/level01_mockup_section2.png" id="2_di4eq"]
+[ext_resource type="PackedScene" uid="uid://cm2o1lkpf6s0w" path="res://Scenes/Entities/NPCs/vacuum_cleaner.tscn" id="2_nlfxv"]
+[ext_resource type="PackedScene" uid="uid://cbs51rpoxintc" path="res://Scenes/Entities/NPCs/hair_dryer.tscn" id="3_ntvup"]
+[ext_resource type="PackedScene" uid="uid://iy2fvk38ehxj" path="res://Scenes/Entities/NPCs/deadly_tile.tscn" id="4_o18aw"]
+[ext_resource type="PackedScene" uid="uid://dd3fox603os7x" path="res://Scenes/Entities/moving platform.tscn" id="5_m16ie"]
+[ext_resource type="Texture2D" uid="uid://dhm4vtuux462g" path="res://Materials/arrow_01.png" id="6_431y2"]
+[ext_resource type="PackedScene" uid="uid://crvvpifd7a146" path="res://Scenes/Entities/NPCs/pressure_plate.tscn" id="6_nya5f"]
+[ext_resource type="PackedScene" uid="uid://dwte3a8axt6kp" path="res://Scenes/Objects/door.tscn" id="7_tpc43"]
+[ext_resource type="PackedScene" uid="uid://eb3wwyaluatx" path="res://Scenes/Objects/trigger_volume_win.tscn" id="8_pd66h"]
+[ext_resource type="PackedScene" uid="uid://ted21c8mecho" path="res://Scenes/Entities/NPCs/switch.tscn" id="11_gdsl8"]
+
+[node name="Attic" instance=ExtResource("1_0tska")]
+
+[node name="PlatformGridMap-placeholder" parent="." index="0"]
+transform = Transform3D(3, 0, 0, 0, -1.31134e-07, -3, 0, 3, -1.31134e-07, 0, 0, -1.5)
+data = {
+"cells": PackedInt32Array(8, 0, 7, 7, 0, 7, 6, 0, 7, 5, 0, 7, 4, 0, 7, 3, 0, 7, 2, 0, 7, 1, 0, 7, 0, 0, 7, 65535, 0, 7, 65534, 0, 7, 65533, 0, 7, 65532, 0, 7, 65531, 0, 7, 65531, 65535, 7, 65531, 65514, 7, 65531, 65515, 7, 65531, 65516, 7, 65531, 65517, 7, 65531, 65519, 7, 65531, 65520, 7, 65531, 65522, 7, 65531, 65523, 7, 65531, 65525, 7, 65531, 65526, 7, 65531, 65528, 7, 65531, 65529, 7, 65531, 65530, 7, 65531, 65534, 7, 65531, 65513, 7, 65531, 65512, 7, 65532, 65512, 7, 65532, 65511, 7, 65532, 65510, 7, 65533, 65509, 7, 65533, 65510, 7, 65533, 65508, 7, 65534, 65508, 7, 65534, 65507, 7, 65534, 65506, 7, 65535, 65506, 7, 65535, 65505, 7, 0, 65505, 7, 1, 65504, 7, 13, 0, 7, 13, 65535, 7, 13, 65534, 7, 13, 65533, 7, 13, 65532, 7, 13, 65526, 7, 12, 65526, 7, 11, 65526, 7, 10, 65526, 7, 9, 65526, 7, 11, 65524, 7, 10, 65524, 7, 9, 65524, 7, 8, 65524, 7, 9, 65522, 7, 10, 65522, 7, 11, 65522, 7, 12, 65522, 7, 2, 65503, 7, 3, 65503, 7, 4, 65504, 7, 5, 65504, 7, 6, 65505, 7, 7, 65505, 7, 8, 65506, 7, 8, 65507, 7, 9, 65507, 7, 9, 65508, 7, 9, 65509, 7, 9, 65510, 7, 10, 65510, 7, 7, 65506, 7, 6, 65504, 7, 4, 65503, 7, 2, 65504, 7, 10, 65511, 7, 10, 65512, 7, 11, 65512, 7, 11, 65513, 7, 11, 65514, 7, 11, 65515, 7, 10, 65516, 7, 9, 65516, 7, 9, 65517, 7, 8, 65517, 7, 7, 65519, 7, 7, 65520, 7, 7, 65524, 7, 13, 65522, 7, 14, 65522, 7, 14, 65521, 7, 13, 65521, 7, 19, 65523, 7, 18, 65523, 7, 17, 65523, 7, 16, 65523, 7, 15, 65523, 7, 14, 65523, 7, 19, 65522, 7, 19, 65521, 7, 20, 65521, 7, 21, 65521, 7, 22, 65521, 7, 23, 65521, 7, 23, 65520, 7, 24, 65520, 7, 24, 65519, 7, 25, 65519, 7, 26, 65519, 7, 27, 65519, 7, 12, 65515, 7, 13, 65515, 7, 14, 65515, 7, 15, 65516, 7, 16, 65516, 7, 18, 65515, 7, 17, 65515, 7, 20, 65516, 7, 23, 65515, 7, 25, 65516, 7, 27, 65516, 7, 28, 65516, 7, 29, 65516, 7, 30, 65516, 7, 31, 65516, 7, 32, 65516, 7, 33, 65516, 7, 34, 65516, 7, 30, 65517, 7, 30, 65518, 7, 30, 65519, 7, 30, 65520, 7, 30, 65521, 7, 30, 65522, 7, 31, 65521, 7, 32, 65521, 7, 33, 65521, 7, 34, 65521, 7, 30, 65523, 7, 30, 65524, 7, 30, 65525, 7, 29, 65525, 7, 28, 65525, 7, 27, 65525, 7, 26, 65525, 7, 26, 65526, 7, 25, 65526, 7, 24, 65526, 7, 24, 65527, 7, 25, 65527, 7, 23, 65527, 7, 23, 65528, 7, 23, 65529, 7, 22, 65529, 7, 21, 65529, 7, 20, 65529, 7, 19, 65529, 7, 18, 65529, 7, 14, 65526, 7, 14, 65527, 7, 14, 65528, 7, 14, 65533, 7, 14, 65534, 7, 14, 65535, 7, 14, 0, 7, 14, 1, 7, 13, 1, 7, 8, 1, 7, 65531, 1, 7, 65532, 1, 7, 65533, 1, 7, 65534, 1, 7, 65535, 1, 7, 0, 1, 7, 1, 1, 7, 2, 1, 7, 3, 1, 7, 4, 1, 7, 5, 1, 7, 6, 1, 7, 7, 1, 7, 15, 0, 7, 15, 1, 7, 16, 0, 7, 16, 1, 7, 17, 1, 7, 18, 0, 7, 18, 1, 7, 19, 0, 7, 19, 1, 7, 20, 0, 7, 20, 1, 7, 21, 0, 7, 21, 1, 7, 22, 0, 7, 22, 1, 7, 23, 0, 7, 23, 1, 7, 24, 0, 7, 24, 1, 7, 25, 0, 7, 25, 1, 7, 26, 0, 7, 26, 1, 7, 27, 0, 7, 27, 1, 7, 28, 0, 7, 28, 1, 7, 29, 0, 7, 29, 1, 7, 30, 0, 7, 30, 1, 7, 31, 0, 7, 31, 1, 7, 32, 0, 7, 32, 1, 7, 29, 65529, 7, 29, 65530, 7, 29, 65531, 7, 29, 65532, 7, 29, 65533, 7, 29, 65534, 7, 29, 65535, 7, 30, 65529, 7, 30, 65530, 7, 30, 65531, 7, 30, 65532, 7, 30, 65533, 7, 30, 65534, 7, 30, 65535, 7, 31, 65529, 7, 31, 65530, 7, 31, 65531, 7, 31, 65532, 7, 31, 65533, 7, 31, 65534, 7, 31, 65535, 7, 32, 65529, 7, 32, 65530, 7, 32, 65531, 7, 32, 65532, 7, 32, 65533, 7, 32, 65534, 7, 32, 65535, 7, 27, 65530, 8, 27, 65531, 8, 27, 65532, 8, 27, 65533, 8, 27, 65534, 8, 27, 65535, 8, 28, 65530, 8, 28, 65531, 8, 28, 65532, 8, 28, 65533, 8, 28, 65534, 8, 28, 65535, 8, 25, 65532, 7, 25, 65533, 7, 25, 65534, 7, 25, 65535, 7, 26, 65532, 7, 26, 65533, 7, 26, 65534, 7, 26, 65535, 7, 23, 65533, 8, 23, 65534, 8, 23, 65535, 8, 24, 65533, 8, 24, 65534, 8, 24, 65535, 8, 15, 65533, 8, 16, 65533, 8, 16, 65534, 8, 17, 65534, 8, 17, 65535, 8, 16, 65535, 8, 15, 65535, 8, 15, 65534, 8, 17, 65533, 8, 17, 0, 7, 33, 65529, 7, 33, 65530, 7, 33, 65531, 7, 33, 65532, 7, 33, 65533, 7, 33, 65534, 7, 33, 65535, 7, 33, 0, 7, 33, 1, 7, 12, 65532, 7, 11, 65532, 7, 11, 65533, 7, 10, 65533, 7, 10, 65532, 7, 9, 65532, 7, 9, 65533, 7, 12, 65533, 7, 7, 65529, 7, 8, 65528, 7, 8, 65529, 7, 9, 65529, 7, 10, 65529, 7, 11, 65529, 7, 6, 65530, 7, 5, 65530, 7, 4, 65530, 7, 3, 65530, 7, 2, 65530, 7, 1, 65530, 7, 0, 65530, 7, 7, 65532, 7, 6, 65532, 7, 5, 65532, 7, 4, 65532, 7, 3, 65532, 7, 2, 65532, 7, 1, 65532, 7, 0, 65532, 7, 65535, 65532, 7, 65534, 65532, 7, 65533, 65532, 7, 65533, 65531, 8, 65533, 65530, 8, 65533, 65518, 7, 65533, 65521, 7, 65533, 65524, 7, 65533, 65527, 7, 65534, 65516, 7, 65534, 65515, 7, 65535, 65513, 7, 0, 65510, 7, 1, 65508, 7, 2, 65508, 7, 3, 65508, 7, 4, 65508, 7, 5, 65508, 7, 5, 65509, 7, 5, 65510, 7, 5, 65511, 7, 4, 65511, 7, 4, 65512, 7, 4, 65513, 7, 4, 65514, 7, 4, 65515, 7, 4, 65516, 7, 3, 65516, 7, 3, 65515, 7, 3, 65514, 7, 3, 65513, 7, 3, 65512, 7, 6, 65519, 7, 5, 65519, 7, 4, 65519, 7, 0, 65519, 7, 65534, 65521, 7, 65535, 65521, 7, 0, 65521, 7, 3, 65522, 7, 2, 65522, 7, 1, 65522, 7, 0, 65522, 7, 6, 65524, 7, 5, 65524, 7, 3, 65524, 7, 1, 65524, 7, 0, 65524, 7, 14, 65516, 7, 17, 65516, 7, 19, 65515, 7, 20, 65515, 7, 21, 65515, 7, 22, 65515, 7, 24, 65515, 7, 25, 65515, 7, 26, 65515, 7, 27, 65515, 7, 31, 65517, 7, 31, 65518, 7, 31, 65519, 7, 31, 65520, 7, 32, 65517, 7, 32, 65518, 7, 32, 65519, 7, 32, 65520, 7, 33, 65517, 7, 33, 65518, 7, 33, 65519, 7, 33, 65520, 7, 34, 65517, 7, 34, 65518, 7, 34, 65519, 7, 34, 65520, 7, 31, 65522, 7, 32, 65522, 7, 34, 65522, 7, 33, 65522, 7, 6, 65529, 7, 0, 65529, 7, 15, 65522, 7, 16, 65522, 7, 17, 65522, 7, 18, 65522, 7, 10, 65515, 8)
+}
+
+[node name="climbable" type="GridMap" parent="." index="1"]
+transform = Transform3D(3, 0, 0, 0, -1.31134e-07, -3, 0, 3, -1.31134e-07, 0, 0, -1.4)
+mesh_library = ExtResource("2_18ox2")
+cell_size = Vector3(1, 1, 1)
+data = {
+"cells": PackedInt32Array(14, 65532, 9, 14, 65531, 9, 14, 65530, 9, 14, 65529, 9, 17, 65529, 9, 13, 65527, 9, 13, 65528, 9, 13, 65529, 9, 13, 65530, 9, 13, 65531, 9, 13, 65534, 9, 13, 65535, 9, 13, 0, 9, 13, 1, 9, 6, 65535, 9, 6, 65534, 9, 7, 65534, 9, 7, 65535, 9, 7, 65525, 9, 7, 65526, 9, 7, 65527, 9, 7, 65528, 9, 4, 65527, 9, 3, 65527, 9, 2, 65527, 9, 1, 65527, 9, 0, 65527, 9, 65535, 65527, 9, 65534, 65527, 9, 65533, 65529, 9, 65533, 65528, 9, 65531, 65533, 9, 65531, 65532, 9, 65531, 65531, 9, 65533, 65523, 9, 65533, 65522, 9, 65533, 65525, 9, 65533, 65526, 9, 65531, 65524, 9, 65531, 65527, 9, 65531, 65521, 9, 65533, 65519, 9, 65533, 65520, 9, 65531, 65518, 9, 65533, 65517, 9, 65533, 65516, 9, 65534, 65514, 9, 65534, 65513, 9, 65535, 65512, 9, 65535, 65511, 9, 65535, 65510, 9, 0, 65509, 9, 0, 65508, 9, 3, 65511, 9, 7, 65517, 9, 7, 65518, 9, 7, 65521, 9, 7, 65522, 9, 7, 65523, 9, 4, 65521, 9, 4, 65522, 9, 1, 65519, 9, 2, 65519, 9, 3, 65519, 9)
+}
+
+[node name="player" parent="." index="2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.0138, 1.34885, 0)
+
+[node name="VacuumCleaner" parent="NPCs" index="0" instance=ExtResource("2_nlfxv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.44951, 27.1252, 2.08165e-12)
+
+[node name="VacuumCleaner2" parent="NPCs" index="1" instance=ExtResource("2_nlfxv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.18223, 27.1252, 2.08165e-12)
+
+[node name="VacuumCleaner3" parent="NPCs" index="2" instance=ExtResource("2_nlfxv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.3884, 27.1252, 2.08165e-12)
+
+[node name="VacuumCleaner4" parent="NPCs" index="3" instance=ExtResource("2_nlfxv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.69395, 84.4148, 2.08165e-12)
+
+[node name="HairDryer" parent="NPCs" index="4" instance=ExtResource("3_ntvup")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 49.4922, 9.40586, 2.08165e-12)
+
+[node name="DeadlyTile" parent="EnvironmentalHazards" index="0" instance=ExtResource("4_o18aw")]
+transform = Transform3D(5, 0, 0, 0, 3, 0, 0, 0, 3.16364, 10.7309, 18.6674, 0)
+
+[node name="DeadlyTile2" parent="EnvironmentalHazards" index="1" instance=ExtResource("4_o18aw")]
+transform = Transform3D(2.92297, 0, 0, 0, 3, 0, 0, 0, 3.6898, 7.5901, 42.9592, 0)
+
+[node name="DeadlyTile3" parent="EnvironmentalHazards" index="2" instance=ExtResource("4_o18aw")]
+transform = Transform3D(3.92675, 0, 0, 0, 3, 0, 0, 0, 3.6898, 50.9186, 42.9592, 0)
+
+[node name="moving platform" parent="MovingPlatforms" index="0" instance=ExtResource("5_m16ie")]
+transform = Transform3D(3, 0, 0, 0, 1, 0, 0, 0, 2, 6.34422, 51.6168, 0)
+target = Vector3(0, 23, 0)
+
+[node name="moving platform2" parent="MovingPlatforms" index="1" instance=ExtResource("5_m16ie")]
+transform = Transform3D(2, 0, 0, 0, 1, 0, 0, 0, 2, 22.515, 58.1702, 0)
+target = Vector3(0, 17, 0)
+
+[node name="moving platform3" parent="MovingPlatforms" index="2" instance=ExtResource("5_m16ie")]
+transform = Transform3D(2, 0, 0, 0, 1, 0, 0, 0, 2, 86.859, 34.1684, 0)
+target = Vector3(0, 17, 0)
+
+[node name="moving platform_NE" parent="MovingPlatforms" index="3" instance=ExtResource("5_m16ie")]
+transform = Transform3D(2, 0, 0, 0, 1, 0, 0, 0, 2, 58.9729, 45.4928, 0)
+target = Vector3(-6, 0, 0)
+
+[node name="TriggerVolumeWin" parent="DynamicObjects" index="0"]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 33.9827, -10.0252, 0)
+next_scene_path = "res://Scenes/Maps/Official/LivingRoom/LivingRoom.tscn"
+
+[node name="Sprite3D" type="Sprite3D" parent="DynamicObjects/TriggerVolumeWin" index="2"]
+transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 0, 0, 0)
+pixel_size = 0.033
+texture = ExtResource("6_431y2")
+
+[node name="FallResetVolume" parent="DynamicObjects" index="1"]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, -59.2983, 0)
+
+[node name="pressure_plate_02_NE" parent="DynamicObjects" index="2" instance=ExtResource("6_nya5f")]
+transform = Transform3D(4, 0, 0, 0, 2, 0, 0, 0, 4, 42.4757, 45.2239, -0.156532)
+connected_to = Array[NodePath]([NodePath("../../MovingPlatforms/moving platform_NE")])
+
+[node name="pressure_plate_04_N" parent="DynamicObjects" index="3" instance=ExtResource("6_nya5f")]
+transform = Transform3D(3, 0, 0, 0, 1.5, 0, 0, 0, 3, 31.4014, 63.0742, -0.156532)
+connected_to = Array[NodePath]([NodePath("../../MovingPlatforms/moving platform_NE")])
+
+[node name="pressure_plate_05_top" parent="DynamicObjects" index="4" instance=ExtResource("6_nya5f")]
+transform = Transform3D(3, 0, 0, 0, 1.5, 0, 0, 0, 3, 12.0348, 75.0103, -0.156532)
+connected_to = Array[NodePath]([NodePath("../../MovingPlatforms/moving platform_NE")])
+
+[node name="pressure_plate_06_NW" parent="DynamicObjects" index="5" instance=ExtResource("6_nya5f")]
+transform = Transform3D(3, 0, 0, 0, 1.5, 0, 0, 0, 3, 1.57941, 51.1837, -0.156532)
+connected_to = Array[NodePath]([NodePath("../../MovingPlatforms/moving platform_NE")])
+
+[node name="pressure_plate_08_middle" parent="DynamicObjects" index="6" instance=ExtResource("6_nya5f")]
+transform = Transform3D(3, 0, 0, 0, 1.5, 0, 0, 0, 3, 62.0593, 21.0869, -0.156532)
+connected_to = Array[NodePath]([NodePath("../../MovingPlatforms/moving platform_NE")])
+
+[node name="pressure_plate_09_E" parent="DynamicObjects" index="7" instance=ExtResource("6_nya5f")]
+transform = Transform3D(3, 0, 0, 0, 1.5, 0, 0, 0, 3, 83.8486, 18.0863, -0.156532)
+connected_to = Array[NodePath]([NodePath("../../MovingPlatforms/moving platform_NE")])
+
+[node name="Door_01_W" parent="DynamicObjects" index="8" instance=ExtResource("7_tpc43")]
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 12.3009, 0, 0)
+
+[node name="TriggerVolumeWin2" parent="DynamicObjects" index="9" instance=ExtResource("8_pd66h")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 107.313, 23.633, 0)
+next_scene_path = "res://Scenes/Maps/Official/BathRoom/Bathroom.tscn"
+
+[node name="Sprite3D" type="Sprite3D" parent="DynamicObjects/TriggerVolumeWin2" index="2"]
+transform = Transform3D(-1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 0, 0, 1, 0, 1.87525, 0)
+pixel_size = 0.033
+texture = ExtResource("6_431y2")
+
+[node name="Door_02_E" parent="DynamicObjects" index="10" instance=ExtResource("7_tpc43")]
+transform = Transform3D(4, 0, 0, 0, 8.96065, 0, 0, 0, 4, 97.6347, 21.0997, 0)
+
+[node name="switch" parent="DynamicObjects" index="11" instance=ExtResource("11_gdsl8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.90178, 2.90108, -1.83688)
+
+[node name="switch2" parent="DynamicObjects" index="12" instance=ExtResource("11_gdsl8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 37.694, 31.716, -1.837)
+
+[node name="switch3" parent="DynamicObjects" index="13" instance=ExtResource("11_gdsl8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.1809, 44.1101, -1.837)
+
+[node name="ReferenceSprite3D" type="Sprite3D" parent="." index="10"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 45.1186, -1.79347)
+modulate = Color(1, 1, 1, 0.501961)
+pixel_size = 0.1
+texture = ExtResource("2_di4eq")
+
+[node name="StickyTiles" type="Node3D" parent="." index="11"]
+
+[connection signal="switch_hit" from="DynamicObjects/switch" to="DynamicObjects/Door_01_W" method="open"]

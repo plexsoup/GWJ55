@@ -49,13 +49,13 @@ dof_blur_far_transition = 85.14
 dof_blur_near_enabled = true
 dof_blur_near_distance = 6.29
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_q3ps7"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_wa02u"]
 render_priority = 0
 shader = ExtResource("3_goaxp")
 shader_parameter/FloatParameter = 1.0
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_n5mh4"]
-material = SubResource("ShaderMaterial_q3ps7")
+material = SubResource("ShaderMaterial_wa02u")
 size = Vector2(300, 300)
 
 [node name="Node3D" type="Node3D"]

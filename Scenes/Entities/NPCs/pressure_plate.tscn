@@ -1,28 +1,56 @@
-[gd_scene load_steps=5 format=3 uid="uid://crvvpifd7a146"]
+[gd_scene load_steps=10 format=3 uid="uid://crvvpifd7a146"]
 
 [ext_resource type="Script" path="res://Scenes/Entities/NPCs/pressure_plate.gd" id="1_v1kjb"]
-
-[sub_resource type="BoxMesh" id="BoxMesh_tefsx"]
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_gygsb"]
+[ext_resource type="Material" uid="uid://nnv0nusw3ic" path="res://Materials/concrete_material.tres" id="2_ns1li"]
+[ext_resource type="Material" uid="uid://b30wkuohpie3w" path="res://Materials/OrangeCarpetNoiseShader.tres" id="3_3ik68"]
+[ext_resource type="AudioStream" uid="uid://cxexix7ol1j0b" path="res://Menus/Buttons/click_placeholder.wav" id="4_v1rdn"]
+[ext_resource type="AudioStream" uid="uid://bo5kpftf6kcdq" path="res://Menus/Buttons/hover_placeholder.wav" id="5_e4ioj"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_fdt07"]
+size = Vector3(1, 1.63297, 1)
 
-[node name="pressure_plate" type="MeshInstance3D"]
-transform = Transform3D(1, 0, 0, 0, 0.5, 0, 0, 0, 1, 0, 0, 0)
-mesh = SubResource("BoxMesh_tefsx")
+[sub_resource type="BoxMesh" id="BoxMesh_unge4"]
+material = ExtResource("2_ns1li")
+
+[sub_resource type="BoxMesh" id="BoxMesh_h8bvk"]
+material = ExtResource("3_3ik68")
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_bqgsn"]
+data = PackedVector3Array(-0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, -0.5)
+
+[node name="pressure_plate" type="Node3D"]
+transform = Transform3D(4, 0, 0, 0, 2, 0, 0, 0, 4, 0.245708, 1.90735e-06, -0.156532)
 script = ExtResource("1_v1kjb")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="."]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
-shape = SubResource("BoxShape3D_gygsb")
-
 [node name="Area3D" type="Area3D" parent="."]
-transform = Transform3D(0.9, 0, 0, 0, 0.9, 0, 0, 0, 0.9, 0, 0.536983, 0)
+transform = Transform3D(0.9, 0, 0, 0, 0.9, 0, 0, 0, 0.9, 0, 0.838195, 0)
+collision_layer = 4
+collision_mask = 3
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.477536, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.2607, 0)
 shape = SubResource("BoxShape3D_fdt07")
 
+[node name="BaseMesh" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.2, 0, 0, 0, 1, 0, 0, 0)
+mesh = SubResource("BoxMesh_unge4")
+
+[node name="PlungerMesh" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.75, 0, 0, 0, 0.1, 0, 0, 0, 0.75, 0, 0.5, 0)
+mesh = SubResource("BoxMesh_h8bvk")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="PlungerMesh"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.16784, 0)
+collision_layer = 0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="PlungerMesh/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_bqgsn")
+
+[node name="ClickNoise" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("4_v1rdn")
+
+[node name="ReleaseNoise" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("5_e4ioj")
+
 [connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
+[connection signal="body_exited" from="Area3D" to="." method="_on_area_3d_body_exited"]

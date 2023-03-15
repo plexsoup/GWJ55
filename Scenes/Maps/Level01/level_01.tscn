@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://bqw8mxix8u7pw"]
+[gd_scene load_steps=21 format=3 uid="uid://bqw8mxix8u7pw"]
 
 [ext_resource type="Script" path="res://Scenes/Maps/base_level.gd" id="1_n8fyu"]
 [ext_resource type="PackedScene" uid="uid://cm2o1lkpf6s0w" path="res://Scenes/Entities/NPCs/vacuum_cleaner.tscn" id="2_kg6v0"]
@@ -14,10 +14,21 @@
 [ext_resource type="PackedScene" uid="uid://dd3fox603os7x" path="res://Scenes/Entities/moving platform.tscn" id="10_leyvi"]
 [ext_resource type="PackedScene" uid="uid://bt5w6utrspojh" path="res://Scenes/Objects/platform_destination_viz.tscn" id="11_vu1uo"]
 [ext_resource type="MeshLibrary" uid="uid://bwnlh1tt3m4sd" path="res://MeshLibraries/cat_tower_no_light.tres" id="13_aerbq"]
+[ext_resource type="PackedScene" uid="uid://ch0xqdmee1xnu" path="res://WorldEnvironments/sky_and_lighting.tscn" id="15_4h5h3"]
+[ext_resource type="Shader" uid="uid://cx2ac458h8a83" path="res://Shaders/Cloud_Water.tres" id="16_sjfbj"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_x45mn"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_iiylx"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_q3ps7"]
+render_priority = 0
+shader = ExtResource("16_sjfbj")
+shader_parameter/FloatParameter = 1.0
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_5oawa"]
+material = SubResource("ShaderMaterial_q3ps7")
+size = Vector2(300, 300)
 
 [node name="Level01" type="Node3D"]
 script = ExtResource("1_n8fyu")
@@ -44,6 +55,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 33.0974, 32.6535, 2.08165e-12
 
 [node name="HairDryer" parent="NPCs" instance=ExtResource("7_xr8v7")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 108.451, 19.9106, 2.08165e-12)
+
+[node name="VacuumCleaner2" parent="NPCs" instance=ExtResource("2_kg6v0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 38.5238, -10.3537, 2.08165e-12)
 
 [node name="BackgroundScenery" type="Node3D" parent="."]
 
@@ -81,17 +95,17 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 109.726, 19.233, 0.745789)
 next_scene_path = "res://Scenes/Maps/Level02/level_02.tscn"
 
 [node name="moving platform" parent="DynamicObjects" instance=ExtResource("10_leyvi")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 34.0199, -8.11199, 0)
-target = Vector3(2.08165e-12, 24, 2.08165e-12)
-speed = 5
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 34.0199, -9.68574, 0)
+target = Vector3(2.08165e-12, 26, 2.08165e-12)
+speed = 4
 
 [node name="PlatformDestinationViz" parent="DynamicObjects/moving platform" instance=ExtResource("11_vu1uo")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 24, 2.08165e-12)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 26, 2.08165e-12)
 
 [node name="moving platform2" parent="DynamicObjects" instance=ExtResource("10_leyvi")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 57.9574, 13.8536, 0)
 target = Vector3(2.08165e-12, 24, 2.08165e-12)
-speed = 5
+speed = 4
 
 [node name="PlatformDestinationViz2" parent="DynamicObjects/moving platform2" instance=ExtResource("11_vu1uo")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 24, 2.08165e-12)
@@ -100,19 +114,11 @@ skeleton = NodePath("../../moving platform")
 [node name="moving platform3" parent="DynamicObjects" instance=ExtResource("10_leyvi")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 91.706, 12.279, 0)
 target = Vector3(2.08165e-12, 24, 2.08165e-12)
-speed = 5
+speed = 4
 
 [node name="PlatformDestinationViz3" parent="DynamicObjects/moving platform3" instance=ExtResource("11_vu1uo")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 24, 2.08165e-12)
 skeleton = NodePath("../../moving platform")
-
-[node name="player_controller_xrae" parent="." instance=ExtResource("9_5f8ps")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.891, -8.64164, 0)
-inverted_x = false
-
-[node name="FollowCamera" type="Camera3D" parent="player_controller_xrae"]
-transform = Transform3D(1, 0, 0, 0, 0.952044, 0.305961, 0, -0.305961, 0.952044, 2.52489, 3.63677, 12.0636)
-current = true
 
 [node name="GridMap3" type="GridMap" parent="."]
 transform = Transform3D(4, 0, -6.09838e-23, -6.09838e-23, -1.74846e-07, -4, 0, 4, -1.74846e-07, 2.08165e-12, 2.08165e-12, -4)
@@ -134,3 +140,12 @@ shape = SubResource("BoxShape3D_x45mn")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="FillerObjects/StaticBody3D"]
 mesh = SubResource("BoxMesh_iiylx")
+
+[node name="Sky and Lighting" parent="." instance=ExtResource("15_4h5h3")]
+
+[node name="Cloud_water" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -21.1383, 0)
+mesh = SubResource("PlaneMesh_5oawa")
+
+[node name="player_controller_xrae" parent="." instance=ExtResource("9_5f8ps")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.204, -8.22787, 2.08165e-12)

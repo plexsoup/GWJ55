@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://d3idy65kr1aj4"]
+[gd_scene load_steps=14 format=3 uid="uid://d3idy65kr1aj4"]
 
 [ext_resource type="Script" path="res://Scenes/Maps/base_level.gd" id="1_32anb"]
 [ext_resource type="PackedScene" uid="uid://cey6vaorec8ca" path="res://Scenes/Entities/Player/player_controller.tscn" id="2_sy3r3"]
@@ -9,16 +9,20 @@
 [ext_resource type="PackedScene" uid="uid://dd3fox603os7x" path="res://Scenes/Entities/moving platform.tscn" id="6_25c3s"]
 [ext_resource type="MeshLibrary" uid="uid://bwnlh1tt3m4sd" path="res://MeshLibraries/cat_tower_no_light.tres" id="6_bm50k"]
 [ext_resource type="PackedScene" uid="uid://c4rndh2lw447j" path="res://Scenes/Objects/koi_on_path.tscn" id="7_7imp2"]
+[ext_resource type="PackedScene" uid="uid://ch0xqdmee1xnu" path="res://WorldEnvironments/sky_and_lighting.tscn" id="10_1trkd"]
+[ext_resource type="Shader" uid="uid://cx2ac458h8a83" path="res://Shaders/Cloud_Water.tres" id="11_ebqaw"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_vc76f"]
+render_priority = 0
+shader = ExtResource("11_ebqaw")
+shader_parameter/FloatParameter = 1.0
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_c8dh5"]
+material = SubResource("ShaderMaterial_vc76f")
+size = Vector2(300, 300)
 
 [node name="Level02" type="Node3D"]
 script = ExtResource("1_32anb")
-
-[node name="player" parent="." instance=ExtResource("2_sy3r3")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.1021, -8.63668, 0)
-inverted_x = false
-
-[node name="Camera3D" type="Camera3D" parent="player"]
-transform = Transform3D(1, 0, 0, 0, 0.985118, 0.171878, 0, -0.171878, 0.985118, -1.69857, 7.01185, 22.835)
 
 [node name="NPCs" type="Node3D" parent="."]
 
@@ -44,6 +48,10 @@ transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 68.2238, -18.0739, 0)
 [node name="moving platform" parent="MovingPlatforms" instance=ExtResource("6_25c3s")]
 transform = Transform3D(4, 0, 0, 0, 1, 0, 0, 0, 4, 27.506, 17.1118, 0)
 target = Vector3(2.08165e-12, -26, 2.08165e-12)
+
+[node name="moving platform3" parent="MovingPlatforms" instance=ExtResource("6_25c3s")]
+transform = Transform3D(4, 0, 0, 0, 1, 0, 0, 0, 4, 57.3333, 18.2983, 0)
+target = Vector3(2.08165e-12, 16, 2.08165e-12)
 
 [node name="moving platform2" parent="MovingPlatforms" instance=ExtResource("6_25c3s")]
 transform = Transform3D(2, 0, 0, 0, 1, 0, 0, 0, 2, 63.506, -12.2712, 0)
@@ -77,3 +85,12 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -161.767)
 
 [node name="KoiOnPath2" parent="BackgroundScenery" instance=ExtResource("7_7imp2")]
 transform = Transform3D(0.705562, 0, 0.708648, 0, 1, 0, -0.708648, 0, 0.705562, 0, 19.2296, -74.5973)
+
+[node name="Sky and Lighting" parent="." instance=ExtResource("10_1trkd")]
+
+[node name="Cloud_water" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -20.6752, 0)
+mesh = SubResource("PlaneMesh_c8dh5")
+
+[node name="player_controller_xrae" parent="." instance=ExtResource("2_sy3r3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.4794, -9.22205, 0)

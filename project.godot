@@ -24,6 +24,10 @@ StageManager="*res://Scripts/stage_manager.gd"
 
 window/stretch/mode="viewport"
 
+[filesystem]
+
+import/blender/enabled=false
+
 [importer_defaults]
 
 oggvorbisstr={

@@ -1,10 +1,10 @@
 [gd_scene load_steps=6 format=3 uid="uid://bjjvqgmysp8y6"]
 
 [ext_resource type="MeshLibrary" uid="uid://dmrpx4ab0214p" path="res://Scenes/Maps/GridMap/Mesh.tres" id="1_eango"]
-[ext_resource type="PackedScene" path="res://Scenes/Objects/fall_reset_volume.tscn" id="4_k711y"]
+[ext_resource type="PackedScene" uid="uid://cmd16bdree5a7" path="res://Scenes/Objects/fall_reset_volume.tscn" id="4_k711y"]
 [ext_resource type="PackedScene" uid="uid://cey6vaorec8ca" path="res://Scenes/Entities/Player/player_controller.tscn" id="5_7tvea"]
 [ext_resource type="PackedScene" uid="uid://cm2o1lkpf6s0w" path="res://Scenes/Entities/NPCs/vacuum_cleaner.tscn" id="5_72utf"]
-[ext_resource type="PackedScene" path="res://Scenes/Objects/trigger_volume_win.tscn" id="5_ltb1g"]
+[ext_resource type="PackedScene" uid="uid://eb3wwyaluatx" path="res://Scenes/Objects/trigger_volume_win.tscn" id="5_ltb1g"]
 
 [node name="MovementLab" type="Node3D"]
 
@@ -19,13 +19,6 @@ metadata/_editor_floor_ = Vector3(0, 0, 0)
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(0.927758, 0.27144, 0.256096, 0, -0.68625, 0.727366, 0.373182, -0.67482, -0.636674, 0, 35.7922, 0)
-
-[node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(-1, 1.00003e-17, -8.74228e-08, -1.03876e-08, 0.992916, 0.11882, 8.68034e-08, 0.11882, -0.992916, -2.64293, 33.312, -251.848)
-current = true
-fov = 15.0
-near = 50.0
-far = 500.0
 
 [node name="FallResetVolume" parent="." instance=ExtResource("4_k711y")]
 

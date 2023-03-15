@@ -1,12 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://dl2ugtmw6nwcq"]
+[gd_scene load_steps=5 format=3 uid="uid://dl2ugtmw6nwcq"]
 
-[ext_resource type="Script" path="res://Menus/settings_menu.gd" id="1_8o2hv"]
-[ext_resource type="PackedScene" uid="uid://dx20duhdsm1vn" path="res://Menus/Buttons/scene_change_button.tscn" id="1_hph4p"]
-[ext_resource type="PackedScene" uid="uid://dnn5t5pnixj0o" path="res://Menus/Buttons/return_to_main_button.tscn" id="2_24cbx"]
+[ext_resource type="PackedScene" uid="uid://h8iu8rth0qey" path="res://Menus/Settings/settings_vbox.tscn" id="2_k47ca"]
 [ext_resource type="Texture2D" uid="uid://cddonofojo7di" path="res://Materials/horizon_gradient.tres" id="2_tuyhb"]
-[ext_resource type="PackedScene" uid="uid://3pb74me2v4v0" path="res://Menus/Settings/remap_controls.tscn" id="3_3v3iv"]
-[ext_resource type="AudioStream" uid="uid://80hjx4t7rq67" path="res://Menus/Settings/OldTimeyMusic.ogg" id="4_5puuh"]
-[ext_resource type="AudioStream" uid="uid://cblr8qax3agyo" path="res://Menus/Settings/sfx_sampler.ogg" id="5_1y8sr"]
+[ext_resource type="PackedScene" uid="uid://dx20duhdsm1vn" path="res://Menus/Buttons/scene_change_button.tscn" id="3_27nhk"]
+[ext_resource type="PackedScene" uid="uid://3pb74me2v4v0" path="res://Menus/Settings/remap_controls.tscn" id="4_k47hu"]
 
 [node name="SettingsMenu" type="Control"]
 layout_mode = 3
@@ -15,7 +12,6 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_8o2hv")
 
 [node name="TextureRect" type="TextureRect" parent="."]
 layout_mode = 1
@@ -34,103 +30,12 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Settings"]
+[node name="VBoxContainer" parent="Settings" instance=ExtResource("2_k47ca")]
 layout_mode = 2
 
-[node name="ControlsSceneButton" parent="Settings/VBoxContainer" instance=ExtResource("1_hph4p")]
+[node name="ControlsSceneButton2" parent="Settings/VBoxContainer" instance=ExtResource("3_27nhk")]
 layout_mode = 2
 text = "Controls"
-new_scene = ExtResource("3_3v3iv")
+new_scene = ExtResource("4_k47hu")
 
-[node name="Difficulty" type="HBoxContainer" parent="Settings/VBoxContainer"]
-custom_minimum_size = Vector2(300, 2.08165e-12)
-layout_mode = 2
-
-[node name="Label" type="Label" parent="Settings/VBoxContainer/Difficulty"]
-layout_mode = 2
-size_flags_horizontal = 3
-text = "Difficulty"
-
-[node name="DifficultyButton" type="OptionButton" parent="Settings/VBoxContainer/Difficulty"]
-unique_name_in_owner = true
-layout_mode = 2
-size_flags_horizontal = 3
-item_count = 3
-selected = 1
-popup/item_0/text = "Easy"
-popup/item_0/id = 0
-popup/item_1/text = "Medium"
-popup/item_1/id = 1
-popup/item_2/text = "Hard"
-popup/item_2/id = 2
-
-[node name="Volume" type="HBoxContainer" parent="Settings/VBoxContainer"]
-custom_minimum_size = Vector2(300, 2.08165e-12)
-layout_mode = 2
-
-[node name="Label" type="Label" parent="Settings/VBoxContainer/Volume"]
-layout_mode = 2
-size_flags_horizontal = 3
-text = "Volume"
-
-[node name="MasterVolumeSlider" type="HSlider" parent="Settings/VBoxContainer/Volume"]
-unique_name_in_owner = true
-layout_mode = 2
-size_flags_horizontal = 3
-max_value = 1.0
-step = 0.1
-value = 0.5
-
-[node name="Volume2" type="HBoxContainer" parent="Settings/VBoxContainer"]
-custom_minimum_size = Vector2(300, 2.08165e-12)
-layout_mode = 2
-
-[node name="Label" type="Label" parent="Settings/VBoxContainer/Volume2"]
-layout_mode = 2
-size_flags_horizontal = 3
-text = "Music"
-
-[node name="MusicVolumeSlider" type="HSlider" parent="Settings/VBoxContainer/Volume2"]
-unique_name_in_owner = true
-layout_mode = 2
-size_flags_horizontal = 3
-max_value = 1.0
-step = 0.1
-value = 0.5
-
-[node name="Volume3" type="HBoxContainer" parent="Settings/VBoxContainer"]
-custom_minimum_size = Vector2(300, 2.08165e-12)
-layout_mode = 2
-
-[node name="Label" type="Label" parent="Settings/VBoxContainer/Volume3"]
-layout_mode = 2
-size_flags_horizontal = 3
-text = "SFX"
-
-[node name="SFXVolumeSlider" type="HSlider" parent="Settings/VBoxContainer/Volume3"]
-unique_name_in_owner = true
-layout_mode = 2
-size_flags_horizontal = 3
-max_value = 1.0
-step = 0.1
-value = 0.5
-
-[node name="SceneChangeButton" parent="Settings/VBoxContainer" instance=ExtResource("2_24cbx")]
-layout_mode = 2
-
-[node name="MusicStream" type="AudioStreamPlayer" parent="."]
-unique_name_in_owner = true
-stream = ExtResource("4_5puuh")
-bus = &"Music"
-
-[node name="SFXStream" type="AudioStreamPlayer" parent="."]
-unique_name_in_owner = true
-stream = ExtResource("5_1y8sr")
-bus = &"SFX"
-
-[connection signal="drag_ended" from="Settings/VBoxContainer/Volume/MasterVolumeSlider" to="." method="_on_master_volume_slider_drag_ended"]
-[connection signal="drag_started" from="Settings/VBoxContainer/Volume/MasterVolumeSlider" to="." method="_on_master_volume_slider_drag_started"]
-[connection signal="drag_ended" from="Settings/VBoxContainer/Volume2/MusicVolumeSlider" to="." method="_on_music_volume_slider_drag_ended"]
-[connection signal="drag_started" from="Settings/VBoxContainer/Volume2/MusicVolumeSlider" to="." method="_on_music_volume_slider_drag_started"]
-[connection signal="drag_ended" from="Settings/VBoxContainer/Volume3/SFXVolumeSlider" to="." method="_on_sfx_volume_slider_drag_ended"]
-[connection signal="drag_started" from="Settings/VBoxContainer/Volume3/SFXVolumeSlider" to="." method="_on_sfx_volume_slider_drag_started"]
+[editable path="Settings/VBoxContainer"]

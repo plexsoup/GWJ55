@@ -1,14 +1,18 @@
-[gd_scene load_steps=5 format=3 uid="uid://cey6vaorec8ca"]
+[gd_scene load_steps=7 format=3 uid="uid://cey6vaorec8ca"]
 
 [ext_resource type="Script" path="res://Scripts/PlayerMovement.gd" id="1_at8m4"]
 [ext_resource type="SpriteFrames" uid="uid://bkm20v777m12k" path="res://player_sprite_frames.tres" id="2_5te2e"]
 [ext_resource type="PackedScene" uid="uid://rau1y6yi1xhy" path="res://GUI/player_hud.tscn" id="3_xuxi4"]
+[ext_resource type="Script" path="res://Scripts/Camera_Controller.gd" id="4_bl8cr"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_gajrw"]
 radius = 1.2
 height = 2.4
 
-[node name="player_controller_xrae" type="CharacterBody3D"]
+[sub_resource type="BoxShape3D" id="BoxShape3D_oi770"]
+size = Vector3(1.75, 1, 10)
+
+[node name="player_controller_xrae" type="CharacterBody3D" groups=["heavy"]]
 collision_mask = 47
 axis_lock_linear_z = true
 script = ExtResource("1_at8m4")
@@ -45,4 +49,27 @@ one_shot = true
 
 [node name="HUD" parent="." instance=ExtResource("3_xuxi4")]
 
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 11)
+v_offset = 2.0
+current = true
+far = 500.0
+script = ExtResource("4_bl8cr")
+lerp_speed = 2.0
+offset = Vector2(5, 5)
+
+[node name="Area3D" type="Area3D" parent="Camera3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.809, -11)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Camera3D/Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.434034, 0)
+shape = SubResource("BoxShape3D_oi770")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="Camera3D/Area3D/CollisionShape3D"]
+transform = Transform3D(0.9874, 0, 0, 0, 0.818657, 0, 0, 0, 0.171086, 0, 0, -0.0875635)
+visible = false
+size = Vector3(1, 1.22154, 1)
+
 [connection signal="timeout" from="JumpBuffer" to="." method="_on_jump_buffer_timeout"]
+[connection signal="body_entered" from="Camera3D/Area3D" to="Camera3D" method="_on_area_3d_body_entered"]
+[connection signal="body_exited" from="Camera3D/Area3D" to="Camera3D" method="_on_area_3d_body_exited"]

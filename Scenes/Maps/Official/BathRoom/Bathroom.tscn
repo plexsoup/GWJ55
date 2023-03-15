@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://dyn1atg77jsnm"]
+[gd_scene load_steps=13 format=3 uid="uid://dyn1atg77jsnm"]
 
 [ext_resource type="PackedScene" uid="uid://cjiok7gin5bk5" path="res://Scenes/Maps/base_level.tscn" id="1_cjmr8"]
 [ext_resource type="MeshLibrary" uid="uid://dmh5e52qprx6r" path="res://MeshLibraries/cat_tower_plex.tres" id="2_tx034"]
@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://dwte3a8axt6kp" path="res://Scenes/Objects/door.tscn" id="7_vtp6s"]
 [ext_resource type="PackedScene" uid="uid://eb3wwyaluatx" path="res://Scenes/Objects/trigger_volume_win.tscn" id="8_ctuvk"]
 [ext_resource type="Texture2D" uid="uid://d2tun4dqdssdx" path="res://Scenes/Maps/Official/BathRoom/level01_mockup_section3.png" id="9_dy6eo"]
+[ext_resource type="PackedScene" uid="uid://ted21c8mecho" path="res://Scenes/Entities/NPCs/switch.tscn" id="10_7ywxi"]
 [ext_resource type="PackedScene" uid="uid://dh6umykkyk1h3" path="res://Scenes/Objects/sticky_object.tscn" id="11_vp3um"]
 
 [node name="LevelTemplate" instance=ExtResource("1_cjmr8")]
@@ -26,6 +27,9 @@ cell_size = Vector3(1, 1, 1)
 data = {
 "cells": PackedInt32Array(65520, 65529, 9, 65520, 65530, 9, 65520, 65531, 9, 65520, 65526, 9, 65520, 65525, 9, 65520, 65524, 9, 65523, 65527, 9, 65523, 65528, 9, 65523, 65531, 9, 65523, 65532, 9, 65523, 65533, 9, 65523, 2, 9, 65523, 3, 9, 65526, 2, 9, 65526, 1, 9, 65527, 1, 9, 65528, 1, 9, 65529, 1, 9, 65530, 1, 9, 65531, 1, 9, 65532, 1, 9, 65533, 65530, 9, 65532, 65530, 9, 65531, 65530, 9, 65530, 65530, 9, 65529, 65530, 9, 65528, 65530, 9, 65527, 65530, 9, 65526, 65530, 9, 65533, 65526, 9, 65533, 65527, 9, 65533, 65528, 9, 65533, 65529, 9, 65526, 65524, 9, 65526, 65525, 9, 65535, 65530, 9, 1, 65528, 9, 65535, 65527, 9, 2, 0, 9, 2, 1, 9, 2, 65535, 9, 6, 65531, 9, 9, 65531, 9, 12, 65531, 9, 12, 65532, 9, 12, 65533, 9, 12, 65534, 9, 11, 65534, 9, 7, 65524, 9, 7, 65523, 9, 7, 65522, 9, 7, 65521, 9, 9, 65521, 9, 11, 65523, 9, 11, 65520, 9, 12, 65520, 9, 13, 65520, 9, 14, 65520, 9, 10, 65518, 9, 16, 65516, 9, 16, 65517, 9, 16, 65518, 9, 16, 65519, 9, 16, 65520, 9, 16, 65521, 9, 12, 65530, 9)
 }
+
+[node name="player" parent="." index="2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -48.8565, 93.185, 0)
 
 [node name="VacuumCleaner" parent="NPCs" index="0" instance=ExtResource("2_wvmyr")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -48.2426, -5.25571, 2.08165e-12)
@@ -89,47 +93,43 @@ connected_to = Array[NodePath]([NodePath("../Door_01")])
 [node name="Door_01" parent="DynamicObjects" index="3" instance=ExtResource("7_vtp6s")]
 transform = Transform3D(4, 0, 0, 0, 5.88684, 0, 0, 0, 5.88684, -16.1263, -5.65451, 0)
 
-[node name="pressure_plate_02" parent="DynamicObjects" index="4" instance=ExtResource("6_jvxdu")]
-transform = Transform3D(4, 0, 0, 0, 2, 0, 0, 0, 4, -53.9576, -29.8382, -0.156532)
-connected_to = Array[NodePath]([NodePath("../Door_02")])
-
-[node name="Door_02" parent="DynamicObjects" index="5" instance=ExtResource("7_vtp6s")]
+[node name="Door_02" parent="DynamicObjects" index="4" instance=ExtResource("7_vtp6s")]
 transform = Transform3D(4, 0, 0, 0, 5.88684, 0, 0, 0, 5.88684, -32.3097, -29.7176, 0)
 
-[node name="pressure_plate_03" parent="DynamicObjects" index="6" instance=ExtResource("6_jvxdu")]
+[node name="pressure_plate_03" parent="DynamicObjects" index="5" instance=ExtResource("6_jvxdu")]
 transform = Transform3D(4, 0, 0, 0, 2, 0, 0, 0, 4, 22.3964, 6.37197, -0.156532)
 connected_to = Array[NodePath]([NodePath("../../MovingPlatforms/moving platform_03")])
 
-[node name="pressure_plate_04" parent="DynamicObjects" index="7" instance=ExtResource("6_jvxdu")]
-transform = Transform3D(4, 0, 0, 0, 2, 0, 0, 0, 4, -6.11392, 18.2349, -0.156532)
-connected_to = Array[NodePath]([NodePath("../../MovingPlatforms/moving platform_03")])
-
-[node name="pressure_plate_05" parent="DynamicObjects" index="8" instance=ExtResource("6_jvxdu")]
+[node name="pressure_plate_05" parent="DynamicObjects" index="6" instance=ExtResource("6_jvxdu")]
 transform = Transform3D(4, 0, 0, 0, 2, 0, 0, 0, 4, -6.11392, 60.4978, -0.156532)
 connected_to = Array[NodePath]([NodePath("../Door_05")])
 
-[node name="Door_05" parent="DynamicObjects" index="9" instance=ExtResource("7_vtp6s")]
+[node name="Door_05" parent="DynamicObjects" index="7" instance=ExtResource("7_vtp6s")]
 transform = Transform3D(4, 0, 0, 0, 5.88684, 0, 0, 0, 5.88684, 25.7316, 59.8431, 0)
 
-[node name="pressure_plate_06" parent="DynamicObjects" index="10" instance=ExtResource("6_jvxdu")]
-transform = Transform3D(4, 0, 0, 0, 2, 0, 0, 0, 4, 93.0687, 84.0379, -0.156532)
-connected_to = Array[NodePath]([NodePath("../Door_06")])
-
-[node name="Door_06" parent="DynamicObjects" index="11" instance=ExtResource("7_vtp6s")]
+[node name="Door_06" parent="DynamicObjects" index="8" instance=ExtResource("7_vtp6s")]
 transform = Transform3D(4, 0, 0, 0, 5.88684, 0, 0, 0, 5.88684, 61.1295, 108.214, 0)
 
-[node name="pressure_plate_07" parent="DynamicObjects" index="12" instance=ExtResource("6_jvxdu")]
-transform = Transform3D(4, 0, 0, 0, 2, 0, 0, 0, 4, -44.4818, 90.2205, -0.156532)
-connected_to = Array[NodePath]([NodePath("../Door_07")])
-
-[node name="Door_07" parent="DynamicObjects" index="13" instance=ExtResource("7_vtp6s")]
+[node name="Door_07" parent="DynamicObjects" index="9" instance=ExtResource("7_vtp6s")]
 transform = Transform3D(4, 0, 0, 0, 8.93355, 0, 0, 0, 5.88684, -93.3683, 72.2902, 0)
 
-[node name="Door_08" parent="DynamicObjects" index="14" instance=ExtResource("7_vtp6s")]
+[node name="Door_08" parent="DynamicObjects" index="10" instance=ExtResource("7_vtp6s")]
 transform = Transform3D(4, 0, 0, 0, 8.93355, 0, 0, 0, 5.88684, -93.3683, 5.70483, 0)
 
-[node name="TriggerVolumeWin2" parent="DynamicObjects" index="15" instance=ExtResource("8_ctuvk")]
+[node name="TriggerVolumeWin2" parent="DynamicObjects" index="11" instance=ExtResource("8_ctuvk")]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -100.016, 73.7803, 0)
+
+[node name="switch" parent="DynamicObjects" index="12" instance=ExtResource("10_7ywxi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.226, 18.923, -1.049)
+
+[node name="switch2" parent="DynamicObjects" index="13" instance=ExtResource("10_7ywxi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -53.429, -22.426, -1.049)
+
+[node name="switch3" parent="DynamicObjects" index="14" instance=ExtResource("10_7ywxi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -44.3658, 94.2636, -1.04949)
+
+[node name="switch4" parent="DynamicObjects" index="15" instance=ExtResource("10_7ywxi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 92.992, 86.184, -1.049)
 
 [node name="ReferenceSprite3D" type="Sprite3D" parent="." index="10"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.11905, 40.0068, -3.0423)
@@ -180,3 +180,7 @@ transform = Transform3D(5, 0, 0, 0, 11.9265, 0, 0, 0, 5, -96.3049, 35.9589, 0)
 
 [node name="StickyObject9" parent="StickyTiles" index="13" instance=ExtResource("11_vp3um")]
 transform = Transform3D(5, 0, 0, 0, 11.9265, 0, 0, 0, 5, -96.3049, 60.2879, 0)
+
+[connection signal="switch_hit" from="DynamicObjects/switch2" to="DynamicObjects/Door_02" method="open"]
+[connection signal="switch_hit" from="DynamicObjects/switch3" to="DynamicObjects/Door_07" method="open"]
+[connection signal="switch_hit" from="DynamicObjects/switch4" to="DynamicObjects/Door_06" method="open"]

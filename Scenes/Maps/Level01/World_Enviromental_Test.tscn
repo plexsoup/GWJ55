@@ -1,4 +1,4 @@
-[gd_scene load_steps=118 format=3 uid="uid://byvg06a3l0cpj"]
+[gd_scene load_steps=111 format=3 uid="uid://byvg06a3l0cpj"]
 
 [ext_resource type="Texture2D" uid="uid://dxcf84i0i3ptv" path="res://Art/Foliage/Grass_text.png" id="1_abb0e"]
 [ext_resource type="Environment" uid="uid://bmbo025oyrqsq" path="res://Shaders/World_Aesthics.tres" id="3_vlfkj"]
@@ -14,7 +14,7 @@
 [ext_resource type="Texture2D" uid="uid://dsw21j6p8hirb" path="res://Art/Foliage/Tree.png" id="17_33gk6"]
 [ext_resource type="Shader" uid="uid://pxqkd0ijemto" path="res://Shaders/Water.tres" id="17_j8hnx"]
 [ext_resource type="PackedScene" uid="uid://cseyl680mfxsw" path="res://Art/objects/yarn_ball.glb" id="18_sw616"]
-[ext_resource type="Script" path="res://Scenes/Entities/moving platform.gd" id="19_gd1y5"]
+[ext_resource type="PackedScene" uid="uid://dd3fox603os7x" path="res://Scenes/Entities/moving platform.tscn" id="19_p70qv"]
 [ext_resource type="PackedScene" uid="uid://c4rndh2lw447j" path="res://Scenes/Objects/koi_on_path.tscn" id="20_reu1l"]
 [ext_resource type="Texture2D" uid="uid://csrk4vga5mfst" path="res://Art/Foliage/Mountains.png" id="22_fi86a"]
 [ext_resource type="PackedScene" uid="uid://cm2o1lkpf6s0w" path="res://Scenes/Entities/NPCs/vacuum_cleaner.tscn" id="23_3jrl8"]
@@ -954,128 +954,6 @@ subdivide_width = 32
 subdivide_height = 11
 subdivide_depth = 22
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_my2bd"]
-size = Vector3(2, 1, 2)
-
-[sub_resource type="BoxMesh" id="BoxMesh_j46ps"]
-size = Vector3(2, 1, 2)
-
-[sub_resource type="Animation" id="Animation_2axor"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(0, 0, 0)]
-}
-
-[sub_resource type="Animation" id="Animation_s0r7t"]
-resource_name = "new_animation"
-length = 6.0
-loop_mode = 1
-tracks/0/type = "position_3d"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".")
-tracks/0/interp = 2
-tracks/0/loop_wrap = true
-tracks/0/keys = PackedFloat32Array()
-tracks/1/type = "position_3d"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = PackedFloat32Array()
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = false
-tracks/2/path = NodePath(".:position")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(),
-"transitions": PackedFloat32Array(),
-"update": 0,
-"values": []
-}
-
-[sub_resource type="Animation" id="Animation_85g74"]
-resource_name = "new_animation_2"
-length = 6.0
-loop_mode = 1
-tracks/0/type = "position_3d"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".")
-tracks/0/interp = 2
-tracks/0/loop_wrap = true
-tracks/0/keys = PackedFloat32Array()
-tracks/1/type = "position_3d"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = PackedFloat32Array()
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = false
-tracks/2/path = NodePath(".:position")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(),
-"transitions": PackedFloat32Array(),
-"update": 0,
-"values": []
-}
-
-[sub_resource type="Animation" id="Animation_akc1y"]
-resource_name = "new_animation_3"
-length = 6.0
-loop_mode = 1
-tracks/0/type = "position_3d"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".")
-tracks/0/interp = 2
-tracks/0/loop_wrap = true
-tracks/0/keys = PackedFloat32Array()
-tracks/1/type = "position_3d"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = PackedFloat32Array()
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = false
-tracks/2/path = NodePath(".:position")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(),
-"transitions": PackedFloat32Array(),
-"update": 0,
-"values": []
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_rf1ht"]
-_data = {
-"RESET": SubResource("Animation_2axor"),
-"new_animation": SubResource("Animation_s0r7t"),
-"new_animation_2": SubResource("Animation_85g74"),
-"new_animation_3": SubResource("Animation_akc1y")
-}
-
 [sub_resource type="Animation" id="Animation_fpaun"]
 length = 0.001
 tracks/0/type = "value"
@@ -1561,97 +1439,63 @@ skeleton = NodePath("../..")
 
 [node name="MovingPlatforms" type="Node3D" parent="."]
 
-[node name="moving platform" type="Node3D" parent="MovingPlatforms"]
-unique_name_in_owner = true
-transform = Transform3D(2.03978, 0, 0, 0, 2.03354, 0, 0, 0, 1.90565, 103.984, 8.59267, -1.19612)
-script = ExtResource("19_gd1y5")
-speed = 3
+[node name="moving platform" parent="MovingPlatforms" instance=ExtResource("19_p70qv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 62.6219, 1.69125, 0)
 
-[node name="StaticBody3D" type="AnimatableBody3D" parent="MovingPlatforms/moving platform"]
+[node name="PlatformDestinationViz" parent="MovingPlatforms/moving platform" index="2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 10, 2.08165e-12)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="MovingPlatforms/moving platform/StaticBody3D"]
-shape = SubResource("BoxShape3D_my2bd")
+[node name="moving platform2" parent="MovingPlatforms" instance=ExtResource("19_p70qv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 64.801, 11.4722, -0.587214)
+target = Vector3(10, 0, 0)
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="MovingPlatforms/moving platform/StaticBody3D"]
-mesh = SubResource("BoxMesh_j46ps")
-skeleton = NodePath("../..")
-metadata/_edit_group_ = true
+[node name="PlatformDestinationViz" parent="MovingPlatforms/moving platform2" index="2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0, 0)
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="MovingPlatforms/moving platform"]
-root_node = NodePath("../StaticBody3D")
-autoplay = "new_animation_2"
-libraries = {
-"": SubResource("AnimationLibrary_rf1ht")
-}
+[node name="moving platform3" parent="MovingPlatforms" instance=ExtResource("19_p70qv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 100.263, 9.96903, -0.587214)
+target = Vector3(10, 10, 0)
 
-[node name="moving platform4" type="Node3D" parent="MovingPlatforms"]
-unique_name_in_owner = true
-transform = Transform3D(2.03978, 0, 0, 0, 2.03354, 0, 0, 0, 1.90565, 160.067, 36.9483, -1.19631)
-script = ExtResource("19_gd1y5")
-speed = 3
+[node name="PlatformDestinationViz" parent="MovingPlatforms/moving platform3" index="2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 10, 0)
 
-[node name="StaticBody3D" type="AnimatableBody3D" parent="MovingPlatforms/moving platform4"]
+[node name="moving platform4" parent="MovingPlatforms" instance=ExtResource("19_p70qv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 97.2958, 19.8952, -0.587214)
+target = Vector3(10, 0, 0)
+speed = 4
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="MovingPlatforms/moving platform4/StaticBody3D"]
-shape = SubResource("BoxShape3D_my2bd")
+[node name="PlatformDestinationViz" parent="MovingPlatforms/moving platform4" index="2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0, 0)
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="MovingPlatforms/moving platform4/StaticBody3D"]
-mesh = SubResource("BoxMesh_j46ps")
-skeleton = NodePath("../..")
-metadata/_edit_group_ = true
+[node name="moving platform5" parent="MovingPlatforms" instance=ExtResource("19_p70qv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 84.7186, 19.8952, -0.587214)
+target = Vector3(10, 0, 0)
+speed = 5
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="MovingPlatforms/moving platform4"]
-root_node = NodePath("../StaticBody3D")
-autoplay = "new_animation_2"
-libraries = {
-"": SubResource("AnimationLibrary_rf1ht")
-}
+[node name="PlatformDestinationViz" parent="MovingPlatforms/moving platform5" index="2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0, 0)
 
-[node name="moving platform2" type="Node3D" parent="MovingPlatforms"]
-unique_name_in_owner = true
-transform = Transform3D(2.03978, 0, 0, 0, 2.03354, 0, 0, 0, 1.90565, 125.059, 17.3028, -1.21764)
-script = ExtResource("19_gd1y5")
-speed = 3
+[node name="moving platform6" parent="MovingPlatforms" instance=ExtResource("19_p70qv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 78.5497, 19.8952, -0.587214)
+target = Vector3(10, 10, 0)
+speed = 5
 
-[node name="StaticBody3D" type="AnimatableBody3D" parent="MovingPlatforms/moving platform2"]
+[node name="PlatformDestinationViz" parent="MovingPlatforms/moving platform6" index="2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 10, 0)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="MovingPlatforms/moving platform2/StaticBody3D"]
-shape = SubResource("BoxShape3D_my2bd")
+[node name="moving platform7" parent="MovingPlatforms" instance=ExtResource("19_p70qv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 90.1964, 30.0337, -0.750219)
+target = Vector3(20, 0, 0)
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="MovingPlatforms/moving platform2/StaticBody3D"]
-mesh = SubResource("BoxMesh_j46ps")
-skeleton = NodePath("../..")
-metadata/_edit_group_ = true
+[node name="PlatformDestinationViz" parent="MovingPlatforms/moving platform7" index="2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20, 0, 0)
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="MovingPlatforms/moving platform2"]
-root_node = NodePath("../StaticBody3D")
-autoplay = "new_animation"
-libraries = {
-"": SubResource("AnimationLibrary_rf1ht")
-}
+[node name="moving platform8" parent="MovingPlatforms" instance=ExtResource("19_p70qv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 112.035, 30.0337, -0.750219)
+target = Vector3(10, 10, 0)
 
-[node name="moving platform3" type="Node3D" parent="MovingPlatforms"]
-unique_name_in_owner = true
-transform = Transform3D(2.03978, 0, 0, 0, 2.03354, 0, 0, 0, 1.90565, 115.799, 17.3028, -0.777192)
-script = ExtResource("19_gd1y5")
-speed = 3
-
-[node name="StaticBody3D" type="AnimatableBody3D" parent="MovingPlatforms/moving platform3"]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="MovingPlatforms/moving platform3/StaticBody3D"]
-shape = SubResource("BoxShape3D_my2bd")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="MovingPlatforms/moving platform3/StaticBody3D"]
-mesh = SubResource("BoxMesh_j46ps")
-skeleton = NodePath("../..")
-metadata/_edit_group_ = true
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="MovingPlatforms/moving platform3"]
-root_node = NodePath("../StaticBody3D")
-autoplay = "new_animation_3"
-libraries = {
-"": SubResource("AnimationLibrary_rf1ht")
-}
+[node name="PlatformDestinationViz" parent="MovingPlatforms/moving platform8" index="2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 10, 0)
 
 [node name="TriggerVolumes" type="Node3D" parent="."]
 
@@ -1772,3 +1616,11 @@ mesh = SubResource("PlaneMesh_odv36")
 [editable path="background_koi/KoiOnPath6"]
 [editable path="background_koi/KoiOnPath7"]
 [editable path="NPCs/player_controller_xrae"]
+[editable path="MovingPlatforms/moving platform"]
+[editable path="MovingPlatforms/moving platform2"]
+[editable path="MovingPlatforms/moving platform3"]
+[editable path="MovingPlatforms/moving platform4"]
+[editable path="MovingPlatforms/moving platform5"]
+[editable path="MovingPlatforms/moving platform6"]
+[editable path="MovingPlatforms/moving platform7"]
+[editable path="MovingPlatforms/moving platform8"]

@@ -1,0 +1,52 @@
+[gd_resource type="VisualShader" load_steps=6 format=3 uid="uid://jumlal7i2d4a"]
+
+[ext_resource type="Texture2D" uid="uid://b1dlqacnon3gu" path="res://Art/Title_Screen/Clouds.png" id="1_orvt1"]
+
+[sub_resource type="VisualShaderNodeTexture" id="VisualShaderNodeTexture_e1wt8"]
+texture = ExtResource("1_orvt1")
+
+[sub_resource type="VisualShaderNodeUVFunc" id="VisualShaderNodeUVFunc_63dcd"]
+default_input_values = [1, Vector2(0.2, 0), 2, Vector2(0, 0)]
+
+[sub_resource type="VisualShaderNodeInput" id="VisualShaderNodeInput_ik8fp"]
+input_name = "time"
+
+[sub_resource type="VisualShaderNodeBooleanConstant" id="VisualShaderNodeBooleanConstant_4ffee"]
+constant = true
+
+[resource]
+code = "shader_type spatial;
+uniform sampler2D tex_frg_2;
+
+
+
+void fragment() {
+// Input:4
+	float n_out4p0 = TIME;
+
+
+// UVFunc:3
+	vec2 n_in3p1 = vec2(0.20000, 0.00000);
+	vec2 n_out3p0 = vec2(n_out4p0) * n_in3p1 + UV;
+
+
+// Texture2D:2
+	vec4 n_out2p0 = texture(tex_frg_2, n_out3p0);
+
+
+// Output:0
+	ALBEDO = vec3(n_out2p0.xyz);
+
+
+}
+"
+graph_offset = Vector2(-458.562, 61.7521)
+nodes/fragment/2/node = SubResource("VisualShaderNodeTexture_e1wt8")
+nodes/fragment/2/position = Vector2(-240, 140)
+nodes/fragment/3/node = SubResource("VisualShaderNodeUVFunc_63dcd")
+nodes/fragment/3/position = Vector2(-560, 180)
+nodes/fragment/4/node = SubResource("VisualShaderNodeInput_ik8fp")
+nodes/fragment/4/position = Vector2(-880, 200)
+nodes/fragment/5/node = SubResource("VisualShaderNodeBooleanConstant_4ffee")
+nodes/fragment/5/position = Vector2(140, 280)
+nodes/fragment/connections = PackedInt32Array(3, 0, 2, 0, 4, 0, 3, 2, 2, 0, 0, 0)

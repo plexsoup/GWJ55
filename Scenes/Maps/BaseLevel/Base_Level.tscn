@@ -73,7 +73,7 @@ libraries = {
 [node name="Player_Character" parent="." instance=ExtResource("2_ikw1k")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.64498, 4.66695, 0)
 
-[node name="AnimatedSprite3D" parent="Player_Character" index="0"]
+[node name="AnimatedSprite3D" parent="Player_Character" index="1"]
 shaded = true
 
 [node name="SpotLight3D" type="SpotLight3D" parent="Player_Character"]

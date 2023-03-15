@@ -199,11 +199,13 @@ mesh = SubResource("BoxMesh_e88nr")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="CardboardCube/StaticBody3D"]
 shape = SubResource("BoxShape3D_dt2j1")
 
-[node name="CarpetCube" type="MeshInstance3D" parent="."]
+[node name="climbable" type="MeshInstance3D" parent="."]
 transform = Transform3D(3.5, 0, 0, 0, 3.5, 0, 0, 0, 3.5, 34.41, 0, -0.928659)
 mesh = SubResource("BoxMesh_y2me4")
 
-[node name="climbable" type="StaticBody3D" parent="CarpetCube"]
+[node name="climbable" type="StaticBody3D" parent="climbable"]
+collision_layer = 4
+collision_mask = 3
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="CarpetCube/climbable"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="climbable/climbable"]
 shape = SubResource("BoxShape3D_dt2j1")

@@ -12,6 +12,9 @@ extends CharacterBody3D
 @onready var animated_sprite = $AnimatedSprite3D
 @onready var dash_timer = $DashTimer
 @onready var dash_cooldown = $DashCooldown
+@onready var throw_point = $ThrowPoint
+
+var kitten = null
 
 const SPEED = 11.0
 var buffered_jump = false
@@ -40,7 +43,13 @@ func _physics_process(delta):
 	move_and_slide()
 	update_gravity_states()
 	animate()
-	
+
+func wind_throw():
+	pass
+
+func throw():
+	pass
+
 func check_climb():
 	if is_on_wall() and climb_flip != 3:
 		var collision_count = get_slide_collision_count()

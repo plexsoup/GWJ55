@@ -6,12 +6,12 @@
 [ext_resource type="Texture2D" uid="uid://bcq71evn50gqw" path="res://Art/Title_Screen/rock.png" id="3_4lu2l"]
 [ext_resource type="Texture2D" uid="uid://ct23i2foo3mil" path="res://Art/Title_Screen/Cat.png" id="4_8g2fu"]
 [ext_resource type="Shader" uid="uid://cx2ac458h8a83" path="res://Shaders/Cloud_Water.tres" id="6_yxbjq"]
-[ext_resource type="Texture2D" uid="uid://csrk4vga5mfst" path="res://Art/Foliage/Mountains.png" id="7_nkk54"]
-[ext_resource type="Texture2D" uid="uid://dsw21j6p8hirb" path="res://Art/Foliage/Tree.png" id="8_ihbpi"]
+[ext_resource type="Texture2D" uid="uid://dhagpqi7ourpo" path="res://Art/Foliage/Mountains.png" id="7_nkk54"]
+[ext_resource type="Texture2D" uid="uid://coaanccqd0h8j" path="res://Art/Foliage/Tree.png" id="8_ihbpi"]
 [ext_resource type="Shader" path="res://Shaders/Grass_Shader2.gdshader" id="9_lchov"]
 [ext_resource type="Material" uid="uid://bnjt8h0bq15af" path="res://Shaders/PArticlefortitle.tres" id="10_vu5bx"]
 [ext_resource type="Script" path="res://Scenes/Objects/koi_on_path.gd" id="11_lohy3"]
-[ext_resource type="Texture2D" uid="uid://rcak68s3q0cu" path="res://Art/objects/koifish.png" id="12_r627s"]
+[ext_resource type="Texture2D" uid="uid://bwlar2dwge5h" path="res://Art/objects/koifish.png" id="12_r627s"]
 [ext_resource type="AudioStream" uid="uid://7qiv1uacfw8p" path="res://Music/MUS_TitleV2_9M_7-4_78.mp3" id="13_jh237"]
 
 [sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_tn2dn"]
@@ -37,9 +37,6 @@ tracks/0/keys = {
 "values": [Vector3(0, 0, 0), Vector3(0, 6.28319, 0)]
 }
 
-[sub_resource type="Animation" id="Animation_6l6l2"]
-resource_name = "new_animation"
-
 [sub_resource type="Animation" id="Animation_8ejye"]
 length = 0.001
 tracks/0/type = "value"
@@ -54,6 +51,9 @@ tracks/0/keys = {
 "update": 0,
 "values": [Vector3(0, 0, 0)]
 }
+
+[sub_resource type="Animation" id="Animation_6l6l2"]
+resource_name = "new_animation"
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_j54mr"]
 _data = {
@@ -680,7 +680,7 @@ transform = Transform3D(0.938094, -0.346379, 0, 0.346379, 0.938095, 0, 0, 0, 1, 
 curve = SubResource("Curve3D_0m5rv")
 
 [node name="PathFollow3D" type="PathFollow3D" parent="KoiOnPath/Path3D"]
-transform = Transform3D(-4.37045e-08, 0, 0.999964, 0, 0.999958, 0, -0.999842, 0, -4.37098e-08, 2.08165e-12, 2.08165e-12, 2.08165e-12)
+transform = Transform3D(-0.205277, -0.16297, 0.964997, 0, 0.985996, 0.166518, -0.978542, 0.0341876, -0.202435, -1.50815, 2.78549, -6.34117)
 rotation_mode = 2
 
 [node name="koifish22" type="Node3D" parent="KoiOnPath/Path3D/PathFollow3D"]
@@ -784,7 +784,7 @@ transform = Transform3D(0.938094, -0.346379, 0, 0.346379, 0.938095, 0, 0, 0, 1, 
 curve = SubResource("Curve3D_0m5rv")
 
 [node name="PathFollow3D" type="PathFollow3D" parent="KoiOnPath2/Path3D"]
-transform = Transform3D(-0.205277, -0.16297, 0.964997, 0, 0.985996, 0.166518, -0.978543, 0.0341875, -0.202435, -1.50815, 2.78549, -6.34117)
+transform = Transform3D(-0.205277, -0.16297, 0.964997, 0, 0.985996, 0.166518, -0.978543, 0.0341876, -0.202435, -1.50815, 2.78549, -6.34117)
 rotation_mode = 2
 
 [node name="koifish22" type="Node3D" parent="KoiOnPath2/Path3D/PathFollow3D"]

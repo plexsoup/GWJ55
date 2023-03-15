@@ -9,7 +9,7 @@
 [node name="MovementLab" type="Node3D"]
 
 [node name="climbable" type="GridMap" parent="."]
-transform = Transform3D(1, 0, 0, 0, -4.37289e-07, -1, 0, 10.004, -4.37114e-08, 0, 0, 0)
+transform = Transform3D(1, 0, 0, 0, -8.74228e-08, -1, 0, 2, -4.37114e-08, 0, 0, 0)
 mesh_library = ExtResource("1_eango")
 cell_size = Vector3(2, 1, 2)
 data = {
@@ -35,6 +35,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.08165e-12, 6.0394, 4.94464)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.53663, 12.0312, 5.07671)
 
 [node name="player_controller_xrae" parent="." instance=ExtResource("5_7tvea")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.1601, 16.8858, 4.30362)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.1601, 2.45037, 1.10975)
 jump_time_to_peak = 0.33
 jump_time_to_descent = 0.24

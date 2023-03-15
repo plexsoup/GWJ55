@@ -1,10 +1,11 @@
-[gd_scene load_steps=40 format=3 uid="uid://dmle08crocvd5"]
+[gd_scene load_steps=41 format=3 uid="uid://dmle08crocvd5"]
 
-[ext_resource type="Environment" uid="uid://bmbo025oyrqsq" path="res://Shaders/World_Aesthics.tres" id="1_bgfe0"]
+[ext_resource type="Environment" uid="uid://ci3akpxyr1rww" path="res://Shaders/World_Aesthics_title.tres" id="1_clicy"]
 [ext_resource type="Texture2D" uid="uid://b7uf01fxd2mw4" path="res://Art/Title_Screen/Background.png" id="1_hgwap"]
 [ext_resource type="Texture2D" uid="uid://b1dlqacnon3gu" path="res://Art/Title_Screen/Clouds.png" id="2_3ualh"]
 [ext_resource type="Texture2D" uid="uid://bcq71evn50gqw" path="res://Art/Title_Screen/rock.png" id="3_4lu2l"]
 [ext_resource type="Texture2D" uid="uid://ct23i2foo3mil" path="res://Art/Title_Screen/Cat.png" id="4_8g2fu"]
+[ext_resource type="Texture2D" uid="uid://c58lo3l4a8ajr" path="res://Art/Start button.png" id="6_y23uj"]
 [ext_resource type="Shader" uid="uid://cx2ac458h8a83" path="res://Shaders/Cloud_Water.tres" id="6_yxbjq"]
 [ext_resource type="Texture2D" uid="uid://dhagpqi7ourpo" path="res://Art/Foliage/Mountains.png" id="7_nkk54"]
 [ext_resource type="Texture2D" uid="uid://coaanccqd0h8j" path="res://Art/Foliage/Tree.png" id="8_ihbpi"]
@@ -103,8 +104,12 @@ _data = {
 [sub_resource type="LabelSettings" id="LabelSettings_7cxic"]
 font_size = 74
 
-[sub_resource type="LabelSettings" id="LabelSettings_x7vm3"]
-font_size = 41
+[sub_resource type="AnimatedTexture" id="AnimatedTexture_nifqy"]
+frames = 4
+frame_0/texture = ExtResource("6_y23uj")
+frame_1/duration = 1.0
+frame_2/duration = 1.0
+frame_3/duration = 1.0
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_cttxh"]
 render_priority = 0
@@ -453,7 +458,7 @@ light_angular_distance = 25.71
 shadow_enabled = true
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = ExtResource("1_bgfe0")
+environment = ExtResource("1_clicy")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="WorldEnvironment"]
 autoplay = "Panning_CLouds"
@@ -516,14 +521,13 @@ text = "Cat Game Name Here"
 label_settings = SubResource("LabelSettings_7cxic")
 horizontal_alignment = 1
 
-[node name="Label2" type="Label" parent="."]
+[node name="Label2" type="Button" parent="."]
 offset_left = 137.0
 offset_top = 489.0
 offset_right = 1212.0
 offset_bottom = 634.0
 text = "Start game"
-label_settings = SubResource("LabelSettings_x7vm3")
-horizontal_alignment = 1
+icon = SubResource("AnimatedTexture_nifqy")
 
 [node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0170306, -1.43534, 0.216376)

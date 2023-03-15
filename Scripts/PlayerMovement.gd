@@ -23,12 +23,15 @@ var jumping = false
 var dashing = false
 var on_dash_cooldown = false
 var dash_usable = true
+var climb_side = "none"
+var climb_flip = 0
 
 func _ready():
 	Global.current_player = self
 
 func _physics_process(delta):
-
+	
+	check_climb()	
 	set_gravity_states(delta)
 	handle_dash()
 	if !dashing and !on_dash_cooldown:
@@ -37,6 +40,31 @@ func _physics_process(delta):
 	move_and_slide()
 	update_gravity_states()
 	animate()
+	
+func check_climb():
+	if is_on_wall():
+		var collision_count = get_slide_collision_count()
+		var x: int = 0
+		climb_side = "none"
+		while x < collision_count:
+			var collision = get_slide_collision(x)
+			var collider = collision.get_collider()
+			var collider_name = collider.name
+			if collider.name == "climbable":
+				var distance = global_position.x - collision.get_position().x
+				if distance > 0:
+					climb_side = "left"
+				else:
+					climb_side = "right"
+			x = x + 1
+		if climb_side == "right":
+			climb_flip = 1
+		elif climb_side == "left":
+			climb_flip = -1
+		else:
+			climb_flip = 0
+	else:
+		climb_flip = 0
 	
 func handle_dash():
 	if Input.is_action_just_pressed("dash") and !dashing and !on_dash_cooldown and dash_usable:
@@ -55,6 +83,7 @@ func handle_dash():
 		on_dash_cooldown = true
 	if on_dash_cooldown and dash_cooldown.is_stopped():
 		on_dash_cooldown = false
+		
 func animate():
 	var previous_animation_state = animation_state
 	if input_dir > 0:
@@ -91,7 +120,7 @@ func animate():
 
 func set_gravity_states(delta):
 	was_on_floor = is_on_floor()
-	if not is_on_floor() and !dashing and !on_dash_cooldown:
+	if not is_on_floor() and !dashing and !on_dash_cooldown and climb_flip == 0:
 		velocity.y += get_gravity() * delta
 
 func update_gravity_states():
@@ -123,10 +152,15 @@ func move():
 	var fall_modifier = abs(clamp(velocity.y, -1.2, -1))
 	input_dir = Input.get_axis("move_left", "move_right")
 	var direction = (transform.basis * Vector3(input_dir, 0, 0)).normalized()
-	if input_dir != 0:
-		velocity.x = direction.x * SPEED * fall_modifier
+	if climb_flip == 0:
+		if input_dir != 0:
+			velocity.x = direction.x * SPEED * fall_modifier
+		else:
+			velocity.x = move_toward(velocity.x, 0, SPEED/5 * fall_modifier)
 	else:
-		velocity.x = move_toward(velocity.x, 0, SPEED/5 * fall_modifier)
+		velocity.y = direction.x * SPEED * climb_flip
+		if is_on_floor() and velocity.y < 0:
+			velocity.x = direction.x * SPEED * fall_modifier
 
 func get_gravity() -> float:
 	return jump_gravity if velocity.y > 0.0 else fall_gravity

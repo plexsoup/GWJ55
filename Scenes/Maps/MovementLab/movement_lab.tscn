@@ -8,7 +8,7 @@
 
 [node name="MovementLab" type="Node3D"]
 
-[node name="GridMap" type="GridMap" parent="."]
+[node name="climbable" type="GridMap" parent="."]
 transform = Transform3D(1, 0, 0, 0, -4.37289e-07, -1, 0, 10.004, -4.37114e-08, 0, 0, 0)
 mesh_library = ExtResource("1_eango")
 cell_size = Vector3(2, 1, 2)

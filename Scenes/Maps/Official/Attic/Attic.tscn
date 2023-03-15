@@ -106,7 +106,7 @@ transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 12.3009, 0, 0)
 
 [node name="TriggerVolumeWin2" parent="DynamicObjects" index="11" instance=ExtResource("8_pd66h")]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 107.313, 23.633, 0)
-next_scene_path = "res://Scenes/Maps/Level01/level_01.tscn"
+next_scene_path = "res://Scenes/Maps/Official/BathRoom/Bathroom.tscn"
 
 [node name="Door_02_E" parent="DynamicObjects" index="12" instance=ExtResource("7_tpc43")]
 transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 99.1625, 26.1329, 0)

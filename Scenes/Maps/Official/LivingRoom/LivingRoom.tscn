@@ -55,7 +55,7 @@ transform = Transform3D(1.87702, 0, 0, 0, 1, 0, 0, 0, 1, 0, -54.7679, 0)
 
 [node name="ExitToWarehouse" parent="DynamicObjects" index="2" instance=ExtResource("4_jclyg")]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 97.7338, 2.8758, 0)
-next_scene_path = "res://Scenes/Maps/Level01/level_01.tscnq"
+next_scene_path = "res://Scenes/Maps/Official/BathRoom/Bathroom.tscn"
 
 [node name="pressure_plate" parent="DynamicObjects" index="3" instance=ExtResource("6_1r3rs")]
 transform = Transform3D(4, 0, 0, 0, 2, 0, 0, 0, 4, -91.8534, 12.4238, 0)

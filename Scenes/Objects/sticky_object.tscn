@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://dh6umykkyk1h3"]
+[gd_scene load_steps=6 format=3 uid="uid://dh6umykkyk1h3"]
 
 [ext_resource type="Script" path="res://Scenes/Objects/sticky_object.gd" id="1_uruc4"]
 
@@ -11,6 +11,9 @@ material = SubResource("StandardMaterial3D_13r6f")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_dk7ep"]
 size = Vector3(0.263982, 1, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_swxnq"]
+size = Vector3(0.131443, 1, 1)
 
 [node name="StickyObject" type="Node3D"]
 script = ExtResource("1_uruc4")
@@ -26,5 +29,11 @@ skeleton = NodePath("../..")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
 shape = SubResource("BoxShape3D_dk7ep")
+
+[node name="climbable" type="StaticBody3D" parent="."]
+collision_layer = 4
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="climbable"]
+shape = SubResource("BoxShape3D_swxnq")
 
 [connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]

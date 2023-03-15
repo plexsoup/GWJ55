@@ -20,6 +20,8 @@ jump_height = 3.0
 jump_time_to_peak = 0.44
 jump_time_to_descent = 0.4
 
+[node name="ThrowPoint" type="Node3D" parent="."]
+
 [node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0949152, 0)
 pixel_size = 0.005
@@ -51,12 +53,11 @@ one_shot = true
 
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 11)
-v_offset = 2.0
+v_offset = 1.122
 current = true
 far = 500.0
 script = ExtResource("4_bl8cr")
 lerp_speed = 2.0
-offset = Vector2(5, 5)
 
 [node name="Area3D" type="Area3D" parent="Camera3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.809, -11)

@@ -32,21 +32,24 @@ func _on_area_3d_body_entered(body):
 		switch_toggled.emit(pressed)
 
 
-func _on_area_3d_body_exited(body):
+func _on_area_3d_body_exited(_body):
+	if !is_instance_valid(self):
+		return
 	if occupant_count() == 0:
 		var tween = get_tree().create_tween()
 		tween.tween_property($PlungerMesh, "position", starting_position, 0.20)
-		$ReleaseNoise.play()
-		pressed = false
-		switch_toggled.emit(pressed)
+		if $ReleaseNoise.is_inside_tree():
+			$ReleaseNoise.play()
+			pressed = false
+			switch_toggled.emit(pressed)
 
 
 func occupant_count() -> int:
-	var occupant_count = 0
+	var occupants = 0
 	var potentialOccupants = $Area3D.get_overlapping_bodies()
 	if potentialOccupants.size() > 0:
 		for body in potentialOccupants:
 			if body.is_in_group("heavy"):
-				occupant_count += 1
-	return occupant_count
+				occupants += 1
+	return occupants
 	

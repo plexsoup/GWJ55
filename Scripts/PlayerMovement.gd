@@ -42,7 +42,7 @@ func _physics_process(delta):
 	animate()
 	
 func check_climb():
-	if is_on_wall():
+	if is_on_wall() and climb_flip != 3:
 		var collision_count = get_slide_collision_count()
 		var x: int = 0
 		climb_side = "none"
@@ -133,20 +133,35 @@ func update_gravity_states():
 		
 func handle_jump():
 	#On floor or coyote time
-	if Input.is_action_just_pressed("jump") and (is_on_floor() || !coyote_time.is_stopped()):
-		jump()
-	#In air no coyote time with double
-	elif Input.is_action_just_pressed("jump") and !is_on_floor() and coyote_time.is_stopped() and !double_jump:
-		jump()
-		double_jump = true
-	#In air no coyote time no double
-	elif Input.is_action_just_pressed("jump") and !is_on_floor() and coyote_time.is_stopped() and double_jump:
-		buffered_jump = true
-		jump_buffer.start()
-	#On floor with buffered jump
-	elif is_on_floor() and buffered_jump:
-		jump()
-		buffered_jump = false
+	if !Input.is_action_just_pressed("jump"):
+		return
+	if climb_flip == 0:
+		if (is_on_floor() || !coyote_time.is_stopped()):
+			jump()
+		#In air no coyote time with double
+		elif !is_on_floor() and coyote_time.is_stopped() and !double_jump:
+			jump()
+			double_jump = true
+		#In air no coyote time no double
+		elif !is_on_floor() and coyote_time.is_stopped() and double_jump:
+			buffered_jump = true
+			jump_buffer.start()
+		#On floor with buffered jump
+		elif is_on_floor() and buffered_jump:
+			jump()
+			buffered_jump = false
+	elif climb_flip == -1:
+		velocity.y = jump_velocity
+		velocity.x = jump_velocity * 2
+		climb_flip = 3
+		double_jump = false
+		jumping = true
+	elif climb_flip == 1:
+		velocity.y = jump_velocity
+		velocity.x = -jump_velocity * 2
+		climb_flip = 3
+		double_jump = false
+		jumping = true
 
 func move():
 	var fall_modifier = abs(clamp(velocity.y, -1.2, -1))
@@ -157,7 +172,10 @@ func move():
 			velocity.x = direction.x * SPEED * fall_modifier
 		else:
 			velocity.x = move_toward(velocity.x, 0, SPEED/5 * fall_modifier)
-	else:
+	elif climb_flip == 3:
+		if !is_on_wall():
+			climb_flip = 0
+	elif climb_flip !=3 and climb_flip !=0:
 		velocity.y = direction.x * SPEED * climb_flip
 		if is_on_floor() and velocity.y < 0:
 			velocity.x = direction.x * SPEED * fall_modifier

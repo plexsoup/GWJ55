@@ -22,7 +22,7 @@ func open():
 	var tween = get_tree().create_tween()
 	if has_node("Hinge") and is_instance_valid($Hinge):
 		tween.tween_property($Hinge, "rotation", rotation_axis * full_rotation, 1.0)
-	
+	$OpenNoises.play_random_sound()
 		
 func close():
 	# throws errors if user restarts level while on a platform

@@ -6,11 +6,16 @@ extends Node3D
 func _ready():
 	pass # Replace with function body.
 
+func play():
+	play_random_noise()
 
 func start():
 	play_random_noise()
 
 func play_random():
+	play_random_noise()
+	
+func play_random_sound():
 	play_random_noise()
 	
 func play_random_noise():

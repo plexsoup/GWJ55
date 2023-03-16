@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://c8jhbxk3qkl3m"
+path="res://.godot/imported/SFX_PressureOff2.wav-10d661e43df2c1e7c69282cbe3340904.sample"
+
+[deps]
+
+source_file="res://sfx/Pressure Plate/SFX_PressureOff2.wav"
+dest_files=["res://.godot/imported/SFX_PressureOff2.wav-10d661e43df2c1e7c69282cbe3340904.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

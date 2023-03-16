@@ -27,7 +27,7 @@ func _on_area_3d_body_entered(body):
 		print("pressure_plate works, detected ", body.name)
 		var tween = get_tree().create_tween()
 		tween.tween_property($PlungerMesh, "position", $PlungerMesh.position + (Vector3.DOWN * plunger_distance * scale.y), 0.35)
-		$ClickNoise.play()
+		$PressedNoises.play_random_sound()
 		pressed = true
 		switch_toggled.emit(pressed)
 
@@ -38,8 +38,8 @@ func _on_area_3d_body_exited(_body):
 	if occupant_count() == 0:
 		var tween = get_tree().create_tween()
 		tween.tween_property($PlungerMesh, "position", starting_position, 0.20)
-		if $ReleaseNoise.is_inside_tree():
-			$ReleaseNoise.play()
+		if $ReleasedNoises.is_inside_tree():
+			$ReleasedNoises.play_random_sound()
 			pressed = false
 			switch_toggled.emit(pressed)
 

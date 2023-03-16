@@ -1,10 +1,14 @@
-[gd_scene load_steps=10 format=3 uid="uid://crvvpifd7a146"]
+[gd_scene load_steps=14 format=3 uid="uid://crvvpifd7a146"]
 
 [ext_resource type="Script" path="res://Scenes/Entities/NPCs/pressure_plate.gd" id="1_v1kjb"]
 [ext_resource type="Material" uid="uid://nnv0nusw3ic" path="res://Materials/concrete_material.tres" id="2_ns1li"]
 [ext_resource type="Material" uid="uid://b30wkuohpie3w" path="res://Materials/OrangeCarpetNoiseShader.tres" id="3_3ik68"]
-[ext_resource type="AudioStream" uid="uid://cxexix7ol1j0b" path="res://Menus/Buttons/click_placeholder.wav" id="4_v1rdn"]
-[ext_resource type="AudioStream" uid="uid://bo5kpftf6kcdq" path="res://Menus/Buttons/hover_placeholder.wav" id="5_e4ioj"]
+[ext_resource type="PackedScene" uid="uid://mbxsqklc6aod" path="res://sfx/random_3d_sound.tscn" id="4_0a3xy"]
+[ext_resource type="AudioStream" uid="uid://bmqhnh0r15m8" path="res://sfx/Pressure Plate/SFX_PressureOn1.wav" id="5_l3n2t"]
+[ext_resource type="PackedScene" uid="uid://cv5h3okghsyd0" path="res://sfx/temporary_3Dsound.tscn" id="6_so3x3"]
+[ext_resource type="AudioStream" uid="uid://c28mfm8l6rnbw" path="res://sfx/Pressure Plate/SFX_PressureOn2.wav" id="7_ynyqx"]
+[ext_resource type="AudioStream" uid="uid://c8a68cioijdq1" path="res://sfx/Pressure Plate/SFX_PressureOff1.wav" id="8_0qeho"]
+[ext_resource type="AudioStream" uid="uid://c8jhbxk3qkl3m" path="res://sfx/Pressure Plate/SFX_PressureOff2.wav" id="9_ypvdu"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_fdt07"]
 size = Vector3(1, 1.63297, 1)
@@ -46,11 +50,24 @@ collision_layer = 0
 [node name="CollisionShape3D" type="CollisionShape3D" parent="PlungerMesh/StaticBody3D"]
 shape = SubResource("ConcavePolygonShape3D_bqgsn")
 
-[node name="ClickNoise" type="AudioStreamPlayer3D" parent="."]
-stream = ExtResource("4_v1rdn")
+[node name="PressedNoises" parent="." instance=ExtResource("4_0a3xy")]
 
-[node name="ReleaseNoise" type="AudioStreamPlayer3D" parent="."]
-stream = ExtResource("5_e4ioj")
+[node name="TemporarySound" parent="PressedNoises" index="0"]
+stream = ExtResource("5_l3n2t")
+
+[node name="TemporarySound2" parent="PressedNoises" instance=ExtResource("6_so3x3")]
+stream = ExtResource("7_ynyqx")
+
+[node name="ReleasedNoises" parent="." instance=ExtResource("4_0a3xy")]
+
+[node name="TemporarySound" parent="ReleasedNoises" index="0"]
+stream = ExtResource("8_0qeho")
+
+[node name="TemporarySound2" parent="ReleasedNoises" instance=ExtResource("6_so3x3")]
+stream = ExtResource("9_ypvdu")
 
 [connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
 [connection signal="body_exited" from="Area3D" to="." method="_on_area_3d_body_exited"]
+
+[editable path="PressedNoises"]
+[editable path="ReleasedNoises"]

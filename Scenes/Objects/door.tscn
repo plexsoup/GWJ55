@@ -1,7 +1,12 @@
-[gd_scene load_steps=5 format=3 uid="uid://dwte3a8axt6kp"]
+[gd_scene load_steps=10 format=3 uid="uid://dwte3a8axt6kp"]
 
 [ext_resource type="Script" path="res://Scenes/Objects/door.gd" id="1_n6r8r"]
 [ext_resource type="Material" uid="uid://c27yc6a1vji6m" path="res://Materials/proc_wood_material_3d.tres" id="2_0mr1n"]
+[ext_resource type="PackedScene" uid="uid://mbxsqklc6aod" path="res://sfx/random_3d_sound.tscn" id="3_fv7v2"]
+[ext_resource type="AudioStream" uid="uid://bsc8ypyas4fpi" path="res://sfx/Door/SFX_DoorOpen1.wav" id="4_gfh32"]
+[ext_resource type="PackedScene" uid="uid://cv5h3okghsyd0" path="res://sfx/temporary_3Dsound.tscn" id="5_5pehy"]
+[ext_resource type="AudioStream" uid="uid://bacpgtxeswbn8" path="res://sfx/Door/SFX_DoorOpen2.wav" id="6_sbg3q"]
+[ext_resource type="AudioStream" uid="uid://cslhcd4alhlpo" path="res://sfx/Door/SFX_DoorOpen3.wav" id="7_mktdy"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_fndjk"]
 material = ExtResource("2_0mr1n")
@@ -24,3 +29,16 @@ skeleton = NodePath("../..")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Hinge/MeshInstance3D/StaticBody3D"]
 shape = SubResource("BoxShape3D_b22fm")
+
+[node name="OpenNoises" parent="." instance=ExtResource("3_fv7v2")]
+
+[node name="TemporarySound" parent="OpenNoises" index="0"]
+stream = ExtResource("4_gfh32")
+
+[node name="TemporarySound2" parent="OpenNoises" instance=ExtResource("5_5pehy")]
+stream = ExtResource("6_sbg3q")
+
+[node name="TemporarySound3" parent="OpenNoises" instance=ExtResource("5_5pehy")]
+stream = ExtResource("7_mktdy")
+
+[editable path="OpenNoises"]

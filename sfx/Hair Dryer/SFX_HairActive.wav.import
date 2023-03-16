@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://bou7gdjmn6607"
+path="res://.godot/imported/SFX_HairActive.wav-a17cf3afff5cdcd18f4d0ad5d6427a5d.sample"
+
+[deps]
+
+source_file="res://sfx/Hair Dryer/SFX_HairActive.wav"
+dest_files=["res://.godot/imported/SFX_HairActive.wav-a17cf3afff5cdcd18f4d0ad5d6427a5d.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

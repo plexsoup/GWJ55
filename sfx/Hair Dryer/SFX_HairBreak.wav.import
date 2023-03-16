@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://cyp1xu2hlxw1f"
+path="res://.godot/imported/SFX_HairBreak.wav-0779cd4421d089ce982534b1e92862e0.sample"
+
+[deps]
+
+source_file="res://sfx/Hair Dryer/SFX_HairBreak.wav"
+dest_files=["res://.godot/imported/SFX_HairBreak.wav-0779cd4421d089ce982534b1e92862e0.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

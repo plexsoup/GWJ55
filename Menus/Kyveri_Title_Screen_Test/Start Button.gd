@@ -7,10 +7,10 @@ func _ready():
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _process(_delta):
 	if $".".is_hovered():
 		$AnimatedSprite2D.play("Hover")
-		$AnimatedSprite2D.visible 
+		$AnimatedSprite2D.visible = true
 		
 	else:
 		$AnimatedSprite2D.play("Defult")

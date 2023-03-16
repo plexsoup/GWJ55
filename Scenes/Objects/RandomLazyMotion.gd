@@ -17,6 +17,7 @@ func _process(delta):
 	var now = Time.get_ticks_msec()
 	if now > last_decision_time + (time_interval * 1000):
 		choose_new_direction()
+		last_decision_time = now
 
 	position += direction * delta * speed
 	rotation += tumble_rotation * delta * angular_speed
@@ -32,4 +33,6 @@ func get_rand_vector():
 
 func choose_new_direction():
 	direction = get_rand_vector()
-	tumble_rotation = get_rand_vector()
+	var axes = [ Vector3.UP, Vector3.RIGHT, Vector3.DOWN ]
+	tumble_rotation = axes.pick_random() * randf()
+	

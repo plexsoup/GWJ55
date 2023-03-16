@@ -30,9 +30,7 @@ func set_hint_text(newText):
 func get_hint_text():
 	return hint_text
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
+
 
 
 func _on_body_entered(body):

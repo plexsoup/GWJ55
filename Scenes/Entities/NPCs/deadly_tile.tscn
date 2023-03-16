@@ -1,19 +1,21 @@
-[gd_scene load_steps=5 format=3 uid="uid://iy2fvk38ehxj"]
+[gd_scene load_steps=6 format=3 uid="uid://iy2fvk38ehxj"]
 
 [ext_resource type="Script" path="res://Scenes/Entities/NPCs/deadly_tile.gd" id="1_g2r0l"]
+[ext_resource type="Shader" uid="uid://dyxyc3rfh4ua3" path="res://Materials/water_shader.tres" id="1_lmph6"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_tuj4v"]
+render_priority = 0
+shader = ExtResource("1_lmph6")
 
 [sub_resource type="BoxMesh" id="BoxMesh_xacbw"]
+material = SubResource("ShaderMaterial_tuj4v")
 size = Vector3(3, 0.5, 1)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1iaim"]
-albedo_color = Color(0.34902, 0.184314, 1, 1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_h65fm"]
 size = Vector3(3, 0.5, 1)
 
 [node name="DeadlyTile" type="MeshInstance3D"]
 mesh = SubResource("BoxMesh_xacbw")
-surface_material_override/0 = SubResource("StandardMaterial3D_1iaim")
 script = ExtResource("1_g2r0l")
 
 [node name="Area3D" type="Area3D" parent="."]

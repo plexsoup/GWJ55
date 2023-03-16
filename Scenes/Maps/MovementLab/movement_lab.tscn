@@ -70,7 +70,6 @@ script = ExtResource("6_g63f2")
 
 [node name="Line2D" type="Line2D" parent="Kitten/CanvasLayer"]
 texture_repeat = 2
-points = PackedVector2Array(0, 0, 11, 11, 111, 111, 111, 1111)
 texture = ExtResource("7_n2rfa")
 texture_mode = 1
 

@@ -37,6 +37,40 @@ emission_energy_multiplier = 0.1
 [sub_resource type="SphereMesh" id="SphereMesh_3pylo"]
 material = SubResource("StandardMaterial3D_d13x8")
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_3hevl"]
+render_priority = 0
+shader = ExtResource("1_nxj5v")
+shader_parameter/Vertex_Roughness = 0.1
+shader_parameter/ColorParameter = Color(0.10844, 0.397392, 0.688247, 1)
+shader_parameter/ClearCoat = 0.0
+
+[sub_resource type="Animation" id="Animation_3pq4p"]
+resource_name = "High_Spec"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:mesh:material")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [SubResource("ShaderMaterial_3hevl")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:mesh:material:shader")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("1_nxj5v")]
+}
+
 [sub_resource type="Animation" id="Animation_ew2wq"]
 resource_name = "Low_spec"
 tracks/0/type = "value"
@@ -65,40 +99,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [SubResource("StandardMaterial3D_eh272")]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".:mesh:material:shader")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [ExtResource("1_nxj5v")]
-}
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_3hevl"]
-render_priority = 0
-shader = ExtResource("1_nxj5v")
-shader_parameter/Vertex_Roughness = 0.1
-shader_parameter/ColorParameter = Color(0.10844, 0.397392, 0.688247, 1)
-shader_parameter/ClearCoat = 0.0
-
-[sub_resource type="Animation" id="Animation_3pq4p"]
-resource_name = "High_Spec"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:mesh:material")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [SubResource("ShaderMaterial_3hevl")]
 }
 tracks/1/type = "value"
 tracks/1/imported = false

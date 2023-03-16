@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://13uei006vo3q"]
+[gd_scene load_steps=25 format=3 uid="uid://13uei006vo3q"]
 
 [ext_resource type="PackedScene" uid="uid://cjiok7gin5bk5" path="res://Scenes/Maps/base_level.tscn" id="1_mlq30"]
 [ext_resource type="MeshLibrary" uid="uid://dmh5e52qprx6r" path="res://MeshLibraries/cat_tower_plex.tres" id="2_bcvq3"]
@@ -20,10 +20,141 @@
 [ext_resource type="ArrayMesh" uid="uid://ugyiwsce5kcv" path="res://Art/objects/pillow.obj" id="18_x66xe"]
 [ext_resource type="ArrayMesh" uid="uid://d2s12jb7pdygk" path="res://Art/objects/tv.obj" id="19_vwaly"]
 
-[sub_resource type="CanvasTexture" id="CanvasTexture_rh1uo"]
+[sub_resource type="Animation" id="Animation_hwajo"]
+resource_name = "Floating around"
+length = 30.0277
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Bookshelf:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 29.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(-1.64463, -5.46658, -26.4103), Vector3(7.49387, 11.5424, -52.2675)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Tv:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 29.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(-5.43769, 13.4384, -10.951), Vector3(-30.0016, 12.9476, -10.951)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Couch:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 29.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(-32.5869, -17.0744, -11.9504), Vector3(-9.49773, -9.29398, -11.9504)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Couch:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 29.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(-0.813201, 0, 0)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("../Tree2:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(2, 29.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(-73.844, 10.1907, -50.8542), Vector3(29.6723, 10.1907, -50.8542)]
+}
+
+[sub_resource type="Animation" id="Animation_2kuek"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Bookshelf:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-1.64463, -5.46658, -26.4103)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Tv:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-5.43769, 13.4384, -10.951)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Couch:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-32.5869, -17.0744, -11.9504)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Couch:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("../Tree2:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-73.844, 10.1907, -50.8542)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_r04g6"]
+_data = {
+"Floating around": SubResource("Animation_hwajo"),
+"RESET": SubResource("Animation_2kuek")
+}
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ngt3i"]
-albedo_texture = SubResource("CanvasTexture_rh1uo")
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_3w00d"]
 material = SubResource("StandardMaterial3D_ngt3i")
@@ -113,6 +244,7 @@ transform = Transform3D(9, 0, 0, 0, 6.13387, 0, 0, 0, 4.98869, 66.8544, -8.15729
 
 [node name="Door2" parent="DynamicObjects" index="6" instance=ExtResource("7_4288d")]
 transform = Transform3D(-3.93403e-07, 3.91795, 0, -9, -1.71259e-07, 0, 0, 0, 4.98869, 20.0868, 19.4175, 0)
+visible = false
 
 [node name="HintTextPopup01" parent="DynamicObjects" index="7" instance=ExtResource("9_4bb1g")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.23854, 2.44171, 0)
@@ -130,13 +262,20 @@ script = ExtResource("11_x1kbs")
 [node name="Background Elements" type="Node3D" parent="." index="11"]
 
 [node name="Tree" type="Sprite3D" parent="Background Elements" index="0"]
-transform = Transform3D(5.81053, 0, 0, 0, 5.81053, 0, 0, 0, 1, 0, 10.1907, -50.8542)
+transform = Transform3D(5.81053, 0, 0, 0, 5.81053, 0, 0, 0, 1, 0, 10.1907, -46.3239)
 billboard = 1
 shaded = true
 alpha_cut = 2
 texture = ExtResource("13_8fou7")
 
-[node name="Skyline" type="Node3D" parent="Background Elements" index="1"]
+[node name="Tree2" type="Sprite3D" parent="Background Elements" index="1"]
+transform = Transform3D(1.96471, 0, 0, 0, 1.96471, 0, 0, 0, 1, -73.844, 10.1907, -50.8542)
+billboard = 1
+shaded = true
+alpha_cut = 2
+texture = ExtResource("13_8fou7")
+
+[node name="Skyline" type="Node3D" parent="Background Elements" index="2"]
 
 [node name="Mountains" type="Sprite3D" parent="Background Elements/Skyline" index="0"]
 transform = Transform3D(28.065, 0, 0, 0, 27.6935, 0, 0, 0, 1, -111.661, -9.72363, -133.377)
@@ -173,7 +312,7 @@ transform = Transform3D(28.065, 0, 0, 0, 27.6935, 0, 0, 0, 1, 142.328, -9.72363,
 shaded = true
 texture = ExtResource("14_k8juc")
 
-[node name="High_Spec" type="Node3D" parent="Background Elements" index="2"]
+[node name="High_Spec" type="Node3D" parent="Background Elements" index="3"]
 script = ExtResource("15_7wpix")
 
 [node name="Bookshelf" type="MeshInstance3D" parent="Background Elements/High_Spec" index="0"]
@@ -211,10 +350,16 @@ transform = Transform3D(5.8872, -2.04803, 0, 2.6832, 4.49358, 0, 0, 0, 4.30561, 
 mesh = ExtResource("19_vwaly")
 skeleton = NodePath("../../..")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Background Elements/High_Spec/Tv" index="0"]
-unique_name_in_owner = true
-transform = Transform3D(0.766785, 0.584826, -0.264613, -0.278426, -0.0684159, -0.958019, -0.578378, 0.808269, 0.11037, -2.57679, 1.95894, -0.263248)
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Background Elements/High_Spec" index="7"]
+autoplay = "Floating around"
+libraries = {
+"": SubResource("AnimationLibrary_r04g6")
+}
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." index="12"]
+transform = Transform3D(5.08444, 3.58311, 0.404222, 0.806308, 1.26177, -5.01494, -2.49027, 3.48009, 0.47521, -24.6197, 15.327, -12.0844)
 mesh = SubResource("PlaneMesh_3w00d")
+skeleton = NodePath("../Background Elements/High_Spec/Tv")
 
 [editable path="player"]
 [editable path="player/Audio/Footsteps"]

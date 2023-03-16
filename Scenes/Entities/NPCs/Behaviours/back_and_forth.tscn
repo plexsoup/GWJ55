@@ -6,10 +6,22 @@
 script = ExtResource("1_ek53n")
 active = true
 
-[node name="RayCastLeft" type="RayCast3D" parent="."]
+[node name="FloorDetectors" type="Node3D" parent="."]
+
+[node name="RayCastLeft" type="RayCast3D" parent="FloorDetectors"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.01355, 0.4507, -0.0989584)
 collision_mask = 4
 
-[node name="RayCastRight" type="RayCast3D" parent="."]
+[node name="RayCastRight" type="RayCast3D" parent="FloorDetectors"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.03993, 0.4507, -0.0989584)
+collision_mask = 4
+
+[node name="ObstacleDetectors" type="Node3D" parent="."]
+
+[node name="ObRayCastLeft" type="RayCast3D" parent="ObstacleDetectors"]
+transform = Transform3D(-4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, -1.01355, 0.4507, -0.0989584)
+collision_mask = 4
+
+[node name="ObRayCastRight" type="RayCast3D" parent="ObstacleDetectors"]
+transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 1.03993, 0.4507, -0.0989584)
 collision_mask = 4

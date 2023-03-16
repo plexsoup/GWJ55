@@ -1,8 +1,7 @@
-[gd_scene load_steps=12 format=3 uid="uid://iy2fvk38ehxj"]
+[gd_scene load_steps=11 format=3 uid="uid://iy2fvk38ehxj"]
 
 [ext_resource type="Script" path="res://Scenes/Entities/NPCs/deadly_tile.gd" id="1_g2r0l"]
 [ext_resource type="PackedScene" uid="uid://cakkghby15ea5" path="res://sfx/temporary_sound.tscn" id="2_32gbh"]
-[ext_resource type="AudioStream" uid="uid://y4ex506uwve7" path="res://sfx/placeholder/splash.wav" id="3_pibf0"]
 
 [sub_resource type="Gradient" id="Gradient_ngd8c"]
 offsets = PackedFloat32Array(0, 0.732203, 0.98983)
@@ -49,7 +48,6 @@ collision_mask = 3
 shape = SubResource("BoxShape3D_h65fm")
 
 [node name="SplashNoise" parent="." instance=ExtResource("2_32gbh")]
-stream = ExtResource("3_pibf0")
 volume_db = -6.0
 
 [node name="CPUParticles3D" type="CPUParticles3D" parent="."]

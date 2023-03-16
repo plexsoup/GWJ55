@@ -103,3 +103,5 @@ data = {
 [node name="Level Music" type="AudioStreamPlayer" parent="."]
 
 [editable path="Player_Character"]
+[editable path="Player_Character/Audio/Footsteps"]
+[editable path="Player_Character/Audio/Landing"]

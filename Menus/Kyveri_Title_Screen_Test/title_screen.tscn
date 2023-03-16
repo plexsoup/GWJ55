@@ -1,4 +1,4 @@
-[gd_scene load_steps=284 format=3 uid="uid://dmle08crocvd5"]
+[gd_scene load_steps=277 format=3 uid="uid://dmle08crocvd5"]
 
 [ext_resource type="Script" path="res://Menus/Buttons/scene_change_button.gd" id="1_cjbaq"]
 [ext_resource type="Environment" uid="uid://ci3akpxyr1rww" path="res://Shaders/World_Aesthics_title.tres" id="1_clicy"]
@@ -17,6 +17,7 @@
 [ext_resource type="Script" path="res://Menus/Kyveri_Title_Screen_Test/VBoxContainer.gd" id="11_de613"]
 [ext_resource type="Texture2D" uid="uid://csn0kls5m2lw8" path="res://Art/Title_Screen/Play_Button.png" id="11_jkasv"]
 [ext_resource type="Script" path="res://Scenes/Objects/koi_on_path.gd" id="11_lohy3"]
+[ext_resource type="Texture2D" uid="uid://b8b3xjek6q7wy" path="res://Art/Foliage/Grass3.png" id="12_3rdex"]
 [ext_resource type="Texture2D" uid="uid://bwlar2dwge5h" path="res://Art/objects/koifish.png" id="12_r627s"]
 [ext_resource type="Script" path="res://Menus/Kyveri_Title_Screen_Test/Play2.gd" id="13_8e3um"]
 [ext_resource type="Texture2D" uid="uid://dwcthp1hxckqe" path="res://Art/Title_Screen/Start_Sheet.png" id="13_rutlr"]
@@ -30,7 +31,7 @@
 [ext_resource type="Script" path="res://Menus/Kyveri_Title_Screen_Test/Return.gd" id="21_hgf50"]
 [ext_resource type="Texture2D" uid="uid://ceb42duow0tj7" path="res://Art/Circle_MAsk.png" id="22_dmaws"]
 [ext_resource type="Script" path="res://Menus/Kyveri_Title_Screen_Test/Testingbutton.gd" id="23_5cif2"]
-[ext_resource type="Texture2D" uid="uid://cx0bt5xrx1ksq" path="res://Art/Title_Screen/Title_test.png" id="30_ryyfp"]
+[ext_resource type="Texture2D" uid="uid://decwfdurbbf4" path="res://Art/Title_Screen/Logo.png" id="31_ea12q"]
 [ext_resource type="PackedScene" uid="uid://b16s3dclhkliq" path="res://Menus/testing_menu.tscn" id="31_gc7l3"]
 
 [sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_tn2dn"]
@@ -336,12 +337,10 @@ shader_parameter/FloatParameter = 1.0
 material = SubResource("ShaderMaterial_cttxh")
 size = Vector2(5.868, 2)
 
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_awm35"]
-
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_1edc6"]
 render_priority = 1
 shader = ExtResource("9_lchov")
-shader_parameter/grass_texture = SubResource("CompressedTexture2D_awm35")
+shader_parameter/grass_texture = ExtResource("12_3rdex")
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_vrtds"]
 material = SubResource("ShaderMaterial_1edc6")
@@ -2352,56 +2351,6 @@ shadow_size = 13
 shadow_color = Color(0.294118, 0.145098, 0.501961, 0.368627)
 shadow_offset = Vector2(1.534, 1)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_odsl7"]
-atlas = ExtResource("30_ryyfp")
-region = Rect2(0, 0, 102, 23)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_bm11t"]
-atlas = ExtResource("30_ryyfp")
-region = Rect2(102, 0, 102, 23)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_ge1rm"]
-atlas = ExtResource("30_ryyfp")
-region = Rect2(408, 0, 102, 23)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_cltfc"]
-atlas = ExtResource("30_ryyfp")
-region = Rect2(306, 0, 102, 23)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_jkb57"]
-atlas = ExtResource("30_ryyfp")
-region = Rect2(204, 0, 102, 23)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_5h0et"]
-atlas = ExtResource("30_ryyfp")
-region = Rect2(510, 0, 102, 23)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_45p44"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_odsl7")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_bm11t")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_ge1rm")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_cltfc")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_jkb57")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_5h0et")
-}],
-"loop": true,
-"name": &"default",
-"speed": 5.0
-}]
-
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_n64wt"]
 transparency = 1
 albedo_texture = ExtResource("22_dmaws")
@@ -3118,11 +3067,10 @@ no_depth_test = true
 alpha_cut = 2
 texture = ExtResource("3_4lu2l")
 
-[node name="Logo" type="AnimatedSprite2D" parent="."]
-position = Vector2(753, 104)
-scale = Vector2(0.639706, 0.639706)
-sprite_frames = SubResource("SpriteFrames_45p44")
-autoplay = "default"
+[node name="Logo" type="Sprite2D" parent="."]
+position = Vector2(718, 99)
+scale = Vector2(0.640445, 0.640445)
+texture = ExtResource("31_ea12q")
 
 [node name="Sun" type="Sprite3D" parent="."]
 transform = Transform3D(3.28179, 0, 0, 0, 3.28179, 0, 0, 0, 1, -0.400893, -1.4464, -8.25835)

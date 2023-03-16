@@ -65,15 +65,15 @@ size_flags_horizontal = 3
 theme_override_constants/separation = 25
 alignment = 1
 
-[node name="GraphicsSpecs" type="CheckButton" parent="CenterContainer/RightSide/VBoxContainer"]
+[node name="GraphicsSpecs" type="Button" parent="CenterContainer/RightSide/VBoxContainer"]
 layout_mode = 2
-text = "Turn on Full Graphics for Powerful Machines"
+text = "Play Game (Hi-fi)"
 script = ExtResource("2_n2jg7")
 high_spec_scene_path = "res://Menus/Kyveri_Title_Screen_Test/title_screen.tscn"
 
 [node name="PlayGameButton" parent="CenterContainer/RightSide/VBoxContainer" instance=ExtResource("2_do5ro")]
 layout_mode = 2
-text = "Play Game"
+text = "Play Game (Lo-fi)"
 scene_path = "res://Scenes/Maps/Official/LivingRoom/LivingRoom.tscn"
 
 [node name="CreditsButton" parent="CenterContainer/RightSide/VBoxContainer" instance=ExtResource("2_do5ro")]
@@ -85,4 +85,4 @@ scene_path = "res://Menus/Credits/credits.tscn"
 [node name="QuitButton" parent="CenterContainer/RightSide/VBoxContainer" instance=ExtResource("5_k18lj")]
 layout_mode = 2
 
-[connection signal="toggled" from="CenterContainer/RightSide/VBoxContainer/GraphicsSpecs" to="CenterContainer/RightSide/VBoxContainer/GraphicsSpecs" method="_on_toggled"]
+[connection signal="pressed" from="CenterContainer/RightSide/VBoxContainer/GraphicsSpecs" to="CenterContainer/RightSide/VBoxContainer/GraphicsSpecs" method="_on_pressed"]

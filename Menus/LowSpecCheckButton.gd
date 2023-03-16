@@ -1,4 +1,4 @@
-extends CheckButton
+extends Button
 
 @export var high_spec_scene_path : String
 
@@ -7,6 +7,9 @@ func _ready():
 	#button_pressed = Global.low_spec
 	pass
 
+func _on_pressed():
+	Global.low_spec = false
+	StageManager.change_scene_to_file(high_spec_scene_path)
 
 
 func _on_toggled(btnPressed):

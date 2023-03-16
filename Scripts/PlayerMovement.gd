@@ -43,6 +43,7 @@ func _physics_process(delta):
 	move_and_slide()
 	update_gravity_states()
 	animate()
+	play_audio()
 
 func wind_throw():
 	pass
@@ -126,6 +127,11 @@ func animate():
 		animation_state = "Jump_Start"
 	animated_sprite.play(animation_state)
 	jumping = false
+
+func play_audio():
+	if animation_state == "Run":
+		if $AnimatedSprite3D.get_frame() in [ 0, 2, 4 ]:
+			$Footsteps.play_random_noise()
 
 func set_gravity_states(delta):
 	was_on_floor = is_on_floor()

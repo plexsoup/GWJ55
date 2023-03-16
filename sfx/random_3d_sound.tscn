@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://mbxsqklc6aod"]
+
+[ext_resource type="Script" path="res://sfx/PlayRandom3DSound.gd" id="1_oarwn"]
+[ext_resource type="PackedScene" uid="uid://cv5h3okghsyd0" path="res://sfx/temporary_3Dsound.tscn" id="2_8jg7r"]
+
+[node name="Random3DSound" type="Node3D"]
+script = ExtResource("1_oarwn")
+
+[node name="TemporarySound" parent="." instance=ExtResource("2_8jg7r")]
+volume_db = 9.0

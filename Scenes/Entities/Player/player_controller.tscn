@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://cey6vaorec8ca"]
+[gd_scene load_steps=19 format=3 uid="uid://cey6vaorec8ca"]
 
 [ext_resource type="Script" path="res://Scripts/PlayerMovement.gd" id="1_at8m4"]
 [ext_resource type="SpriteFrames" uid="uid://bkm20v777m12k" path="res://player_sprite_frames.tres" id="2_5te2e"]
@@ -13,6 +13,9 @@
 [ext_resource type="AudioStream" uid="uid://bxojux0e3b1qh" path="res://sfx/SFX_Footstep5.wav" id="11_wpo2w"]
 [ext_resource type="AudioStream" uid="uid://cacs7itvwnodm" path="res://sfx/SFX_Footstep6.wav" id="12_rucj7"]
 [ext_resource type="AudioStream" uid="uid://b4uh5orfwcv7o" path="res://sfx/SFX_Footstep7.wav" id="13_375lq"]
+[ext_resource type="AudioStream" uid="uid://ditruj1b3u2pk" path="res://sfx/SFX_Land1.wav" id="14_46cl0"]
+[ext_resource type="AudioStream" uid="uid://dmynp8cwwelhm" path="res://sfx/SFX_Land2.wav" id="15_nhmsw"]
+[ext_resource type="AudioStream" uid="uid://cdqxahytcyu0k" path="res://sfx/SFX_Land3.wav" id="16_cvbh0"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_gajrw"]
 radius = 1.2
@@ -80,32 +83,47 @@ transform = Transform3D(0.9874, 0, 0, 0, 0.818657, 0, 0, 0, 0.171086, 0, 0, -0.0
 visible = false
 size = Vector3(1, 1.22154, 1)
 
-[node name="Footsteps" parent="." instance=ExtResource("5_yux1a")]
+[node name="Audio" type="Node3D" parent="."]
+
+[node name="Footsteps" parent="Audio" instance=ExtResource("5_yux1a")]
 volume_db = -9.0
 
-[node name="TemporarySound" parent="Footsteps" index="0"]
+[node name="TemporarySound" parent="Audio/Footsteps" index="0"]
 stream = ExtResource("6_uf3c0")
 
-[node name="TemporarySound2" parent="Footsteps" instance=ExtResource("7_ldlsi")]
+[node name="TemporarySound2" parent="Audio/Footsteps" instance=ExtResource("7_ldlsi")]
 stream = ExtResource("8_qio13")
 
-[node name="TemporarySound3" parent="Footsteps" instance=ExtResource("7_ldlsi")]
+[node name="TemporarySound3" parent="Audio/Footsteps" instance=ExtResource("7_ldlsi")]
 stream = ExtResource("9_ctdo0")
 
-[node name="TemporarySound4" parent="Footsteps" instance=ExtResource("7_ldlsi")]
+[node name="TemporarySound4" parent="Audio/Footsteps" instance=ExtResource("7_ldlsi")]
 stream = ExtResource("10_l80px")
 
-[node name="TemporarySound5" parent="Footsteps" instance=ExtResource("7_ldlsi")]
+[node name="TemporarySound5" parent="Audio/Footsteps" instance=ExtResource("7_ldlsi")]
 stream = ExtResource("11_wpo2w")
 
-[node name="TemporarySound6" parent="Footsteps" instance=ExtResource("7_ldlsi")]
+[node name="TemporarySound6" parent="Audio/Footsteps" instance=ExtResource("7_ldlsi")]
 stream = ExtResource("12_rucj7")
 
-[node name="TemporarySound7" parent="Footsteps" instance=ExtResource("7_ldlsi")]
+[node name="TemporarySound7" parent="Audio/Footsteps" instance=ExtResource("7_ldlsi")]
 stream = ExtResource("13_375lq")
+
+[node name="Landing" parent="Audio" instance=ExtResource("5_yux1a")]
+volume_db = 3.0
+
+[node name="TemporarySound" parent="Audio/Landing" index="0"]
+stream = ExtResource("14_46cl0")
+
+[node name="TemporarySound2" parent="Audio/Landing" instance=ExtResource("7_ldlsi")]
+stream = ExtResource("15_nhmsw")
+
+[node name="TemporarySound3" parent="Audio/Landing" instance=ExtResource("7_ldlsi")]
+stream = ExtResource("16_cvbh0")
 
 [connection signal="timeout" from="JumpBuffer" to="." method="_on_jump_buffer_timeout"]
 [connection signal="body_entered" from="Camera3D/Area3D" to="Camera3D" method="_on_area_3d_body_entered"]
 [connection signal="body_exited" from="Camera3D/Area3D" to="Camera3D" method="_on_area_3d_body_exited"]
 
-[editable path="Footsteps"]
+[editable path="Audio/Footsteps"]
+[editable path="Audio/Landing"]

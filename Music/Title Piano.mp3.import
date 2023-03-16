@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://comcb7hs1hjn2"
+path="res://.godot/imported/Title Piano.mp3-cf5855b89bd13fbc46b1f9dd6c92e135.mp3str"
+
+[deps]
+
+source_file="res://Music/Title Piano.mp3"
+dest_files=["res://.godot/imported/Title Piano.mp3-cf5855b89bd13fbc46b1f9dd6c92e135.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

@@ -23,7 +23,11 @@ func _on_area_3d_body_entered(body):
 			if not hit.is_connected(body._on_hit):
 				hit.connect(body._on_hit)
 			hit.emit(1)
+			$SplashNoise.start()
+			$CPUParticles3D.emitting = true
+			await get_tree().create_timer(2.5).timeout
 			StageManager.reset_level()
+
 	elif "dryer" in body.name.to_lower():
 		if body.has_method("_on_electrocuted"):
 			if not electrocute.is_connected(body._on_electrocuted):

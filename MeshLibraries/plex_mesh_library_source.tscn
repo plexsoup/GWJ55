@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=3 uid="uid://cu2d4c4g55bji"]
+[gd_scene load_steps=34 format=3 uid="uid://cu2d4c4g55bji"]
 
 [ext_resource type="ArrayMesh" uid="uid://b7q2ey7bt45xr" path="res://Art/level_pieces/pipe_3way.obj" id="1_tpnjt"]
 [ext_resource type="Material" uid="uid://b30wkuohpie3w" path="res://Materials/OrangeCarpetNoiseShader.tres" id="2_algo4"]
@@ -93,6 +93,13 @@ material = SubResource("StandardMaterial3D_06dgu")
 
 [sub_resource type="BoxMesh" id="BoxMesh_wt1kd"]
 material = ExtResource("10_5vlsa")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tdykr"]
+transparency = 1
+albedo_color = Color(0.862745, 0.870588, 0.827451, 0.733333)
+
+[sub_resource type="BoxMesh" id="BoxMesh_bc45e"]
+material = SubResource("StandardMaterial3D_tdykr")
 
 [sub_resource type="BoxMesh" id="BoxMesh_y2me4"]
 material = ExtResource("2_algo4")
@@ -214,6 +221,15 @@ mesh = SubResource("BoxMesh_wt1kd")
 [node name="StaticBody3D" type="StaticBody3D" parent="WoodCube"]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="WoodCube/StaticBody3D"]
+shape = SubResource("BoxShape3D_dt2j1")
+
+[node name="GlassBlock" type="MeshInstance3D" parent="."]
+transform = Transform3D(3.5, 0, 0, 0, 3.5, 0, 0, 0, 3.5, 48.5703, 0, -0.928659)
+mesh = SubResource("BoxMesh_bc45e")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="GlassBlock"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="GlassBlock/StaticBody3D"]
 shape = SubResource("BoxShape3D_dt2j1")
 
 [node name="climbable" type="MeshInstance3D" parent="."]

@@ -1,12 +1,14 @@
-[gd_scene load_steps=10 format=3 uid="uid://dd3fox603os7x"]
+[gd_scene load_steps=11 format=3 uid="uid://dd3fox603os7x"]
 
 [ext_resource type="Script" path="res://Scenes/Entities/moving platform.gd" id="1_3nq0u"]
 [ext_resource type="PackedScene" uid="uid://bt5w6utrspojh" path="res://Scenes/Objects/platform_destination_viz.tscn" id="2_1k6my"]
+[ext_resource type="Material" uid="uid://c27yc6a1vji6m" path="res://Materials/proc_wood_material_3d.tres" id="2_xuqey"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_my2bd"]
 size = Vector3(2, 1, 2)
 
 [sub_resource type="BoxMesh" id="BoxMesh_j46ps"]
+material = ExtResource("2_xuqey")
 size = Vector3(2, 1, 2)
 
 [sub_resource type="Animation" id="Animation_2axor"]

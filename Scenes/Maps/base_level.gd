@@ -7,6 +7,8 @@ func _ready():
 	change_graphics_settings()
 	StageManager.current_map = self
 	Global.current_map = self
+	if has_node("DevNotes"):
+		$DevNotes.hide()
 
 func change_graphics_settings():
 	if has_node("Sky and Lighting"):

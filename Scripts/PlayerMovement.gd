@@ -60,8 +60,10 @@ func check_climb():
 		while x < collision_count:
 			var collision = get_slide_collision(x)
 			var collider = collision.get_collider()
+			# was crashing when collider was NPC in process of dying
+			if !is_instance_valid(collider): return
 			var collider_name = collider.name
-			if collider.name == "climbable":
+			if collider_name == "climbable":
 				var distance = global_position.x - collision.get_position().x
 				if distance > 0:
 					climb_side = "left"

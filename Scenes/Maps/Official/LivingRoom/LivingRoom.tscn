@@ -372,3 +372,4 @@ skeleton = NodePath("../Background Elements/High_Spec/Tv")
 [editable path="player"]
 [editable path="player/Audio/Footsteps"]
 [editable path="player/Audio/Landing"]
+[editable path="player/Audio/Jumping"]

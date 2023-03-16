@@ -22,9 +22,9 @@ func _process(_delta):
 	pass
 
 
-func _on_area_3d_body_entered(body):
+func _on_area_3d_body_entered(_body):
 	if occupant_count() == 1:
-		print("pressure_plate works, detected ", body.name)
+		#print("pressure_plate works, detected ", body.name)
 		var tween = get_tree().create_tween()
 		tween.tween_property($PlungerMesh, "position", $PlungerMesh.position + (Vector3.DOWN * plunger_distance * scale.y), 0.35)
 		$PressedNoises.play_random_sound()

@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://dyn1atg77jsnm"]
+[gd_scene load_steps=16 format=3 uid="uid://dyn1atg77jsnm"]
 
 [ext_resource type="PackedScene" uid="uid://cjiok7gin5bk5" path="res://Scenes/Maps/base_level.tscn" id="1_cjmr8"]
 [ext_resource type="MeshLibrary" uid="uid://dmh5e52qprx6r" path="res://MeshLibraries/cat_tower_plex.tres" id="2_tx034"]
@@ -12,6 +12,9 @@
 [ext_resource type="Texture2D" uid="uid://d2tun4dqdssdx" path="res://Scenes/Maps/Official/BathRoom/level01_mockup_section3.png" id="9_dy6eo"]
 [ext_resource type="PackedScene" uid="uid://ted21c8mecho" path="res://Scenes/Entities/NPCs/switch.tscn" id="10_7ywxi"]
 [ext_resource type="Script" path="res://Scenes/Maps/ReferenceSprite3D.gd" id="12_p2k0u"]
+[ext_resource type="ArrayMesh" uid="uid://bbje4wl4kivx0" path="res://Art/objects/mirror.obj" id="13_do3yh"]
+[ext_resource type="Script" path="res://Scenes/Objects/RandomLazyMotion.gd" id="14_olyda"]
+[ext_resource type="ArrayMesh" uid="uid://cqerpxbfucmkm" path="res://Art/objects/sink.obj" id="15_w2qbg"]
 
 [node name="LevelTemplate" instance=ExtResource("1_cjmr8")]
 
@@ -143,9 +146,36 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 62.1553, 69.6934, -1.049)
 
 [node name="ReferenceSprite3D" type="Sprite3D" parent="." index="10"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.11905, 40.0068, -3.0423)
+visible = false
 pixel_size = 0.067
 texture = ExtResource("9_dy6eo")
 script = ExtResource("12_p2k0u")
+
+[node name="BackgroundImagery" type="Node3D" parent="." index="11"]
+
+[node name="Mirror" type="MeshInstance3D" parent="BackgroundImagery" index="0"]
+transform = Transform3D(9.16321, 1.24946, -2.01679, -0.992309, 9.32715, 1.26991, 2.15498, -1.01794, 9.1604, 0, 0, -67.5307)
+mesh = ExtResource("13_do3yh")
+skeleton = NodePath("../..")
+script = ExtResource("14_olyda")
+
+[node name="Mirror2" type="MeshInstance3D" parent="BackgroundImagery" index="1"]
+transform = Transform3D(13.3382, -9.54884, 1.39789, 7.15964, 11.3901, 9.48938, -6.47101, -7.08015, 13.3806, -50.277, 0, -194.096)
+mesh = ExtResource("13_do3yh")
+skeleton = NodePath("../..")
+script = ExtResource("14_olyda")
+
+[node name="sink1" type="MeshInstance3D" parent="BackgroundImagery" index="2"]
+transform = Transform3D(13.3382, -9.54884, 1.39789, 8.31883, 10.1675, -9.92284, 4.89199, 8.74558, 13.0624, 35.8686, 0, -194.096)
+mesh = ExtResource("15_w2qbg")
+skeleton = NodePath("../..")
+script = ExtResource("14_olyda")
+
+[node name="sink2" type="MeshInstance3D" parent="BackgroundImagery" index="3"]
+transform = Transform3D(22.7627, -16.2958, 2.3856, 14.1967, 17.3515, -16.934, 8.34854, 14.925, 22.2919, -43.0724, 0, -322.343)
+mesh = ExtResource("15_w2qbg")
+skeleton = NodePath("../..")
+script = ExtResource("14_olyda")
 
 [connection signal="switch_hit" from="DynamicObjects/switch2" to="DynamicObjects/switch2/Door_02" method="open"]
 [connection signal="switch_hit" from="DynamicObjects/switch_07" to="DynamicObjects/switch_07/Door_07" method="open"]

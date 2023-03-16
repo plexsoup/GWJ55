@@ -9,8 +9,11 @@ var polling_interval : int = 100 #msec
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	
-	pass # Replace with function body.
+	if Global.low_spec:
+		$Graphics/GraphicsButton.select(0)
+	else:
+		$Graphics/GraphicsButton.select(1)
+		
 
 
 func _process(_delta):

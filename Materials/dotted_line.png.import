@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dm3mow1h2luih"
-path="res://.godot/imported/mirror.png-4865fdd122cad11476c96f4696f7c1dd.ctex"
+uid="uid://b4crcvhdviwu"
+path="res://.godot/imported/dotted_line.png-71bdbc6b6298c0a94b73158897168d49.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/objects/mirror.png"
-dest_files=["res://.godot/imported/mirror.png-4865fdd122cad11476c96f4696f7c1dd.ctex"]
+source_file="res://Materials/dotted_line.png"
+dest_files=["res://.godot/imported/dotted_line.png-71bdbc6b6298c0a94b73158897168d49.ctex"]
 
 [params]
 

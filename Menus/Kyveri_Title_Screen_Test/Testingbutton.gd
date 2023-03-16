@@ -1,6 +1,6 @@
-extends VBoxContainer
-var toggle = false
+extends Button
 
+var toggle = false
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass # Replace with function body.
@@ -8,10 +8,10 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	if $"../Start Button".visible == false:
-		self.visible = true 
+	pass
 
-		
-		
-		
+func _pressed():
+	$"../../Testing".visible = true
+
+
 	

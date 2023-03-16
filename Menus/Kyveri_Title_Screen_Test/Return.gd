@@ -1,5 +1,5 @@
-extends VBoxContainer
-var toggle = false
+extends TextureButton
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -8,10 +8,8 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	if $"../Start Button".visible == false:
-		self.visible = true 
+	pass
 
-		
-		
-		
-	
+func _pressed():
+	$"../Camera3D/AnimationPlayer2".play("Return")
+	$"../VBoxContainer/AnimationPlayer".play("Slide return")

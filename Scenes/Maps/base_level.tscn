@@ -21,7 +21,7 @@ size = Vector2(300, 300)
 script = ExtResource("1_6w6t1")
 
 [node name="PlatformGridMap-placeholder" type="GridMap" parent="."]
-transform = Transform3D(6, 0, 0, 0, -2.62268e-07, -6, 0, 6, -2.62268e-07, 0, 0, -3)
+transform = Transform3D(1.5, 0, 0, 0, -8.74228e-08, -1.5, 0, 2, -6.55671e-08, 0, 0, -2.25)
 mesh_library = ExtResource("2_uoilj")
 cell_size = Vector3(1, 1, 1)
 collision_layer = 4

@@ -3,4 +3,5 @@
 [ext_resource type="Script" path="res://sfx/temporary_3Dsound.gd" id="1_cqn1f"]
 
 [node name="TemporarySound" type="AudioStreamPlayer3D"]
+bus = &"SFX"
 script = ExtResource("1_cqn1f")

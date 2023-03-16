@@ -135,7 +135,9 @@ func play_audio():
 			$Audio/Footsteps.play_random_noise()
 	elif previous_animation_state == "Fall" and animation_state != "Fall": # landed
 		$Audio/Landing.play_random_noise()
-
+	elif animation_state == "Jump_Start":
+		$Audio/Jumping.play_random_noise()
+		
 
 func set_gravity_states(delta):
 	was_on_floor = is_on_floor()

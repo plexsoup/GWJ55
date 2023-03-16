@@ -1,5 +1,5 @@
 extends TextureButton
-var Vis = false
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -11,6 +11,17 @@ func _process(delta):
 	if $".".is_hovered():
 		$AnimatedSprite2D.play("Hover")
 		$AnimatedSprite2D.visible 
+		
 	else:
 		$AnimatedSprite2D.play("Defult")
 		
+func _pressed():
+	print("Pressed")
+	self.visible = false
+	$"..".visible = true
+		
+
+
+
+
+

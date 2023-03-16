@@ -1,4 +1,4 @@
-[gd_scene load_steps=112 format=3 uid="uid://byvg06a3l0cpj"]
+[gd_scene load_steps=111 format=3 uid="uid://byvg06a3l0cpj"]
 
 [ext_resource type="Texture2D" uid="uid://dsuw60ly4uf07" path="res://Art/Foliage/Grass_text.png" id="1_abb0e"]
 [ext_resource type="Environment" uid="uid://bmbo025oyrqsq" path="res://Shaders/World_Aesthics.tres" id="3_vlfkj"]
@@ -10,7 +10,6 @@
 [ext_resource type="Shader" path="res://Art/Foliage/Grass_Shader.gdshader" id="12_udw31"]
 [ext_resource type="Texture2D" uid="uid://b8b3xjek6q7wy" path="res://Art/Foliage/Grass3.png" id="13_5pn2d"]
 [ext_resource type="PackedScene" uid="uid://cey6vaorec8ca" path="res://Scenes/Entities/Player/player_controller.tscn" id="15_e27nw"]
-[ext_resource type="PackedScene" uid="uid://dujwxhrwrkq1q" path="res://Scenes/Entities/NPCs/Cat_Companion.tscn" id="15_s8xuy"]
 [ext_resource type="Shader" uid="uid://d4ecwwqt03cly" path="res://Art/Foliage/Water.tres" id="17_5ku2d"]
 [ext_resource type="Texture2D" uid="uid://coaanccqd0h8j" path="res://Art/Foliage/Tree.png" id="17_33gk6"]
 [ext_resource type="Shader" uid="uid://pxqkd0ijemto" path="res://Shaders/Water.tres" id="17_j8hnx"]
@@ -1338,9 +1337,6 @@ attributes = SubResource("CameraAttributesPractical_caw2f")
 current = true
 fov = 65.3
 near = 0.059
-
-[node name="Node3D2" parent="NPCs/player_controller_xrae" instance=ExtResource("15_s8xuy")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.00786, 0, 0)
 
 [node name="Grasses" type="Node3D" parent="."]
 

@@ -1,11 +1,12 @@
-[gd_scene load_steps=10 format=3 uid="uid://13uei006vo3q"]
+[gd_scene load_steps=11 format=3 uid="uid://13uei006vo3q"]
 
 [ext_resource type="PackedScene" uid="uid://cjiok7gin5bk5" path="res://Scenes/Maps/base_level.tscn" id="1_mlq30"]
 [ext_resource type="MeshLibrary" uid="uid://dmh5e52qprx6r" path="res://MeshLibraries/cat_tower_plex.tres" id="2_bcvq3"]
 [ext_resource type="PackedScene" uid="uid://cm2o1lkpf6s0w" path="res://Scenes/Entities/NPCs/vacuum_cleaner.tscn" id="3_dl32a"]
 [ext_resource type="Texture2D" uid="uid://tevy8ffg5l6a" path="res://Scenes/Maps/Official/LivingRoom/level01_mockup_section1.png" id="3_f2ifg"]
 [ext_resource type="PackedScene" uid="uid://iy2fvk38ehxj" path="res://Scenes/Entities/NPCs/deadly_tile.tscn" id="3_ixud2"]
-[ext_resource type="PackedScene" uid="uid://eb3wwyaluatx" path="res://Scenes/Objects/trigger_volume_win.tscn" id="4_jclyg"]
+[ext_resource type="PackedScene" path="res://Scenes/Objects/trigger_volume_win.tscn" id="4_jclyg"]
+[ext_resource type="Environment" uid="uid://bmbo025oyrqsq" path="res://Shaders/World_Aesthics.tres" id="5_kwtiw"]
 [ext_resource type="Texture2D" uid="uid://dhm4vtuux462g" path="res://Materials/arrow_01.png" id="5_p0717"]
 [ext_resource type="PackedScene" uid="uid://crvvpifd7a146" path="res://Scenes/Entities/NPCs/pressure_plate.tscn" id="6_1r3rs"]
 [ext_resource type="PackedScene" uid="uid://dwte3a8axt6kp" path="res://Scenes/Objects/door.tscn" id="7_4288d"]
@@ -28,7 +29,21 @@ data = {
 }
 
 [node name="player" parent="." index="2"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -31.8328, 0.710342, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -31.8328, 0.710342, 1.93711)
+
+[node name="SpotLight3D" type="SpotLight3D" parent="player" index="9"]
+transform = Transform3D(-0.951136, 0.11455, 0.286737, 0.286692, -0.0172212, 0.957868, 0.114662, 0.993268, -0.016461, 1.25269, 2.89607, -0.581263)
+light_color = Color(0.862745, 0.486275, 0.560784, 1)
+light_energy = 16.106
+light_indirect_energy = 7.949
+light_size = 0.036
+shadow_enabled = true
+distance_fade_enabled = true
+
+[node name="OmniLight3D" type="OmniLight3D" parent="player" index="10"]
+transform = Transform3D(0.995697, 0, 0.092666, 0.0558621, 0.797868, -0.600238, -0.0739353, 0.602832, 0.794435, -0.0448246, 1.69893, 0.150388)
+light_color = Color(0.407843, 0.627451, 0.54902, 1)
+light_energy = 13.495
 
 [node name="VacuumCleaner" parent="NPCs" index="0" instance=ExtResource("3_dl32a")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.7123, 2.08165e-12, 2.08165e-12)
@@ -51,6 +66,10 @@ skeleton = NodePath("../..")
 [node name="DeadlyTile4" parent="EnvironmentalHazards" index="3" instance=ExtResource("3_ixud2")]
 transform = Transform3D(6, 0, 0, 0, 6, 0, 0, 0, 6, 80.9974, -4.65664, -0.0543365)
 skeleton = NodePath("../..")
+
+[node name="Sky and Lighting" parent="." index="7"]
+environment = ExtResource("5_kwtiw")
+low_spec_in_editor = false
 
 [node name="Cloud_water" parent="." index="8"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -40.7504, 0)
@@ -88,6 +107,9 @@ transform = Transform3D(9, 0, 0, 0, 9, 0, 0, 0, 9, -98.9051, -11.9021, 0)
 
 [node name="ReferenceSprite3D" type="Sprite3D" parent="." index="10"]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, -3.1)
+visible = false
 modulate = Color(1, 1, 1, 0.203922)
 pixel_size = 0.1
 texture = ExtResource("3_f2ifg")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." index="11"]

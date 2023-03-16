@@ -58,7 +58,7 @@ shader_parameter/FloatParameter = 1.0
 material = SubResource("ShaderMaterial_wa02u")
 size = Vector2(300, 300)
 
-[node name="Node3D" type="Node3D"]
+[node name="Node3D2" type="Node3D"]
 
 [node name="Sky and Lighting" type="WorldEnvironment" parent="."]
 environment = ExtResource("1_dc0ue")

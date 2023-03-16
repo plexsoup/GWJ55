@@ -13,7 +13,7 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
-	pass
+	_low_spec()
 
 
 func _on_area_3d_body_entered(body):
@@ -34,3 +34,13 @@ func _on_area_3d_body_entered(body):
 				electrocute.connect(body._on_electrocuted)
 			electrocute.emit()
 			electrocute.disconnect(body._on_electrocuted)
+
+func _low_spec():
+	if Global.low_spec == false:
+		$AnimationPlayer.play("High_Spec")
+	else :
+		$AnimationPlayer.play("Low_spec")
+		
+		
+	
+

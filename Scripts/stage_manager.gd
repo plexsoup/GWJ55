@@ -30,4 +30,5 @@ func change_scene_to_file(scenePath : String):
 
 
 func reset_level():
-	change_scene_to_packed(current_map_packed_scene)
+	get_tree().reload_current_scene()
+	#change_scene_to_packed(current_map_packed_scene)

@@ -30,7 +30,7 @@ data = {
 }
 
 [node name="player" parent="." index="2"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.1244, 6.40009, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.077, 43.5956, 0)
 
 [node name="VacuumCleaner" parent="NPCs" index="0" instance=ExtResource("2_nlfxv")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.677264, 21.3873, -0.796688)
@@ -59,14 +59,17 @@ transform = Transform3D(3.19874, 0, 0, 0, 3, 0, 0, 0, 2.38341, 41.1237, 5.02719,
 [node name="moving platform" parent="MovingPlatforms" index="0" instance=ExtResource("5_m16ie")]
 transform = Transform3D(2.07742, 0, 0, 0, 0.692473, 0, 0, 0, 1.38495, 3.78362, 38.3467, 0)
 target = Vector3(0, 23, 0)
+needs_activation = true
 
 [node name="moving platform2" parent="MovingPlatforms" index="1" instance=ExtResource("5_m16ie")]
 transform = Transform3D(1.34581, 0, 0, 0, 0.672904, 0, 0, 0, 1.34581, 14.6707, 43.1527, 0)
 target = Vector3(0, 17, 0)
+needs_activation = true
 
 [node name="moving platform3" parent="MovingPlatforms" index="2" instance=ExtResource("5_m16ie")]
 transform = Transform3D(1.63817, 0, 0, 0, 0.819085, 0, 0, 0, 1.63817, 58.3778, 26.0807, 0)
 target = Vector3(0, 13, 0)
+needs_activation = true
 
 [node name="moving platform_NE" parent="MovingPlatforms" index="3" instance=ExtResource("5_m16ie")]
 transform = Transform3D(1.53287, 0, 0, 0, 0.766437, 0, 0, 0, 1.53287, 39.7496, 35.4347, 0)
@@ -167,3 +170,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.04843, 71.2976, 0)
 text = "Need a Tail Checkpoint. Or some cool payoff.
 "
 font_size = 200
+
+[connection signal="switch_toggled" from="DynamicObjects/pressure_plate_04_N" to="MovingPlatforms/moving platform3" method="_on_plate_press"]
+[connection signal="switch_toggled" from="DynamicObjects/pressure_plate_05_top" to="MovingPlatforms/moving platform2" method="_on_plate_press"]
+[connection signal="switch_toggled" from="DynamicObjects/pressure_plate_06_NW" to="MovingPlatforms/moving platform" method="_on_plate_press"]

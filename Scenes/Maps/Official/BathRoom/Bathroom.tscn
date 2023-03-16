@@ -177,6 +177,7 @@ mesh = ExtResource("15_w2qbg")
 skeleton = NodePath("../..")
 script = ExtResource("14_olyda")
 
+[connection signal="switch_toggled" from="DynamicObjects/pressure_plate_03" to="MovingPlatforms/moving platform_03" method="_on_plate_press"]
 [connection signal="switch_hit" from="DynamicObjects/switch2" to="DynamicObjects/switch2/Door_02" method="open"]
 [connection signal="switch_hit" from="DynamicObjects/switch_07" to="DynamicObjects/switch_07/Door_07" method="open"]
 [connection signal="switch_hit" from="DynamicObjects/switch4" to="DynamicObjects/Door_06" method="open"]

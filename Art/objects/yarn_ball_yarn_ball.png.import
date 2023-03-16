@@ -3,16 +3,16 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bjjoucnclkngd"
-path.s3tc="res://.godot/imported/yarn_ball_yarn_ball.png-334315f05594bf5385dbefeccfa0a0ff.s3tc.ctex"
+path.etc2="res://.godot/imported/yarn_ball_yarn_ball.png-334315f05594bf5385dbefeccfa0a0ff.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://Art/objects/yarn_ball_yarn_ball.png"
-dest_files=["res://.godot/imported/yarn_ball_yarn_ball.png-334315f05594bf5385dbefeccfa0a0ff.s3tc.ctex"]
+dest_files=["res://.godot/imported/yarn_ball_yarn_ball.png-334315f05594bf5385dbefeccfa0a0ff.etc2.ctex"]
 
 [params]
 

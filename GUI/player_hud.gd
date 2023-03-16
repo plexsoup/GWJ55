@@ -8,7 +8,7 @@ func _ready():
 	Global.current_hud = self
 	_on_hit() # set the health bar.
 	%SettingsPanel.hide()
-
+	$ThoughtBubbleTemplate.hide()
 
 func _on_hit():
 	for lifeIcon in $Control/HealthBox.get_children():
@@ -32,4 +32,7 @@ func _on_settings_panel_toggle_button_toggled(button_pressed):
 func hide_settings():
 	%SettingsPanel.visible = false
 	%SettingsPanelToggleButton.set_pressed(false)
+	
+func _on_thought_bubble_requested(text:String, duration:float):
+	$ThoughtBubbleTemplate.start(text, duration)
 	

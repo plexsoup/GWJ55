@@ -1,4 +1,4 @@
-[gd_resource type="VisualShader" load_steps=9 format=3 uid="uid://dyxyc3rfh4ua3"]
+[gd_resource type="VisualShader" load_steps=12 format=3 uid="uid://dyxyc3rfh4ua3"]
 
 [sub_resource type="VisualShaderNodeColorConstant" id="VisualShaderNodeColorConstant_soqgs"]
 constant = Color(0.258824, 0.521569, 1, 1)
@@ -14,6 +14,7 @@ input_name = "time"
 width = 128
 height = 256
 seamless = true
+seamless_blend_skirt = 0.233
 noise = SubResource("FastNoiseLite_o662f")
 
 [sub_resource type="VisualShaderNodeTexture" id="VisualShaderNodeTexture_hl7ms"]
@@ -24,11 +25,23 @@ default_input_values = [0, 0.0, 1, 0.1]
 operator = 2
 
 [sub_resource type="VisualShaderNodeInput" id="VisualShaderNodeInput_pa05p"]
-input_name = "screen_uv"
+input_name = "uv"
+
+[sub_resource type="Curve" id="Curve_wx6nc"]
+_data = [Vector2(0, 0), 0.0, 1.87, 0, 0, Vector2(0.576754, 1), -1.45714, -1.45714, 0, 0, Vector2(1, 0), -2.26667, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_188ii"]
+curve = SubResource("Curve_wx6nc")
+
+[sub_resource type="VisualShaderNodeCurveTexture" id="VisualShaderNodeCurveTexture_6inoj"]
+output_port_for_preview = 0
+texture = SubResource("CurveTexture_188ii")
 
 [resource]
 code = "shader_type spatial;
 uniform sampler2D tex_frg_6;
+uniform sampler2D curve_frg_9 : repeat_disable;
 
 
 
@@ -38,7 +51,7 @@ void fragment() {
 
 
 // Input:8
-	vec2 n_out8p0 = SCREEN_UV;
+	vec2 n_out8p0 = UV;
 
 
 // Input:3
@@ -59,14 +72,18 @@ void fragment() {
 	vec4 n_out6p0 = texture(tex_frg_6, n_out5p0);
 
 
+// CurveTexture:9
+	float n_out9p0 = texture(curve_frg_9, vec2(n_out6p0.x)).r;
+
+
 // Output:0
 	ALBEDO = vec3(n_out2p0.xyz);
-	ALPHA = n_out6p0.x;
+	ALPHA = n_out9p0;
 
 
 }
 "
-graph_offset = Vector2(-388.345, -63.1943)
+graph_offset = Vector2(-371.107, 28.3657)
 nodes/fragment/0/position = Vector2(560, 120)
 nodes/fragment/2/node = SubResource("VisualShaderNodeColorConstant_soqgs")
 nodes/fragment/2/position = Vector2(140, 80)
@@ -80,4 +97,6 @@ nodes/fragment/7/node = SubResource("VisualShaderNodeFloatOp_5vf2k")
 nodes/fragment/7/position = Vector2(-160, 260)
 nodes/fragment/8/node = SubResource("VisualShaderNodeInput_pa05p")
 nodes/fragment/8/position = Vector2(-340, 80)
-nodes/fragment/connections = PackedInt32Array(2, 0, 0, 0, 5, 0, 6, 0, 6, 0, 0, 1, 3, 0, 7, 0, 7, 0, 5, 2, 8, 0, 5, 0)
+nodes/fragment/9/node = SubResource("VisualShaderNodeCurveTexture_6inoj")
+nodes/fragment/9/position = Vector2(40, 460)
+nodes/fragment/connections = PackedInt32Array(2, 0, 0, 0, 5, 0, 6, 0, 3, 0, 7, 0, 7, 0, 5, 2, 8, 0, 5, 0, 6, 0, 9, 0, 9, 0, 0, 1)

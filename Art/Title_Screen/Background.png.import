@@ -3,16 +3,16 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://b7uf01fxd2mw4"
-path.s3tc="res://.godot/imported/Background.png-20a05f7bcc25850ee978ef59bcc793ab.s3tc.ctex"
+path.etc2="res://.godot/imported/Background.png-20a05f7bcc25850ee978ef59bcc793ab.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://Art/Title_Screen/Background.png"
-dest_files=["res://.godot/imported/Background.png-20a05f7bcc25850ee978ef59bcc793ab.s3tc.ctex"]
+dest_files=["res://.godot/imported/Background.png-20a05f7bcc25850ee978ef59bcc793ab.etc2.ctex"]
 
 [params]
 

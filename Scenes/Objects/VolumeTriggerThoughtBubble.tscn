@@ -1,0 +1,28 @@
+[gd_scene load_steps=3 format=3 uid="uid://b3p7s4vjxe0y0"]
+
+[ext_resource type="Script" path="res://Scenes/Objects/VolumeTriggerThoughtBubble.gd" id="1_4ymff"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_en3eh"]
+size = Vector3(3, 3, 3)
+
+[node name="Area3D" type="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.58554, 0)
+script = ExtResource("1_4ymff")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_en3eh")
+
+[node name="Label3D" type="Label3D" parent="."]
+text = "Hint Text Popup"
+font_size = 96
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true
+
+[node name="TitleInEditor" type="Label3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.943779, 0)
+text = "Popup Hint Text"
+font_size = 96
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

@@ -4,8 +4,11 @@ extends Node3D
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-		StageManager.current_map = self
-		Global.current_map = self
+	change_graphics_settings()
+	StageManager.current_map = self
+	Global.current_map = self
+	if has_node("DevNotes"):
+		$DevNotes.hide()
 
 func change_graphics_settings():
 	if has_node("Sky and Lighting"):

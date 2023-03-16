@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://rau1y6yi1xhy"]
+[gd_scene load_steps=5 format=3 uid="uid://rau1y6yi1xhy"]
 
 [ext_resource type="Script" path="res://GUI/player_hud.gd" id="1_bo2l7"]
 [ext_resource type="PackedScene" uid="uid://bsg1a6s6h8y7w" path="res://GUI/life_icon.tscn" id="2_ld1aw"]
 [ext_resource type="PackedScene" uid="uid://h8iu8rth0qey" path="res://Menus/Settings/settings_vbox.tscn" id="3_bq8mq"]
+[ext_resource type="PackedScene" uid="uid://c2tnlo1janj3o" path="res://GUI/temp_thought_bubble.tscn" id="4_uekss"]
 
 [node name="PlayerHUD" type="CanvasLayer"]
 script = ExtResource("1_bo2l7")
@@ -81,6 +82,8 @@ unique_name_in_owner = true
 layout_mode = 2
 text = "FPS"
 horizontal_alignment = 2
+
+[node name="ThoughtBubbleTemplate" parent="." instance=ExtResource("4_uekss")]
 
 [connection signal="pressed" from="Control/VBoxContainer/RestartLevelButton" to="." method="_on_button_pressed"]
 [connection signal="toggled" from="Control/VBoxContainer/SettingsPanelToggleButton" to="." method="_on_settings_panel_toggle_button_toggled"]

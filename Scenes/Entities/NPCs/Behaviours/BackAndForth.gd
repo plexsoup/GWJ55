@@ -5,21 +5,35 @@ extends BaseNPCBehaviour
 
 func _ready():
 	super._ready()
+	
+
 
 func _process(delta):
 	super._process(delta)
 
 
 func update_input_controller():
-	if current_direction.x < 0 and $RayCastLeft.is_colliding():
-		entity.input_controller.press_key("move_left")
-		entity.input_controller.release_key("move_right")
+	# make sure there's a floor but no obstacle
+	
+	# turn around when bump into obstacles
+	if current_direction.x < 0 and $ObstacleDetectors/ObRayCastLeft.is_colliding():
+		turn_around()
+	elif current_direction.x > 0 and $ObstacleDetectors/ObRayCastRight.is_colliding():
+		turn_around()
+
+	elif current_direction.x < 0: # left
+		if $FloorDetectors/RayCastLeft.is_colliding():
+			entity.input_controller.press_key("move_left")
+			entity.input_controller.release_key("move_right")
 		
-	elif current_direction.x > 0 and $RayCastRight.is_colliding():
-		entity.input_controller.press_key("move_right")
-		entity.input_controller.release_key("move_left")
+	elif current_direction.x > 0: # right
+		if $FloorDetectors/RayCastRight.is_colliding():
+			entity.input_controller.press_key("move_right")
+			entity.input_controller.release_key("move_left")
 		
 	else: # turn around, your raycast is whiffing air
-		current_direction *= -1.0
+		turn_around()
 			
+func turn_around():
+	current_direction *= -1
 	

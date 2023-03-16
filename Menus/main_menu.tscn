@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://bl1mmp8ysb4r0"]
+[gd_scene load_steps=6 format=3 uid="uid://bl1mmp8ysb4r0"]
 
 [ext_resource type="Texture2D" uid="uid://c7r0ql75cnkow" path="res://Art/Cat_Icon.png" id="1_84gql"]
+[ext_resource type="Texture2D" uid="uid://cvdkymudk82m2" path="res://Art/Title_screen_LQ.png" id="1_xeedf"]
 [ext_resource type="PackedScene" uid="uid://dx20duhdsm1vn" path="res://Menus/Buttons/scene_change_button.tscn" id="2_do5ro"]
-[ext_resource type="PackedScene" uid="uid://dl2ugtmw6nwcq" path="res://Menus/settings_menu.tscn" id="3_2xwuf"]
+[ext_resource type="Script" path="res://Menus/LowSpecCheckButton.gd" id="2_n2jg7"]
 [ext_resource type="PackedScene" uid="uid://cgxuckinuwvvi" path="res://Menus/Buttons/quit_button.tscn" id="5_k18lj"]
 
 [node name="MainMenu" type="MarginContainer"]
@@ -11,6 +12,10 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(575, 326)
+texture = ExtResource("1_xeedf")
 
 [node name="CenterContainer" type="HBoxContainer" parent="."]
 layout_mode = 2
@@ -28,14 +33,16 @@ layout_mode = 2
 theme_override_constants/separation = 50
 
 [node name="Label" type="Label" parent="CenterContainer/LeftSide/VBoxContainer"]
+visible = false
 layout_mode = 2
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 36
-text = "Dreams of a Cat.
-(but not fluffly cloud dreams)"
+text = "Dream Tail
+"
 horizontal_alignment = 1
 
 [node name="TextureRect" type="TextureRect" parent="CenterContainer/LeftSide/VBoxContainer"]
+visible = false
 custom_minimum_size = Vector2(0, 400)
 layout_mode = 2
 size_flags_horizontal = 3
@@ -58,15 +65,16 @@ size_flags_horizontal = 3
 theme_override_constants/separation = 25
 alignment = 1
 
+[node name="GraphicsSpecs" type="CheckButton" parent="CenterContainer/RightSide/VBoxContainer"]
+layout_mode = 2
+text = "Turn on Full Graphics for Powerful Machines"
+script = ExtResource("2_n2jg7")
+high_spec_scene_path = "res://Menus/Kyveri_Title_Screen_Test/title_screen.tscn"
+
 [node name="PlayGameButton" parent="CenterContainer/RightSide/VBoxContainer" instance=ExtResource("2_do5ro")]
 layout_mode = 2
 text = "Play Game"
 scene_path = "res://Scenes/Maps/Official/LivingRoom/LivingRoom.tscn"
-
-[node name="SettingsButton" parent="CenterContainer/RightSide/VBoxContainer" instance=ExtResource("2_do5ro")]
-layout_mode = 2
-text = "Settings"
-new_scene = ExtResource("3_2xwuf")
 
 [node name="CreditsButton" parent="CenterContainer/RightSide/VBoxContainer" instance=ExtResource("2_do5ro")]
 layout_mode = 2
@@ -76,3 +84,5 @@ scene_path = "res://Menus/Credits/credits.tscn"
 
 [node name="QuitButton" parent="CenterContainer/RightSide/VBoxContainer" instance=ExtResource("5_k18lj")]
 layout_mode = 2
+
+[connection signal="toggled" from="CenterContainer/RightSide/VBoxContainer/GraphicsSpecs" to="CenterContainer/RightSide/VBoxContainer/GraphicsSpecs" method="_on_toggled"]

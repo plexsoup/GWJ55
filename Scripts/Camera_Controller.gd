@@ -6,7 +6,6 @@ extends Camera3D
 @onready var sprite = $"../AnimatedSprite3D"
 
 @export var lerp_speed = 3.0
-@export var offset = Vector2.ZERO
 
 var follow = false
 

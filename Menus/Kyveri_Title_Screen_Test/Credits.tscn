@@ -1,0 +1,24 @@
+[gd_scene load_steps=2 format=3 uid="uid://cvku0057reo1m"]
+
+[ext_resource type="PackedScene" uid="uid://dmle08crocvd5" path="res://Menus/Kyveri_Title_Screen_Test/title_screen.tscn" id="1_xdl23"]
+
+[node name="Title Screen" instance=ExtResource("1_xdl23")]
+
+[node name="PathFollow3D" parent="KoiOnPath/Path3D" index="0"]
+transform = Transform3D(-0.205277, -0.16297, 0.964997, 0, 0.985995, 0.166518, -0.978542, 0.0341876, -0.202435, -1.50815, 2.78549, -6.34117)
+
+[node name="PathFollow3D" parent="KoiOnPath2/Path3D" index="0"]
+transform = Transform3D(-0.205277, -0.16297, 0.964997, 0, 0.985995, 0.166518, -0.978543, 0.0341876, -0.202435, -1.50815, 2.78549, -6.34117)
+
+[node name="June" type="Label3D" parent="." index="32"]
+transform = Transform3D(0.905384, 0, 0.424594, 0, 1, 0, -0.424594, 0, 0.905384, -0.838957, 0.441668, -0.922861)
+billboard = 1
+alpha_cut = 2
+alpha_antialiasing_mode = 2
+render_priority = 1
+outline_modulate = Color(0.592157, 0.384314, 0.529412, 1)
+text = "June
+"
+font_size = 21
+outline_size = 4
+uppercase = true

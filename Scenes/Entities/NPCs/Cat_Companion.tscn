@@ -1,0 +1,124 @@
+[gd_scene load_steps=13 format=3 uid="uid://dujwxhrwrkq1q"]
+
+[ext_resource type="Texture2D" uid="uid://btflhndbdc2f2" path="res://Art/Companion assests/Cat.png" id="1_t2j8r"]
+[ext_resource type="Texture2D" uid="uid://ftwbvhf158ir" path="res://Art/Companion assests/Cloud.png" id="2_7t57b"]
+
+[sub_resource type="Curve" id="Curve_yhjkr"]
+min_value = -1.0
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_3p23x"]
+curve = SubResource("Curve_yhjkr")
+
+[sub_resource type="Curve" id="Curve_504sg"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.190909), 0.316981, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_urgn6"]
+curve = SubResource("Curve_504sg")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_ocoh4"]
+lifetime_randomness = 0.16
+spread = 47.4
+flatness = 0.64
+gravity = Vector3(0, 0, 0)
+angular_velocity_min = -39.45
+angular_velocity_max = 19.73
+linear_accel_max = 13.7
+radial_accel_min = 2.25
+radial_accel_max = 2.25
+damping_min = 1.12
+damping_max = 10.11
+scale_min = 0.1
+scale_curve = SubResource("CurveTexture_urgn6")
+hue_variation_min = 0.04
+hue_variation_max = 0.33
+hue_variation_curve = SubResource("CurveTexture_3p23x")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2kjab"]
+transparency = 1
+cull_mode = 2
+no_depth_test = true
+shading_mode = 0
+albedo_texture = ExtResource("2_7t57b")
+heightmap_enabled = true
+heightmap_scale = -8.449
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_p3wu2"]
+material = SubResource("StandardMaterial3D_2kjab")
+size = Vector2(2.067, 0.861)
+center_offset = Vector3(0, -0.011, 0)
+
+[sub_resource type="Animation" id="Animation_e8t6d"]
+resource_name = "Cat_Idle"
+length = 20.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(1, 13),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 0.545757, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_sn15b"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_gtnsi"]
+_data = {
+"Cat_Idle": SubResource("Animation_e8t6d"),
+"RESET": SubResource("Animation_sn15b")
+}
+
+[node name="Node3D3" type="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.6573, 0, -3.6089)
+
+[node name="Cat Companion" type="Node3D" parent="."]
+
+[node name="Cat" type="Sprite3D" parent="Cat Companion"]
+transform = Transform3D(0.668887, 0, 0, 0, 0.668887, 0, 0, 0, 1, 0, 0.121573, 0.242763)
+texture = ExtResource("1_t2j8r")
+
+[node name="Cloud" type="Sprite3D" parent="Cat Companion"]
+transform = Transform3D(0.726089, 0, 0, 0, 0.726089, 0, 0, 0, 1, 0.0993385, -0.870704, 0.415324)
+billboard = 1
+alpha_cut = 2
+texture = ExtResource("2_7t57b")
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="Cat Companion"]
+transform = Transform3D(1, 0, 0, 0, 0.482472, -0.875911, 0, 0.875911, 0.482472, 0.0763359, -0.768741, 0.35816)
+amount = 20
+lifetime = 0.31
+speed_scale = 0.5
+randomness = 1.0
+visibility_aabb = AABB(-1.63019, -1.4541, -0.508525, 3.26037, 2.90819, 1.01705)
+trail_lifetime = 1.4
+process_material = SubResource("ParticleProcessMaterial_ocoh4")
+draw_pass_1 = SubResource("PlaneMesh_p3wu2")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Cat Companion"]
+autoplay = "Cat_Idle"
+libraries = {
+"": SubResource("AnimationLibrary_gtnsi")
+}
+
+[node name="Camera3D" type="Camera3D" parent="Cat Companion"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.294384, 2.74097)

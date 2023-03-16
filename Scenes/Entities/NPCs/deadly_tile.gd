@@ -13,7 +13,7 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
-	pass
+	_low_spec()
 
 
 func _on_area_3d_body_entered(body):
@@ -23,9 +23,24 @@ func _on_area_3d_body_entered(body):
 			if not hit.is_connected(body._on_hit):
 				hit.connect(body._on_hit)
 			hit.emit(1)
+			$SplashNoise.start()
+			$CPUParticles3D.emitting = true
+			await get_tree().create_timer(2.5).timeout
+			StageManager.reset_level()
+
 	elif "dryer" in body.name.to_lower():
 		if body.has_method("_on_electrocuted"):
 			if not electrocute.is_connected(body._on_electrocuted):
 				electrocute.connect(body._on_electrocuted)
 			electrocute.emit()
 			electrocute.disconnect(body._on_electrocuted)
+
+func _low_spec():
+	if Global.low_spec == false:
+		$AnimationPlayer.play("High_Spec")
+	else :
+		$AnimationPlayer.play("Low_spec")
+		
+		
+	
+

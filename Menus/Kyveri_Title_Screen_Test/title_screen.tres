@@ -1,0 +1,15 @@
+[gd_resource type="VisualShader" load_steps=3 format=3 uid="uid://cuil48o7kdv71"]
+
+[ext_resource type="Texture2D" uid="uid://b1dlqacnon3gu" path="res://Art/Title_Screen/Clouds.png" id="1_3i1ik"]
+
+[sub_resource type="VisualShaderNodeTexture" id="VisualShaderNodeTexture_12bcs"]
+texture = ExtResource("1_3i1ik")
+
+[resource]
+code = "shader_type spatial;
+
+
+"
+graph_offset = Vector2(-392.424, -0.00160217)
+nodes/fragment/2/node = SubResource("VisualShaderNodeTexture_12bcs")
+nodes/fragment/2/position = Vector2(-360, 100)

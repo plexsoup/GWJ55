@@ -1,19 +1,127 @@
-[gd_scene load_steps=5 format=3 uid="uid://iy2fvk38ehxj"]
+[gd_scene load_steps=17 format=3 uid="uid://iy2fvk38ehxj"]
 
 [ext_resource type="Script" path="res://Scenes/Entities/NPCs/deadly_tile.gd" id="1_g2r0l"]
+[ext_resource type="Shader" uid="uid://bb4rgj0kgojkh" path="res://Shaders/Water_block.tres" id="1_nxj5v"]
+[ext_resource type="PackedScene" uid="uid://cakkghby15ea5" path="res://sfx/temporary_sound.tscn" id="2_32gbh"]
+
+[sub_resource type="Gradient" id="Gradient_ngd8c"]
+offsets = PackedFloat32Array(0, 0.732203, 0.98983)
+colors = PackedColorArray(0, 0.290196, 0.643137, 1, 0.290196, 0.478431, 0.905882, 1, 1, 1, 1, 1)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_urwo0"]
+noise_type = 2
+frequency = 0.033
+fractal_type = 2
+cellular_distance_function = 1
+cellular_return_type = 3
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_thc8s"]
+color_ramp = SubResource("Gradient_ngd8c")
+noise = SubResource("FastNoiseLite_urwo0")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_eh272"]
+albedo_texture = SubResource("NoiseTexture2D_thc8s")
 
 [sub_resource type="BoxMesh" id="BoxMesh_xacbw"]
+material = SubResource("StandardMaterial3D_eh272")
 size = Vector3(3, 0.5, 1)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1iaim"]
-albedo_color = Color(0.34902, 0.184314, 1, 1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_h65fm"]
 size = Vector3(3, 0.5, 1)
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_d13x8"]
+emission_enabled = true
+emission = Color(1, 1, 1, 1)
+emission_energy_multiplier = 0.1
+
+[sub_resource type="SphereMesh" id="SphereMesh_3pylo"]
+material = SubResource("StandardMaterial3D_d13x8")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_3hevl"]
+render_priority = 0
+shader = ExtResource("1_nxj5v")
+shader_parameter/Vertex_Roughness = 0.1
+shader_parameter/ColorParameter = Color(0.10844, 0.397392, 0.688247, 1)
+shader_parameter/ClearCoat = 0.0
+
+[sub_resource type="Animation" id="Animation_3pq4p"]
+resource_name = "High_Spec"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:mesh:material")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [SubResource("ShaderMaterial_3hevl")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:mesh:material:shader")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("1_nxj5v")]
+}
+
+[sub_resource type="Animation" id="Animation_ew2wq"]
+resource_name = "Low_spec"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:mesh:material")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [SubResource("StandardMaterial3D_eh272")]
+}
+
+[sub_resource type="Animation" id="Animation_q0vsh"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:mesh:material")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [SubResource("StandardMaterial3D_eh272")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:mesh:material:shader")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("1_nxj5v")]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_a7vam"]
+_data = {
+"High_Spec": SubResource("Animation_3pq4p"),
+"Low_spec": SubResource("Animation_ew2wq"),
+"RESET": SubResource("Animation_q0vsh")
+}
+
 [node name="DeadlyTile" type="MeshInstance3D"]
 mesh = SubResource("BoxMesh_xacbw")
-surface_material_override/0 = SubResource("StandardMaterial3D_1iaim")
 script = ExtResource("1_g2r0l")
 
 [node name="Area3D" type="Area3D" parent="."]
@@ -22,5 +130,29 @@ collision_mask = 3
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
 shape = SubResource("BoxShape3D_h65fm")
+
+[node name="SplashNoise" parent="." instance=ExtResource("2_32gbh")]
+volume_db = -6.0
+
+[node name="CPUParticles3D" type="CPUParticles3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.160516, 0)
+emitting = false
+amount = 15
+lifetime = 2.0
+one_shot = true
+explosiveness = 0.87
+mesh = SubResource("SphereMesh_3pylo")
+emission_shape = 3
+emission_box_extents = Vector3(1, 0.1, 0.5)
+direction = Vector3(2.08165e-12, 1, 2.08165e-12)
+spread = 22.0
+initial_velocity_min = 3.0
+initial_velocity_max = 5.0
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "Low_spec"
+libraries = {
+"": SubResource("AnimationLibrary_a7vam")
+}
 
 [connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]

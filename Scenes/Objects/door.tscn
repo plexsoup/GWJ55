@@ -1,8 +1,10 @@
-[gd_scene load_steps=4 format=3 uid="uid://dwte3a8axt6kp"]
+[gd_scene load_steps=5 format=3 uid="uid://dwte3a8axt6kp"]
 
 [ext_resource type="Script" path="res://Scenes/Objects/door.gd" id="1_n6r8r"]
+[ext_resource type="Material" uid="uid://c27yc6a1vji6m" path="res://Materials/proc_wood_material_3d.tres" id="2_0mr1n"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_fndjk"]
+material = ExtResource("2_0mr1n")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_b22fm"]
 

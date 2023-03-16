@@ -153,7 +153,7 @@ func begin_dying():
 
 func _on_weak_spot_body_entered(body):
 	if $Visuals/WeakSpot.monitoring and "player" in body.name.to_lower():
-		print("death by player, " + self.name)
+		$HurtSound.start()
 		begin_dying()
 		
 func _on_electrocuted(): # from water

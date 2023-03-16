@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://c50prk3xgh6et"]
 
-[ext_resource type="Texture2D" uid="uid://b7joq1f8eak7h" path="res://icon.svg" id="1_aruoh"]
+[ext_resource type="Texture2D" uid="uid://cwkqcsss28gvk" path="res://icon.svg" id="1_aruoh"]
 [ext_resource type="PackedScene" uid="uid://dnn5t5pnixj0o" path="res://Menus/Buttons/return_to_main_button.tscn" id="2_mq5sm"]
 
 [sub_resource type="Gradient" id="Gradient_w58vh"]

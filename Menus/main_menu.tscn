@@ -61,7 +61,7 @@ alignment = 1
 [node name="PlayGameButton" parent="CenterContainer/RightSide/VBoxContainer" instance=ExtResource("2_do5ro")]
 layout_mode = 2
 text = "Play Game"
-scene_path = "res://Scenes/Maps/Official/LivingRoom/LivingRoom.tscn"
+scene_path = "res://Menus/Kyveri_Title_Screen_Test/title_screen.tscn"
 
 [node name="SettingsButton" parent="CenterContainer/RightSide/VBoxContainer" instance=ExtResource("2_do5ro")]
 layout_mode = 2

@@ -2,15 +2,7 @@ extends Node
 
 var current_map # instantiated scene object
 var current_map_packed_scene : PackedScene # useful for restarting the level
-var music_player_scene = "res://Music/play_random_music.tscn"
-var music_player
-
 # Called when the node enters the scene tree for the first time.
-func _ready():
-	music_player = load(music_player_scene).instantiate()
-	add_child(music_player)
-	
-
 func fade_out():
 	pass
 	

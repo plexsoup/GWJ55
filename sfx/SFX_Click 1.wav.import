@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://cqolsp84qvb8x"
+path="res://.godot/imported/SFX_Click 1.wav-e29a617a71e23ef88dbbf8d9fc74502e.sample"
+
+[deps]
+
+source_file="res://sfx/SFX_Click 1.wav"
+dest_files=["res://.godot/imported/SFX_Click 1.wav-e29a617a71e23ef88dbbf8d9fc74502e.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

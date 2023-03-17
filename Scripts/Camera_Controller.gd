@@ -8,9 +8,13 @@ extends Camera3D
 @export var lerp_speed = 3.0
 
 var follow = false
+var starting_position : Vector3
+var starting_fov : float
 
 func _ready():
 	top_level = true
+	starting_position = position
+	starting_fov = fov
 
 func _physics_process(delta):
 	if follow:
@@ -34,3 +38,19 @@ func _on_area_3d_body_exited(body):
 func _on_area_3d_body_entered(body):
 	if body == target:
 		follow = false
+
+func zoom_in():
+	position = starting_position
+	fov = starting_fov
+
+func zoom_out():
+	position = starting_position + (Vector3.BACK * 100.0)
+	fov = starting_fov / 2.0
+
+
+func _unhandled_input(_event):
+	# secret debugging keystrokes ( + / - )
+	if Input.is_action_just_pressed("zoom_in"):
+		zoom_in()
+	elif Input.is_action_just_pressed("zoom_out"):
+		zoom_out()

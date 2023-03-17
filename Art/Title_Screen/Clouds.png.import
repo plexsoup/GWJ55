@@ -2,12 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-<<<<<<< Updated upstream
-uid="uid://dhqiombkor0j"
-=======
-uid="uid://1yt0bsisi0p6"
->>>>>>> Stashed changes
-path.etc2="res://.godot/imported/Bush_1.png-e49a4b1c74b09d9c8f5a5cc3172e64bc.etc2.ctex"
+uid="uid://b1dlqacnon3gu"
+path.etc2="res://.godot/imported/Clouds.png-0f68d059a71075c0f4d486ba0369dfd1.etc2.ctex"
 metadata={
 "imported_formats": ["etc2_astc"],
 "vram_texture": true
@@ -15,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://Art/Foliage/Bush_1.png"
-dest_files=["res://.godot/imported/Bush_1.png-e49a4b1c74b09d9c8f5a5cc3172e64bc.etc2.ctex"]
+source_file="res://Art/Title_Screen/Clouds.png"
+dest_files=["res://.godot/imported/Clouds.png-0f68d059a71075c0f4d486ba0369dfd1.etc2.ctex"]
 
 [params]
 

@@ -2,7 +2,11 @@
 
 importer="texture"
 type="CompressedTexture2D"
+<<<<<<< Updated upstream
 uid="uid://c8k8sytreosgf"
+=======
+uid="uid://bjjoucnclkngd"
+>>>>>>> Stashed changes
 path.etc2="res://.godot/imported/yarn_ball_yarn_ball.png-334315f05594bf5385dbefeccfa0a0ff.etc2.ctex"
 metadata={
 "imported_formats": ["etc2_astc"],

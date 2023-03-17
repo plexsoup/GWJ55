@@ -12,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://dd3fox603os7x" path="res://Scenes/Entities/moving platform.tscn" id="10_leyvi"]
 
 [node name="Level01" type="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -32.17, 7.72747, -14.9824)
 script = ExtResource("1_n8fyu")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
@@ -54,6 +55,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.99696, 10.1651, -1.72138)
 
 [node name="FallResetVolume" parent="." instance=ExtResource("5_3x88f")]
 
+<<<<<<< Updated upstream
 [node name="TriggerVolumeWin" parent="." instance=ExtResource("6_umfkp")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.82789, 20.4697, 0)
 next_scene_path = "res://Scenes/Maps/MovementLab/movement_lab.tscn"
@@ -61,6 +63,57 @@ next_scene_path = "res://Scenes/Maps/MovementLab/movement_lab.tscn"
 [node name="GridMap2" type="GridMap" parent="."]
 transform = Transform3D(1, 0, 0, 0, -1.31134e-07, -1, 0, 3, -4.37114e-08, 0, 0, -3)
 mesh_library = ExtResource("1_gbexs")
+=======
+[node name="pressure_plate" parent="DynamicObjects" instance=ExtResource("3_3bafh")]
+transform = Transform3D(1, 0, 0, 0, 0.5, 0, 0, 0, 1, 16.4439, -10.1101, 0.037962)
+
+[node name="DeadlyTile" parent="DynamicObjects" instance=ExtResource("4_g1uya")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 64.2734, -2.44339, 0.457918)
+skeleton = NodePath("../..")
+
+[node name="switch" parent="DynamicObjects" instance=ExtResource("4_bysw5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 29.609, -9.96006, 0.339363)
+skeleton = NodePath("../../NPCs")
+
+[node name="FallResetVolume" parent="DynamicObjects" instance=ExtResource("5_3x88f")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 61.5127, -34.8951, 0)
+
+[node name="TriggerVolumeWin" parent="DynamicObjects" instance=ExtResource("6_umfkp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 109.726, 19.233, 0.745789)
+next_scene_path = "res://Scenes/Maps/Level02/level_02.tscn"
+
+[node name="moving platform" parent="DynamicObjects" instance=ExtResource("10_leyvi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 34.0199, -9.68574, 0)
+target = Vector3(2.08165e-12, 26, 2.08165e-12)
+speed = 4
+
+[node name="PlatformDestinationViz" parent="DynamicObjects/moving platform" instance=ExtResource("11_vu1uo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 26, 0)
+
+[node name="moving platform2" parent="DynamicObjects" instance=ExtResource("10_leyvi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 57.9574, 13.8536, 0)
+target = Vector3(2.08165e-12, 24, 2.08165e-12)
+speed = 4
+
+[node name="PlatformDestinationViz2" parent="DynamicObjects/moving platform2" instance=ExtResource("11_vu1uo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 24, 0)
+skeleton = NodePath("../../moving platform")
+
+[node name="moving platform3" parent="DynamicObjects" instance=ExtResource("10_leyvi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 91.706, 12.279, 0)
+target = Vector3(2.08165e-12, 24, 2.08165e-12)
+speed = 4
+
+[node name="PlatformDestinationViz3" parent="DynamicObjects/moving platform3" instance=ExtResource("11_vu1uo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 24, 0)
+skeleton = NodePath("../../moving platform")
+
+[node name="GridMap3" type="GridMap" parent="."]
+transform = Transform3D(4, 0, -6.09838e-23, -6.09838e-23, -1.74846e-07, -4, 0, 4, -1.74846e-07, 2.08165e-12, 2.08165e-12, -4)
+mesh_library = ExtResource("13_aerbq")
+collision_layer = 4
+collision_mask = 3
+>>>>>>> Stashed changes
 data = {
 "cells": PackedInt32Array(65530, 1, 0, 65531, 1, 0, 65532, 1, 0, 65533, 1, 0, 65534, 1, 0, 65535, 1, 0, 0, 1, 0, 1, 1, 0, 2, 1, 0, 3, 1, 0, 5, 65532, 0, 6, 65532, 0, 7, 65532, 0, 8, 65532, 0, 1, 65532, 0, 0, 65532, 0, 65535, 65532, 0, 65534, 65532, 0, 65532, 65526, 0, 65533, 65526, 0, 65534, 65526, 0, 65535, 65526, 0, 0, 65526, 0, 1, 65526, 0, 2, 65526, 0, 3, 65526, 0, 7, 65528, 0, 8, 65528, 0, 9, 65528, 0, 10, 65528, 0, 65530, 65530, 0, 65529, 65530, 0, 65528, 65530, 0, 65527, 65530, 0, 65526, 65530, 0, 65525, 65530, 0, 65524, 65530, 0, 65523, 65530, 0, 65522, 65530, 0, 10, 0, 0, 11, 0, 0, 12, 0, 0, 13, 65521, 0, 12, 65521, 0, 11, 65521, 0, 10, 65521, 0, 9, 65521, 0, 8, 65521, 0, 7, 65521, 0, 6, 65521, 0, 5, 65521, 0, 4, 65521, 0, 3, 65521, 0)
 }

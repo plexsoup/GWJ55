@@ -2,7 +2,11 @@
 
 importer="texture"
 type="CompressedTexture2D"
+<<<<<<< Updated upstream
 uid="uid://cmcj1tm1dhmwn"
+=======
+uid="uid://beinh6sdqb5wv"
+>>>>>>> Stashed changes
 path.etc2="res://.godot/imported/Cat_Fall_Windup.png-dba2209daa2b9b3c296d186b343b7805.etc2.ctex"
 metadata={
 "imported_formats": ["etc2_astc"],

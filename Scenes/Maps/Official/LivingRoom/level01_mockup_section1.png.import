@@ -2,12 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-<<<<<<< Updated upstream
-uid="uid://dhqiombkor0j"
-=======
-uid="uid://1yt0bsisi0p6"
->>>>>>> Stashed changes
-path.etc2="res://.godot/imported/Bush_1.png-e49a4b1c74b09d9c8f5a5cc3172e64bc.etc2.ctex"
+uid="uid://tevy8ffg5l6a"
+path.etc2="res://.godot/imported/level01_mockup_section1.png-6bed5b10b9487d1d85921ccb1bd956f8.etc2.ctex"
 metadata={
 "imported_formats": ["etc2_astc"],
 "vram_texture": true
@@ -15,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://Art/Foliage/Bush_1.png"
-dest_files=["res://.godot/imported/Bush_1.png-e49a4b1c74b09d9c8f5a5cc3172e64bc.etc2.ctex"]
+source_file="res://Scenes/Maps/Official/LivingRoom/level01_mockup_section1.png"
+dest_files=["res://.godot/imported/level01_mockup_section1.png-6bed5b10b9487d1d85921ccb1bd956f8.etc2.ctex"]
 
 [params]
 

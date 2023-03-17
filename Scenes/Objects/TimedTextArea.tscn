@@ -1,0 +1,110 @@
+[gd_scene load_steps=10 format=3 uid="uid://nyvl82gdcgnw"]
+
+[ext_resource type="Script" path="res://Scenes/Objects/TimedTextArea.gd" id="1_ofqdi"]
+[ext_resource type="Script" path="res://Scenes/Objects/Text.gd" id="2_mi03w"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_x6e35"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_htjhu"]
+texture = SubResource("CanvasTexture_x6e35")
+modulate_color = Color(0.32549, 0.521569, 0.458824, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_npxdi"]
+font_size = 25
+font_color = Color(0, 0, 0, 1)
+shadow_color = Color(0, 0, 0, 0.0196078)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_dfa61"]
+margin = 0.001
+size = Vector3(7, 6, 5)
+
+[sub_resource type="Animation" id="Animation_q3456"]
+resource_name = "RESET"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Panel:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_owfk5"]
+resource_name = "appear"
+length = 5.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Panel:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ff8id"]
+_data = {
+"RESET": SubResource("Animation_q3456"),
+"appear": SubResource("Animation_owfk5")
+}
+
+[node name="TimedTextArea" type="Area3D"]
+script = ExtResource("1_ofqdi")
+
+[node name="Panel" type="Panel" parent="."]
+modulate = Color(1, 1, 1, 0)
+z_as_relative = false
+custom_minimum_size = Vector2(500, 2.08165e-12)
+offset_left = 1.0
+offset_top = 502.0
+offset_right = 1152.0
+offset_bottom = 646.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_htjhu")
+
+[node name="Text" type="Label" parent="Panel"]
+layout_mode = 0
+offset_left = 116.0
+offset_top = 1.0
+offset_right = 1045.0
+offset_bottom = 144.0
+text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec eu ex vehicula"
+label_settings = SubResource("LabelSettings_npxdi")
+horizontal_alignment = 3
+vertical_alignment = 1
+autowrap_mode = 3
+script = ExtResource("2_mi03w")
+
+[node name="timeout" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.630596, 1.94097, 0.386038)
+shape = SubResource("BoxShape3D_dfa61")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+offset_right = 466.0
+offset_bottom = 161.0
+theme_override_colors/table_border = Color(0.533333, 0.478431, 0.290196, 1)
+fit_content = true
+scroll_active = false
+tab_size = 2
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_ff8id")
+}
+
+[connection signal="body_entered" from="." to="." method="_on_timed_text_area_body_entered"]
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_timed_text_area_body_exited"]
+[connection signal="timeout" from="timeout" to="." method="_on_timer_timeout"]
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="animation_finished"]

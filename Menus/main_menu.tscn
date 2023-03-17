@@ -67,7 +67,7 @@ alignment = 1
 
 [node name="GraphicsSpecs" type="Button" parent="CenterContainer/RightSide/VBoxContainer"]
 layout_mode = 2
-text = "Play Game (Hi-fi)"
+text = "Play Game (Hi-fi, desktop only)"
 script = ExtResource("2_n2jg7")
 high_spec_scene_path = "res://Menus/Kyveri_Title_Screen_Test/title_screen.tscn"
 

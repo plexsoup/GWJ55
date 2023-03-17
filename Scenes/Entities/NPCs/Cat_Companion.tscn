@@ -1,8 +1,7 @@
 [gd_scene load_steps=13 format=3 uid="uid://dujwxhrwrkq1q"]
 
 [ext_resource type="Texture2D" uid="uid://btflhndbdc2f2" path="res://Art/Companion assests/Cat.png" id="1_t2j8r"]
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_51h2o"]
+[ext_resource type="Texture2D" uid="uid://ce8wh3j517wy7" path="res://Art/Companion assests/Cloud.png" id="2_d1daw"]
 
 [sub_resource type="Curve" id="Curve_yhjkr"]
 min_value = -1.0
@@ -42,7 +41,7 @@ transparency = 1
 cull_mode = 2
 no_depth_test = true
 shading_mode = 0
-albedo_texture = SubResource("CompressedTexture2D_51h2o")
+albedo_texture = ExtResource("2_d1daw")
 heightmap_enabled = true
 heightmap_scale = -8.449
 
@@ -102,7 +101,7 @@ texture = ExtResource("1_t2j8r")
 transform = Transform3D(0.726089, 0, 0, 0, 0.726089, 0, 0, 0, 1, 0.0993385, -0.870704, 0.415324)
 billboard = 1
 alpha_cut = 2
-texture = SubResource("CompressedTexture2D_51h2o")
+texture = ExtResource("2_d1daw")
 
 [node name="GPUParticles3D" type="GPUParticles3D" parent="Cat Companion"]
 transform = Transform3D(1, 0, 0, 0, 0.482472, -0.875911, 0, 0.875911, 0.482472, 0.0763359, -0.768741, 0.35816)

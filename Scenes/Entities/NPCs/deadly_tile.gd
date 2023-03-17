@@ -40,6 +40,7 @@ func _low_spec():
 		$AnimationPlayer.play("High_Spec")
 	else :
 		$AnimationPlayer.play("Low_spec")
+	
 		
 		
 	

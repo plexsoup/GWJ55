@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://dv6mgvqyrydae"]
+[gd_scene load_steps=29 format=3 uid="uid://dv6mgvqyrydae"]
 
 [ext_resource type="PackedScene" uid="uid://cjiok7gin5bk5" path="res://Scenes/Maps/base_level.tscn" id="1_0tska"]
 [ext_resource type="MeshLibrary" uid="uid://dmh5e52qprx6r" path="res://MeshLibraries/cat_tower_plex.tres" id="2_18ox2"]
@@ -9,50 +9,55 @@
 [ext_resource type="PackedScene" uid="uid://dd3fox603os7x" path="res://Scenes/Entities/moving platform.tscn" id="5_m16ie"]
 [ext_resource type="Texture2D" uid="uid://dhm4vtuux462g" path="res://Materials/arrow_01.png" id="6_431y2"]
 [ext_resource type="PackedScene" uid="uid://crvvpifd7a146" path="res://Scenes/Entities/NPCs/pressure_plate.tscn" id="6_nya5f"]
+[ext_resource type="Script" path="res://WorldEnvironments/sky_and_lighting_Night.gd" id="7_m6huc"]
 [ext_resource type="PackedScene" uid="uid://dwte3a8axt6kp" path="res://Scenes/Objects/door.tscn" id="7_tpc43"]
-[ext_resource type="PackedScene" uid="uid://eb3wwyaluatx" path="res://Scenes/Objects/trigger_volume_win.tscn" id="8_pd66h"]
+[ext_resource type="PackedScene" path="res://Scenes/Objects/trigger_volume_win.tscn" id="8_pd66h"]
 [ext_resource type="PackedScene" uid="uid://ted21c8mecho" path="res://Scenes/Entities/NPCs/switch.tscn" id="11_gdsl8"]
 [ext_resource type="Script" path="res://Scenes/Maps/ReferenceSprite3D.gd" id="13_q5c4o"]
+[ext_resource type="Script" path="res://Scenes/Maps/Official/LivingRoom/High_Spec.gd" id="15_mbr8b"]
 [ext_resource type="Shader" uid="uid://drv4hywg6luaj" path="res://Shaders/Clouds_R.tres" id="15_md0xm"]
 [ext_resource type="Texture2D" uid="uid://b6jmphr0ugk78" path="res://Art/Foliage/Mountains 2.png" id="16_own6m"]
 [ext_resource type="Texture2D" uid="uid://dhagpqi7ourpo" path="res://Art/Foliage/Mountains.png" id="17_en30g"]
+[ext_resource type="Texture2D" uid="uid://coaanccqd0h8j" path="res://Art/Foliage/Tree.png" id="19_cm5fj"]
+[ext_resource type="Texture2D" uid="uid://cynsdc3oljjuy" path="res://Art/Foliage/Light house.png" id="20_c3rgl"]
 
-[sub_resource type="Animation" id="Animation_gsbch"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:environment:sky_rotation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(0, 0, 0)]
-}
+[sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_yla2b"]
+dof_blur_far_enabled = true
+dof_blur_far_distance = 234.11
+dof_blur_far_transition = 263.73
 
-[sub_resource type="Animation" id="Animation_otf31"]
-resource_name = "Sky panning"
-length = 20.0
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:environment:sky_rotation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 20),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector3(0, 0, 0), Vector3(0, 6.28319, 0)]
-}
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_i0pm5"]
+lifetime_randomness = 1.0
+emission_shape = 3
+emission_box_extents = Vector3(300, 300, 300)
+gravity = Vector3(0, 5, 0)
+scale_min = 0.25
+scale_max = 1.75
+hue_variation_min = -0.02
+hue_variation_max = 0.47
+turbulence_enabled = true
+turbulence_noise_strength = 0.0
 
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_whbuy"]
-_data = {
-"RESET": SubResource("Animation_gsbch"),
-"Sky panning": SubResource("Animation_otf31")
-}
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fddmm"]
+albedo_color = Color(0.87451, 0.952941, 0.956863, 1)
+emission_enabled = true
+emission = Color(0.92549, 0.411765, 0.0392157, 1)
+emission_energy_multiplier = 24.05
+
+[sub_resource type="SphereMesh" id="SphereMesh_nchim"]
+material = SubResource("StandardMaterial3D_fddmm")
+radius = 2.106
+height = 3.105
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xcb20"]
+emission_enabled = true
+emission = Color(1, 1, 1, 1)
+emission_energy_multiplier = 4.16
+
+[sub_resource type="SphereMesh" id="SphereMesh_0fyin"]
+material = SubResource("StandardMaterial3D_xcb20")
+radius = 59.905
+height = 100.0
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_c4e3k"]
 render_priority = 0
@@ -86,6 +91,20 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.077, 43.5956, 0)
 
 [node name="AnimatedSprite3D" parent="player" index="1"]
 shaded = true
+
+[node name="Camera3D" parent="player" index="8"]
+attributes = SubResource("CameraAttributesPractical_yla2b")
+
+[node name="SpotLight3D" type="OmniLight3D" parent="player" index="10"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.131912, 1.11618, 0.751954)
+light_color = Color(0.501961, 0.34902, 0, 1)
+light_energy = 6.306
+light_indirect_energy = 3.909
+light_volumetric_fog_energy = 2.455
+light_specular = 2.763
+distance_fade_enabled = true
+distance_fade_length = 1830.44
+omni_range = 16.211
 
 [node name="VacuumCleaner" parent="NPCs" index="0" instance=ExtResource("2_nlfxv")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.677264, 21.3873, -0.796688)
@@ -131,16 +150,15 @@ transform = Transform3D(1.53287, 0, 0, 0, 0.766437, 0, 0, 0, 1.53287, 39.7496, 3
 target = Vector3(-6, 0, 0)
 
 [node name="DirectionalLight3D" parent="Lighting" index="0"]
-light_color = Color(0.847059, 0.364706, 0.478431, 1)
-light_energy = 3.586
+unique_name_in_owner = true
+light_color = Color(0.0470588, 0.266667, 0.6, 1)
+light_energy = 9.405
+light_indirect_energy = 9.728
 shadow_enabled = true
+shadow_opacity = 0.85
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Sky and Lighting" index="0"]
-autoplay = "Sky panning"
-speed_scale = 0.1
-libraries = {
-"": SubResource("AnimationLibrary_whbuy")
-}
+[node name="Sky and Lighting" parent="." index="7"]
+script = ExtResource("7_m6huc")
 
 [node name="TriggerVolumeWin" parent="DynamicObjects" index="0"]
 transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 23.1153, -5.36793, 0)
@@ -242,9 +260,22 @@ font_size = 200
 [node name="Background elements" type="Node3D" parent="." index="13"]
 
 [node name="High End" type="Node3D" parent="Background elements" index="0"]
+script = ExtResource("15_mbr8b")
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="Background elements/High End" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 8.14951, -48.2252)
+amount = 400
+lifetime = 20.3
+visibility_aabb = AABB(-121.013, 12.7665, -77.9529, 300.345, 76.6098, 169.685)
+process_material = SubResource("ParticleProcessMaterial_i0pm5")
+draw_pass_1 = SubResource("SphereMesh_nchim")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Background elements/High End" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.50916, 52.2321, -280.557)
+mesh = SubResource("SphereMesh_0fyin")
 
 [node name="Clouds" type="MeshInstance3D" parent="Background elements" index="1"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -34.2957, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -24.3348, 0)
 mesh = SubResource("PlaneMesh_yfww1")
 
 [node name="Skyline" type="Node3D" parent="Background elements" index="2"]
@@ -295,20 +326,61 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.21613, 0, 0)
 alpha_cut = 2
 texture = ExtResource("17_en30g")
 
-[node name="SkyMountains3" type="Sprite3D" parent="Background elements/Skyline/SkyMountains" index="1"]
+[node name="SkyMountains6" type="Sprite3D" parent="Background elements/Skyline/SkyMountains" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.32111, 0, 0)
+alpha_cut = 2
+texture = ExtResource("17_en30g")
+
+[node name="SkyMountains3" type="Sprite3D" parent="Background elements/Skyline/SkyMountains" index="2"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.49393, 0, 0)
 alpha_cut = 2
 texture = ExtResource("17_en30g")
 
-[node name="SkyMountains4" type="Sprite3D" parent="Background elements/Skyline/SkyMountains" index="2"]
+[node name="SkyMountains4" type="Sprite3D" parent="Background elements/Skyline/SkyMountains" index="3"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.46557, 0, 0)
 alpha_cut = 2
 texture = ExtResource("17_en30g")
 
-[node name="SkyMountains5" type="Sprite3D" parent="Background elements/Skyline/SkyMountains" index="3"]
+[node name="SkyMountains5" type="Sprite3D" parent="Background elements/Skyline/SkyMountains" index="4"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.74337, 0, 0)
 alpha_cut = 2
 texture = ExtResource("17_en30g")
+
+[node name="Trees" type="Node3D" parent="Background elements" index="3"]
+
+[node name="Tree" type="Sprite3D" parent="Background elements/Trees" index="0"]
+transform = Transform3D(9.09928, 0, 0, 0, 9.09928, 0, 0, 0, 1, -17.3028, 14.0808, -113.257)
+texture = ExtResource("19_cm5fj")
+
+[node name="Tree2" type="Sprite3D" parent="Background elements/Trees" index="1"]
+transform = Transform3D(7.85944, -4.58539, 0.00167209, 4.58537, 7.85918, -0.0073324, 0.0204806, 0.0652957, 0.999972, -57.8338, 50.2385, -105.414)
+texture = ExtResource("19_cm5fj")
+
+[node name="Tree3" type="Sprite3D" parent="Background elements/Trees" index="2"]
+transform = Transform3D(9.07809, -0.62037, 0.00167209, 0.620466, 9.07785, -0.0073324, -0.0106303, 0.0676016, 0.999972, 73.0367, 26.1606, -225.339)
+texture = ExtResource("19_cm5fj")
+
+[node name="Tree4" type="Sprite3D" parent="Background elements/Trees" index="3"]
+transform = Transform3D(9.07809, -0.62037, 0.00167209, 0.620466, 9.07785, -0.0073324, -0.0106303, 0.0676016, 0.999972, 97.9665, 53.647, -124.315)
+texture = ExtResource("19_cm5fj")
+
+[node name="Tree5" type="Sprite3D" parent="Background elements/Trees" index="4"]
+transform = Transform3D(9.07809, -0.62037, 0.00167209, 0.620466, 9.07785, -0.0073324, -0.0106303, 0.0676016, 0.999972, 167.251, 13.5462, -216.874)
+texture = ExtResource("19_cm5fj")
+
+[node name="Tree6" type="Sprite3D" parent="Background elements/Trees" index="5"]
+transform = Transform3D(9.07809, -0.62037, 0.00167209, 0.620466, 9.07785, -0.0073324, -0.0106303, 0.0676016, 0.999972, 28.5086, -12.1603, -216.83)
+texture = ExtResource("19_cm5fj")
+
+[node name="Tree7" type="Sprite3D" parent="Background elements/Trees" index="6"]
+transform = Transform3D(9.07809, -0.62037, 0.00167209, 0.620466, 9.07785, -0.0073324, -0.0106303, 0.0676016, 0.999972, -63.8154, 101.687, -215.841)
+texture = ExtResource("19_cm5fj")
+
+[node name="Light house" type="Sprite3D" parent="Background elements" index="4"]
+transform = Transform3D(31.2143, 0, 0, 0, 31.2143, 0, 0, 0, 1, 87.6862, 65.1438, -36.6669)
+shaded = true
+alpha_cut = 2
+texture = ExtResource("20_c3rgl")
 
 [connection signal="switch_toggled" from="DynamicObjects/pressure_plate_04_N" to="MovingPlatforms/moving platform3" method="_on_plate_press"]
 [connection signal="switch_toggled" from="DynamicObjects/pressure_plate_05_top" to="MovingPlatforms/moving platform2" method="_on_plate_press"]
@@ -318,3 +390,4 @@ texture = ExtResource("17_en30g")
 [editable path="player/Audio/Footsteps"]
 [editable path="player/Audio/Landing"]
 [editable path="player/Audio/Jumping"]
+[editable path="Sky and Lighting"]

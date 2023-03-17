@@ -1,4 +1,4 @@
-[gd_scene load_steps=41 format=3 uid="uid://1iy51lohnni2"]
+[gd_scene load_steps=42 format=3 uid="uid://1iy51lohnni2"]
 
 [ext_resource type="Script" path="res://Scenes/Maps/base_level.gd" id="1_3v50y"]
 [ext_resource type="MeshLibrary" uid="uid://dmh5e52qprx6r" path="res://MeshLibraries/cat_tower_plex.tres" id="2_bcvq3"]
@@ -7,13 +7,13 @@
 [ext_resource type="CameraAttributesPractical" uid="uid://lwejjr4rdbk0" path="res://Shaders/Camera_Shader.tres" id="3_it8qf"]
 [ext_resource type="PackedScene" uid="uid://iy2fvk38ehxj" path="res://Scenes/Entities/NPCs/deadly_tile.tscn" id="3_ixud2"]
 [ext_resource type="PackedScene" uid="uid://cey6vaorec8ca" path="res://Scenes/Entities/Player/player_controller.tscn" id="3_xpv4y"]
-[ext_resource type="PackedScene" uid="uid://eb3wwyaluatx" path="res://Scenes/Objects/trigger_volume_win.tscn" id="4_jclyg"]
+[ext_resource type="PackedScene" path="res://Scenes/Objects/trigger_volume_win.tscn" id="4_jclyg"]
 [ext_resource type="Texture2D" uid="uid://dhm4vtuux462g" path="res://Materials/arrow_01.png" id="5_p0717"]
 [ext_resource type="PackedScene" uid="uid://crvvpifd7a146" path="res://Scenes/Entities/NPCs/pressure_plate.tscn" id="6_1r3rs"]
 [ext_resource type="PackedScene" uid="uid://ch0xqdmee1xnu" path="res://WorldEnvironments/sky_and_lighting.tscn" id="7_12lrh"]
 [ext_resource type="PackedScene" uid="uid://dwte3a8axt6kp" path="res://Scenes/Objects/door.tscn" id="7_4288d"]
 [ext_resource type="Shader" uid="uid://cx2ac458h8a83" path="res://Shaders/Cloud_Water.tres" id="8_pjrtt"]
-[ext_resource type="PackedScene" uid="uid://cmd16bdree5a7" path="res://Scenes/Objects/fall_reset_volume.tscn" id="11_k54t8"]
+[ext_resource type="PackedScene" path="res://Scenes/Objects/fall_reset_volume.tscn" id="11_k54t8"]
 [ext_resource type="Script" path="res://Scenes/Maps/ReferenceSprite3D.gd" id="11_x1kbs"]
 [ext_resource type="Texture2D" uid="uid://coaanccqd0h8j" path="res://Art/Foliage/Tree.png" id="13_8fou7"]
 [ext_resource type="Texture2D" uid="uid://dhagpqi7ourpo" path="res://Art/Foliage/Mountains.png" id="14_k8juc"]
@@ -30,6 +30,7 @@
 [ext_resource type="ArrayMesh" uid="uid://d2s12jb7pdygk" path="res://Art/objects/tv.obj" id="19_vwaly"]
 [ext_resource type="Texture2D" uid="uid://cynsdc3oljjuy" path="res://Art/Foliage/Light house.png" id="20_cip6y"]
 [ext_resource type="Shader" uid="uid://drv4hywg6luaj" path="res://Shaders/Clouds_R.tres" id="27_prkw3"]
+[ext_resource type="PackedScene" uid="uid://c4rndh2lw447j" path="res://Scenes/Objects/koi_on_path.tscn" id="30_gqfgd"]
 [ext_resource type="PackedScene" uid="uid://b3p7s4vjxe0y0" path="res://Scenes/Objects/VolumeTriggerHintThoughtBubble.tscn" id="31_s35qv"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_op2lt"]
@@ -573,6 +574,7 @@ libraries = {
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Background Elements/High_Spec"]
 transform = Transform3D(53.8915, 0, 0, 0, 53.8762, 0, 0, 0, 1, 122.088, 53.1834, -225.471)
+visible = false
 mesh = SubResource("SphereMesh_eh5yb")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="Background Elements/High_Spec/MeshInstance3D"]
@@ -586,6 +588,15 @@ mesh = SubResource("SphereMesh_eh5yb")
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="Background Elements/High_Spec/MeshInstance3D2"]
 light_color = Color(0.305882, 0.141176, 0.396078, 1)
 light_energy = 2.067
+
+[node name="KoiOnPath" parent="Background Elements" instance=ExtResource("30_gqfgd")]
+transform = Transform3D(-0.711388, 0, -0.702799, 0, 1, 0, 0.702799, 0, -0.711388, -50.0018, -43.7893, -17.2336)
+
+[node name="Path3D" parent="Background Elements/KoiOnPath" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.0348, 0.564072, 8.74115)
+
+[node name="PathFollow3D" parent="Background Elements/KoiOnPath/Path3D" index="0"]
+transform = Transform3D(0.898796, 0.27342, 0.342251, 0, 0.781258, -0.624144, -0.438005, 0.561064, 0.702307, -10.5608, 47.7661, 19.722)
 
 [node name="Clouds" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -34.2957, 0)
@@ -626,3 +637,4 @@ Maybe it will open later.
 [editable path="player/Audio/Footsteps"]
 [editable path="player/Audio/Landing"]
 [editable path="player/Audio/Jumping"]
+[editable path="Background Elements/KoiOnPath"]

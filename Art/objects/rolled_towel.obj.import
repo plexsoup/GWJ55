@@ -1,0 +1,21 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://bop4i63wjkgln"
+path="res://.godot/imported/rolled_towel.obj-4b6658e280359b3c06f297a8029faaa8.mesh"
+
+[deps]
+
+files=["res://.godot/imported/rolled_towel.obj-4b6658e280359b3c06f297a8029faaa8.mesh"]
+
+source_file="res://Art/objects/rolled_towel.obj"
+dest_files=["res://.godot/imported/rolled_towel.obj-4b6658e280359b3c06f297a8029faaa8.mesh", "res://.godot/imported/rolled_towel.obj-4b6658e280359b3c06f297a8029faaa8.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true

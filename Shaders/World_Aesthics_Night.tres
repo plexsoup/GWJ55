@@ -1,10 +1,22 @@
-[gd_resource type="Environment" format=3 uid="uid://poudq20epdkn"]
+[gd_resource type="Environment" load_steps=4 format=3 uid="uid://4o7srvjcm4rf"]
+
+[ext_resource type="Texture2D" uid="uid://d0tkiu2pelmhu" path="res://Art/Sky_N.png" id="1_wi1or"]
+
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_uxnpa"]
+panorama = ExtResource("1_wi1or")
+
+[sub_resource type="Sky" id="Sky_eoo5s"]
+sky_material = SubResource("PanoramaSkyMaterial_uxnpa")
 
 [resource]
-background_mode = 1
-background_color = Color(0.972549, 0.52549, 0.45098, 1)
-sky_rotation = Vector3(0, 2.38761, 0)
-ambient_light_energy = 9.76
+background_mode = 2
+background_color = Color(0.0156863, 0.145098, 0.301961, 1)
+sky = SubResource("Sky_eoo5s")
+sky_custom_fov = 7.6
+ambient_light_color = Color(0, 0, 0.870588, 1)
+ambient_light_sky_contribution = 0.93
+ambient_light_energy = 7.7
+reflected_light_source = 2
 ssao_radius = 2.01
 ssao_intensity = 4.86
 ssao_detail = 3.29

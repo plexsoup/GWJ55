@@ -1,8 +1,7 @@
-[gd_scene load_steps=111 format=3 uid="uid://byvg06a3l0cpj"]
+[gd_scene load_steps=110 format=3 uid="uid://byvg06a3l0cpj"]
 
 [ext_resource type="Texture2D" uid="uid://dsuw60ly4uf07" path="res://Art/Foliage/Grass_text.png" id="1_abb0e"]
 [ext_resource type="Environment" uid="uid://bmbo025oyrqsq" path="res://Shaders/World_Aesthics.tres" id="3_vlfkj"]
-[ext_resource type="AudioStream" uid="uid://cs5ksm3ei55af" path="res://Music/Test music2.mp3" id="7_qs0cp"]
 [ext_resource type="Texture2D" uid="uid://1yt0bsisi0p6" path="res://Art/Foliage/Bush_1.png" id="8_ysrpf"]
 [ext_resource type="MeshLibrary" uid="uid://2b1l75l303ti" path="res://Art/level_pieces/Level_Mesh_LibaryNEW.tres" id="10_44f4d"]
 [ext_resource type="Texture2D" uid="uid://bwlar2dwge5h" path="res://Art/objects/koifish.png" id="10_fxtxf"]
@@ -1009,43 +1008,43 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 114.407, 9.36877, -0.5)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -122.951, 3.52203, -30.2115)
 
 [node name="PathFollow3D" parent="background_koi/KoiOnPath/Path3D" index="0"]
-transform = Transform3D(-0.205277, -0.16297, 0.964997, 0, 0.985996, 0.166518, -0.978542, 0.0341876, -0.202435, -1.50815, 2.78549, -6.34117)
+transform = Transform3D(0.898796, 0.27342, 0.342251, 0, 0.781258, -0.624144, -0.438005, 0.561064, 0.702307, -10.5608, 47.7661, 19.722)
 
 [node name="KoiOnPath2" parent="background_koi" instance=ExtResource("20_reu1l")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -122.951, 3.52203, -30.2115)
 
 [node name="PathFollow3D" parent="background_koi/KoiOnPath2/Path3D" index="0"]
-transform = Transform3D(-0.205277, -0.16297, 0.964997, 0, 0.985996, 0.166518, -0.978542, 0.0341876, -0.202435, -1.50815, 2.78549, -6.34117)
+transform = Transform3D(0.898796, 0.27342, 0.342251, 0, 0.781258, -0.624144, -0.438005, 0.561064, 0.702307, -10.5608, 47.7661, 19.722)
 
 [node name="KoiOnPath3" parent="background_koi" instance=ExtResource("20_reu1l")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -122.951, 3.52203, -30.2115)
 
 [node name="PathFollow3D" parent="background_koi/KoiOnPath3/Path3D" index="0"]
-transform = Transform3D(-0.205277, -0.16297, 0.964997, 0, 0.985996, 0.166518, -0.978542, 0.0341876, -0.202435, -1.50815, 2.78549, -6.34117)
+transform = Transform3D(0.898796, 0.27342, 0.342251, 0, 0.781258, -0.624144, -0.438005, 0.561064, 0.702307, -10.5608, 47.7661, 19.722)
 
 [node name="KoiOnPath4" parent="background_koi" instance=ExtResource("20_reu1l")]
 transform = Transform3D(0.506914, 0, 0, 0, 0.492565, 0, 0, 0, 0.765546, -74.394, 2.39013, -45.0174)
 
 [node name="PathFollow3D" parent="background_koi/KoiOnPath4/Path3D" index="0"]
-transform = Transform3D(-0.205277, -0.16297, 0.964997, 0, 0.985996, 0.166518, -0.978542, 0.0341876, -0.202435, -1.50815, 2.78549, -6.34117)
+transform = Transform3D(0.898796, 0.27342, 0.342251, 0, 0.781258, -0.624144, -0.438005, 0.561064, 0.702307, -10.5608, 47.7661, 19.722)
 
 [node name="KoiOnPath5" parent="background_koi" instance=ExtResource("20_reu1l")]
 transform = Transform3D(0.506914, 0, 0, 0, 0.492565, 0, 0, 0, 0.765546, -74.394, -13.9081, -33.4344)
 
 [node name="PathFollow3D" parent="background_koi/KoiOnPath5/Path3D" index="0"]
-transform = Transform3D(-0.205277, -0.16297, 0.964997, 0, 0.985996, 0.166518, -0.978542, 0.0341876, -0.202435, -1.50815, 2.78549, -6.34117)
+transform = Transform3D(0.898796, 0.27342, 0.342251, 0, 0.781258, -0.624144, -0.438005, 0.561064, 0.702307, -10.5608, 47.7661, 19.722)
 
 [node name="KoiOnPath6" parent="background_koi" instance=ExtResource("20_reu1l")]
 transform = Transform3D(0.506914, 0, 0, 0, 0.492565, 0, 0, 0, 0.765546, -123.416, -6.85305, -51.2732)
 
 [node name="PathFollow3D" parent="background_koi/KoiOnPath6/Path3D" index="0"]
-transform = Transform3D(-0.205277, -0.16297, 0.964997, 0, 0.985996, 0.166518, -0.978542, 0.0341876, -0.202435, -1.50815, 2.78549, -6.34117)
+transform = Transform3D(0.898796, 0.27342, 0.342251, 0, 0.781258, -0.624144, -0.438005, 0.561064, 0.702307, -10.5608, 47.7661, 19.722)
 
 [node name="KoiOnPath7" parent="background_koi" instance=ExtResource("20_reu1l")]
 transform = Transform3D(0.506914, 0, 0, 0, 0.492565, 0, 0, 0, 0.765546, -123.632, -1.81481, 2.9837)
 
 [node name="PathFollow3D" parent="background_koi/KoiOnPath7/Path3D" index="0"]
-transform = Transform3D(-0.205277, -0.16297, 0.964997, 0, 0.985996, 0.166518, -0.978542, 0.0341876, -0.202435, -1.50815, 2.78549, -6.34117)
+transform = Transform3D(0.898796, 0.27342, 0.342251, 0, 0.781258, -0.624144, -0.438005, 0.561064, 0.702307, -10.5608, 47.7661, 19.722)
 
 [node name="koifish" parent="background_koi/KoiOnPath7/Path3D/PathFollow3D/koifish22/koifish_armature/Skeleton3D" index="0"]
 transform = Transform3D(1, 2.84217e-14, 3.48787e-16, -7.10543e-15, 1, -3.48787e-16, -3.48787e-16, 3.48787e-16, 1, 8.61854, 5.33074, -4.49433)
@@ -1278,7 +1277,6 @@ data = {
 metadata/_editor_floor_ = Vector3(0, 18, 0)
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("7_qs0cp")
 autoplay = true
 
 [node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
@@ -1635,6 +1633,7 @@ mesh = SubResource("PlaneMesh_odv36")
 [editable path="NPCs/player_controller_xrae"]
 [editable path="NPCs/player_controller_xrae/Audio/Footsteps"]
 [editable path="NPCs/player_controller_xrae/Audio/Landing"]
+[editable path="NPCs/player_controller_xrae/Audio/Jumping"]
 [editable path="MovingPlatforms/moving platform"]
 [editable path="MovingPlatforms/moving platform2"]
 [editable path="MovingPlatforms/moving platform3"]

@@ -46,18 +46,21 @@ func _physics_process(delta):
 		else:
 			hold_time = 0
 			line.hide()
-	elif !thrown:
+	elif target and !thrown:
 		if !is_on_floor():
-			var new_velocity = Vector3(0, -1, 0) * SPEED
-			velocity = new_velocity
+			velocity.y -= gravity * delta
+			velocity.x = 0
 			move_and_slide()
 		if Input.is_action_just_released("throw"):
 			dropped = false
 			line.hide()
-	elif thrown:
+	elif target and thrown:
 		if !is_on_floor():
 			velocity.y -= gravity * delta
 			move_and_slide()
+			if global_position.distance_to(target.global_position) > 100:
+				thrown = false
+				dropped = false
 		else:
 			thrown = false
 		

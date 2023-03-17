@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://dv6mgvqyrydae"]
+[gd_scene load_steps=34 format=3 uid="uid://dv6mgvqyrydae"]
 
 [ext_resource type="PackedScene" uid="uid://cjiok7gin5bk5" path="res://Scenes/Maps/base_level.tscn" id="1_0tska"]
 [ext_resource type="MeshLibrary" uid="uid://dmh5e52qprx6r" path="res://MeshLibraries/cat_tower_plex.tres" id="2_18ox2"]
@@ -20,23 +20,38 @@
 [ext_resource type="Texture2D" uid="uid://dhagpqi7ourpo" path="res://Art/Foliage/Mountains.png" id="17_en30g"]
 [ext_resource type="Texture2D" uid="uid://coaanccqd0h8j" path="res://Art/Foliage/Tree.png" id="19_cm5fj"]
 [ext_resource type="Texture2D" uid="uid://cynsdc3oljjuy" path="res://Art/Foliage/Light house.png" id="20_c3rgl"]
+[ext_resource type="Texture2D" uid="uid://cewv0v0iot6yl" path="res://Art/Foliage/Island.png" id="21_ikd6g"]
 
 [sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_yla2b"]
 dof_blur_far_enabled = true
 dof_blur_far_distance = 234.11
 dof_blur_far_transition = 263.73
 
+[sub_resource type="Curve" id="Curve_swcby"]
+_data = [Vector2(0.701299, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_taxwm"]
+curve = SubResource("Curve_swcby")
+
+[sub_resource type="Curve" id="Curve_w6xqy"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.663636), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_ti15r"]
+curve = SubResource("Curve_w6xqy")
+
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_i0pm5"]
-lifetime_randomness = 1.0
 emission_shape = 3
-emission_box_extents = Vector3(300, 300, 300)
-gravity = Vector3(0, 5, 0)
-scale_min = 0.25
-scale_max = 1.75
+emission_box_extents = Vector3(250, 250, 250)
+direction = Vector3(1, 10, 0)
+gravity = Vector3(0, 40, 0)
+scale_curve = SubResource("CurveTexture_taxwm")
 hue_variation_min = -0.02
 hue_variation_max = 0.47
 turbulence_enabled = true
-turbulence_noise_strength = 0.0
+turbulence_noise_strength = 1.45
+turbulence_influence_over_life = SubResource("CurveTexture_ti15r")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fddmm"]
 albedo_color = Color(0.87451, 0.952941, 0.956863, 1)
@@ -263,10 +278,12 @@ font_size = 200
 script = ExtResource("15_mbr8b")
 
 [node name="GPUParticles3D" type="GPUParticles3D" parent="Background elements/High End" index="0"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 8.14951, -48.2252)
-amount = 400
-lifetime = 20.3
-visibility_aabb = AABB(-121.013, 12.7665, -77.9529, 300.345, 76.6098, 169.685)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.205029, -3.83127, -48.1329)
+amount = 399
+lifetime = 3.0
+speed_scale = 0.5
+randomness = 0.37
+visibility_aabb = AABB(-121.013, -6.37102, -41.3285, 300.345, 114.885, 96.4362)
 process_material = SubResource("ParticleProcessMaterial_i0pm5")
 draw_pass_1 = SubResource("SphereMesh_nchim")
 
@@ -350,30 +367,42 @@ texture = ExtResource("17_en30g")
 
 [node name="Tree" type="Sprite3D" parent="Background elements/Trees" index="0"]
 transform = Transform3D(9.09928, 0, 0, 0, 9.09928, 0, 0, 0, 1, -17.3028, 14.0808, -113.257)
+alpha_cut = 2
 texture = ExtResource("19_cm5fj")
 
 [node name="Tree2" type="Sprite3D" parent="Background elements/Trees" index="1"]
 transform = Transform3D(7.85944, -4.58539, 0.00167209, 4.58537, 7.85918, -0.0073324, 0.0204806, 0.0652957, 0.999972, -57.8338, 50.2385, -105.414)
+alpha_cut = 2
 texture = ExtResource("19_cm5fj")
 
 [node name="Tree3" type="Sprite3D" parent="Background elements/Trees" index="2"]
 transform = Transform3D(9.07809, -0.62037, 0.00167209, 0.620466, 9.07785, -0.0073324, -0.0106303, 0.0676016, 0.999972, 73.0367, 26.1606, -225.339)
+alpha_cut = 2
 texture = ExtResource("19_cm5fj")
 
 [node name="Tree4" type="Sprite3D" parent="Background elements/Trees" index="3"]
 transform = Transform3D(9.07809, -0.62037, 0.00167209, 0.620466, 9.07785, -0.0073324, -0.0106303, 0.0676016, 0.999972, 97.9665, 53.647, -124.315)
+alpha_cut = 2
 texture = ExtResource("19_cm5fj")
 
 [node name="Tree5" type="Sprite3D" parent="Background elements/Trees" index="4"]
 transform = Transform3D(9.07809, -0.62037, 0.00167209, 0.620466, 9.07785, -0.0073324, -0.0106303, 0.0676016, 0.999972, 167.251, 13.5462, -216.874)
+alpha_cut = 2
 texture = ExtResource("19_cm5fj")
 
 [node name="Tree6" type="Sprite3D" parent="Background elements/Trees" index="5"]
 transform = Transform3D(9.07809, -0.62037, 0.00167209, 0.620466, 9.07785, -0.0073324, -0.0106303, 0.0676016, 0.999972, 28.5086, -12.1603, -216.83)
+alpha_cut = 2
 texture = ExtResource("19_cm5fj")
 
 [node name="Tree7" type="Sprite3D" parent="Background elements/Trees" index="6"]
 transform = Transform3D(9.07809, -0.62037, 0.00167209, 0.620466, 9.07785, -0.0073324, -0.0106303, 0.0676016, 0.999972, -63.8154, 101.687, -215.841)
+alpha_cut = 2
+texture = ExtResource("19_cm5fj")
+
+[node name="Tree8" type="Sprite3D" parent="Background elements/Trees" index="7"]
+transform = Transform3D(3.81528, -0.260725, 0.00167209, 0.260766, 3.81518, -0.0073324, -0.00446764, 0.0284112, 0.999972, 408.253, 135.104, -371.093)
+alpha_cut = 2
 texture = ExtResource("19_cm5fj")
 
 [node name="Light house" type="Sprite3D" parent="Background elements" index="4"]
@@ -381,6 +410,30 @@ transform = Transform3D(31.2143, 0, 0, 0, 31.2143, 0, 0, 0, 1, 87.6862, 65.1438,
 shaded = true
 alpha_cut = 2
 texture = ExtResource("20_c3rgl")
+
+[node name="Light house2" type="Sprite3D" parent="Background elements" index="5"]
+transform = Transform3D(31.2143, 0, 0, 0, 31.2143, 0, 0, 0, 1, -40.7749, 38.4699, -36.6669)
+shaded = true
+alpha_cut = 2
+texture = ExtResource("20_c3rgl")
+
+[node name="Light house3" type="Sprite3D" parent="Background elements" index="6"]
+transform = Transform3D(31.2143, 0, 0, 0, 31.2143, 0, 0, 0, 1, 130.611, 92.3526, -94.3269)
+shaded = true
+alpha_cut = 2
+texture = ExtResource("20_c3rgl")
+
+[node name="Island" type="Sprite3D" parent="Background elements" index="7"]
+transform = Transform3D(14.7702, 0, 0, 0, 14.051, 0, 0, 0, -0.572624, 20.4826, 66.6791, -51.4429)
+shaded = true
+alpha_cut = 2
+texture = ExtResource("21_ikd6g")
+
+[node name="Island2" type="Sprite3D" parent="Background elements" index="8"]
+transform = Transform3D(9.22135, 0, 0, 0, 8.77237, 0, 0, 0, -0.357502, 4.48156, 76.0854, -109.726)
+shaded = true
+alpha_cut = 2
+texture = ExtResource("21_ikd6g")
 
 [connection signal="switch_toggled" from="DynamicObjects/pressure_plate_04_N" to="MovingPlatforms/moving platform3" method="_on_plate_press"]
 [connection signal="switch_toggled" from="DynamicObjects/pressure_plate_05_top" to="MovingPlatforms/moving platform2" method="_on_plate_press"]

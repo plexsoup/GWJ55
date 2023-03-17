@@ -66,6 +66,7 @@ func check_climb():
 			# was crashing when collider was NPC in process of dying
 			if !is_instance_valid(collider): return
 			var collider_name = collider.name
+			
 			if collider_name == "climbable":
 				var distance = global_position.x - collision.get_position().x
 				if distance > 0:
@@ -92,6 +93,8 @@ func check_climb():
 			# was crashing when collider was NPC in process of dying
 			if !is_instance_valid(collider): return
 			var collider_name = collider.name
+			#thank you xRae! This printout was very useful. (plex)
+			#print("player collision with " , collider_name, collider)
 			if collider_name == "climbable":
 				climb_side = "top"
 				animated_sprite.flip_v = true

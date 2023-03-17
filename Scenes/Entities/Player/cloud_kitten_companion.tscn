@@ -1,0 +1,38 @@
+[gd_scene load_steps=6 format=3 uid="uid://cw6hwlepf4hp8"]
+
+[ext_resource type="Script" path="res://Scenes/Maps/MovementLab/Kitten.gd" id="1_e6tne"]
+[ext_resource type="Texture2D" uid="uid://b4crcvhdviwu" path="res://Materials/dotted_line.png" id="2_nah1j"]
+[ext_resource type="PackedScene" uid="uid://dujwxhrwrkq1q" path="res://Scenes/Entities/NPCs/Cat_Companion.tscn" id="3_022hw"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_3mu2f"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_dd3gg"]
+
+[node name="Kitten" type="CharacterBody3D" groups=["kitten"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.79342, 0.959874, 1.02937)
+collision_layer = 2147483648
+collision_mask = 2147483648
+script = ExtResource("1_e6tne")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Line2D" type="Line2D" parent="CanvasLayer"]
+texture_repeat = 2
+texture = ExtResource("2_nah1j")
+texture_mode = 1
+
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("SphereShape3D_3mu2f")
+
+[node name="Area3D" type="Area3D" parent="."]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+shape = SubResource("SphereShape3D_dd3gg")
+
+[node name="kitten_animation" parent="." instance=ExtResource("3_022hw")]
+transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, 0, 0, 0)
+
+[connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]

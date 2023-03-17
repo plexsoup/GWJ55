@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=3 uid="uid://13uei006vo3q"]
+[gd_scene load_steps=37 format=3 uid="uid://13uei006vo3q"]
 
 [ext_resource type="PackedScene" uid="uid://cjiok7gin5bk5" path="res://Scenes/Maps/base_level.tscn" id="1_mlq30"]
 [ext_resource type="MeshLibrary" uid="uid://dmh5e52qprx6r" path="res://MeshLibraries/cat_tower_plex.tres" id="2_bcvq3"]
@@ -26,6 +26,7 @@
 [ext_resource type="ArrayMesh" uid="uid://ugyiwsce5kcv" path="res://Art/objects/pillow.obj" id="18_x66xe"]
 [ext_resource type="ArrayMesh" uid="uid://d2s12jb7pdygk" path="res://Art/objects/tv.obj" id="19_vwaly"]
 [ext_resource type="Texture2D" uid="uid://cynsdc3oljjuy" path="res://Art/Foliage/Light house.png" id="20_cip6y"]
+[ext_resource type="Shader" uid="uid://bg2fpni5in5pd" path="res://Scenes/Maps/Official/LivingRoom/Clouds_R.tres" id="27_pj0nc"]
 
 [sub_resource type="Animation" id="Animation_hwajo"]
 resource_name = "Floating around"
@@ -161,10 +162,34 @@ _data = {
 "RESET": SubResource("Animation_2kuek")
 }
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_k6e5p"]
+roughness = 0.0
+emission_enabled = true
+emission = Color(0.588235, 0.588235, 0, 1)
+emission_energy_multiplier = 13.48
+rim_enabled = true
+clearcoat_enabled = true
+ao_enabled = true
+
+[sub_resource type="SphereMesh" id="SphereMesh_eh5yb"]
+material = SubResource("StandardMaterial3D_k6e5p")
+
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ngt3i"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_3w00d"]
 material = SubResource("StandardMaterial3D_ngt3i")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_c4e3k"]
+render_priority = 0
+shader = ExtResource("27_pj0nc")
+shader_parameter/ColorParameter = Color(0.593134, 0.593134, 0.593134, 1)
+shader_parameter/Rim = 20.0
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_wfvhx"]
+material = SubResource("ShaderMaterial_c4e3k")
+size = Vector2(500, 500)
+subdivide_width = 200
+subdivide_depth = 200
 
 [node name="LevelTemplate" instance=ExtResource("1_mlq30")]
 
@@ -285,37 +310,37 @@ texture = ExtResource("13_8fou7")
 [node name="Skyline" type="Node3D" parent="Background Elements" index="2"]
 
 [node name="Mountains" type="Sprite3D" parent="Background Elements/Skyline" index="0"]
-transform = Transform3D(28.065, 0, 0, 0, 27.6935, 0, 0, 0, 1, -111.661, -9.72363, -133.377)
+transform = Transform3D(28.065, 0, 0, 0, 27.6935, 0, 0, 0, 1, -111.661, 2.4189, -133.377)
 shaded = true
 texture = ExtResource("14_k8juc")
 
 [node name="Mountains6" type="Sprite3D" parent="Background Elements/Skyline" index="1"]
-transform = Transform3D(28.065, 0, 0, 0, 27.6935, 0, 0, 0, 1, -182.029, -9.72363, -133.377)
+transform = Transform3D(28.065, 0, 0, 0, 27.6935, 0, 0, 0, 1, -182.029, 2.4189, -133.377)
 shaded = true
 texture = ExtResource("14_k8juc")
 
 [node name="Mountains7" type="Sprite3D" parent="Background Elements/Skyline" index="2"]
-transform = Transform3D(28.065, 0, 0, 0, 27.6935, 0, 0, 0, 1, -252.971, -9.72363, -133.377)
+transform = Transform3D(28.065, 0, 0, 0, 27.6935, 0, 0, 0, 1, -252.971, 2.4189, -133.377)
 shaded = true
 texture = ExtResource("14_k8juc")
 
 [node name="Mountains2" type="Sprite3D" parent="Background Elements/Skyline" index="3"]
-transform = Transform3D(28.065, 0, 0, 0, 27.6935, 0, 0, 0, 1, -41.1261, -9.72363, -133.377)
+transform = Transform3D(28.065, 0, 0, 0, 27.6935, 0, 0, 0, 1, -41.1261, 2.4189, -133.377)
 shaded = true
 texture = ExtResource("14_k8juc")
 
 [node name="Mountains3" type="Sprite3D" parent="Background Elements/Skyline" index="4"]
-transform = Transform3D(28.065, 0, 0, 0, 27.6935, 0, 0, 0, 1, 4.70116, -9.72363, -133.377)
+transform = Transform3D(28.065, 0, 0, 0, 27.6935, 0, 0, 0, 1, 4.70116, 2.4189, -133.377)
 shaded = true
 texture = ExtResource("14_k8juc")
 
 [node name="Mountains4" type="Sprite3D" parent="Background Elements/Skyline" index="5"]
-transform = Transform3D(28.065, 0, 0, 0, 27.6935, 0, 0, 0, 1, 74.5237, -9.72363, -133.377)
+transform = Transform3D(28.065, 0, 0, 0, 27.6935, 0, 0, 0, 1, 74.5237, 2.4189, -133.377)
 shaded = true
 texture = ExtResource("14_k8juc")
 
 [node name="Mountains5" type="Sprite3D" parent="Background Elements/Skyline" index="6"]
-transform = Transform3D(28.065, 0, 0, 0, 27.6935, 0, 0, 0, 1, 142.328, -9.72363, -133.377)
+transform = Transform3D(28.065, 0, 0, 0, 27.6935, 0, 0, 0, 1, 142.328, 2.4189, -133.377)
 shaded = true
 texture = ExtResource("14_k8juc")
 
@@ -505,10 +530,30 @@ libraries = {
 "": SubResource("AnimationLibrary_r04g6")
 }
 
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Background Elements/High_Spec" index="8"]
+transform = Transform3D(53.8915, 0, 0, 0, 53.8762, 0, 0, 0, 1, 122.088, 53.1834, -225.471)
+mesh = SubResource("SphereMesh_eh5yb")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="Background Elements/High_Spec/MeshInstance3D" index="0"]
+light_color = Color(0.305882, 0.141176, 0.396078, 1)
+light_energy = 2.067
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="Background Elements/High_Spec" index="9"]
+transform = Transform3D(21.405, 0, 0, 0, 21.4243, 0, 0, 0, 0.419836, 15.1524, 78.5873, -305.092)
+mesh = SubResource("SphereMesh_eh5yb")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="Background Elements/High_Spec/MeshInstance3D2" index="0"]
+light_color = Color(0.305882, 0.141176, 0.396078, 1)
+light_energy = 2.067
+
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." index="12"]
 transform = Transform3D(5.08444, 3.58311, 0.404222, 0.806308, 1.26177, -5.01494, -2.49027, 3.48009, 0.47521, -24.6197, 15.327, -12.0844)
 mesh = SubResource("PlaneMesh_3w00d")
 skeleton = NodePath("../Background Elements/High_Spec/Tv")
+
+[node name="Clouds" type="MeshInstance3D" parent="." index="13"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -34.2957, 0)
+mesh = SubResource("PlaneMesh_wfvhx")
 
 [editable path="player"]
 [editable path="player/Audio/Footsteps"]

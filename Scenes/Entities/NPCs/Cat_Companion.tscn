@@ -3,7 +3,6 @@
 [ext_resource type="Texture2D" uid="uid://btflhndbdc2f2" path="res://Art/Companion assests/Cat.png" id="1_t2j8r"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_51h2o"]
-load_path = "res://.godot/imported/Cloud.png-d83716739e8cfd7f969025a3fc78afdf.s3tc.ctex"
 
 [sub_resource type="Curve" id="Curve_yhjkr"]
 min_value = -1.0

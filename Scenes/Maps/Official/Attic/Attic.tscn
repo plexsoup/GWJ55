@@ -127,8 +127,9 @@ target = Vector3(0, 13, 0)
 needs_activation = true
 
 [node name="moving platform_NE" parent="MovingPlatforms" index="3" instance=ExtResource("5_m16ie")]
-transform = Transform3D(1.53287, 0, 0, 0, 0.766437, 0, 0, 0, 1.53287, 39.7496, 35.4347, 0)
-target = Vector3(-6, 0, 0)
+transform = Transform3D(1.53287, 0, 0, 0, 0.766437, 0, 0, 0, 1.53287, 30.2991, 35.4347, 0)
+target = Vector3(6, 0, 0)
+needs_activation = true
 
 [node name="DirectionalLight3D" parent="Lighting" index="0"]
 light_color = Color(0.847059, 0.364706, 0.478431, 1)
@@ -310,6 +311,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.74337, 0, 0)
 alpha_cut = 2
 texture = ExtResource("17_en30g")
 
+[connection signal="switch_toggled" from="DynamicObjects/pressure_plate_02_NE" to="MovingPlatforms/moving platform_NE" method="_on_plate_press"]
 [connection signal="switch_toggled" from="DynamicObjects/pressure_plate_04_N" to="MovingPlatforms/moving platform3" method="_on_plate_press"]
 [connection signal="switch_toggled" from="DynamicObjects/pressure_plate_05_top" to="MovingPlatforms/moving platform2" method="_on_plate_press"]
 [connection signal="switch_toggled" from="DynamicObjects/pressure_plate_06_NW" to="MovingPlatforms/moving platform" method="_on_plate_press"]

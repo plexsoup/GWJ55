@@ -135,8 +135,8 @@ transform = Transform3D(5.21472, 0.00235619, 0, -0.00409563, 3, 0, 0, 0, 1.72996
 [node name="DeadlyTile3" parent="EnvironmentalHazards" index="3" instance=ExtResource("4_o18aw")]
 transform = Transform3D(3.57115, 0, 0, 0, 3, 0, 0, 0, 1.91568, 41.1764, 5.02719, -1.1007)
 
-[node name="moving platform" parent="MovingPlatforms" index="0" instance=ExtResource("5_m16ie")]
-transform = Transform3D(2.07742, 0, 0, 0, 0.692473, 0, 0, 0, 1.38495, 3.78362, 40.8477, 0)
+[node name="moving_platform_top" parent="MovingPlatforms" index="0" instance=ExtResource("5_m16ie")]
+transform = Transform3D(1.7902, 0, 0, 0, 0.596735, 0, 0, 0, 1.19347, 3.78362, 40.8477, 0)
 target = Vector3(0, 23, 0)
 needs_activation = true
 
@@ -187,16 +187,19 @@ transform = Transform3D(1.97427, 0, 0, 0, 0.987135, 0, 0, 0, 1.97427, 41.3118, 1
 connected_to = Array[NodePath]([NodePath("../../MovingPlatforms/moving platform_NE")])
 
 [node name="pressure_plate_05_top" parent="DynamicObjects" index="4" instance=ExtResource("6_nya5f")]
-transform = Transform3D(2.36487, 0, 0, 0, 1.18243, 0, 0, 0, 2.36487, 20.3219, 46.5275, -0.156532)
+transform = Transform3D(1.90546, 0, 0, 0, 0.952725, 0, 0, 0, 1.90546, 20.408, 46.5275, -0.824644)
 connected_to = Array[NodePath]([NodePath("../../MovingPlatforms/moving platform_NE")])
 
 [node name="pressure_plate_06_NW" parent="DynamicObjects" index="5" instance=ExtResource("6_nya5f")]
 transform = Transform3D(2.45643, 0, 0, 0, 1.22822, 0, 0, 0, 2.45643, 0.860338, 40.3889, -0.156532)
-connected_to = Array[NodePath]([NodePath("../../MovingPlatforms/moving platform_NE")])
+connected_to = Array[NodePath]([NodePath("../../MovingPlatforms/moving_platform_top")])
 
 [node name="pressure_plate_08_middle" parent="DynamicObjects" index="6" instance=ExtResource("6_nya5f")]
 transform = Transform3D(1.98534, 0, 0, 0, 0.992672, 0, 0, 0, 1.98534, 56.8336, 15.101, -1.02811)
-connected_to = Array[NodePath]([NodePath("../../MovingPlatforms/moving platform_NE")])
+connected_to = Array[NodePath]([NodePath("Door_08_hair_dryer")])
+
+[node name="Door_08_hair_dryer" parent="DynamicObjects/pressure_plate_08_middle" index="5" instance=ExtResource("7_tpc43")]
+transform = Transform3D(-1.74846e-07, -3.12171, 0, 4, -1.36454e-07, 0, 0, 0, 1.5604, -4.33168, -6.93505, 0)
 
 [node name="Door_01_W" parent="DynamicObjects" index="7" instance=ExtResource("7_tpc43")]
 transform = Transform3D(4, 0, 0, 0, 2.75066, 0, 0, 0, 2.92067, 8.23157, -1.40352, -0.575484)
@@ -206,7 +209,8 @@ transform = Transform3D(2.45643, 0, 0, 0, 1.22822, 0, 0, 0, 2.45643, 7.41621, 54
 connected_to = Array[NodePath]([NodePath("Door_05")])
 
 [node name="Door_05" parent="DynamicObjects/pressure_plate_05" index="5" instance=ExtResource("7_tpc43")]
-transform = Transform3D(1.3471, 0, 0, 0, 1.8527, 0, 0, 0, 0.983607, 0.331927, -12.2164, -0.170553)
+transform = Transform3D(1.3471, 0, 0, 0, 2.40685, 0, 0, 0, 0.687136, 0.331927, -11.0925, -0.372706)
+queue_free_on_activate = true
 
 [node name="TriggerVolumeWin2" parent="DynamicObjects" index="9" instance=ExtResource("8_pd66h")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 69.9896, 19.7704, 0)
@@ -241,7 +245,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.81604, 32.9097, -1.837)
 target_node = NodePath("Door_06")
 
 [node name="Door_06" parent="DynamicObjects/switch_06" index="4" instance=ExtResource("7_tpc43")]
-transform = Transform3D(3.30905, 0, 0, 0, 2.27552, 0, 0, 0, 2.41616, -1.58447, -0.103233, 1.26152)
+transform = Transform3D(3.30905, 0, 0, 0, 3.12607, 0, 0, 0, 1.78557, -1.58447, -0.103233, 0.775456)
+queue_free_on_activate = true
 
 [node name="TriggerVolumeHint" parent="DynamicObjects" index="14" instance=ExtResource("13_k8sh5")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 44.7598, 40.1164, 0)
@@ -400,7 +405,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 62.0675, 20.0949, -0.620568)
 
 [connection signal="switch_toggled" from="DynamicObjects/pressure_plate_04_N" to="MovingPlatforms/moving platform3" method="_on_plate_press"]
 [connection signal="switch_toggled" from="DynamicObjects/pressure_plate_05_top" to="MovingPlatforms/moving platform2" method="_on_plate_press"]
-[connection signal="switch_toggled" from="DynamicObjects/pressure_plate_06_NW" to="MovingPlatforms/moving platform" method="_on_plate_press"]
+[connection signal="switch_toggled" from="DynamicObjects/pressure_plate_06_NW" to="MovingPlatforms/moving_platform_top" method="_on_plate_press"]
 
 [editable path="player"]
 [editable path="player/Audio/Footsteps"]

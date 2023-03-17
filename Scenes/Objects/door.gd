@@ -1,6 +1,7 @@
 extends Node3D
 
 @export var rotate : bool = false
+@export var queue_free_on_activate : bool = false
 @export var duration : float = 0.5
 @export var open_on_previous_map_name : String = ""
 
@@ -27,13 +28,18 @@ func _on_switch_toggled(value):
 		close()
 		
 func open():
+	$OpenNoises.play_random_sound()
+
+	if queue_free_on_activate:
+		queue_free() # just make it go away. There's no room for a hinge
+	
+	
 	var tween = get_tree().create_tween()
 	if has_node("Hinge") and is_instance_valid($Hinge):
 		if rotate:
 				tween.tween_property($Hinge, "rotation", rotation_axis * full_rotation, duration)
 		else:
 			tween.tween_property($Hinge, "position", final_position, duration )
-	$OpenNoises.play_random_sound()
 		
 func close():
 	# throws errors if user restarts level while on a platform

@@ -6,9 +6,8 @@
 [ext_resource type="Texture2D" uid="uid://tevy8ffg5l6a" path="res://Scenes/Maps/Official/LivingRoom/level01_mockup_section1.png" id="3_f2ifg"]
 [ext_resource type="CameraAttributesPractical" uid="uid://lwejjr4rdbk0" path="res://Shaders/Camera_Shader.tres" id="3_it8qf"]
 [ext_resource type="PackedScene" uid="uid://iy2fvk38ehxj" path="res://Scenes/Entities/NPCs/deadly_tile.tscn" id="3_ixud2"]
-[ext_resource type="PackedScene" path="res://Scenes/Objects/trigger_volume_win.tscn" id="4_jclyg"]
+[ext_resource type="PackedScene" uid="uid://eb3wwyaluatx" path="res://Scenes/Objects/trigger_volume_win.tscn" id="4_jclyg"]
 [ext_resource type="Texture2D" uid="uid://dhm4vtuux462g" path="res://Materials/arrow_01.png" id="5_p0717"]
-[ext_resource type="Environment" uid="uid://bmbo025oyrqsq" path="res://Shaders/World_Aesthics.tres" id="5_ry55b"]
 [ext_resource type="PackedScene" uid="uid://crvvpifd7a146" path="res://Scenes/Entities/NPCs/pressure_plate.tscn" id="6_1r3rs"]
 [ext_resource type="PackedScene" uid="uid://dwte3a8axt6kp" path="res://Scenes/Objects/door.tscn" id="7_4288d"]
 [ext_resource type="PackedScene" uid="uid://b3p7s4vjxe0y0" path="res://Scenes/Objects/VolumeTriggerThoughtBubble.tscn" id="9_4bb1g"]
@@ -241,10 +240,6 @@ shadow_enabled = true
 shadow_opacity = 0.71
 shadow_blur = 1.202
 
-[node name="Sky and Lighting" parent="." index="7"]
-environment = ExtResource("5_ry55b")
-low_spec_in_editor = false
-
 [node name="Cloud_water" parent="." index="8"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -40.7504, 0)
 
@@ -293,6 +288,14 @@ visible = false
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.23854, 2.44171, 0)
 hint_text = "Enemies have a weak spot."
 local_coords = true
+
+[node name="HintTextPopup02" parent="DynamicObjects" index="8" instance=ExtResource("9_4bb1g")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25.7391, -16.0492, 0)
+hint_text = "WASD move,
+space to jump,
+F/sprint to dash"
+times_to_display = 3
+duration = 18.988
 
 [node name="ReferenceSprite3D" type="Sprite3D" parent="." index="10"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2.05205)

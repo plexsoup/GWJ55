@@ -2,7 +2,7 @@
 
 extends Area3D
 
-@export var hint_text : String = "I'm doing great!" : set = set_hint_text, get = get_hint_text
+@export_multiline var hint_text : String = "I'm doing great!" : set = set_hint_text, get = get_hint_text
 @export var times_to_display : int = 1
 @export var duration : float = 3.0 # seconds
 @export var local_coords : bool = false # text follows player or stays in scene?

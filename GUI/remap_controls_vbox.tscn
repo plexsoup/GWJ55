@@ -1,0 +1,30 @@
+[gd_scene load_steps=2 format=3 uid="uid://usl7miasqpmr"]
+
+[ext_resource type="PackedScene" uid="uid://bdfxkdw1gtrqc" path="res://Menus/Settings/action_remapping_container.tscn" id="1_2oj4s"]
+
+[node name="RemapControlsVbox" type="VBoxContainer"]
+custom_minimum_size = Vector2(150, 2.08165e-12)
+
+[node name="move_left" parent="." instance=ExtResource("1_2oj4s")]
+layout_mode = 2
+action_name = "move_left"
+
+[node name="move_right" parent="." instance=ExtResource("1_2oj4s")]
+layout_mode = 2
+action_name = "move_right"
+
+[node name="move_up" parent="." instance=ExtResource("1_2oj4s")]
+layout_mode = 2
+action_name = "move_up"
+
+[node name="move_down" parent="." instance=ExtResource("1_2oj4s")]
+layout_mode = 2
+action_name = "move_down"
+
+[node name="dash" parent="." instance=ExtResource("1_2oj4s")]
+layout_mode = 2
+action_name = "dash"
+
+[node name="throw" parent="." instance=ExtResource("1_2oj4s")]
+layout_mode = 2
+action_name = "throw"

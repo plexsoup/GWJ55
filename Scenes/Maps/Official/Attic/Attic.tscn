@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://dv6mgvqyrydae"]
+[gd_scene load_steps=22 format=3 uid="uid://dv6mgvqyrydae"]
 
 [ext_resource type="PackedScene" uid="uid://cjiok7gin5bk5" path="res://Scenes/Maps/base_level.tscn" id="1_0tska"]
 [ext_resource type="MeshLibrary" uid="uid://dmh5e52qprx6r" path="res://MeshLibraries/cat_tower_plex.tres" id="2_18ox2"]
@@ -9,10 +9,62 @@
 [ext_resource type="PackedScene" uid="uid://dd3fox603os7x" path="res://Scenes/Entities/moving platform.tscn" id="5_m16ie"]
 [ext_resource type="Texture2D" uid="uid://dhm4vtuux462g" path="res://Materials/arrow_01.png" id="6_431y2"]
 [ext_resource type="PackedScene" uid="uid://crvvpifd7a146" path="res://Scenes/Entities/NPCs/pressure_plate.tscn" id="6_nya5f"]
+[ext_resource type="Environment" uid="uid://bmbo025oyrqsq" path="res://Shaders/World_Aesthics.tres" id="7_dy5fk"]
 [ext_resource type="PackedScene" uid="uid://dwte3a8axt6kp" path="res://Scenes/Objects/door.tscn" id="7_tpc43"]
-[ext_resource type="PackedScene" uid="uid://eb3wwyaluatx" path="res://Scenes/Objects/trigger_volume_win.tscn" id="8_pd66h"]
+[ext_resource type="PackedScene" path="res://Scenes/Objects/trigger_volume_win.tscn" id="8_pd66h"]
 [ext_resource type="PackedScene" uid="uid://ted21c8mecho" path="res://Scenes/Entities/NPCs/switch.tscn" id="11_gdsl8"]
 [ext_resource type="Script" path="res://Scenes/Maps/ReferenceSprite3D.gd" id="13_q5c4o"]
+[ext_resource type="Shader" uid="uid://drv4hywg6luaj" path="res://Shaders/Clouds_R.tres" id="15_md0xm"]
+[ext_resource type="Texture2D" uid="uid://b6jmphr0ugk78" path="res://Art/Foliage/Mountains 2.png" id="16_own6m"]
+
+[sub_resource type="Animation" id="Animation_gsbch"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:environment:sky_rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_otf31"]
+resource_name = "Sky panning"
+length = 20.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:environment:sky_rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 20),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 6.28319, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_whbuy"]
+_data = {
+"RESET": SubResource("Animation_gsbch"),
+"Sky panning": SubResource("Animation_otf31")
+}
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_c4e3k"]
+render_priority = 0
+shader = ExtResource("15_md0xm")
+shader_parameter/ColorParameter = Color(0.593134, 0.593134, 0.593134, 1)
+shader_parameter/Rim = 20.0
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_yfww1"]
+material = SubResource("ShaderMaterial_c4e3k")
+size = Vector2(500, 500)
+subdivide_width = 200
+subdivide_depth = 200
 
 [node name="Attic" instance=ExtResource("1_0tska")]
 
@@ -74,6 +126,21 @@ needs_activation = true
 [node name="moving platform_NE" parent="MovingPlatforms" index="3" instance=ExtResource("5_m16ie")]
 transform = Transform3D(1.53287, 0, 0, 0, 0.766437, 0, 0, 0, 1.53287, 39.7496, 35.4347, 0)
 target = Vector3(-6, 0, 0)
+
+[node name="DirectionalLight3D" parent="Lighting" index="0"]
+light_color = Color(0.309804, 0, 0.984314, 1)
+shadow_enabled = true
+
+[node name="Sky and Lighting" parent="." index="7"]
+environment = ExtResource("7_dy5fk")
+low_spec_in_editor = false
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Sky and Lighting" index="0"]
+autoplay = "Sky panning"
+speed_scale = 0.1
+libraries = {
+"": SubResource("AnimationLibrary_whbuy")
+}
 
 [node name="TriggerVolumeWin" parent="DynamicObjects" index="0"]
 transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 23.1153, -5.36793, 0)
@@ -156,6 +223,7 @@ transform = Transform3D(3.30905, 0, 0, 0, 2.27552, 0, 0, 0, 2.41616, -1.58447, -
 
 [node name="ReferenceSprite3D" type="Sprite3D" parent="." index="10"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 34.04, -1.79347)
+visible = false
 modulate = Color(1, 1, 1, 0.501961)
 pixel_size = 0.067
 texture = ExtResource("2_di4eq")
@@ -171,6 +239,27 @@ text = "Need a Tail Checkpoint. Or some cool payoff.
 "
 font_size = 200
 
+[node name="Background elements" type="Node3D" parent="." index="13"]
+
+[node name="High End" type="Node3D" parent="Background elements" index="0"]
+
+[node name="Clouds" type="MeshInstance3D" parent="Background elements" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -34.2957, 0)
+mesh = SubResource("PlaneMesh_yfww1")
+
+[node name="Skyline" type="Node3D" parent="Background elements" index="2"]
+
+[node name="Mountains" type="Sprite3D" parent="Background elements/Skyline" index="0"]
+transform = Transform3D(37.094, 0, 0, 0, 37.094, 0, 0, 0, 1, -16.7838, 35.4455, -37.82)
+shaded = true
+alpha_cut = 2
+texture = ExtResource("16_own6m")
+
 [connection signal="switch_toggled" from="DynamicObjects/pressure_plate_04_N" to="MovingPlatforms/moving platform3" method="_on_plate_press"]
 [connection signal="switch_toggled" from="DynamicObjects/pressure_plate_05_top" to="MovingPlatforms/moving platform2" method="_on_plate_press"]
 [connection signal="switch_toggled" from="DynamicObjects/pressure_plate_06_NW" to="MovingPlatforms/moving platform" method="_on_plate_press"]
+
+[editable path="player"]
+[editable path="player/Audio/Footsteps"]
+[editable path="player/Audio/Landing"]
+[editable path="player/Audio/Jumping"]

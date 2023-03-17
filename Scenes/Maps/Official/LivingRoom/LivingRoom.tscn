@@ -26,7 +26,7 @@
 [ext_resource type="ArrayMesh" uid="uid://ugyiwsce5kcv" path="res://Art/objects/pillow.obj" id="18_x66xe"]
 [ext_resource type="ArrayMesh" uid="uid://d2s12jb7pdygk" path="res://Art/objects/tv.obj" id="19_vwaly"]
 [ext_resource type="Texture2D" uid="uid://cynsdc3oljjuy" path="res://Art/Foliage/Light house.png" id="20_cip6y"]
-[ext_resource type="Shader" uid="uid://bg2fpni5in5pd" path="res://Scenes/Maps/Official/LivingRoom/Clouds_R.tres" id="27_pj0nc"]
+[ext_resource type="Shader" uid="uid://drv4hywg6luaj" path="res://Shaders/Clouds_R.tres" id="27_prkw3"]
 
 [sub_resource type="Animation" id="Animation_hwajo"]
 resource_name = "Floating around"
@@ -179,14 +179,14 @@ material = SubResource("StandardMaterial3D_k6e5p")
 [sub_resource type="PlaneMesh" id="PlaneMesh_3w00d"]
 material = SubResource("StandardMaterial3D_ngt3i")
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_c4e3k"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_a0rty"]
 render_priority = 0
-shader = ExtResource("27_pj0nc")
+shader = ExtResource("27_prkw3")
 shader_parameter/ColorParameter = Color(0.593134, 0.593134, 0.593134, 1)
 shader_parameter/Rim = 20.0
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_wfvhx"]
-material = SubResource("ShaderMaterial_c4e3k")
+material = SubResource("ShaderMaterial_a0rty")
 size = Vector2(500, 500)
 subdivide_width = 200
 subdivide_depth = 200
@@ -210,7 +210,13 @@ data = {
 }
 
 [node name="player" parent="." index="2"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -23.2526, -17.6057, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -23.2526, -17.6057, -0.32004)
+
+[node name="AnimatedSprite3D" parent="player" index="1"]
+shaded = true
+
+[node name="Camera3D" parent="player" index="8"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 10.0219)
 
 [node name="VacuumCleaner" parent="NPCs" index="0" instance=ExtResource("3_dl32a")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.7181, -0.677564, -1.09013)
@@ -229,6 +235,14 @@ skeleton = NodePath("../..")
 [node name="DeadlyTile4" parent="EnvironmentalHazards" index="2" instance=ExtResource("3_ixud2")]
 transform = Transform3D(4.03189, 0, 0, 0, 6.1833, 0, 0, 0, 1.97633, -53.9582, -4.35111, -1.24384)
 skeleton = NodePath("../..")
+
+[node name="DirectionalLight3D" parent="Lighting" index="0"]
+light_color = Color(0.827451, 0.54902, 0.160784, 1)
+light_energy = 1.323
+light_volumetric_fog_energy = 2.616
+shadow_enabled = true
+shadow_opacity = 0.71
+shadow_blur = 1.202
 
 [node name="Sky and Lighting" parent="." index="7"]
 environment = ExtResource("5_ry55b")

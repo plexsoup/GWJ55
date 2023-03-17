@@ -1,5 +1,6 @@
 extends MeshInstance3D
 
+@export var lazy_motion_active : bool = true
 @export var time_interval : float = 18.0 # seconds
 @export var speed : float = 5.0
 var last_decision_time : float = 0.0
@@ -14,6 +15,9 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
+	if !lazy_motion_active:
+		return
+
 	var now = Time.get_ticks_msec()
 	if now > last_decision_time + (time_interval * 1000):
 		choose_new_direction()
@@ -32,7 +36,10 @@ func get_rand_vector():
 	return newVector
 
 func choose_new_direction():
-	direction = get_rand_vector()
+	var proposedDirection = get_rand_vector()
+	if proposedDirection.z > 0 and get_global_position().z > -10.0:
+		proposedDirection.z *= -1.0 # don't come forward through the level
+	direction = proposedDirection
 	var axes = [ Vector3.UP, Vector3.RIGHT, Vector3.DOWN ]
 	tumble_rotation = axes.pick_random() * randf()
 	

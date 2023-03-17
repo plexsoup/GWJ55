@@ -11,6 +11,9 @@ extends CharacterBody3D
 
 @export var path_to_follow : NodePath
 @export var animation_player_location : NodePath
+
+@export var jump_off_cliffs : bool = false
+
 var path : PathFollow3D
 
 
@@ -39,6 +42,9 @@ func _ready():
 
 	if "dryer" in name:
 		electrical = true
+
+	if has_node("Behaviours/BackAndForth"):
+		$Behaviours/BackAndForth.jump_off_cliffs = jump_off_cliffs
 
 func _physics_process(delta):
 	move(delta)

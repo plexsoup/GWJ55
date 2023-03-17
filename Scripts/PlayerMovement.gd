@@ -31,6 +31,8 @@ var dash_usable = true
 var climb_side = "none"
 var climb_flip = 0
 
+var no_clip_mode : bool = false
+
 func _ready():
 	Global.current_player = self
 
@@ -41,7 +43,11 @@ func _physics_process(delta):
 	handle_dash()
 	if !dashing and !on_dash_cooldown:
 		handle_jump()
-		move()
+		if !no_clip_mode:
+			move()
+		else:
+			move_noclip(delta)
+
 	move_and_slide()
 	update_gravity_states()
 	animate()
@@ -55,6 +61,19 @@ func wind_throw():
 func throw():
 	pass
 
+func _unhandled_input(_event):
+	if Input.is_action_just_pressed("no_clip"):
+		no_clip_mode = !no_clip_mode
+		if no_clip_mode:
+			set_collision_layer_value(1, false)
+			set_collision_mask_value(3, false)
+			print("no_clip ghost mode enabled")
+		else:
+			set_collision_layer_value(1, true)
+			set_collision_mask_value(3, true)
+			print("no_clip ghost mode disabled")
+	
+	
 func check_climb():
 	if is_on_wall() and climb_flip != 3:
 		var collision_count = get_slide_collision_count()
@@ -235,6 +254,11 @@ func move():
 		velocity.y = direction.x * SPEED * climb_flip
 		if is_on_floor() and velocity.y < 0:
 			velocity.x = direction.x * SPEED * fall_modifier
+
+func move_noclip(delta):
+	var noclip_speed = 200.0
+	velocity = Vector3( Input.get_axis("move_left", "move_right"), Input.get_axis("move_down", "move_up"), 0) * noclip_speed * delta
+	
 
 func get_gravity() -> float:
 	return jump_gravity if velocity.y > 0.0 else fall_gravity

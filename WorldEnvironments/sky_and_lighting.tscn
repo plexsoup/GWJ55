@@ -2,7 +2,42 @@
 
 [ext_resource type="Environment" uid="uid://bmbo025oyrqsq" path="res://Shaders/World_Aesthics.tres" id="1_ns5u2"]
 [ext_resource type="Environment" uid="uid://dkqoljottq1rg" path="res://Shaders/Night_Aesthic.tres" id="1_t8x7c"]
-[ext_resource type="Script" path="res://WorldEnvironments/sky_and_lighting.gd" id="2_ycf2b"]
+
+[sub_resource type="GDScript" id="GDScript_0iu5f"]
+script/source = "@tool
+
+extends WorldEnvironment
+@export var low_spec_in_editor : bool = true : set = set_low_spec, get = get_low_spec
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	if Engine.is_editor_hint():
+		if low_spec_in_editor:
+			set_environment(load(\"res://Shaders/World_Aesthics_low_spec.tres\"))
+		else: # high_spec
+			set_environment(load(\"res://Shaders/World_Aesthics.tres\"))
+	else: # running in-game
+		if Global.low_spec == false:
+			set_environment(load(\"res://Shaders/World_Aesthics.tres\"))
+		else:
+			set_environment(load(\"res://Shaders/World_Aesthics_low_spec.tres\"))
+
+
+func change_graphics_settings():
+	set_low_spec(Global.low_spec)
+	
+func set_low_spec(value : bool):
+	if value == true:
+		set_environment(load(\"res://Shaders/World_Aesthics_low_spec.tres\"))
+	else:
+		set_environment(load(\"res://Shaders/World_Aesthics.tres\"))
+
+	low_spec_in_editor = value
+	
+func get_low_spec():
+	return low_spec_in_editor
+"
 
 [sub_resource type="Animation" id="Animation_gsbch"]
 length = 0.001
@@ -96,7 +131,7 @@ _data = {
 
 [node name="Sky and Lighting" type="WorldEnvironment"]
 environment = ExtResource("1_t8x7c")
-script = ExtResource("2_ycf2b")
+script = SubResource("GDScript_0iu5f")
 low_spec_in_editor = false
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]

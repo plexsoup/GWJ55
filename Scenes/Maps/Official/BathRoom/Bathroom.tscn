@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://dyn1atg77jsnm"]
+[gd_scene load_steps=47 format=3 uid="uid://dyn1atg77jsnm"]
 
 [ext_resource type="Script" path="res://Scenes/Maps/base_level.gd" id="1_3t2kx"]
 [ext_resource type="MeshLibrary" uid="uid://dmh5e52qprx6r" path="res://MeshLibraries/cat_tower_plex.tres" id="2_tx034"]
@@ -10,18 +10,22 @@
 [ext_resource type="Texture2D" uid="uid://dhm4vtuux462g" path="res://Materials/arrow_01.png" id="5_r5rsb"]
 [ext_resource type="PackedScene" uid="uid://crvvpifd7a146" path="res://Scenes/Entities/NPCs/pressure_plate.tscn" id="6_jvxdu"]
 [ext_resource type="PackedScene" uid="uid://dwte3a8axt6kp" path="res://Scenes/Objects/door.tscn" id="7_vtp6s"]
-[ext_resource type="PackedScene" uid="uid://eb3wwyaluatx" path="res://Scenes/Objects/trigger_volume_win.tscn" id="8_ctuvk"]
+[ext_resource type="PackedScene" path="res://Scenes/Objects/trigger_volume_win.tscn" id="8_ctuvk"]
 [ext_resource type="PackedScene" uid="uid://ch0xqdmee1xnu" path="res://WorldEnvironments/sky_and_lighting.tscn" id="8_tngek"]
 [ext_resource type="Shader" uid="uid://cx2ac458h8a83" path="res://Shaders/Cloud_Water.tres" id="9_24d24"]
 [ext_resource type="Texture2D" uid="uid://d2tun4dqdssdx" path="res://Scenes/Maps/Official/BathRoom/level01_mockup_section3.png" id="9_dy6eo"]
+[ext_resource type="Script" path="res://WorldEnvironments/sky_and_lighting_Bathroom.gd" id="9_qwmps"]
 [ext_resource type="PackedScene" uid="uid://ted21c8mecho" path="res://Scenes/Entities/NPCs/switch.tscn" id="10_7ywxi"]
-[ext_resource type="PackedScene" uid="uid://cmd16bdree5a7" path="res://Scenes/Objects/fall_reset_volume.tscn" id="12_4q8sl"]
+[ext_resource type="PackedScene" path="res://Scenes/Objects/fall_reset_volume.tscn" id="12_4q8sl"]
 [ext_resource type="Script" path="res://Scenes/Maps/ReferenceSprite3D.gd" id="12_p2k0u"]
 [ext_resource type="ArrayMesh" uid="uid://bbje4wl4kivx0" path="res://Art/objects/mirror.obj" id="13_do3yh"]
 [ext_resource type="Script" path="res://Scenes/Objects/RandomLazyMotion.gd" id="14_olyda"]
 [ext_resource type="ArrayMesh" uid="uid://cqerpxbfucmkm" path="res://Art/objects/sink.obj" id="15_w2qbg"]
 [ext_resource type="PackedScene" uid="uid://b3p7s4vjxe0y0" path="res://Scenes/Objects/VolumeTriggerHintThoughtBubble.tscn" id="21_cgked"]
 [ext_resource type="PackedScene" uid="uid://b2tb1owb5nnun" path="res://Scenes/Objects/spawn_point.tscn" id="22_0ifv0"]
+[ext_resource type="Texture2D" uid="uid://bpp08atu8a8u0" path="res://Art/objects/sink.png" id="22_3q82r"]
+[ext_resource type="Texture2D" uid="uid://lmde70nwacgw" path="res://Art/Eye_text.png" id="24_xk33q"]
+[ext_resource type="Shader" uid="uid://btl5ebnoijhp2" path="res://Shaders/Envi_Water.tres" id="26_yyjx1"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_op2lt"]
 render_priority = 0
@@ -31,6 +35,143 @@ shader_parameter/FloatParameter = 1.0
 [sub_resource type="PlaneMesh" id="PlaneMesh_kw84f"]
 material = SubResource("ShaderMaterial_op2lt")
 size = Vector2(300, 300)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4owc6"]
+albedo_texture = ExtResource("22_3q82r")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0fbmc"]
+vertex_color_use_as_albedo = true
+albedo_texture = ExtResource("24_xk33q")
+metallic_specular = 1.0
+roughness = 0.33
+rim_enabled = true
+rim_tint = 0.41
+clearcoat_enabled = true
+clearcoat_roughness = 0.0
+heightmap_enabled = true
+subsurf_scatter_enabled = true
+
+[sub_resource type="SphereMesh" id="SphereMesh_ovymh"]
+material = SubResource("StandardMaterial3D_0fbmc")
+radius = 9.411
+height = 18.822
+
+[sub_resource type="Animation" id="Animation_ohep0"]
+resource_name = "Twitching_Eye"
+length = 10.0
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 9.7),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(-0.865234, -3.07662, -1.3596), Vector3(-0.321395, -1.5078, -2.40971)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(9.7),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_deyvl"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-0.865234, -3.07662, -1.3596)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_4u500"]
+_data = {
+"RESET": SubResource("Animation_deyvl"),
+"Twitching_Eye": SubResource("Animation_ohep0")
+}
+
+[sub_resource type="Curve" id="Curve_31aaj"]
+max_value = 697.74
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(1, 1), 976.836, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_vffpx"]
+render_priority = 0
+shader = ExtResource("26_yyjx1")
+shader_parameter/Vertex_Roughness = 1.0
+shader_parameter/ColorParameter = Color(0.10844, 0.397392, 0.688247, 1)
+shader_parameter/FloatParameter = null
+
+[sub_resource type="TubeTrailMesh" id="TubeTrailMesh_76on5"]
+material = SubResource("ShaderMaterial_vffpx")
+radius = 0.491
+radial_steps = 119
+section_length = 70.971
+section_rings = 17
+curve = SubResource("Curve_31aaj")
+
+[sub_resource type="AnimationNodeBlendSpace2D" id="AnimationNodeBlendSpace2D_qrb4l"]
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_74k40"]
+animation = &"Drop"
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_hoslx"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_y2n01"]
+xfade_time = 38.92
+switch_mode = 2
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_si66s"]
+states/BlendSpace2D/node = SubResource("AnimationNodeBlendSpace2D_qrb4l")
+states/BlendSpace2D/position = Vector2(317, 132)
+states/Drop/node = SubResource("AnimationNodeAnimation_74k40")
+states/Drop/position = Vector2(413, 32)
+states/Start/position = Vector2(177, 78)
+states/StateMachine/node = SubResource("AnimationNodeStateMachine_hoslx")
+states/StateMachine/position = Vector2(533, 78)
+transitions = ["Start", "Drop", SubResource("AnimationNodeStateMachineTransition_y2n01")]
+graph_offset = Vector2(-55, -1)
+
+[sub_resource type="AnimationNodeStateMachinePlayback" id="AnimationNodeStateMachinePlayback_8nuwr"]
+
+[sub_resource type="AnimationNodeStateMachinePlayback" id="AnimationNodeStateMachinePlayback_oat0l"]
+
+[sub_resource type="Animation" id="Animation_gmlqj"]
+resource_name = "Drop"
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_4mrw4"]
+_data = {
+"Drop": SubResource("Animation_gmlqj")
+}
 
 [node name="Bathroom" type="Node3D"]
 script = ExtResource("1_3t2kx")
@@ -56,7 +197,10 @@ data = {
 metadata/_editor_floor_ = Vector3(0, 0, 0)
 
 [node name="player" parent="." instance=ExtResource("3_rv5u6")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -71.0464, 33.181, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -59.4713, 22.0935, -0.382575)
+
+[node name="AnimatedSprite3D" parent="player" index="1"]
+shaded = true
 
 [node name="NPCs" type="Node3D" parent="."]
 
@@ -82,7 +226,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.06701, 76.5359, 2.08165e-12
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.73434, 76.0831, 2.08165e-12)
 
 [node name="Kitten" parent="NPCs" instance=ExtResource("4_he5h7")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.8046, 0.959874, 1.02937)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.8046, -2.35665, -0.917665)
 
 [node name="EnvironmentalHazards" type="Node3D" parent="."]
 
@@ -116,9 +260,13 @@ target = Vector3(13, 0, 0)
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="Lighting"]
 transform = Transform3D(0.822889, 0.469704, -0.319738, 0, 0.562718, 0.826649, 0.568203, -0.68024, 0.463054, 0, 39.1774, 14.9607)
+light_color = Color(0.47451, 0.870588, 0.556863, 1)
+light_energy = 1.386
+shadow_enabled = true
+shadow_opacity = 0.41
 
 [node name="Sky and Lighting" parent="." instance=ExtResource("8_tngek")]
-low_spec_in_editor = true
+script = ExtResource("9_qwmps")
 
 [node name="Cloud_water" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -38.2472, 0)
@@ -198,6 +346,7 @@ target_node = NodePath("../Door_06")
 
 [node name="ReferenceSprite3D" type="Sprite3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.11905, 40.0068, -3.0423)
+visible = false
 pixel_size = 0.067
 texture = ExtResource("9_dy6eo")
 script = ExtResource("12_p2k0u")
@@ -223,9 +372,10 @@ skeleton = NodePath("../..")
 script = ExtResource("14_olyda")
 
 [node name="sink2" type="MeshInstance3D" parent="BackgroundImagery"]
-transform = Transform3D(22.7627, -16.2958, 2.3856, 14.1967, 17.3515, -16.934, 8.34854, 14.925, 22.2919, -43.0724, 0, -322.343)
+transform = Transform3D(-7.99453, -16.4886, -21.2978, 6.34873, 20.4367, -18.2049, 26.1757, -9.99269, -2.08926, 62.2076, 31.387, -66.1482)
 mesh = ExtResource("15_w2qbg")
 skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_4owc6")
 script = ExtResource("14_olyda")
 
 [node name="Hints" type="Node3D" parent="."]
@@ -256,6 +406,58 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -59.0866, 18.921, 0)
 [node name="SpawnPointAttic" parent="SpawnPoints" instance=ExtResource("22_0ifv0")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -63.7226, 63.2027, 0)
 
+[node name="Background_elements" type="Node3D" parent="."]
+
+[node name="Eye" type="MeshInstance3D" parent="Background_elements"]
+transform = Transform3D(-0.257518, -0.965356, -0.0421026, -0.634053, 0.135939, 0.761247, -0.729151, 0.22273, -0.647094, -55.1568, 25.0689, -50.3926)
+mesh = SubResource("SphereMesh_ovymh")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Background_elements/Eye"]
+autoplay = "Twitching_Eye"
+libraries = {
+"": SubResource("AnimationLibrary_4u500")
+}
+
+[node name="Eye2" type="MeshInstance3D" parent="Background_elements"]
+transform = Transform3D(-0.257518, -0.965356, -0.0421026, -0.634053, 0.135939, 0.761247, -0.729151, 0.22273, -0.647094, -26.2585, 31.0863, -14.0856)
+mesh = SubResource("SphereMesh_ovymh")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Background_elements/Eye2"]
+autoplay = "Twitching_Eye"
+libraries = {
+"": SubResource("AnimationLibrary_4u500")
+}
+
+[node name="water" type="MeshInstance3D" parent="Background_elements"]
+transform = Transform3D(0.676304, 0, 0, 0, 0.299487, 0, 0, 0, 0.727787, -45.1248, 87.9304, -149.967)
+mesh = SubResource("TubeTrailMesh_76on5")
+
+[node name="AnimationTree" type="AnimationTree" parent="Background_elements/water"]
+tree_root = SubResource("AnimationNodeStateMachine_si66s")
+anim_player = NodePath("AnimationPlayer")
+parameters/playback = SubResource("AnimationNodeStateMachinePlayback_8nuwr")
+parameters/BlendSpace2D/blend_position = Vector2(-0.5232, 0.137725)
+parameters/StateMachine/playback = SubResource("AnimationNodeStateMachinePlayback_oat0l")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Background_elements/water/AnimationTree"]
+root_node = NodePath("../..")
+libraries = {
+"": SubResource("AnimationLibrary_4mrw4")
+}
+
+[node name="water2" type="MeshInstance3D" parent="Background_elements"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -79.9058, 0, -100.79)
+visible = false
+mesh = SubResource("TubeTrailMesh_76on5")
+
 [connection signal="switch_toggled" from="DynamicObjects/pressure_plate_03" to="MovingPlatforms/moving platform_03" method="_on_plate_press"]
 [connection signal="switch_hit" from="DynamicObjects/switch2" to="DynamicObjects/switch2/Door_02" method="open"]
 [connection signal="switch_hit" from="DynamicObjects/switch06" to="DynamicObjects/Door_06" method="open"]
+
+[editable path="player"]
+[editable path="player/Audio/Footsteps"]
+[editable path="player/Audio/Landing"]
+[editable path="player/Audio/Jumping"]
+[editable path="DynamicObjects/pressure_plate_05"]
+[editable path="DynamicObjects/pressure_plate_05/PressedNoises"]
+[editable path="DynamicObjects/pressure_plate_05/ReleasedNoises"]

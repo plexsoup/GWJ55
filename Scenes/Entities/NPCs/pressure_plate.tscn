@@ -48,6 +48,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.16784, 0)
 collision_layer = 0
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="PlungerMesh/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.54587, 0.232358)
 shape = SubResource("ConcavePolygonShape3D_bqgsn")
 
 [node name="PressedNoises" parent="." instance=ExtResource("4_0a3xy")]

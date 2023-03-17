@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://dv6mgvqyrydae"]
+[gd_scene load_steps=30 format=3 uid="uid://dv6mgvqyrydae"]
 
 [ext_resource type="PackedScene" uid="uid://cjiok7gin5bk5" path="res://Scenes/Maps/base_level.tscn" id="1_0tska"]
 [ext_resource type="MeshLibrary" uid="uid://dmh5e52qprx6r" path="res://MeshLibraries/cat_tower_plex.tres" id="2_18ox2"]
@@ -11,7 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://crvvpifd7a146" path="res://Scenes/Entities/NPCs/pressure_plate.tscn" id="6_nya5f"]
 [ext_resource type="Script" path="res://WorldEnvironments/sky_and_lighting_Night.gd" id="7_m6huc"]
 [ext_resource type="PackedScene" uid="uid://dwte3a8axt6kp" path="res://Scenes/Objects/door.tscn" id="7_tpc43"]
-[ext_resource type="PackedScene" path="res://Scenes/Objects/trigger_volume_win.tscn" id="8_pd66h"]
+[ext_resource type="PackedScene" uid="uid://eb3wwyaluatx" path="res://Scenes/Objects/trigger_volume_win.tscn" id="8_pd66h"]
 [ext_resource type="PackedScene" uid="uid://ted21c8mecho" path="res://Scenes/Entities/NPCs/switch.tscn" id="11_gdsl8"]
 [ext_resource type="Script" path="res://Scenes/Maps/ReferenceSprite3D.gd" id="13_q5c4o"]
 [ext_resource type="Script" path="res://Scenes/Maps/Official/LivingRoom/High_Spec.gd" id="15_mbr8b"]
@@ -20,6 +20,7 @@
 [ext_resource type="Texture2D" uid="uid://dhagpqi7ourpo" path="res://Art/Foliage/Mountains.png" id="17_en30g"]
 [ext_resource type="Texture2D" uid="uid://coaanccqd0h8j" path="res://Art/Foliage/Tree.png" id="19_cm5fj"]
 [ext_resource type="Texture2D" uid="uid://cynsdc3oljjuy" path="res://Art/Foliage/Light house.png" id="20_c3rgl"]
+[ext_resource type="PackedScene" uid="uid://b2tb1owb5nnun" path="res://Scenes/Objects/spawn_point.tscn" id="21_47lhw"]
 
 [sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_yla2b"]
 dof_blur_far_enabled = true
@@ -159,6 +160,7 @@ shadow_opacity = 0.85
 
 [node name="Sky and Lighting" parent="." index="7"]
 script = ExtResource("7_m6huc")
+low_spec_in_editor = true
 
 [node name="TriggerVolumeWin" parent="DynamicObjects" index="0"]
 transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 23.1153, -5.36793, 0)
@@ -206,10 +208,7 @@ connected_to = Array[NodePath]([NodePath("Door_05")])
 [node name="Door_05" parent="DynamicObjects/pressure_plate_05" index="5" instance=ExtResource("7_tpc43")]
 transform = Transform3D(1.3471, 0, 0, 0, 1.8527, 0, 0, 0, 0.983607, 0.331927, -12.2164, -0.170553)
 
-[node name="Door_03_ExitDown" parent="DynamicObjects" index="10" instance=ExtResource("7_tpc43")]
-transform = Transform3D(-1.74846e-07, 3.83316, 0, -4, -1.67553e-07, 0, 0, 0, 2.92067, 19.3904, 2.85598, -0.575484)
-
-[node name="TriggerVolumeWin2" parent="DynamicObjects" index="11" instance=ExtResource("8_pd66h")]
+[node name="TriggerVolumeWin2" parent="DynamicObjects" index="10" instance=ExtResource("8_pd66h")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 69.9896, 19.7704, 0)
 next_scene_path = "res://Scenes/Maps/Official/BathRoom/Bathroom.tscn"
 
@@ -218,21 +217,24 @@ transform = Transform3D(-1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 0, 0, 1, 0, 1.8
 pixel_size = 0.033
 texture = ExtResource("6_431y2")
 
-[node name="Door_02_E" parent="DynamicObjects" index="12" instance=ExtResource("7_tpc43")]
+[node name="Door_02_E" parent="DynamicObjects" index="11" instance=ExtResource("7_tpc43")]
 transform = Transform3D(4, 0, 0, 0, 4.52744, 0, 0, 0, 2.60672, 66.3531, 18.704, -0.673398)
 
-[node name="switch" parent="DynamicObjects" index="13" instance=ExtResource("11_gdsl8")]
+[node name="switch_03" parent="DynamicObjects" index="12" instance=ExtResource("11_gdsl8")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.66337, 4.49246, -1.83688)
-target_node = NodePath("../Door_03_ExitDown")
+target_node = NodePath("Door_03_ExitDown")
 
-[node name="switch_04" parent="DynamicObjects" index="14" instance=ExtResource("11_gdsl8")]
+[node name="Door_03_ExitDown" parent="DynamicObjects/switch_03" index="4" instance=ExtResource("7_tpc43")]
+transform = Transform3D(-1.74846e-07, 3.83316, 0, -4, -1.67553e-07, 0, 0, 0, 2.92067, 15.727, -1.63648, 1.2614)
+
+[node name="switch_04" parent="DynamicObjects" index="13" instance=ExtResource("11_gdsl8")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25.3245, 23.8517, -1.837)
 target_node = NodePath("Door_04")
 
 [node name="Door_04" parent="DynamicObjects/switch_04" index="4" instance=ExtResource("7_tpc43")]
 transform = Transform3D(4, 0, 0, 0, 2.75066, 0, 0, 0, 2.92067, 3.10206, 0.233763, 1.26152)
 
-[node name="switch_06" parent="DynamicObjects" index="15" instance=ExtResource("11_gdsl8")]
+[node name="switch_06" parent="DynamicObjects" index="14" instance=ExtResource("11_gdsl8")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.81604, 32.9097, -1.837)
 target_node = NodePath("Door_06")
 
@@ -381,6 +383,14 @@ transform = Transform3D(31.2143, 0, 0, 0, 31.2143, 0, 0, 0, 1, 87.6862, 65.1438,
 shaded = true
 alpha_cut = 2
 texture = ExtResource("20_c3rgl")
+
+[node name="SpawnPoints" type="Node3D" parent="." index="14"]
+
+[node name="SpawnPointLivingRoom" parent="SpawnPoints" index="0" instance=ExtResource("21_47lhw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23.3452, 5.79543, 0)
+
+[node name="SpawnPointBathroom" parent="SpawnPoints" index="1" instance=ExtResource("21_47lhw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 62.0675, 20.0949, 0)
 
 [connection signal="switch_toggled" from="DynamicObjects/pressure_plate_04_N" to="MovingPlatforms/moving platform3" method="_on_plate_press"]
 [connection signal="switch_toggled" from="DynamicObjects/pressure_plate_05_top" to="MovingPlatforms/moving platform2" method="_on_plate_press"]

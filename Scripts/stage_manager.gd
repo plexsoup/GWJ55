@@ -4,6 +4,7 @@ var current_map # instantiated scene object
 var current_map_packed_scene : PackedScene # useful for restarting the level
 @onready var fade_transition = preload("res://Cutscenes/fade_transition.tscn")
 var current_transition
+var previous_map_name : String = ""
 
 var music_player_scene = "res://Scripts/Music/play_random_music.tscn"
 var music_player
@@ -26,11 +27,14 @@ func fade_in():
 
 func change_scene_to_packed(packedScene : PackedScene):
 	# play a fade-out, load the new scene, play a fade in.
-	
+	if current_map:
+		previous_map_name = current_map.name
+		
 	fade_out()
 	
 	get_tree().change_scene_to_packed(packedScene)
 	current_map_packed_scene = packedScene
+
 	fade_in()
 
 func change_scene_to_file(scenePath : String):

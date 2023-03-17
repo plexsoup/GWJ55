@@ -16,6 +16,7 @@ func _process(_delta):
 func start():
 	var newSound = self.duplicate()
 	get_tree().get_root().add_child(newSound)
+	newSound.set_global_position(self.get_global_position())
 	newSound.finished.connect(newSound.queue_free)
 	newSound.set_pitch_scale(randf_range(1.0-pitch_jitter, 1.0+pitch_jitter))
 	newSound.play()

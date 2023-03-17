@@ -4,4 +4,6 @@ extends Area3D
 
 func _on_body_entered(body):
 	if "player" in body.name.to_lower():
+		
 		StageManager.change_scene_to_file(next_scene_path)
+		

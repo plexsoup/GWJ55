@@ -1,4 +1,4 @@
-[gd_scene load_steps=41 format=3 uid="uid://1iy51lohnni2"]
+[gd_scene load_steps=42 format=3 uid="uid://1iy51lohnni2"]
 
 [ext_resource type="Script" path="res://Scenes/Maps/base_level.gd" id="1_3v50y"]
 [ext_resource type="MeshLibrary" uid="uid://dmh5e52qprx6r" path="res://MeshLibraries/cat_tower_plex.tres" id="2_bcvq3"]
@@ -31,6 +31,7 @@
 [ext_resource type="Texture2D" uid="uid://cynsdc3oljjuy" path="res://Art/Foliage/Light house.png" id="20_cip6y"]
 [ext_resource type="Shader" uid="uid://drv4hywg6luaj" path="res://Shaders/Clouds_R.tres" id="27_prkw3"]
 [ext_resource type="PackedScene" uid="uid://b3p7s4vjxe0y0" path="res://Scenes/Objects/VolumeTriggerHintThoughtBubble.tscn" id="31_s35qv"]
+[ext_resource type="PackedScene" uid="uid://b2tb1owb5nnun" path="res://Scenes/Objects/spawn_point.tscn" id="32_drfq3"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_op2lt"]
 render_priority = 0
@@ -621,6 +622,14 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23.611, 15.8361, 0)
 hint_text = "The door is stuck.
 Maybe it will open later.
 (Much later)"
+
+[node name="SpawnPoints" type="Node3D" parent="."]
+
+[node name="SpawnPointStart" parent="SpawnPoints" instance=ExtResource("32_drfq3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19.7337, -17.0211, 0)
+
+[node name="SpawnPointBathroom" parent="SpawnPoints" instance=ExtResource("32_drfq3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 64.757, -5.41147, 0)
 
 [editable path="player"]
 [editable path="player/Audio/Footsteps"]

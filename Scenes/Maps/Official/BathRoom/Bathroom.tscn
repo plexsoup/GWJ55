@@ -1,9 +1,10 @@
-[gd_scene load_steps=16 format=3 uid="uid://dyn1atg77jsnm"]
+[gd_scene load_steps=17 format=3 uid="uid://dyn1atg77jsnm"]
 
 [ext_resource type="PackedScene" uid="uid://cjiok7gin5bk5" path="res://Scenes/Maps/base_level.tscn" id="1_cjmr8"]
 [ext_resource type="MeshLibrary" uid="uid://dmh5e52qprx6r" path="res://MeshLibraries/cat_tower_plex.tres" id="2_tx034"]
 [ext_resource type="PackedScene" uid="uid://cm2o1lkpf6s0w" path="res://Scenes/Entities/NPCs/vacuum_cleaner.tscn" id="2_wvmyr"]
 [ext_resource type="PackedScene" uid="uid://iy2fvk38ehxj" path="res://Scenes/Entities/NPCs/deadly_tile.tscn" id="3_g2pdu"]
+[ext_resource type="PackedScene" uid="uid://cw6hwlepf4hp8" path="res://Scenes/Entities/Player/cloud_kitten_companion.tscn" id="4_he5h7"]
 [ext_resource type="PackedScene" uid="uid://dd3fox603os7x" path="res://Scenes/Entities/moving platform.tscn" id="4_ldbyu"]
 [ext_resource type="Texture2D" uid="uid://dhm4vtuux462g" path="res://Materials/arrow_01.png" id="5_r5rsb"]
 [ext_resource type="PackedScene" uid="uid://crvvpifd7a146" path="res://Scenes/Entities/NPCs/pressure_plate.tscn" id="6_jvxdu"]
@@ -37,13 +38,13 @@ metadata/_editor_floor_ = Vector3(0, 0, 0)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -58.4843, 23.1934, 0)
 
 [node name="VacuumCleaner" parent="NPCs" index="0" instance=ExtResource("2_wvmyr")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -33.0463, 10.5016, 2.08165e-12)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -33.0463, 10.5016, -0.382767)
 
 [node name="VacuumCleaner2" parent="NPCs" index="1" instance=ExtResource("2_wvmyr")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -35.9063, 25.1535, 2.08165e-12)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -35.9063, 25.1535, -0.224964)
 
 [node name="VacuumCleaner3" parent="NPCs" index="2" instance=ExtResource("2_wvmyr")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26.1909, 37.5113, 2.08165e-12)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26.1909, 37.5113, -0.907943)
 
 [node name="VacuumCleaner4" parent="NPCs" index="3" instance=ExtResource("2_wvmyr")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 36.2493, 52.2886, 2.08165e-12)
@@ -56,6 +57,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.06701, 76.5359, 2.08165e-12
 
 [node name="VacuumCleaner7" parent="NPCs" index="6" instance=ExtResource("2_wvmyr")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.73434, 76.0831, 2.08165e-12)
+
+[node name="Kitten" parent="NPCs" index="7" instance=ExtResource("4_he5h7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.8046, 0.959874, 1.02937)
 
 [node name="DeadlyTile" parent="EnvironmentalHazards" index="0" instance=ExtResource("3_g2pdu")]
 transform = Transform3D(2, 0, 0, 0, 2.846, 0, 0, 0, 1.784, 1.53926, 74.2414, -1.26307)
@@ -94,11 +98,11 @@ transform = Transform3D(4, 0, 0, 0, 2, 0, 0, 0, 4, 14.2434, 17.1109, -0.156532)
 connected_to = Array[NodePath]([NodePath("../../MovingPlatforms/moving platform_03")])
 
 [node name="pressure_plate_01" parent="DynamicObjects" index="3" instance=ExtResource("6_jvxdu")]
-transform = Transform3D(4, 0, 0, 0, 2, 0, 0, 0, 4, -26.491, 10.8097, -0.156532)
+transform = Transform3D(2.48064, 0, 0, 0, 1.24032, 0, 0, 0, 2.48064, -26.491, 9.06742, -1.2509)
 connected_to = Array[NodePath]([NodePath("Door_01")])
 
 [node name="Door_01" parent="DynamicObjects/pressure_plate_01" index="5" instance=ExtResource("7_vtp6s")]
-transform = Transform3D(0.838995, 0, 0, 0, 2.46951, 0, 0, 0, 1.23476, 4.28726, -0.660472, 0.039133)
+transform = Transform3D(1.35287, 0, 0, 0, 3.98206, 0, 0, 0, 1.99104, 6.91316, 0.339701, 0.504265)
 
 [node name="pressure_plate_05" parent="DynamicObjects" index="4" instance=ExtResource("6_jvxdu")]
 transform = Transform3D(2.06846, 0, 0, 0, 1.03423, 0, 0, 0, 2.06846, -4.59074, 52.6224, -1.34077)
@@ -111,10 +115,11 @@ transform = Transform3D(4, 0, 0, 0, 5.88684, 0, 0, 0, 5.88684, 16.6521, 53.7292,
 transform = Transform3D(2.95137, 0, 0, 0, 4.34356, 0, 0, 0, 4.34356, 40.2708, 85.8547, -0.851377)
 
 [node name="Door_08" parent="DynamicObjects" index="7" instance=ExtResource("7_vtp6s")]
-transform = Transform3D(4, 0, 0, 0, 6.29502, 0, 0, 0, 5.88684, -64.3452, 15.9288, 0)
+transform = Transform3D(4, 0, 0, 0, 6.29502, 0, 0, 0, 5.88684, -64.3452, 4.07695, 0)
 
 [node name="TriggerVolumeWin2" parent="DynamicObjects" index="8" instance=ExtResource("8_ctuvk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -69.3221, 63.2556, 0)
+next_scene_path = "res://Scenes/Maps/Official/Attic/Attic.tscn"
 
 [node name="Sprite3D2" type="Sprite3D" parent="DynamicObjects/TriggerVolumeWin2" index="2"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0322189, 2.04771, 0)
@@ -124,29 +129,25 @@ texture = ExtResource("5_r5rsb")
 [node name="switch" parent="DynamicObjects" index="9" instance=ExtResource("10_7ywxi")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.72826, 24.2633, -1.049)
 
-[node name="switch3" parent="DynamicObjects" index="10" instance=ExtResource("10_7ywxi")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -36.2599, -3.2308, -1.049)
-
-[node name="switch2" parent="DynamicObjects" index="11" instance=ExtResource("10_7ywxi")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -35.706, -4.00009, -1.049)
+[node name="switch2" parent="DynamicObjects" index="10" instance=ExtResource("10_7ywxi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -35.706, -4.50876, -1.049)
 target_node = NodePath("Door_02")
 
 [node name="Door_02" parent="DynamicObjects/switch2" index="4" instance=ExtResource("7_vtp6s")]
-transform = Transform3D(3.11012, 0, 0, 0, 4.57719, 0, 0, 0, 4.57719, 14.6424, -1.59223, 1.049)
+transform = Transform3D(3.11012, 0, 0, 0, 3.77443, 0, 0, 0, 2.83406, 14.6424, 0.0249424, -0.0628264)
 
-[node name="switch_07" parent="DynamicObjects" index="12" instance=ExtResource("10_7ywxi")]
+[node name="switch_07" parent="DynamicObjects" index="11" instance=ExtResource("10_7ywxi")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30.3587, 75.5784, -1.04949)
 target_node = NodePath("Door_07")
 
 [node name="Door_07" parent="DynamicObjects/switch_07" index="4" instance=ExtResource("7_vtp6s")]
 transform = Transform3D(4, 0, 0, 0, 5.9898, 0, 0, 0, 5.88684, -34.0519, -14.2022, 1.04949)
 
-[node name="switch4" parent="DynamicObjects" index="13" instance=ExtResource("10_7ywxi")]
+[node name="switch4" parent="DynamicObjects" index="12" instance=ExtResource("10_7ywxi")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 62.1553, 69.6934, -1.049)
 
 [node name="ReferenceSprite3D" type="Sprite3D" parent="." index="10"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.11905, 40.0068, -3.0423)
-visible = false
 pixel_size = 0.067
 texture = ExtResource("9_dy6eo")
 script = ExtResource("12_p2k0u")
@@ -179,5 +180,4 @@ script = ExtResource("14_olyda")
 
 [connection signal="switch_toggled" from="DynamicObjects/pressure_plate_03" to="MovingPlatforms/moving platform_03" method="_on_plate_press"]
 [connection signal="switch_hit" from="DynamicObjects/switch2" to="DynamicObjects/switch2/Door_02" method="open"]
-[connection signal="switch_hit" from="DynamicObjects/switch_07" to="DynamicObjects/switch_07/Door_07" method="open"]
 [connection signal="switch_hit" from="DynamicObjects/switch4" to="DynamicObjects/Door_06" method="open"]

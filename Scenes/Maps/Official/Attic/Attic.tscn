@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://dv6mgvqyrydae"]
+[gd_scene load_steps=23 format=3 uid="uid://dv6mgvqyrydae"]
 
 [ext_resource type="PackedScene" uid="uid://cjiok7gin5bk5" path="res://Scenes/Maps/base_level.tscn" id="1_0tska"]
 [ext_resource type="MeshLibrary" uid="uid://dmh5e52qprx6r" path="res://MeshLibraries/cat_tower_plex.tres" id="2_18ox2"]
@@ -16,6 +16,7 @@
 [ext_resource type="Script" path="res://Scenes/Maps/ReferenceSprite3D.gd" id="13_q5c4o"]
 [ext_resource type="Shader" uid="uid://drv4hywg6luaj" path="res://Shaders/Clouds_R.tres" id="15_md0xm"]
 [ext_resource type="Texture2D" uid="uid://b6jmphr0ugk78" path="res://Art/Foliage/Mountains 2.png" id="16_own6m"]
+[ext_resource type="Texture2D" uid="uid://dhagpqi7ourpo" path="res://Art/Foliage/Mountains.png" id="17_en30g"]
 
 [sub_resource type="Animation" id="Animation_gsbch"]
 length = 0.001
@@ -84,6 +85,9 @@ data = {
 [node name="player" parent="." index="2"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.077, 43.5956, 0)
 
+[node name="AnimatedSprite3D" parent="player" index="1"]
+shaded = true
+
 [node name="VacuumCleaner" parent="NPCs" index="0" instance=ExtResource("2_nlfxv")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.677264, 21.3873, -0.796688)
 
@@ -128,7 +132,8 @@ transform = Transform3D(1.53287, 0, 0, 0, 0.766437, 0, 0, 0, 1.53287, 39.7496, 3
 target = Vector3(-6, 0, 0)
 
 [node name="DirectionalLight3D" parent="Lighting" index="0"]
-light_color = Color(0.309804, 0, 0.984314, 1)
+light_color = Color(0.847059, 0.364706, 0.478431, 1)
+light_energy = 3.586
 shadow_enabled = true
 
 [node name="Sky and Lighting" parent="." index="7"]
@@ -250,10 +255,65 @@ mesh = SubResource("PlaneMesh_yfww1")
 [node name="Skyline" type="Node3D" parent="Background elements" index="2"]
 
 [node name="Mountains" type="Sprite3D" parent="Background elements/Skyline" index="0"]
-transform = Transform3D(37.094, 0, 0, 0, 37.094, 0, 0, 0, 1, -16.7838, 35.4455, -37.82)
+transform = Transform3D(37.094, 0, 0, 0, 37.094, 0, 0, 0, 1, -18.6122, 35.4455, -74.1531)
 shaded = true
 alpha_cut = 2
 texture = ExtResource("16_own6m")
+
+[node name="Mountains2" type="Sprite3D" parent="Background elements/Skyline/Mountains" index="0"]
+transform = Transform3D(-0.999849, 0, 0.000468141, 0, 1, 0, -0.644145, 0, -0.999849, -0.730993, 0, -0.470936)
+shaded = true
+alpha_cut = 2
+texture = ExtResource("16_own6m")
+
+[node name="Mountains3" type="Sprite3D" parent="Background elements/Skyline" index="1"]
+transform = Transform3D(101.861, 0, 0, 0, 73.3878, 0, 0, 0, 1, -38.059, 34.5701, -54.4256)
+shaded = true
+alpha_cut = 2
+texture = ExtResource("16_own6m")
+
+[node name="Mountains2" type="Sprite3D" parent="Background elements/Skyline/Mountains3" index="0"]
+transform = Transform3D(-0.999849, 0, 0.000468141, 0, 1, 0, -0.644145, 0, -0.999849, -0.730993, 0, -0.470936)
+shaded = true
+alpha_cut = 2
+texture = ExtResource("16_own6m")
+
+[node name="Mountains2" type="Sprite3D" parent="Background elements/Skyline" index="2"]
+transform = Transform3D(37.094, 0, 0, 0, 37.094, 0, 0, 0, 1, 4.3134, 35.4455, -113.951)
+shaded = true
+alpha_cut = 2
+texture = ExtResource("16_own6m")
+
+[node name="Mountains2" type="Sprite3D" parent="Background elements/Skyline/Mountains2" index="0"]
+transform = Transform3D(-0.999849, 0, 0.000468141, 0, 1, 0, -0.644145, 0, -0.999849, -0.730993, 0, -0.470936)
+shaded = true
+alpha_cut = 2
+texture = ExtResource("16_own6m")
+
+[node name="SkyMountains" type="Sprite3D" parent="Background elements/Skyline" index="3"]
+transform = Transform3D(45.3484, 0, 0, 0, 37.6321, 0, 0, 0, 1, 229.927, 38.654, -217.279)
+alpha_cut = 2
+texture = ExtResource("17_en30g")
+
+[node name="SkyMountains2" type="Sprite3D" parent="Background elements/Skyline/SkyMountains" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.21613, 0, 0)
+alpha_cut = 2
+texture = ExtResource("17_en30g")
+
+[node name="SkyMountains3" type="Sprite3D" parent="Background elements/Skyline/SkyMountains" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.49393, 0, 0)
+alpha_cut = 2
+texture = ExtResource("17_en30g")
+
+[node name="SkyMountains4" type="Sprite3D" parent="Background elements/Skyline/SkyMountains" index="2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.46557, 0, 0)
+alpha_cut = 2
+texture = ExtResource("17_en30g")
+
+[node name="SkyMountains5" type="Sprite3D" parent="Background elements/Skyline/SkyMountains" index="3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.74337, 0, 0)
+alpha_cut = 2
+texture = ExtResource("17_en30g")
 
 [connection signal="switch_toggled" from="DynamicObjects/pressure_plate_04_N" to="MovingPlatforms/moving platform3" method="_on_plate_press"]
 [connection signal="switch_toggled" from="DynamicObjects/pressure_plate_05_top" to="MovingPlatforms/moving platform2" method="_on_plate_press"]

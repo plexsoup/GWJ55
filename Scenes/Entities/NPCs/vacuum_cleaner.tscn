@@ -1,7 +1,9 @@
-[gd_scene load_steps=9 format=3 uid="uid://cm2o1lkpf6s0w"]
+[gd_scene load_steps=12 format=3 uid="uid://cm2o1lkpf6s0w"]
 
 [ext_resource type="PackedScene" uid="uid://bpr26601pqhqe" path="res://Scenes/Entities/NPCs/npc.tscn" id="1_61f12"]
 [ext_resource type="Material" uid="uid://blly5mllk3bkf" path="res://Scenes/Entities/NPCs/monster_face_material.tres" id="2_mm2l4"]
+[ext_resource type="ArrayMesh" uid="uid://slkmpulojqde" path="res://Art/objects/vaccuum.obj" id="3_qy7mo"]
+[ext_resource type="Texture2D" uid="uid://bavp0sd2e1sdb" path="res://Art/objects/vaccuum.png" id="4_x0ymk"]
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_vad55"]
 
@@ -17,11 +19,18 @@ material = ExtResource("2_mm2l4")
 [sub_resource type="BoxShape3D" id="BoxShape3D_vye7k"]
 size = Vector3(1, 1, 2.14004)
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_r6sel"]
+albedo_texture = ExtResource("4_x0ymk")
+
 [node name="VacuumCleaner" instance=ExtResource("1_61f12")]
 collision_mask = 53
 
+[node name="Visuals" parent="." index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.500838, 0, 0)
+
 [node name="VacuumCleaner" type="Node3D" parent="Visuals" index="1"]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0)
+visible = false
 
 [node name="Body" type="MeshInstance3D" parent="Visuals/VacuumCleaner" index="0"]
 transform = Transform3D(0.37492, 0.567873, 0, -0.25866, 0.823117, 0, 0, 0, 1, 0.768968, 1.25583, 0)
@@ -55,6 +64,12 @@ shape = SubResource("BoxShape3D_vye7k")
 
 [node name="WeakSpot" parent="Visuals" index="3"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.59841, 1.07064, 0)
+
+[node name="Vaccuum" type="MeshInstance3D" parent="Visuals" index="4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.792501, -2.08165e-12, -0.278133)
+mesh = ExtResource("3_qy7mo")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_r6sel")
 
 [node name="JumpScare" parent="Behaviours" index="1"]
 visible = false

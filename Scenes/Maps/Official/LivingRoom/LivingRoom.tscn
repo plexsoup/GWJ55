@@ -320,6 +320,7 @@ transform = Transform3D(9, 0, 0, 0, 3.38894, 0, 0, 0, 2.26638, 68.2287, -8.15729
 
 [node name="Door2" parent="DynamicObjects" instance=ExtResource("7_4288d")]
 transform = Transform3D(-3.93403e-07, 3.91795, 0, -9, -1.71259e-07, 0, 0, 0, 4.98869, 20.0868, 19.4175, 0)
+open_on_previous_map_name = "attic"
 
 [node name="ReferenceSprite3D" type="Sprite3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2.05205)
@@ -642,6 +643,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19.7337, -17.0211, 0)
 
 [node name="SpawnPointBathroom" parent="SpawnPoints" instance=ExtResource("32_drfq3")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 64.757, -5.41147, 0)
+
+[node name="SpawnPointAttic" parent="SpawnPoints" instance=ExtResource("32_drfq3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 26.4085, 15.5292, 0)
 
 [editable path="player"]
 [editable path="player/Audio/Footsteps"]

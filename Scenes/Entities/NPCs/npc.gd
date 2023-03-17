@@ -137,7 +137,8 @@ func _on_player_sighted(body, originator):
 			if behaviour != originator and behaviour.active:
 				if behaviour.has_method("_on_entity_sighted_player"):
 					behaviour._on_entity_sighted_player()
-		
+			if has_node("AlertSound"):
+				$AlertSound.start()
 
 func begin_dying():
 	# make a noise
@@ -146,6 +147,7 @@ func begin_dying():
 	var animation_player : AnimationPlayer = $DefaultAnimationPlayer
 	if not animation_player_location.is_empty():
 		animation_player = get_node(animation_player_location)
+	$HurtSound.start()
 
 	if animation_player.has_animation("die"):
 		animation_player.play("die")
@@ -159,7 +161,8 @@ func begin_dying():
 
 func _on_weak_spot_body_entered(body):
 	if $Visuals/WeakSpot.monitoring and "player" in body.name.to_lower():
-		$HurtSound.start()
+		if has_node("AngryCatSound"):
+			$AngryCatSound.start()
 		begin_dying()
 		
 func _on_electrocuted(): # from water

@@ -1,157 +1,172 @@
-[gd_scene load_steps=11 format=3 uid="uid://bhw7qepcfd0js"]
+[gd_scene load_steps=10 format=3 uid="uid://bhw7qepcfd0js"]
 
 [ext_resource type="Script" path="res://Cutscenes/fade_transition.gd" id="1_rgqkt"]
 
-[sub_resource type="FastNoiseLite" id="FastNoiseLite_vv4g8"]
+[sub_resource type="Gradient" id="Gradient_ms7hu"]
+colors = PackedColorArray(0.417789, 0.091838, 0.22506, 1, 0.972549, 0.52549, 0.45098, 1)
 
-[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_swtor"]
-width = 5000
-height = 2000
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_w88wx"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_xqjcm"]
+width = 2048
+height = 1024
 seamless = true
-noise = SubResource("FastNoiseLite_vv4g8")
+color_ramp = SubResource("Gradient_ms7hu")
+noise = SubResource("FastNoiseLite_w88wx")
 
-[sub_resource type="Gradient" id="Gradient_cpaes"]
-offsets = PackedFloat32Array(0, 0.327935)
-colors = PackedColorArray(0.28303, 0.0698037, 0.300068, 1, 0.506566, 0.455188, 0.610614, 1)
-
-[sub_resource type="FastNoiseLite" id="FastNoiseLite_brsnb"]
-
-[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_f7gkv"]
-color_ramp = SubResource("Gradient_cpaes")
-noise = SubResource("FastNoiseLite_brsnb")
-
-[sub_resource type="Animation" id="Animation_0bwm0"]
-resource_name = "fade_out"
-length = 5.0
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:region_rect")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 5),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Rect2(88, 119.5, 164, 152), Rect2(200, 119.5, 328, 304)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Sprite2D:self_modulate")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 5),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
-}
+[sub_resource type="AtlasTexture" id="AtlasTexture_i4r7t"]
+atlas = SubResource("NoiseTexture2D_xqjcm")
+region = Rect2(100, 100, 400, 200)
 
 [sub_resource type="Animation" id="Animation_4vui8"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:region_rect")
+tracks/0/path = NodePath("TextureRect:visible")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Rect2(88, 119.5, 164, 152)]
+"update": 1,
+"values": [true]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Sprite2D:self_modulate")
+tracks/1/path = NodePath("TextureRect:texture:region")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Color(1, 1, 1, 1)]
+"values": [Rect2(100, 100, 400, 200)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("TextureRect:self_modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
 }
 
 [sub_resource type="Animation" id="Animation_ocwb7"]
-resource_name = "fade_in"
-length = 5.0
+resource_name = "fog_fade_in"
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:region_rect")
+tracks/0/path = NodePath("TextureRect:visible")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 5),
+"times": PackedFloat32Array(0, 1),
 "transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Rect2(200, 119.5, 164, 152), Rect2(400, 119.5, 164, 304)]
+"update": 1,
+"values": [true, false]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Sprite2D:self_modulate")
+tracks/1/path = NodePath("TextureRect:texture:region")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 5),
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Rect2(150, 150, 200, 100), Rect2(200, 200, 100, 50)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("TextureRect:self_modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.3, 1),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
 }
-tracks/2/type = "method"
+
+[sub_resource type="Animation" id="Animation_npkxe"]
+resource_name = "fog_fade_out"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TextureRect:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("TextureRect:self_modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath(".")
+tracks/2/path = NodePath("TextureRect:texture:region")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(5),
-"transitions": PackedFloat32Array(1),
-"values": [{
-"args": [],
-"method": &"queue_free"
-}]
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Rect2(100, 100, 300, 200), Rect2(150, 150, 200, 100)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_bj88n"]
 _data = {
 "RESET": SubResource("Animation_4vui8"),
-"fade_in": SubResource("Animation_ocwb7"),
-"fade_out": SubResource("Animation_0bwm0")
+"fog_fade_in": SubResource("Animation_ocwb7"),
+"fog_fade_out": SubResource("Animation_npkxe")
 }
 
 [node name="FadeTransition" type="Control"]
-z_index = 100
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 script = ExtResource("1_rgqkt")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(583.5, 354.5)
-scale = Vector2(8.4939, 6.375)
-texture = SubResource("NoiseTexture2D_swtor")
-region_enabled = true
-region_rect = Rect2(88, 119.5, 164, 152)
-
 [node name="TextureRect" type="TextureRect" parent="."]
-visible = false
+self_modulate = Color(1, 1, 1, 0)
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = SubResource("NoiseTexture2D_f7gkv")
+mouse_filter = 2
+texture = SubResource("AtlasTexture_i4r7t")
+expand_mode = 1
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
 "": SubResource("AnimationLibrary_bj88n")
 }
+
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

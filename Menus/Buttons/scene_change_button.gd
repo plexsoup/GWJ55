@@ -12,6 +12,8 @@ func _ready():
 
 
 func _on_pressed():
+	# why does this take 3 seconds to click?
+	
 	$ClickNoise.start()
 	if new_scene != null:
 		StageManager.change_scene_to_packed(new_scene)

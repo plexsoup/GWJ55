@@ -1,6 +1,12 @@
-[gd_scene load_steps=5 format=3 uid="uid://cbs51rpoxintc"]
+[gd_scene load_steps=11 format=3 uid="uid://cbs51rpoxintc"]
 
 [ext_resource type="PackedScene" uid="uid://bpr26601pqhqe" path="res://Scenes/Entities/NPCs/npc.tscn" id="1_mn5qa"]
+[ext_resource type="ArrayMesh" uid="uid://c2tf7sntjmx84" path="res://Art/objects/hair_dryer.obj" id="2_8osj2"]
+[ext_resource type="AudioStream" uid="uid://cyp1xu2hlxw1f" path="res://sfx/Hair Dryer/SFX_HairBreak.wav" id="2_hege5"]
+[ext_resource type="PackedScene" uid="uid://mbxsqklc6aod" path="res://sfx/random_3d_sound.tscn" id="3_wod47"]
+[ext_resource type="PackedScene" uid="uid://cv5h3okghsyd0" path="res://sfx/temporary_3Dsound.tscn" id="4_uerva"]
+[ext_resource type="AudioStream" uid="uid://dt6v6xqsueg2t" path="res://sfx/placeholder/angry_cat.wav" id="5_upkt8"]
+[ext_resource type="PackedScene" uid="uid://cakkghby15ea5" path="res://sfx/temporary_sound.tscn" id="6_305ej"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_n46pu"]
 size = Vector3(1, 1, 1.5)
@@ -20,10 +26,12 @@ shape = SubResource("BoxShape3D_n46pu")
 
 [node name="Barrel" type="MeshInstance3D" parent="Visuals" index="2"]
 transform = Transform3D(-0.146049, 0.989277, 0, -0.989277, -0.146049, 0, 0, 0, 1, 0, 1.59823, 0)
+visible = false
 mesh = SubResource("CylinderMesh_frniy")
 
 [node name="Handle" type="MeshInstance3D" parent="Visuals" index="3"]
 transform = Transform3D(-0.988078, -0.153952, 0, 0.153952, -0.988078, 0, 0, 0, 0.486423, -1.01969, 1.07578, 0)
+visible = false
 mesh = SubResource("CapsuleMesh_pw2t4")
 
 [node name="WeakSpot" parent="Visuals" index="4"]
@@ -34,9 +42,25 @@ collision_mask = 0
 monitoring = false
 monitorable = false
 
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Visuals" index="5"]
+transform = Transform3D(0.886248, 0.123765, -0.0343876, -0.1255, 0.885381, -0.0478191, 0.0273898, 0.0521438, 0.89357, 0, 0.750783, 0)
+mesh = ExtResource("2_8osj2")
+
 [node name="BackAndForth" parent="Behaviours" index="0"]
 active = false
 
 [node name="JumpScare" parent="Behaviours" index="1"]
 active = true
 polling_interval = 50
+
+[node name="HurtSound" parent="." index="6"]
+stream = ExtResource("2_hege5")
+
+[node name="AlertSound" parent="." index="7" instance=ExtResource("3_wod47")]
+
+[node name="AngryCatSound" parent="." index="8" instance=ExtResource("4_uerva")]
+stream = ExtResource("5_upkt8")
+
+[node name="TemporarySound2" parent="." index="9" instance=ExtResource("6_305ej")]
+
+[editable path="AlertSound"]

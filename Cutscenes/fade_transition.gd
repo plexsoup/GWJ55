@@ -8,13 +8,18 @@ func _ready():
 
 
 
-func fade_out(): # from transparent to opaque
-	$AnimationPlayer.play("fade_out")
-	await $AnimationPlayer.animation_finished
-	finished.emit()
-
-func fade_in(): # go to transparent, then queue_free()
-	$AnimationPlayer.play("fade_in")
-	# note animation includes a call to queue_free()
+func play_fade_out(): # from transparent to opaque
+	#$AnimationPlayer.play("fade_out")
+	$AnimationPlayer.play("fog_fade_out")
+	
+func play_fade_in(): # go to transparent, then queue_free()
+	$AnimationPlayer.play("fog_fade_in")
+	
 	
 
+
+func _on_animation_player_animation_finished(anim_name):
+	if anim_name == "fog_fade_out":
+		finished.emit()
+	elif anim_name == "fog_fade_in":
+		pass

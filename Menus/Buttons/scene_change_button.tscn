@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://dx20duhdsm1vn"]
+[gd_scene load_steps=5 format=3 uid="uid://dx20duhdsm1vn"]
 
 [ext_resource type="Script" path="res://Menus/Buttons/scene_change_button.gd" id="1_jd3wu"]
 [ext_resource type="PackedScene" uid="uid://cakkghby15ea5" path="res://sfx/temporary_sound.tscn" id="2_a0pbc"]
+[ext_resource type="AudioStream" uid="uid://c7vwaae22myqw" path="res://sfx/Click/SFX_Click 1.wav" id="3_w3cqm"]
 [ext_resource type="AudioStream" uid="uid://bo5kpftf6kcdq" path="res://Menus/Buttons/hover_placeholder.wav" id="4_iwjxg"]
 
 [node name="SceneChangeButton" type="Button"]
@@ -9,6 +10,7 @@ text = "ChangeScene"
 script = ExtResource("1_jd3wu")
 
 [node name="ClickNoise" parent="." instance=ExtResource("2_a0pbc")]
+stream = ExtResource("3_w3cqm")
 volume_db = -5.0
 pitch_jitter = 0.1
 

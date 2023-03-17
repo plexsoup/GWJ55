@@ -24,6 +24,7 @@ func _on_area_3d_body_entered(body):
 				hit.connect(body._on_hit)
 			hit.emit(1)
 			$SplashNoise.start()
+			$AngryCatNoise.start()
 			$CPUParticles3D.emitting = true
 			await get_tree().create_timer(2.5).timeout
 			StageManager.reset_level()

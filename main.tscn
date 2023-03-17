@@ -1,11 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://oj6nxss4frcy"]
+[gd_scene load_steps=6 format=3 uid="uid://oj6nxss4frcy"]
 
 [ext_resource type="Theme" uid="uid://bslc43xuou6nj" path="res://Themes/main_theme.tres" id="1_a4cjj"]
 [ext_resource type="Script" path="res://main.gd" id="1_ci38h"]
-[ext_resource type="PackedScene" uid="uid://cyvgig2ced4e8" path="res://Menus/Whiteboard/whiteboard.tscn" id="2_sw6ch"]
 [ext_resource type="PackedScene" uid="uid://bl1mmp8ysb4r0" path="res://Menus/main_menu.tscn" id="3_66nc6"]
-[ext_resource type="Texture2D" uid="uid://cddonofojo7di" path="res://Materials/horizon_gradient.tres" id="3_q1rqy"]
-[ext_resource type="PackedScene" uid="uid://b16s3dclhkliq" path="res://Menus/testing_menu.tscn" id="4_os8x6"]
+[ext_resource type="PackedScene" uid="uid://bhw7qepcfd0js" path="res://Cutscenes/fade_transition.tscn" id="5_76rkw"]
 [ext_resource type="AudioStream" uid="uid://dw48nal0qwd53" path="res://Music/Title Theme.mp3" id="7_c684v"]
 
 [node name="Main" type="Control"]
@@ -18,40 +16,17 @@ grow_vertical = 2
 theme = ExtResource("1_a4cjj")
 script = ExtResource("1_ci38h")
 
-[node name="TextureRect" type="TextureRect" parent="."]
+[node name="MainMenu" parent="." instance=ExtResource("3_66nc6")]
 layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("3_q1rqy")
-
-[node name="TabContainer" type="TabContainer" parent="."]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="MainMenu" parent="TabContainer" instance=ExtResource("3_66nc6")]
-layout_mode = 2
-
-[node name="Testing" parent="TabContainer" instance=ExtResource("4_os8x6")]
-visible = false
-layout_mode = 2
-
-[node name="DesignNotes" type="MarginContainer" parent="TabContainer"]
-visible = false
-layout_mode = 2
-
-[node name="ScrollContainer" type="ScrollContainer" parent="TabContainer/DesignNotes"]
-layout_mode = 2
-
-[node name="Whiteboard" parent="TabContainer/DesignNotes/ScrollContainer" instance=ExtResource("2_sw6ch")]
-layout_mode = 2
 
 [node name="Title Player" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("7_c684v")
 autoplay = true
+
+[node name="FadeTransition" parent="." instance=ExtResource("5_76rkw")]
+layout_mode = 1
+
+[node name="TextureRect" parent="FadeTransition" index="0"]
+z_index = 10
+
+[editable path="FadeTransition"]

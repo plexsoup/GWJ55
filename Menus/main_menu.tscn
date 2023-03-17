@@ -1,6 +1,5 @@
-[gd_scene load_steps=6 format=3 uid="uid://bl1mmp8ysb4r0"]
+[gd_scene load_steps=5 format=3 uid="uid://bl1mmp8ysb4r0"]
 
-[ext_resource type="Texture2D" uid="uid://c7r0ql75cnkow" path="res://Art/Cat_Icon.png" id="1_84gql"]
 [ext_resource type="Texture2D" uid="uid://cvdkymudk82m2" path="res://Art/Title_screen_LQ.png" id="1_xeedf"]
 [ext_resource type="PackedScene" uid="uid://dx20duhdsm1vn" path="res://Menus/Buttons/scene_change_button.tscn" id="2_do5ro"]
 [ext_resource type="Script" path="res://Menus/LowSpecCheckButton.gd" id="2_n2jg7"]
@@ -13,9 +12,10 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(575, 326)
+[node name="BackgroundImage" type="TextureRect" parent="."]
+layout_mode = 2
 texture = ExtResource("1_xeedf")
+stretch_mode = 6
 
 [node name="CenterContainer" type="HBoxContainer" parent="."]
 layout_mode = 2
@@ -31,24 +31,6 @@ theme_override_constants/margin_bottom = 30
 [node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer/LeftSide"]
 layout_mode = 2
 theme_override_constants/separation = 50
-
-[node name="Label" type="Label" parent="CenterContainer/LeftSide/VBoxContainer"]
-visible = false
-layout_mode = 2
-theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 36
-text = "Dream Tail
-"
-horizontal_alignment = 1
-
-[node name="TextureRect" type="TextureRect" parent="CenterContainer/LeftSide/VBoxContainer"]
-visible = false
-custom_minimum_size = Vector2(0, 400)
-layout_mode = 2
-size_flags_horizontal = 3
-texture = ExtResource("1_84gql")
-expand_mode = 3
-stretch_mode = 5
 
 [node name="RightSide" type="MarginContainer" parent="CenterContainer"]
 layout_mode = 2
@@ -84,5 +66,11 @@ scene_path = "res://Menus/Credits/credits.tscn"
 
 [node name="QuitButton" parent="CenterContainer/RightSide/VBoxContainer" instance=ExtResource("5_k18lj")]
 layout_mode = 2
+
+[node name="TestingButton" parent="CenterContainer/RightSide/VBoxContainer" instance=ExtResource("2_do5ro")]
+layout_mode = 2
+text = "Testing
+"
+scene_path = "res://Menus/testing_menu.tscn"
 
 [connection signal="pressed" from="CenterContainer/RightSide/VBoxContainer/GraphicsSpecs" to="CenterContainer/RightSide/VBoxContainer/GraphicsSpecs" method="_on_pressed"]

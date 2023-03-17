@@ -3,7 +3,11 @@ extends Control
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	StageManager.current_map = $MainMenu
+	StageManager.fade_transition = $FadeTransition
+	StageManager.main = self
+	
+
 
 
 

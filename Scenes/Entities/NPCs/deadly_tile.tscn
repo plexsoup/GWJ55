@@ -1,8 +1,10 @@
-[gd_scene load_steps=17 format=3 uid="uid://iy2fvk38ehxj"]
+[gd_scene load_steps=19 format=3 uid="uid://iy2fvk38ehxj"]
 
 [ext_resource type="Script" path="res://Scenes/Entities/NPCs/deadly_tile.gd" id="1_g2r0l"]
 [ext_resource type="Shader" uid="uid://bb4rgj0kgojkh" path="res://Shaders/Water_block.tres" id="1_nxj5v"]
 [ext_resource type="PackedScene" uid="uid://cakkghby15ea5" path="res://sfx/temporary_sound.tscn" id="2_32gbh"]
+[ext_resource type="AudioStream" uid="uid://y4ex506uwve7" path="res://sfx/placeholder/splash.wav" id="3_tw7v3"]
+[ext_resource type="AudioStream" uid="uid://dt6v6xqsueg2t" path="res://sfx/placeholder/angry_cat.wav" id="5_djgq3"]
 
 [sub_resource type="Gradient" id="Gradient_ngd8c"]
 offsets = PackedFloat32Array(0, 0.732203, 0.98983)
@@ -132,6 +134,7 @@ collision_mask = 3
 shape = SubResource("BoxShape3D_h65fm")
 
 [node name="SplashNoise" parent="." instance=ExtResource("2_32gbh")]
+stream = ExtResource("3_tw7v3")
 volume_db = -6.0
 
 [node name="CPUParticles3D" type="CPUParticles3D" parent="."]
@@ -154,5 +157,9 @@ autoplay = "Low_spec"
 libraries = {
 "": SubResource("AnimationLibrary_a7vam")
 }
+
+[node name="AngryCatNoise" parent="." instance=ExtResource("2_32gbh")]
+stream = ExtResource("5_djgq3")
+pitch_jitter = 0.2
 
 [connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]

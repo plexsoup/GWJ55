@@ -3,6 +3,8 @@ signal switch_hit(value)
 
 @export var pressed : bool = false
 @export var target_node : NodePath
+@export var single_use : bool = true # most switches just stay on?
+
 var target
 
 # Called when the node enters the scene tree for the first time.
@@ -18,9 +20,10 @@ func _process(_delta):
 
 func _on_area_3d_body_entered(body):
 	if "player" in body.name.to_lower():
-		pressed = !pressed
-		rotate_lever()
-		emit_signal("switch_hit", pressed)
+		if !pressed or !single_use:
+			pressed = !pressed
+			rotate_lever()
+			emit_signal("switch_hit", pressed)
 		
 func rotate_lever():
 	$ClickNoise.play()

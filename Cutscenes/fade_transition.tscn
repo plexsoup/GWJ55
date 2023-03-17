@@ -1,6 +1,9 @@
-[gd_scene load_steps=11 format=3 uid="uid://bhw7qepcfd0js"]
+[gd_scene load_steps=12 format=3 uid="uid://bhw7qepcfd0js"]
 
 [ext_resource type="Script" path="res://Cutscenes/fade_transition.gd" id="1_rgqkt"]
+
+[sub_resource type="Gradient" id="Gradient_rtjwa"]
+colors = PackedColorArray(0.294118, 0.176471, 0.219608, 1, 0.972549, 0.52549, 0.45098, 1)
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_vv4g8"]
 
@@ -8,6 +11,7 @@
 width = 5000
 height = 2000
 seamless = true
+color_ramp = SubResource("Gradient_rtjwa")
 noise = SubResource("FastNoiseLite_vv4g8")
 
 [sub_resource type="Gradient" id="Gradient_cpaes"]
@@ -19,34 +23,6 @@ colors = PackedColorArray(0.28303, 0.0698037, 0.300068, 1, 0.506566, 0.455188, 0
 [sub_resource type="NoiseTexture2D" id="NoiseTexture2D_f7gkv"]
 color_ramp = SubResource("Gradient_cpaes")
 noise = SubResource("FastNoiseLite_brsnb")
-
-[sub_resource type="Animation" id="Animation_0bwm0"]
-resource_name = "fade_out"
-length = 5.0
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:region_rect")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 5),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Rect2(88, 119.5, 164, 152), Rect2(200, 119.5, 328, 304)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Sprite2D:self_modulate")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 5),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
-}
 
 [sub_resource type="Animation" id="Animation_4vui8"]
 length = 0.001
@@ -115,6 +91,34 @@ tracks/2/keys = {
 "args": [],
 "method": &"queue_free"
 }]
+}
+
+[sub_resource type="Animation" id="Animation_0bwm0"]
+resource_name = "fade_out"
+length = 5.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:region_rect")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Rect2(88, 119.5, 164, 152), Rect2(200, 119.5, 328, 304)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:self_modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_bj88n"]

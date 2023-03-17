@@ -3,5 +3,7 @@
 [ext_resource type="Script" path="res://sfx/temporary_3Dsound.gd" id="1_cqn1f"]
 
 [node name="TemporarySound" type="AudioStreamPlayer3D"]
+attenuation_model = 1
+unit_size = 4.0
 bus = &"SFX"
 script = ExtResource("1_cqn1f")

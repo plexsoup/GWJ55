@@ -10,10 +10,10 @@ config_version=5
 
 [application]
 
-config/name="GWJ55"
+config/name="Dream Tail"
 run/main_scene="res://Menus/main_menu.tscn"
 config/features=PackedStringArray("4.0", "GL Compatibility")
-config/icon="res://icon.svg"
+config/icon="res://Art/Cat_Icon.png"
 
 [autoload]
 

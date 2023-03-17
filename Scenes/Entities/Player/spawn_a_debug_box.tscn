@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://r3apyeavw2ep"]
+
+[ext_resource type="Script" path="res://Scenes/Entities/Player/spawn_a_debug_box.gd" id="1_7krvi"]
+
+[node name="SpawnADebugBox" type="Node3D"]
+script = ExtResource("1_7krvi")

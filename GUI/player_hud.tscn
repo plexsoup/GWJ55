@@ -73,7 +73,8 @@ text = "Settings"
 layout_mode = 2
 text = "Debug Tools:
 -/+ = zoom camera
-ctrl-z = no_clip"
+ctrl-z = no_clip
+ctril-b = spawn a box"
 
 [node name="SettingsPanel" type="PanelContainer" parent="Control/VBoxContainer"]
 unique_name_in_owner = true

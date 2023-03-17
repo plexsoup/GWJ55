@@ -72,7 +72,8 @@ func _unhandled_input(_event):
 			set_collision_layer_value(1, true)
 			set_collision_mask_value(3, true)
 			print("no_clip ghost mode disabled")
-	
+
+
 	
 func check_climb():
 	if is_on_wall() and climb_flip != 3:

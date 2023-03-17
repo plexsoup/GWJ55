@@ -105,3 +105,4 @@ data = {
 [editable path="Player_Character"]
 [editable path="Player_Character/Audio/Footsteps"]
 [editable path="Player_Character/Audio/Landing"]
+[editable path="Player_Character/Audio/Jumping"]

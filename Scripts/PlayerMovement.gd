@@ -82,6 +82,25 @@ func check_climb():
 	else:
 		climb_flip = 0
 	
+	if is_on_ceiling() and climb_flip != 3:
+		var collision_count = get_slide_collision_count()
+		var x: int = 0
+		climb_side = "none"
+		while x < collision_count:
+			var collision = get_slide_collision(x)
+			var collider = collision.get_collider()
+			# was crashing when collider was NPC in process of dying
+			if !is_instance_valid(collider): return
+			var collider_name = collider.name
+			if collider_name == "climbable":
+				climb_side = "top"
+				animated_sprite.flip_v = true
+			x = x + 1
+	elif !is_on_ceiling():
+		climb_side = "none"
+		animated_sprite.flip_v = false
+		
+		
 func handle_dash():
 	if Input.is_action_just_pressed("dash") and !dashing and !on_dash_cooldown and dash_usable:
 		var direction = -1
@@ -150,7 +169,7 @@ func play_audio():
 
 func set_gravity_states(delta):
 	was_on_floor = is_on_floor()
-	if not is_on_floor() and !dashing and !on_dash_cooldown and climb_flip == 0:
+	if not is_on_floor() and !dashing and !on_dash_cooldown and climb_flip == 0 and climb_side != "top":
 		velocity.y += get_gravity() * delta
 
 func update_gravity_states():
@@ -165,7 +184,7 @@ func handle_jump():
 	#On floor or coyote time
 	if !Input.is_action_just_pressed("jump"):
 		return
-	if climb_flip == 0:
+	if climb_flip == 0 and climb_side != "top":
 		if (is_on_floor() || !coyote_time.is_stopped()):
 			jump()
 		#In air no coyote time with double
@@ -192,6 +211,10 @@ func handle_jump():
 		climb_flip = 3
 		double_jump = false
 		jumping = true
+	elif climb_side == "top":
+		climb_side = "none"
+		velocity.y = -1
+		animated_sprite.flip_v = false
 
 func move():
 	var fall_modifier = abs(clamp(velocity.y, -1.2, -1))

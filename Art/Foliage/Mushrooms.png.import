@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bmx6ipjtutc58"
-path.s3tc="res://.godot/imported/Grass2.png-af7a5b0675feafbcfb5bced5a21cf794.s3tc.ctex"
+uid="uid://ddaucwcbe7q1y"
+path.s3tc="res://.godot/imported/Mushrooms.png-2066da74e65b1f10579e630eb9bafb39.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://Art/Foliage/Grass2.png"
-dest_files=["res://.godot/imported/Grass2.png-af7a5b0675feafbcfb5bced5a21cf794.s3tc.ctex"]
+source_file="res://Art/Foliage/Mushrooms.png"
+dest_files=["res://.godot/imported/Mushrooms.png-2066da74e65b1f10579e630eb9bafb39.s3tc.ctex"]
 
 [params]
 

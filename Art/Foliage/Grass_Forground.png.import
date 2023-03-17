@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ftwbvhf158ir"
-path.s3tc="res://.godot/imported/Cloud.png-d83716739e8cfd7f969025a3fc78afdf.s3tc.ctex"
+uid="uid://chbwgc8vef2e5"
+path.s3tc="res://.godot/imported/Grass_Forground.png-09392f0439eab62bf372193391d331fa.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://Art/Companion assests/Cloud.png"
-dest_files=["res://.godot/imported/Cloud.png-d83716739e8cfd7f969025a3fc78afdf.s3tc.ctex"]
+source_file="res://Art/Foliage/Grass_Forground.png"
+dest_files=["res://.godot/imported/Grass_Forground.png-09392f0439eab62bf372193391d331fa.s3tc.ctex"]
 
 [params]
 

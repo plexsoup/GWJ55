@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://13uei006vo3q"]
+[gd_scene load_steps=32 format=3 uid="uid://13uei006vo3q"]
 
 [ext_resource type="PackedScene" uid="uid://cjiok7gin5bk5" path="res://Scenes/Maps/base_level.tscn" id="1_mlq30"]
 [ext_resource type="MeshLibrary" uid="uid://dmh5e52qprx6r" path="res://MeshLibraries/cat_tower_plex.tres" id="2_bcvq3"]
@@ -15,11 +15,17 @@
 [ext_resource type="Texture2D" uid="uid://coaanccqd0h8j" path="res://Art/Foliage/Tree.png" id="13_8fou7"]
 [ext_resource type="Texture2D" uid="uid://dhagpqi7ourpo" path="res://Art/Foliage/Mountains.png" id="14_k8juc"]
 [ext_resource type="Script" path="res://Scenes/Maps/Official/LivingRoom/High_Spec.gd" id="15_7wpix"]
+[ext_resource type="Texture2D" uid="uid://b6jmphr0ugk78" path="res://Art/Foliage/Mountains 2.png" id="15_use7y"]
+[ext_resource type="Texture2D" uid="uid://chbwgc8vef2e5" path="res://Art/Foliage/Grass_Forground.png" id="16_6sdku"]
+[ext_resource type="Texture2D" uid="uid://cewv0v0iot6yl" path="res://Art/Foliage/Island.png" id="16_kxdor"]
 [ext_resource type="ArrayMesh" uid="uid://b6mhxdpgi20yt" path="res://Art/objects/bookshelf.obj" id="16_lkj75"]
 [ext_resource type="ArrayMesh" uid="uid://63v6yq080qx8" path="res://Art/objects/couch.obj" id="17_lejdv"]
 [ext_resource type="Script" path="res://Scenes/Objects/RandomLazyMotion.gd" id="17_xb7d8"]
+[ext_resource type="Texture2D" uid="uid://b8b3xjek6q7wy" path="res://Art/Foliage/Grass3.png" id="18_2q4c1"]
+[ext_resource type="Texture2D" uid="uid://ddaucwcbe7q1y" path="res://Art/Foliage/Mushrooms.png" id="18_b3l4t"]
 [ext_resource type="ArrayMesh" uid="uid://ugyiwsce5kcv" path="res://Art/objects/pillow.obj" id="18_x66xe"]
 [ext_resource type="ArrayMesh" uid="uid://d2s12jb7pdygk" path="res://Art/objects/tv.obj" id="19_vwaly"]
+[ext_resource type="Texture2D" uid="uid://cynsdc3oljjuy" path="res://Art/Foliage/Light house.png" id="20_cip6y"]
 
 [sub_resource type="Animation" id="Animation_hwajo"]
 resource_name = "Floating around"
@@ -312,6 +318,141 @@ texture = ExtResource("14_k8juc")
 transform = Transform3D(28.065, 0, 0, 0, 27.6935, 0, 0, 0, 1, 142.328, -9.72363, -133.377)
 shaded = true
 texture = ExtResource("14_k8juc")
+
+[node name="Mountain En2" type="Sprite3D" parent="Background Elements/Skyline" index="7"]
+transform = Transform3D(33.5085, 0, 0, 0, 33.5149, 0, 0, 0, 1, -49.8635, -10.3799, -25.1873)
+shaded = true
+alpha_cut = 2
+texture = ExtResource("15_use7y")
+
+[node name="Mountain En3" type="Sprite3D" parent="Background Elements/Skyline" index="8"]
+transform = Transform3D(16.9673, 0, 0, 0, 22.9235, 0, 0, 0, 1, -56.2975, -10.3799, -59.6622)
+shaded = true
+alpha_cut = 2
+texture = ExtResource("15_use7y")
+
+[node name="Mountain En4" type="Sprite3D" parent="Background Elements/Skyline" index="9"]
+transform = Transform3D(-33.5084, -0.0399295, 0.000694199, -0.0399088, 33.5149, 0.000561404, -0.0232817, 0.0187878, -0.999999, -84.7323, -10.3814, -25.6763)
+shaded = true
+alpha_cut = 2
+texture = ExtResource("15_use7y")
+
+[node name="Mountain En5" type="Sprite3D" parent="Background Elements/Skyline" index="10"]
+transform = Transform3D(-33.5084, -0.0399295, 0.000694199, -0.0399088, 33.5149, 0.000561404, -0.0232817, 0.0187878, -0.999999, -84.7323, -10.3814, -25.6763)
+shaded = true
+alpha_cut = 2
+texture = ExtResource("15_use7y")
+
+[node name="Mountain En7" type="Sprite3D" parent="Background Elements/Skyline" index="11"]
+transform = Transform3D(-33.5084, -0.0399295, 0.000694199, -0.0399088, 33.5149, 0.000561404, -0.0232817, 0.0187878, -0.999999, 32.6643, -14.0019, -63.2011)
+shaded = true
+alpha_cut = 2
+texture = ExtResource("15_use7y")
+
+[node name="Mountain En8" type="Sprite3D" parent="Background Elements/Skyline" index="12"]
+transform = Transform3D(-33.5084, -0.0399295, 0.000694199, -0.0399088, 33.5149, 0.000561404, -0.0232817, 0.0187878, -0.999999, 32.6643, -14.0019, -63.2011)
+shaded = true
+alpha_cut = 2
+texture = ExtResource("15_use7y")
+
+[node name="Mountain En6" type="Sprite3D" parent="Background Elements/Skyline" index="13"]
+transform = Transform3D(16.9673, 0, 0, 0, 22.9235, 0, 0, 0, 1, -56.2975, -10.3799, -59.6622)
+shaded = true
+alpha_cut = 2
+texture = ExtResource("15_use7y")
+
+[node name="Island" type="Sprite3D" parent="Background Elements/Skyline" index="14"]
+transform = Transform3D(16.9673, 0, 0, 0, 22.9235, 0, 0, 0, 1, -36.7469, -1.7246, -59.6622)
+shaded = true
+alpha_cut = 2
+texture = ExtResource("16_kxdor")
+
+[node name="Island4" type="Sprite3D" parent="Background Elements/Skyline" index="15"]
+transform = Transform3D(16.9673, 0, 0, 0, 22.9235, 0, 0, 0, 1, 85.3895, -1.7246, -59.6622)
+shaded = true
+alpha_cut = 2
+texture = ExtResource("16_kxdor")
+
+[node name="Island2" type="Sprite3D" parent="Background Elements/Skyline" index="16"]
+transform = Transform3D(3.4941, 0, 0, 0, 6.10692, 0, 0, 0, 1, -21.925, -11.8546, -59.6622)
+shaded = true
+alpha_cut = 2
+texture = ExtResource("16_kxdor")
+
+[node name="Island3" type="Sprite3D" parent="Background Elements/Skyline" index="17"]
+transform = Transform3D(1.28168, 0, 0, 0, 3.89449, 0, 0, 0, 1, -25.6569, -14.7626, -59.6622)
+shaded = true
+alpha_cut = 2
+texture = ExtResource("16_kxdor")
+
+[node name="Grass" type="Sprite3D" parent="Background Elements/Skyline" index="18"]
+transform = Transform3D(9.0003, 0, 0, 0, 6.9574, 0, 0, 0, 1, -29.7558, -20.3744, 6.95133)
+shaded = true
+texture = ExtResource("16_6sdku")
+
+[node name="Grass2" type="Sprite3D" parent="Background Elements/Skyline" index="19"]
+transform = Transform3D(9.0003, 0, 0, 0, 6.9574, 0, 0, 0, 1, -16.5584, -20.3744, 6.95133)
+shaded = true
+texture = ExtResource("16_6sdku")
+
+[node name="Grass3" type="Sprite3D" parent="Background Elements/Skyline" index="20"]
+transform = Transform3D(9.0003, 0, 0, 0, 6.9574, 0, 0, 0, 1, -32.4231, -20.3744, 6.95133)
+shaded = true
+texture = ExtResource("16_6sdku")
+
+[node name="Grass4" type="Sprite3D" parent="Background Elements/Skyline" index="21"]
+transform = Transform3D(9.0003, 0, 0, 0, 6.9574, 0, 0, 0, 1, -12.1961, -20.3744, 6.95133)
+modulate = Color(0.25098, 0.188235, 0.184314, 1)
+shaded = true
+texture = ExtResource("18_2q4c1")
+
+[node name="Grass5" type="Sprite3D" parent="Background Elements/Skyline" index="22"]
+transform = Transform3D(9.0003, 0, 0, 0, 6.9574, 0, 0, 0, 1, -35.7571, -20.3744, 6.95133)
+modulate = Color(0.25098, 0.188235, 0.184314, 1)
+shaded = true
+texture = ExtResource("18_2q4c1")
+
+[node name="Grass6" type="Sprite3D" parent="Background Elements/Skyline" index="23"]
+transform = Transform3D(9.0003, 0, 0, 0, 6.9574, 0, 0, 0, 1, -23.4284, -22.4823, 6.95133)
+modulate = Color(0.25098, 0.188235, 0.184314, 1)
+shaded = true
+texture = ExtResource("18_2q4c1")
+
+[node name="Grass7" type="Sprite3D" parent="Background Elements/Skyline" index="24"]
+transform = Transform3D(9.0003, 0, 0, 0, 6.9574, 0, 0, 0, 1, -25.5993, -23.6565, 4.60671)
+modulate = Color(0.25098, 0.188235, 0.184314, 1)
+shaded = true
+texture = ExtResource("18_2q4c1")
+
+[node name="Shrooms" type="Sprite3D" parent="Background Elements/Skyline" index="25"]
+transform = Transform3D(0.920658, 0, 0, 0, 0.971539, 0, 0, 0, 1, -26.6774, -19.4006, 9.29673)
+modulate = Color(0.25098, 0.188235, 0.184314, 1)
+shaded = true
+texture = ExtResource("18_b3l4t")
+
+[node name="Light House" type="Sprite3D" parent="Background Elements/Skyline" index="26"]
+transform = Transform3D(35.8252, -9.72465, 0, 9.71134, 35.8743, 0, 0, 0, 1, -26.6774, -26.6756, -34.1613)
+shaded = true
+alpha_cut = 2
+texture = ExtResource("20_cip6y")
+
+[node name="Light House2" type="Sprite3D" parent="Background Elements/Skyline" index="27"]
+transform = Transform3D(37.0487, 2.273, 0, -2.26989, 37.0995, 0, 0, 0, 1, 72.0537, -32.7246, -26.0715)
+shaded = true
+alpha_cut = 2
+texture = ExtResource("20_cip6y")
+
+[node name="Light House3" type="Sprite3D" parent="Background Elements/Skyline" index="28"]
+transform = Transform3D(37.0487, 2.273, 0, -2.26989, 37.0995, 0, 0, 0, 1, -12.735, -27.5298, -67.4055)
+shaded = true
+alpha_cut = 2
+texture = ExtResource("20_cip6y")
+
+[node name="Light House4" type="Sprite3D" parent="Background Elements/Skyline" index="29"]
+transform = Transform3D(36.9877, -3.11281, 0, 3.10855, 37.0384, 0, 0, 0, 1, -24.3073, -28.5024, -114.483)
+shaded = true
+alpha_cut = 2
+texture = ExtResource("20_cip6y")
 
 [node name="High_Spec" type="Node3D" parent="Background Elements" index="3"]
 script = ExtResource("15_7wpix")

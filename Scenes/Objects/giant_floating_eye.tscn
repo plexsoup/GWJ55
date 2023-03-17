@@ -1,0 +1,40 @@
+[gd_scene load_steps=6 format=3 uid="uid://beeeabp6iyqb5"]
+
+[ext_resource type="Script" path="res://Scenes/Objects/giant_floating_eye.gd" id="1_5qvnk"]
+[ext_resource type="Texture2D" uid="uid://lmde70nwacgw" path="res://Art/Eye_text.png" id="1_476p7"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0fbmc"]
+vertex_color_use_as_albedo = true
+albedo_texture = ExtResource("1_476p7")
+metallic_specular = 1.0
+roughness = 0.33
+rim_enabled = true
+rim_tint = 0.41
+clearcoat_enabled = true
+clearcoat_roughness = 0.0
+heightmap_enabled = true
+subsurf_scatter_enabled = true
+
+[sub_resource type="SphereMesh" id="SphereMesh_ovymh"]
+material = SubResource("StandardMaterial3D_0fbmc")
+radius = 9.411
+height = 18.822
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_ulkeb"]
+
+[node name="GiantFloatingEye" type="Node3D"]
+script = ExtResource("1_5qvnk")
+
+[node name="Eye" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.437458, 0.874817, 0.208148, -0.634054, 0.135937, 0.761247, 0.637657, -0.464991, 0.614148, 0, 0, 0)
+mesh = SubResource("SphereMesh_ovymh")
+
+[node name="Handle01" type="MeshInstance3D" parent="."]
+transform = Transform3D(-1.51151e-07, -7.33369, 0, 3.45793, -3.20566e-07, 0, 0, 0, 3.45793, -14.7445, 0, 0)
+visible = false
+mesh = SubResource("CylinderMesh_ulkeb")
+
+[node name="Handle02" type="MeshInstance3D" parent="."]
+transform = Transform3D(-1.51151e-07, -7.33369, 0, 3.45793, -3.20566e-07, 0, 0, 0, 3.45793, 16.0549, 0, 0)
+visible = false
+mesh = SubResource("CylinderMesh_ulkeb")

@@ -1,7 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://3pb74me2v4v0"]
+[gd_scene load_steps=2 format=3 uid="uid://3pb74me2v4v0"]
 
-[ext_resource type="PackedScene" uid="uid://bdfxkdw1gtrqc" path="res://Menus/Settings/action_remapping_container.tscn" id="1_17scf"]
-[ext_resource type="PackedScene" uid="uid://dnn5t5pnixj0o" path="res://Menus/Buttons/return_to_main_button.tscn" id="2_eupfl"]
+[ext_resource type="PackedScene" uid="uid://usl7miasqpmr" path="res://GUI/remap_controls_vbox.tscn" id="1_gb8jm"]
 
 [node name="RemapControls" type="Control"]
 layout_mode = 3
@@ -19,25 +18,5 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer"]
-custom_minimum_size = Vector2(150, 2.08165e-12)
-layout_mode = 2
-
-[node name="move_left" parent="CenterContainer/VBoxContainer" instance=ExtResource("1_17scf")]
-layout_mode = 2
-action_name = "move_left"
-
-[node name="move_right" parent="CenterContainer/VBoxContainer" instance=ExtResource("1_17scf")]
-layout_mode = 2
-action_name = "move_right"
-
-[node name="move_up" parent="CenterContainer/VBoxContainer" instance=ExtResource("1_17scf")]
-layout_mode = 2
-action_name = "move_up"
-
-[node name="move_down" parent="CenterContainer/VBoxContainer" instance=ExtResource("1_17scf")]
-layout_mode = 2
-action_name = "move_down"
-
-[node name="SceneChangeButton" parent="CenterContainer/VBoxContainer" instance=ExtResource("2_eupfl")]
+[node name="RemapControlsVbox" parent="CenterContainer" instance=ExtResource("1_gb8jm")]
 layout_mode = 2

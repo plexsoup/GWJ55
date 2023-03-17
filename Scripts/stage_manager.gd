@@ -2,9 +2,17 @@ extends Node
 
 var current_map # instantiated scene object
 var current_map_packed_scene : PackedScene # useful for restarting the level
-# Called when the node enters the scene tree for the first time.
 @onready var fade_transition = preload("res://Cutscenes/fade_transition.tscn")
 var current_transition
+
+var music_player_scene = "res://Scripts/Music/play_random_music.tscn"
+var music_player
+
+func _ready():
+# removed by RonnocJ.
+#	music_player = load(music_player_scene).instantiate()
+#	add_child(music_player)
+	pass
 
 func fade_out():
 	current_transition = fade_transition.instantiate()

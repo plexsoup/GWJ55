@@ -1,0 +1,28 @@
+[gd_scene load_steps=4 format=3 uid="uid://5dgcj4a8aej5"]
+
+[ext_resource type="Script" path="res://Scripts/Music/play_random_music.gd" id="1_iokq4"]
+[ext_resource type="AudioStream" uid="uid://7qiv1uacfw8p" path="res://Music/MUS_TitleV2_9M_7-4_78.mp3" id="2_lg2a7"]
+[ext_resource type="AudioStream" uid="uid://dw48nal0qwd53" path="res://Music/Title Theme.mp3" id="3_fmrpm"]
+
+[node name="PlayRandomMusic" type="Node"]
+script = ExtResource("1_iokq4")
+
+[node name="AudioStreamPlayer1" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_lg2a7")
+bus = &"Music"
+
+[node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_fmrpm")
+bus = &"Music"
+
+[node name="AudioStreamPlayer3" type="AudioStreamPlayer" parent="."]
+bus = &"Music"
+
+[node name="AudioStreamPlayer4" type="AudioStreamPlayer" parent="."]
+bus = &"Music"
+
+[node name="AudioStreamPlayer5" type="AudioStreamPlayer" parent="."]
+bus = &"Music"
+
+[node name="AudioStreamPlayer6" type="AudioStreamPlayer" parent="."]
+bus = &"Music"

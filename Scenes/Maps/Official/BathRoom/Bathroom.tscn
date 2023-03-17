@@ -11,7 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://crvvpifd7a146" path="res://Scenes/Entities/NPCs/pressure_plate.tscn" id="6_jvxdu"]
 [ext_resource type="PackedScene" uid="uid://dwte3a8axt6kp" path="res://Scenes/Objects/door.tscn" id="7_vtp6s"]
 [ext_resource type="PackedScene" uid="uid://eb3wwyaluatx" path="res://Scenes/Objects/trigger_volume_win.tscn" id="8_ctuvk"]
-[ext_resource type="PackedScene" uid="uid://ch0xqdmee1xnu" path="res://WorldEnvironments/sky_and_lighting.tscn" id="8_tngek"]
+[ext_resource type="PackedScene" path="res://WorldEnvironments/sky_and_lighting.tscn" id="8_tngek"]
 [ext_resource type="Shader" uid="uid://cx2ac458h8a83" path="res://Shaders/Cloud_Water.tres" id="9_24d24"]
 [ext_resource type="Texture2D" uid="uid://d2tun4dqdssdx" path="res://Scenes/Maps/Official/BathRoom/level01_mockup_section3.png" id="9_dy6eo"]
 [ext_resource type="PackedScene" uid="uid://ted21c8mecho" path="res://Scenes/Entities/NPCs/switch.tscn" id="10_7ywxi"]
@@ -105,6 +105,7 @@ transform = Transform3D(1.52259, 0, 0, 0, 9.96751, 0, 0, 0, 2.05156, 0.764902, 5
 [node name="moving platform_03" parent="MovingPlatforms" instance=ExtResource("4_ldbyu")]
 transform = Transform3D(1.81612, 0, 0, 0, 0.657119, 0, 0, 0, 1.81612, 21.7745, 17.6009, 0)
 target = Vector3(11, 0, 0)
+needs_activation = true
 
 [node name="moving platform_04" parent="MovingPlatforms" instance=ExtResource("4_ldbyu")]
 transform = Transform3D(1.82457, 0, 0, 0, 0.660174, 0, 0, 0, 1.82457, -8.37885, 90.1397, 0)

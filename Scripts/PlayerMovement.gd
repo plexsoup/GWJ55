@@ -22,6 +22,7 @@ var was_on_floor
 var double_jump = false
 var animation_state = "Idle"
 var previous_animation_state
+var previous_animation_frame : int
 var input_dir
 var jumping = false
 var dashing = false
@@ -45,6 +46,8 @@ func _physics_process(delta):
 	update_gravity_states()
 	animate()
 	play_audio()
+	previous_animation_frame = animated_sprite.get_frame()
+	
 
 func wind_throw():
 	pass
@@ -130,11 +133,15 @@ func animate():
 		animation_state = "Jump_Start"
 	animated_sprite.play(animation_state)
 	jumping = false
+	
+
 
 func play_audio():
 	if animation_state == "Run":
-		if $AnimatedSprite3D.get_frame() in [ 0, 2, 4 ]:
-			$Audio/Footsteps.play_random_noise()
+		var frame = animated_sprite.get_frame()
+		if frame != previous_animation_frame:
+			if $AnimatedSprite3D.get_frame() in [ 0, 2, 4 ]:
+				$Audio/Footsteps.play_random_noise()
 	elif previous_animation_state == "Fall" and animation_state != "Fall": # landed
 		$Audio/Landing.play_random_noise()
 	elif animation_state == "Jump_Start":

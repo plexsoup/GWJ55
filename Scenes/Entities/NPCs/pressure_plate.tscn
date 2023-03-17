@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://Scenes/Entities/NPCs/pressure_plate.gd" id="1_v1kjb"]
 [ext_resource type="Material" uid="uid://nnv0nusw3ic" path="res://Materials/concrete_material.tres" id="2_ns1li"]
-[ext_resource type="Material" uid="uid://b30wkuohpie3w" path="res://Materials/OrangeCarpetNoiseShader.tres" id="3_3ik68"]
+[ext_resource type="Material" uid="uid://dae3xhxbci83k" path="res://Materials/OrangeCarpetMaterial2.tres" id="3_cq5bv"]
 [ext_resource type="PackedScene" uid="uid://mbxsqklc6aod" path="res://sfx/random_3d_sound.tscn" id="4_0a3xy"]
 [ext_resource type="AudioStream" uid="uid://bmqhnh0r15m8" path="res://sfx/Pressure Plate/SFX_PressureOn1.wav" id="5_l3n2t"]
 [ext_resource type="PackedScene" uid="uid://cv5h3okghsyd0" path="res://sfx/temporary_3Dsound.tscn" id="6_so3x3"]
@@ -16,8 +16,8 @@ size = Vector3(1, 1.63297, 1)
 [sub_resource type="BoxMesh" id="BoxMesh_unge4"]
 material = ExtResource("2_ns1li")
 
-[sub_resource type="BoxMesh" id="BoxMesh_h8bvk"]
-material = ExtResource("3_3ik68")
+[sub_resource type="BoxMesh" id="BoxMesh_30epw"]
+material = ExtResource("3_cq5bv")
 
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_bqgsn"]
 data = PackedVector3Array(-0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, -0.5)
@@ -41,7 +41,7 @@ mesh = SubResource("BoxMesh_unge4")
 
 [node name="PlungerMesh" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.75, 0, 0, 0, 0.1, 0, 0, 0, 0.75, 0, 0.5, 0)
-mesh = SubResource("BoxMesh_h8bvk")
+mesh = SubResource("BoxMesh_30epw")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="PlungerMesh"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.16784, 0)

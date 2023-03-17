@@ -5,7 +5,7 @@
 [sub_resource type="BoxShape3D" id="BoxShape3D_en3eh"]
 size = Vector3(3, 3, 3)
 
-[node name="Area3D" type="Area3D"]
+[node name="TriggerVolumeHint" type="Area3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.58554, 0)
 script = ExtResource("1_4ymff")
 

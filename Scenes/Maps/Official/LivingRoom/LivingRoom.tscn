@@ -292,6 +292,14 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.23854, 2.44171, 0)
 hint_text = "Enemies have a weak spot."
 local_coords = true
 
+[node name="HintTextPopup02" parent="DynamicObjects" index="8" instance=ExtResource("9_4bb1g")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25.7391, -16.0492, 0)
+hint_text = "WASD move,
+space to jump,
+F/sprint to dash"
+times_to_display = 3
+duration = 18.988
+
 [node name="ReferenceSprite3D" type="Sprite3D" parent="." index="10"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2.05205)
 visible = false

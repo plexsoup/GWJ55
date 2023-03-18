@@ -10,13 +10,13 @@
 [ext_resource type="Texture2D" uid="uid://dhm4vtuux462g" path="res://Materials/arrow_01.png" id="5_r5rsb"]
 [ext_resource type="PackedScene" uid="uid://crvvpifd7a146" path="res://Scenes/Entities/NPCs/pressure_plate.tscn" id="6_jvxdu"]
 [ext_resource type="PackedScene" uid="uid://dwte3a8axt6kp" path="res://Scenes/Objects/door.tscn" id="7_vtp6s"]
-[ext_resource type="PackedScene" path="res://Scenes/Objects/trigger_volume_win.tscn" id="8_ctuvk"]
+[ext_resource type="PackedScene" uid="uid://eb3wwyaluatx" path="res://Scenes/Objects/trigger_volume_win.tscn" id="8_ctuvk"]
 [ext_resource type="PackedScene" uid="uid://ch0xqdmee1xnu" path="res://WorldEnvironments/sky_and_lighting.tscn" id="8_tngek"]
 [ext_resource type="Shader" uid="uid://cx2ac458h8a83" path="res://Shaders/Cloud_Water.tres" id="9_24d24"]
 [ext_resource type="Texture2D" uid="uid://d2tun4dqdssdx" path="res://Scenes/Maps/Official/BathRoom/level01_mockup_section3.png" id="9_dy6eo"]
 [ext_resource type="Script" path="res://WorldEnvironments/sky_and_lighting_Bathroom.gd" id="9_qwmps"]
 [ext_resource type="PackedScene" uid="uid://ted21c8mecho" path="res://Scenes/Entities/NPCs/switch.tscn" id="10_7ywxi"]
-[ext_resource type="PackedScene" path="res://Scenes/Objects/fall_reset_volume.tscn" id="12_4q8sl"]
+[ext_resource type="PackedScene" uid="uid://cmd16bdree5a7" path="res://Scenes/Objects/fall_reset_volume.tscn" id="12_4q8sl"]
 [ext_resource type="Script" path="res://Scenes/Maps/ReferenceSprite3D.gd" id="12_p2k0u"]
 [ext_resource type="ArrayMesh" uid="uid://bbje4wl4kivx0" path="res://Art/objects/mirror.obj" id="13_do3yh"]
 [ext_resource type="Script" path="res://Scenes/Objects/RandomLazyMotion.gd" id="14_olyda"]
@@ -78,6 +78,23 @@ material = SubResource("StandardMaterial3D_0fbmc")
 radius = 9.411
 height = 18.822
 
+[sub_resource type="Animation" id="Animation_1qh7g"]
+resource_name = "Drip drop"
+length = 2.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.9),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(32.3414, 28.4375, -6.79861), Vector3(32.3414, 4.15541, -6.79861)]
+}
+
 [sub_resource type="Animation" id="Animation_deyvl"]
 length = 0.001
 
@@ -108,23 +125,6 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Vector3(1, 1, 1)]
-}
-
-[sub_resource type="Animation" id="Animation_1qh7g"]
-resource_name = "Drip drop"
-length = 2.0
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 1.9),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector3(32.3414, 28.4375, -6.79861), Vector3(32.3414, 4.15541, -6.79861)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_4u500"]
@@ -386,6 +386,7 @@ shadow_opacity = 0.41
 
 [node name="Sky and Lighting" parent="." instance=ExtResource("8_tngek")]
 script = ExtResource("9_qwmps")
+low_spec_in_editor = true
 
 [node name="Cloud_water" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -38.2472, 0)
@@ -556,10 +557,10 @@ They could hold the door."
 [node name="SpawnPoints" type="Node3D" parent="."]
 
 [node name="SpawnPointLivingRoom" parent="SpawnPoints" instance=ExtResource("22_0ifv0")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -59.0866, 18.921, -0.296596)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -59.0866, 18.921, -0.99596)
 
 [node name="SpawnPointAttic" parent="SpawnPoints" instance=ExtResource("22_0ifv0")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -63.7226, 63.2027, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -63.7226, 63.2027, -1.14912)
 
 [node name="Background_elements" type="Node3D" parent="."]
 
@@ -1344,727 +1345,27 @@ texture = ExtResource("35_akuyx")
 
 [node name="Bathroom_elements" type="Node3D" parent="Background_elements"]
 
-[node name="WaterTwist2" type="MeshInstance3D" parent="."]
-transform = Transform3D(7.109, 0, 0, 0, 7.522, 0, 0, 0, 7.088, -23.0962, -22.3288, -42.1405)
+[node name="WaterTwist3" type="MeshInstance3D" parent="Background_elements"]
+transform = Transform3D(12.152, 0, 0, 0, 13.3975, 0, 0, 0, 12.1334, -121.967, -76.962, -40.4067)
 mesh = ExtResource("27_fjhtx")
+skeleton = NodePath("../..")
 surface_material_override/0 = SubResource("ShaderMaterial_a5c6y")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="WaterTwist2"]
+[node name="WaterTwist2" type="MeshInstance3D" parent="Background_elements"]
+transform = Transform3D(7.109, 0, 0, 0, 7.522, 0, 0, 0, 7.088, -23.0962, -22.3288, -42.1405)
+mesh = ExtResource("27_fjhtx")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("ShaderMaterial_a5c6y")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Background_elements/WaterTwist2"]
 autoplay = "twist"
 libraries = {
 "": SubResource("AnimationLibrary_ce648")
 }
 
-[node name="WaterTwist3" type="MeshInstance3D" parent="."]
-transform = Transform3D(12.152, 0, 0, 0, 13.3975, 0, 0, 0, 12.1334, -121.967, -76.962, -40.4067)
-mesh = ExtResource("27_fjhtx")
-surface_material_override/0 = SubResource("ShaderMaterial_a5c6y")
-
 [node name="Water_floor" type="MeshInstance3D" parent="."]
 transform = Transform3D(3.47524, 0, 0, 0, -0.161479, 0.997756, 0, -2.40641, -0.066953, 0, -5.97367, 1.89985)
 mesh = SubResource("QuadMesh_8pkyx")
-
-[node name="Sprite3D65" type="Sprite3D" parent="."]
-transform = Transform3D(3.42287, 0, 0, 0, 4.21277, 0, 0, 0, 0.38478, -8.55044, 8.26548, -5.11657)
-shaded = true
-alpha_cut = 2
-texture = ExtResource("28_pvto1")
-
-[node name="Sprite3D66" type="Sprite3D" parent="."]
-transform = Transform3D(3.42287, 0, 0, 0, 4.21277, 0, 0, 0, 0.38478, -43.6691, 8.91118, -5.11657)
-shaded = true
-alpha_cut = 2
-texture = ExtResource("28_pvto1")
-
-[node name="Sprite3D67" type="Sprite3D" parent="."]
-transform = Transform3D(3.42287, 0, 0, 0, 4.21277, 0, 0, 0, 0.38478, -37.6035, 8.91118, -5.11657)
-shaded = true
-alpha_cut = 2
-texture = ExtResource("28_pvto1")
-
-[node name="Sprite3D68" type="Sprite3D" parent="."]
-transform = Transform3D(3.42287, 0, 0, 0, 4.21277, 0, 0, 0, 0.38478, -31.4105, 8.26548, -5.11657)
-shaded = true
-alpha_cut = 2
-texture = ExtResource("28_pvto1")
-
-[node name="Sprite3D69" type="Sprite3D" parent="."]
-transform = Transform3D(3.42287, 0, 0, 0, 4.21277, 0, 0, 0, 0.38478, -25.6334, 8.26548, -5.11657)
-shaded = true
-alpha_cut = 2
-texture = ExtResource("28_pvto1")
-
-[node name="Sprite3D70" type="Sprite3D" parent="."]
-transform = Transform3D(3.20748, 0, 0, 0, 2.74434, 0, 0, 0, 0.38478, -6.32308, 8.68384, -0.0101762)
-shaded = true
-alpha_cut = 2
-texture = ExtResource("28_pvto1")
-
-[node name="Sprite3D71" type="Sprite3D" parent="."]
-transform = Transform3D(3.20748, 0, 0, 0, 2.74434, 0, 0, 0, 0.38478, -39.2318, 9.10446, 0.45019)
-shaded = true
-alpha_cut = 2
-texture = ExtResource("28_pvto1")
-
-[node name="Sprite3D72" type="Sprite3D" parent="."]
-transform = Transform3D(3.20748, 0, 0, 0, 2.74434, 0, 0, 0, 0.38478, -33.5479, 9.10446, 0.472337)
-shaded = true
-alpha_cut = 2
-texture = ExtResource("28_pvto1")
-
-[node name="Sprite3D73" type="Sprite3D" parent="."]
-transform = Transform3D(3.20748, 0, 0, 0, 2.74434, 0, 0, 0, 0.38478, -27.7446, 9.17999, 0.45019)
-shaded = true
-alpha_cut = 2
-texture = ExtResource("28_pvto1")
-
-[node name="Sprite3D74" type="Sprite3D" parent="."]
-transform = Transform3D(3.20748, 0, 0, 0, 2.74434, 0, 0, 0, 0.38478, -22.331, 8.99121, 0.545455)
-shaded = true
-alpha_cut = 2
-texture = ExtResource("28_pvto1")
-
-[node name="Sprite3D80" type="Sprite3D" parent="."]
-transform = Transform3D(3.20748, 0, 0, 0, 2.74434, 0, 0, 0, 0.38478, -48.6099, 24.3528, -2.47033)
-shaded = true
-alpha_cut = 2
-texture = ExtResource("28_pvto1")
-
-[node name="Sprite3D81" type="Sprite3D" parent="."]
-transform = Transform3D(3.20748, 0, 0, 0, 2.74434, 0, 0, 0, 0.38478, -42.926, 24.3528, -2.44819)
-shaded = true
-alpha_cut = 2
-texture = ExtResource("28_pvto1")
-
-[node name="Sprite3D82" type="Sprite3D" parent="."]
-transform = Transform3D(3.20748, 0, 0, 0, 2.74434, 0, 0, 0, 0.38478, -37.1227, 24.4283, -2.47033)
-shaded = true
-alpha_cut = 2
-texture = ExtResource("28_pvto1")
-
-[node name="Sprite3D83" type="Sprite3D" parent="."]
-transform = Transform3D(3.20748, 0, 0, 0, 2.74434, 0, 0, 0, 0.38478, -31.7091, 24.2395, -2.37507)
-shaded = true
-alpha_cut = 2
-texture = ExtResource("28_pvto1")
-
-[node name="Sprite3D84" type="Sprite3D" parent="."]
-transform = Transform3D(3.20748, 0, 0, 0, 2.74434, 0, 0, 0, 0.38478, -40.2108, 24.3528, -2.47033)
-shaded = true
-alpha_cut = 2
-texture = ExtResource("28_pvto1")
-
-[node name="Sprite3D85" type="Sprite3D" parent="."]
-transform = Transform3D(3.20748, 0, 0, 0, 2.74434, 0, 0, 0, 0.38478, -34.5269, 24.3528, -2.44819)
-shaded = true
-alpha_cut = 2
-texture = ExtResource("28_pvto1")
-
-[node name="Sprite3D86" type="Sprite3D" parent="."]
-transform = Transform3D(3.20748, 0, 0, 0, 2.74434, 0, 0, 0, 0.38478, -28.7236, 24.4283, -2.47033)
-shaded = true
-alpha_cut = 2
-texture = ExtResource("28_pvto1")
-
-[node name="Sprite3D87" type="Sprite3D" parent="."]
-transform = Transform3D(3.20748, 0, 0, 0, 2.74434, 0, 0, 0, 0.38478, -23.31, 24.2395, -2.37507)
-shaded = true
-alpha_cut = 2
-texture = ExtResource("28_pvto1")
-
-[node name="Sprite3D88" type="Sprite3D" parent="."]
-transform = Transform3D(3.20748, 0, 0, 0, 1.62003, 0, 0, 0, 0.38478, -46.5143, 24.3489, -0.0302844)
-shaded = true
-alpha_cut = 2
-texture = ExtResource("28_pvto1")
-
-[node name="Sprite3D89" type="Sprite3D" parent="."]
-transform = Transform3D(3.20748, 0, 0, 0, 1.62003, 0, 0, 0, 0.38478, -40.8304, 24.3489, -0.00813699)
-shaded = true
-alpha_cut = 2
-texture = ExtResource("28_pvto1")
-
-[node name="Sprite3D90" type="Sprite3D" parent="."]
-transform = Transform3D(3.20748, 0, 0, 0, 1.62003, 0, 0, 0, 0.38478, -35.0271, 24.3935, -0.0302844)
-shaded = true
-alpha_cut = 2
-texture = ExtResource("28_pvto1")
-
-[node name="Sprite3D91" type="Sprite3D" parent="."]
-transform = Transform3D(3.20748, 0, 0, 0, 1.62003, 0, 0, 0, 0.38478, -29.6135, 24.282, 0.0649812)
-shaded = true
-alpha_cut = 2
-texture = ExtResource("28_pvto1")
-
-[node name="Sprite3D92" type="Sprite3D" parent="."]
-transform = Transform3D(3.20748, 0, 0, 0, 1.62003, 0, 0, 0, 0.38478, -40.1521, 23.9568, -0.0302844)
-shaded = true
-alpha_cut = 2
-texture = ExtResource("28_pvto1")
-
-[node name="Sprite3D93" type="Sprite3D" parent="."]
-transform = Transform3D(3.20748, 0, 0, 0, 1.62003, 0, 0, 0, 0.38478, -34.4682, 23.9568, -0.00813699)
-shaded = true
-alpha_cut = 2
-texture = ExtResource("28_pvto1")
-
-[node name="Sprite3D94" type="Sprite3D" parent="."]
-transform = Transform3D(3.20748, 0, 0, 0, 1.62003, 0, 0, 0, 0.38478, -28.6649, 24.0014, -0.0302844)
-shaded = true
-alpha_cut = 2
-texture = ExtResource("28_pvto1")
-
-[node name="Sprite3D95" type="Sprite3D" parent="."]
-transform = Transform3D(3.20748, 0, 0, 0, 1.62003, 0, 0, 0, 0.38478, -23.2513, 23.8899, 0.0649812)
-shaded = true
-alpha_cut = 2
-texture = ExtResource("28_pvto1")
-
-[node name="Sprite3D96" type="Sprite3D" parent="."]
-transform = Transform3D(3.20748, 0, 0, 0, 1.62003, 0, 0, 0, 0.38478, -29.7492, 37.6487, -4.05912)
-shaded = true
-alpha_cut = 2
-texture = ExtResource("28_pvto1")
-
-[node name="Sprite3D97" type="Sprite3D" parent="."]
-transform = Transform3D(3.20748, 0, 0, 0, 1.62003, 0, 0, 0, 0.38478, -24.0425, 37.6152, -4.02062)
-shaded = true
-alpha_cut = 2
-texture = ExtResource("28_pvto1")
-
-[node name="Sprite3D98" type="Sprite3D" parent="."]
-transform = Transform3D(3.20748, 0, 0, 0, 1.62003, 0, 0, 0, 0.38478, -18.262, 37.427, -4.05912)
-shaded = true
-alpha_cut = 2
-texture = ExtResource("28_pvto1")
-
-[node name="Sprite3D99" type="Sprite3D" parent="."]
-transform = Transform3D(3.20748, 0, 0, 0, 1.62003, 0, 0, 0, 0.38478, -12.8484, 37.2441, -3.96386)
-shaded = true
-alpha_cut = 2
-texture = ExtResource("28_pvto1")
-
-[node name="Sprite3D100" type="Sprite3D" parent="."]
-transform = Transform3D(3.20748, 0, 0, 0, 1.62003, 0, 0, 0, 0.38478, -37.8243, 37.5556, -4.06149)
-shaded = true
-alpha_cut = 2
-texture = ExtResource("28_pvto1")
-
-[node name="Sprite3D101" type="Sprite3D" parent="."]
-transform = Transform3D(3.20748, 0, 0, 0, 1.62003, 0, 0, 0, 0.38478, -32.1176, 37.5871, -4.02298)
-shaded = true
-alpha_cut = 2
-texture = ExtResource("28_pvto1")
-
-[node name="Sprite3D102" type="Sprite3D" parent="."]
-transform = Transform3D(3.20748, 0, 0, 0, 1.62003, 0, 0, 0, 0.38478, -26.3656, 37.6002, -4.05912)
-shaded = true
-alpha_cut = 2
-texture = ExtResource("28_pvto1")
-
-[node name="Sprite3D103" type="Sprite3D" parent="."]
-transform = Transform3D(3.20748, 0, 0, 0, 1.62003, 0, 0, 0, 0.38478, -20.9305, 37.5951, -3.95801)
-shaded = true
-alpha_cut = 2
-texture = ExtResource("28_pvto1")
-
-[node name="Sprite3D104" type="Sprite3D" parent="."]
-transform = Transform3D(3.20748, 0, 0, 0, 0.834833, 0, 0, 0, 0.38478, -33.7451, 37.5256, -0.0377603)
-shaded = true
-alpha_cut = 2
-texture = ExtResource("28_pvto1")
-
-[node name="Sprite3D105" type="Sprite3D" parent="."]
-transform = Transform3D(3.20748, 0, 0, 0, 0.834833, 0, 0, 0, 0.38478, -28.0612, 37.2157, -0.0156126)
-shaded = true
-alpha_cut = 2
-texture = ExtResource("28_pvto1")
-
-[node name="Sprite3D106" type="Sprite3D" parent="."]
-transform = Transform3D(3.20748, 0, 0, 0, 0.834833, 0, 0, 0, 0.38478, -22.2579, 37.2387, -0.0377603)
-shaded = true
-alpha_cut = 2
-texture = ExtResource("28_pvto1")
-
-[node name="Sprite3D107" type="Sprite3D" parent="."]
-transform = Transform3D(3.20748, 0, 0, 0, 0.834833, 0, 0, 0, 0.38478, -16.8443, 37.1812, 0.0575054)
-shaded = true
-alpha_cut = 2
-texture = ExtResource("28_pvto1")
-
-[node name="Sprite3D108" type="Sprite3D" parent="."]
-transform = Transform3D(3.20748, 0, 0, 0, 1.62003, 0, 0, 0, 0.38478, -49.3115, 49.8971, -0.160396)
-shaded = true
-alpha_cut = 2
-texture = ExtResource("28_pvto1")
-
-[node name="Sprite3D109" type="Sprite3D" parent="."]
-transform = Transform3D(3.20748, 0, 0, 0, 1.62003, 0, 0, 0, 0.38478, -43.6276, 49.8971, -0.138248)
-shaded = true
-alpha_cut = 2
-texture = ExtResource("28_pvto1")
-
-[node name="Sprite3D110" type="Sprite3D" parent="."]
-transform = Transform3D(3.20748, 0, 0, 0, 1.62003, 0, 0, 0, 0.38478, -37.8243, 49.9417, -0.160396)
-shaded = true
-alpha_cut = 2
-texture = ExtResource("28_pvto1")
-
-[node name="Sprite3D111" type="Sprite3D" parent="."]
-transform = Transform3D(3.20748, 0, 0, 0, 1.62003, 0, 0, 0, 0.38478, -32.4209, 49.8302, -0.0651305)
-shaded = true
-alpha_cut = 2
-texture = ExtResource("28_pvto1")
-
-[node name="Sprite3D112" type="Sprite3D" parent="."]
-transform = Transform3D(3.20748, 0, 0, 0, 1.62003, 0, 0, 0, 0.38478, -37.9669, 49.8971, -0.202578)
-shaded = true
-alpha_cut = 2
-texture = ExtResource("28_pvto1")
-
-[node name="Sprite3D113" type="Sprite3D" parent="."]
-transform = Transform3D(3.20748, 0, 0, 0, 1.62003, 0, 0, 0, 0.38478, -32.283, 49.8971, -0.18043)
-shaded = true
-alpha_cut = 2
-texture = ExtResource("28_pvto1")
-
-[node name="Sprite3D114" type="Sprite3D" parent="."]
-transform = Transform3D(3.20748, 0, 0, 0, 1.62003, 0, 0, 0, 0.38478, -26.4797, 49.9417, -0.0709262)
-shaded = true
-alpha_cut = 2
-texture = ExtResource("28_pvto1")
-
-[node name="Sprite3D115" type="Sprite3D" parent="."]
-transform = Transform3D(3.20748, 0, 0, 0, 1.62003, 0, 0, 0, 0.38478, -21.0661, 49.8302, -0.107312)
-shaded = true
-alpha_cut = 2
-texture = ExtResource("28_pvto1")
-
-[node name="Sprite3D116" type="Sprite3D" parent="."]
-transform = Transform3D(3.20748, 0, 0, 0, 1.62003, 0, 0, 0, 0.38478, -37.9669, 49.8971, -2.91986)
-shaded = true
-alpha_cut = 2
-texture = ExtResource("28_pvto1")
-
-[node name="Sprite3D117" type="Sprite3D" parent="."]
-transform = Transform3D(3.20748, 0, 0, 0, 1.62003, 0, 0, 0, 0.38478, -32.283, 49.8971, -2.89772)
-shaded = true
-alpha_cut = 2
-texture = ExtResource("28_pvto1")
-
-[node name="Sprite3D118" type="Sprite3D" parent="."]
-transform = Transform3D(3.20748, 0, 0, 0, 1.62003, 0, 0, 0, 0.38478, -26.4797, 49.9417, -2.91986)
-shaded = true
-alpha_cut = 2
-texture = ExtResource("28_pvto1")
-
-[node name="Sprite3D119" type="Sprite3D" parent="."]
-transform = Transform3D(3.20748, 0, 0, 0, 1.62003, 0, 0, 0, 0.38478, -21.0661, 49.8302, -2.8246)
-shaded = true
-alpha_cut = 2
-texture = ExtResource("28_pvto1")
-
-[node name="Sprite3D120" type="Sprite3D" parent="."]
-transform = Transform3D(3.20748, 0, 0, 0, 1.62003, 0, 0, 0, 0.38478, -49.4279, 49.9726, -2.40812)
-shaded = true
-alpha_cut = 2
-texture = ExtResource("28_pvto1")
-
-[node name="Sprite3D156" type="Sprite3D" parent="."]
-transform = Transform3D(3.20748, 0, 0, 0, 1.62003, 0, 0, 0, 0.38478, -5.34222, 74.6423, -0.160396)
-shaded = true
-alpha_cut = 2
-texture = ExtResource("28_pvto1")
-
-[node name="Sprite3D158" type="Sprite3D" parent="."]
-transform = Transform3D(3.20748, 0, 0, 0, 1.62003, 0, 0, 0, 0.38478, 7.99252, 74.6869, -0.160396)
-shaded = true
-alpha_cut = 2
-texture = ExtResource("28_pvto1")
-
-[node name="Sprite3D159" type="Sprite3D" parent="."]
-transform = Transform3D(3.20748, 0, 0, 0, 1.62003, 0, 0, 0, 0.38478, 11.5586, 74.5755, -0.0651305)
-shaded = true
-alpha_cut = 2
-texture = ExtResource("28_pvto1")
-
-[node name="Sprite3D160" type="Sprite3D" parent="."]
-transform = Transform3D(3.20748, 0, 0, 0, 1.62003, 0, 0, 0, 0.38478, 7.86856, 74.6423, -0.202578)
-shaded = true
-alpha_cut = 2
-texture = ExtResource("28_pvto1")
-
-[node name="Sprite3D182" type="Sprite3D" parent="."]
-transform = Transform3D(3.20748, 0, 0, 0, 1.62003, 0, 0, 0, 0.38478, 7.86856, 74.6423, -0.202578)
-shaded = true
-alpha_cut = 2
-texture = ExtResource("28_pvto1")
-
-[node name="Sprite3D161" type="Sprite3D" parent="."]
-transform = Transform3D(3.20748, 0, 0, 0, 1.62003, 0, 0, 0, 0.38478, 11.6864, 74.6423, -0.18043)
-shaded = true
-alpha_cut = 2
-texture = ExtResource("28_pvto1")
-
-[node name="Sprite3D162" type="Sprite3D" parent="."]
-transform = Transform3D(3.20748, 0, 0, 0, 1.62003, 0, 0, 0, 0.38478, 17.4897, 74.6869, -0.202578)
-shaded = true
-alpha_cut = 2
-texture = ExtResource("28_pvto1")
-
-[node name="Sprite3D163" type="Sprite3D" parent="."]
-transform = Transform3D(3.20748, 0, 0, 0, 1.62003, 0, 0, 0, 0.38478, 22.9033, 74.5755, -0.107312)
-shaded = true
-alpha_cut = 2
-texture = ExtResource("28_pvto1")
-
-[node name="Sprite3D164" type="Sprite3D" parent="."]
-transform = Transform3D(3.20748, 0, 0, 0, 1.62003, 0, 0, 0, 0.38478, 6.00245, 74.6423, -2.91986)
-shaded = true
-alpha_cut = 2
-texture = ExtResource("28_pvto1")
-
-[node name="Sprite3D165" type="Sprite3D" parent="."]
-transform = Transform3D(3.20748, 0, 0, 0, 1.62003, 0, 0, 0, 0.38478, 11.6864, 74.6423, -2.89772)
-shaded = true
-alpha_cut = 2
-texture = ExtResource("28_pvto1")
-
-[node name="Sprite3D166" type="Sprite3D" parent="."]
-transform = Transform3D(3.20748, 0, 0, 0, 1.62003, 0, 0, 0, 0.38478, 17.4897, 74.6869, -2.91986)
-shaded = true
-alpha_cut = 2
-texture = ExtResource("28_pvto1")
-
-[node name="Sprite3D167" type="Sprite3D" parent="."]
-transform = Transform3D(3.20748, 0, 0, 0, 1.62003, 0, 0, 0, 0.38478, 22.9033, 74.5755, -2.8246)
-shaded = true
-alpha_cut = 2
-texture = ExtResource("28_pvto1")
-
-[node name="Sprite3D168" type="Sprite3D" parent="."]
-transform = Transform3D(3.20748, 0, 0, 0, 1.62003, 0, 0, 0, 0.38478, -5.45859, 74.7178, -2.40812)
-shaded = true
-alpha_cut = 2
-texture = ExtResource("28_pvto1")
-
-[node name="Sprite3D169" type="Sprite3D" parent="."]
-transform = Transform3D(3.20748, 0, 0, 0, 1.62003, 0, 0, 0, 0.38478, -31.0797, 74.6423, -0.160396)
-shaded = true
-alpha_cut = 2
-texture = ExtResource("28_pvto1")
-
-[node name="Sprite3D170" type="Sprite3D" parent="."]
-transform = Transform3D(3.20748, 0, 0, 0, 1.62003, 0, 0, 0, 0.38478, -25.3958, 74.6423, -0.138248)
-shaded = true
-alpha_cut = 2
-texture = ExtResource("28_pvto1")
-
-[node name="Sprite3D171" type="Sprite3D" parent="."]
-transform = Transform3D(3.20748, 0, 0, 0, 1.62003, 0, 0, 0, 0.38478, -19.5925, 74.6869, -0.160396)
-shaded = true
-alpha_cut = 2
-texture = ExtResource("28_pvto1")
-
-[node name="Sprite3D172" type="Sprite3D" parent="."]
-transform = Transform3D(3.20748, 0, 0, 0, 1.62003, 0, 0, 0, 0.38478, -14.1789, 74.5755, -0.0651305)
-shaded = true
-alpha_cut = 2
-texture = ExtResource("28_pvto1")
-
-[node name="Sprite3D173" type="Sprite3D" parent="."]
-transform = Transform3D(3.20748, 0, 0, 0, 1.62003, 0, 0, 0, 0.38478, -19.735, 74.6423, -0.202578)
-shaded = true
-alpha_cut = 2
-texture = ExtResource("28_pvto1")
-
-[node name="Sprite3D174" type="Sprite3D" parent="."]
-transform = Transform3D(3.20748, 0, 0, 0, 1.62003, 0, 0, 0, 0.38478, -14.0511, 74.6423, -0.18043)
-shaded = true
-alpha_cut = 2
-texture = ExtResource("28_pvto1")
-
-[node name="Sprite3D175" type="Sprite3D" parent="."]
-transform = Transform3D(3.20748, 0, 0, 0, 1.62003, 0, 0, 0, 0.38478, -8.24779, 74.6869, -0.202578)
-shaded = true
-alpha_cut = 2
-texture = ExtResource("28_pvto1")
-
-[node name="Sprite3D176" type="Sprite3D" parent="."]
-transform = Transform3D(3.20748, 0, 0, 0, 1.62003, 0, 0, 0, 0.38478, -5.14475, 74.5755, -0.107312)
-shaded = true
-alpha_cut = 2
-texture = ExtResource("28_pvto1")
-
-[node name="Sprite3D177" type="Sprite3D" parent="."]
-transform = Transform3D(3.20748, 0, 0, 0, 1.62003, 0, 0, 0, 0.38478, -19.735, 74.6423, -2.91986)
-shaded = true
-alpha_cut = 2
-texture = ExtResource("28_pvto1")
-
-[node name="Sprite3D178" type="Sprite3D" parent="."]
-transform = Transform3D(3.20748, 0, 0, 0, 1.62003, 0, 0, 0, 0.38478, -14.0511, 74.6423, -2.89772)
-shaded = true
-alpha_cut = 2
-texture = ExtResource("28_pvto1")
-
-[node name="Sprite3D179" type="Sprite3D" parent="."]
-transform = Transform3D(3.20748, 0, 0, 0, 1.62003, 0, 0, 0, 0.38478, -8.24779, 74.6869, -2.91986)
-shaded = true
-alpha_cut = 2
-texture = ExtResource("28_pvto1")
-
-[node name="Sprite3D180" type="Sprite3D" parent="."]
-transform = Transform3D(3.20748, 0, 0, 0, 1.62003, 0, 0, 0, 0.38478, -2.83418, 74.5755, -2.8246)
-shaded = true
-alpha_cut = 2
-texture = ExtResource("28_pvto1")
-
-[node name="Sprite3D181" type="Sprite3D" parent="."]
-transform = Transform3D(3.20748, 0, 0, 0, 1.62003, 0, 0, 0, 0.38478, -31.196, 74.7178, -2.40812)
-shaded = true
-alpha_cut = 2
-texture = ExtResource("28_pvto1")
-
-[node name="Sprite3D121" type="Sprite3D" parent="."]
-transform = Transform3D(3.20748, 0, 0, 0, 1.62003, 0, 0, 0, 0.38478, -45.4025, 49.9726, -2.38597)
-shaded = true
-alpha_cut = 2
-texture = ExtResource("28_pvto1")
-
-[node name="Sprite3D122" type="Sprite3D" parent="."]
-transform = Transform3D(3.20748, 0, 0, 0, 1.62003, 0, 0, 0, 0.38478, -39.5992, 50.0172, -2.40812)
-shaded = true
-alpha_cut = 2
-texture = ExtResource("28_pvto1")
-
-[node name="Sprite3D123" type="Sprite3D" parent="."]
-transform = Transform3D(3.20748, 0, 0, 0, 1.62003, 0, 0, 0, 0.38478, -34.1856, 49.9058, -2.31285)
-shaded = true
-alpha_cut = 2
-texture = ExtResource("28_pvto1")
-
-[node name="Sprite3D124" type="Sprite3D" parent="."]
-transform = Transform3D(3.20748, 0, 0, 0, 1.62003, 0, 0, 0, 0.38478, -85.7262, 62.1673, -2.03894)
-shaded = true
-alpha_cut = 2
-texture = ExtResource("28_pvto1")
-
-[node name="Sprite3D125" type="Sprite3D" parent="."]
-transform = Transform3D(3.20748, 0, 0, 0, 1.62003, 0, 0, 0, 0.38478, -80.0423, 62.1673, -2.0168)
-shaded = true
-alpha_cut = 2
-texture = ExtResource("28_pvto1")
-
-[node name="Sprite3D126" type="Sprite3D" parent="."]
-transform = Transform3D(3.20748, 0, 0, 0, 1.62003, 0, 0, 0, 0.38478, -74.239, 62.2119, -2.03894)
-shaded = true
-alpha_cut = 2
-texture = ExtResource("28_pvto1")
-
-[node name="Sprite3D127" type="Sprite3D" parent="."]
-transform = Transform3D(3.20748, 0, 0, 0, 1.62003, 0, 0, 0, 0.38478, -68.8254, 62.1005, -1.94368)
-shaded = true
-alpha_cut = 2
-texture = ExtResource("28_pvto1")
-
-[node name="Sprite3D128" type="Sprite3D" parent="."]
-transform = Transform3D(3.20748, 0, 0, 0, 1.62003, 0, 0, 0, 0.38478, -88.4442, 61.0215, 1.97922)
-shaded = true
-alpha_cut = 2
-texture = ExtResource("28_pvto1")
-
-[node name="Sprite3D129" type="Sprite3D" parent="."]
-transform = Transform3D(3.20748, 0, 0, 0, 1.62003, 0, 0, 0, 0.38478, -82.7603, 61.0215, 2.00136)
-shaded = true
-alpha_cut = 2
-texture = ExtResource("28_pvto1")
-
-[node name="Sprite3D130" type="Sprite3D" parent="."]
-transform = Transform3D(3.20748, 0, 0, 0, 1.62003, 0, 0, 0, 0.38478, -76.957, 61.0661, 1.97922)
-shaded = true
-alpha_cut = 2
-texture = ExtResource("28_pvto1")
-
-[node name="Sprite3D131" type="Sprite3D" parent="."]
-transform = Transform3D(3.20748, 0, 0, 0, 1.62003, 0, 0, 0, 0.38478, -71.5434, 60.9547, 2.07448)
-shaded = true
-alpha_cut = 2
-texture = ExtResource("28_pvto1")
-
-[node name="Sprite3D132" type="Sprite3D" parent="."]
-transform = Transform3D(3.20748, 0, 0, 0, 1.62003, 0, 0, 0, 0.38478, -84.6687, 61.0215, 1.97922)
-shaded = true
-alpha_cut = 2
-texture = ExtResource("28_pvto1")
-
-[node name="Sprite3D133" type="Sprite3D" parent="."]
-transform = Transform3D(3.20748, 0, 0, 0, 1.62003, 0, 0, 0, 0.38478, -78.9848, 61.0215, 2.00136)
-shaded = true
-alpha_cut = 2
-texture = ExtResource("28_pvto1")
-
-[node name="Sprite3D134" type="Sprite3D" parent="."]
-transform = Transform3D(3.20748, 0, 0, 0, 1.62003, 0, 0, 0, 0.38478, -73.1815, 61.0661, 1.97922)
-shaded = true
-alpha_cut = 2
-texture = ExtResource("28_pvto1")
-
-[node name="Sprite3D135" type="Sprite3D" parent="."]
-transform = Transform3D(3.20748, 0, 0, 0, 1.62003, 0, 0, 0, 0.38478, -67.7679, 60.9547, 2.07448)
-shaded = true
-alpha_cut = 2
-texture = ExtResource("28_pvto1")
-
-[node name="Sprite3D136" type="Sprite3D" parent="."]
-transform = Transform3D(3.20748, 0, 0, 0, 1.62003, 0, 0, 0, 0.38478, -83.9991, 60.0165, 3.54274)
-shaded = true
-alpha_cut = 2
-texture = ExtResource("28_pvto1")
-
-[node name="Sprite3D137" type="Sprite3D" parent="."]
-transform = Transform3D(3.20748, 0, 0, 0, 1.62003, 0, 0, 0, 0.38478, -78.3152, 60.0165, 3.56489)
-shaded = true
-alpha_cut = 2
-texture = ExtResource("28_pvto1")
-
-[node name="Sprite3D138" type="Sprite3D" parent="."]
-transform = Transform3D(3.20748, 0, 0, 0, 1.62003, 0, 0, 0, 0.38478, -72.5119, 60.0611, 3.54274)
-shaded = true
-alpha_cut = 2
-texture = ExtResource("28_pvto1")
-
-[node name="Sprite3D139" type="Sprite3D" parent="."]
-transform = Transform3D(3.20748, 0, 0, 0, 1.62003, 0, 0, 0, 0.38478, -67.0983, 59.9497, 3.63801)
-shaded = true
-alpha_cut = 2
-texture = ExtResource("28_pvto1")
-
-[node name="Sprite3D140" type="Sprite3D" parent="."]
-transform = Transform3D(3.20748, 0, 0, 0, 1.62003, 0, 0, 0, 0.38478, 34.0195, 49.5722, -3.19321)
-shaded = true
-alpha_cut = 2
-texture = ExtResource("28_pvto1")
-
-[node name="Sprite3D141" type="Sprite3D" parent="."]
-transform = Transform3D(3.20748, 0, 0, 0, 1.62003, 0, 0, 0, 0.38478, 39.7034, 49.5722, -3.17106)
-shaded = true
-alpha_cut = 2
-texture = ExtResource("28_pvto1")
-
-[node name="Sprite3D142" type="Sprite3D" parent="."]
-transform = Transform3D(3.20748, 0, 0, 0, 1.62003, 0, 0, 0, 0.38478, 45.5067, 49.6167, -3.19321)
-shaded = true
-alpha_cut = 2
-texture = ExtResource("28_pvto1")
-
-[node name="Sprite3D143" type="Sprite3D" parent="."]
-transform = Transform3D(3.20748, 0, 0, 0, 1.62003, 0, 0, 0, 0.38478, 50.9203, 49.5053, -3.09794)
-shaded = true
-alpha_cut = 2
-texture = ExtResource("28_pvto1")
-
-[node name="Sprite3D144" type="Sprite3D" parent="."]
-transform = Transform3D(3.20748, 0, 0, 0, 1.62003, 0, 0, 0, 0.38478, 22.3437, 49.5114, -3.19321)
-shaded = true
-alpha_cut = 2
-texture = ExtResource("28_pvto1")
-
-[node name="Sprite3D145" type="Sprite3D" parent="."]
-transform = Transform3D(3.20748, 0, 0, 0, 1.62003, 0, 0, 0, 0.38478, 28.0276, 49.5114, -3.17106)
-shaded = true
-alpha_cut = 2
-texture = ExtResource("28_pvto1")
-
-[node name="Sprite3D146" type="Sprite3D" parent="."]
-transform = Transform3D(3.20748, 0, 0, 0, 1.62003, 0, 0, 0, 0.38478, 33.8309, 49.556, -3.19321)
-shaded = true
-alpha_cut = 2
-texture = ExtResource("28_pvto1")
-
-[node name="Sprite3D147" type="Sprite3D" parent="."]
-transform = Transform3D(3.20748, 0, 0, 0, 1.62003, 0, 0, 0, 0.38478, 39.2445, 49.4446, -3.09794)
-shaded = true
-alpha_cut = 2
-texture = ExtResource("28_pvto1")
-
-[node name="Sprite3D148" type="Sprite3D" parent="."]
-transform = Transform3D(3.20748, 0, 0, 0, 1.62003, 0, 0, 0, 0.38478, 25.2612, 49.5114, 1.26727)
-shaded = true
-alpha_cut = 2
-texture = ExtResource("28_pvto1")
-
-[node name="Sprite3D149" type="Sprite3D" parent="."]
-transform = Transform3D(3.20748, 0, 0, 0, 1.62003, 0, 0, 0, 0.38478, 30.9451, 49.5114, 1.28942)
-shaded = true
-alpha_cut = 2
-texture = ExtResource("28_pvto1")
-
-[node name="Sprite3D150" type="Sprite3D" parent="."]
-transform = Transform3D(3.20748, 0, 0, 0, 1.62003, 0, 0, 0, 0.38478, 36.7484, 49.556, 1.26727)
-shaded = true
-alpha_cut = 2
-texture = ExtResource("28_pvto1")
-
-[node name="Sprite3D151" type="Sprite3D" parent="."]
-transform = Transform3D(3.20748, 0, 0, 0, 1.62003, 0, 0, 0, 0.38478, 42.162, 49.4446, 1.36254)
-shaded = true
-alpha_cut = 2
-texture = ExtResource("28_pvto1")
-
-[node name="Sprite3D152" type="Sprite3D" parent="."]
-transform = Transform3D(3.20748, 0, 0, 0, 1.62003, 0, 0, 0, 0.38478, 31.6252, 49.5114, 1.26727)
-shaded = true
-alpha_cut = 2
-texture = ExtResource("28_pvto1")
-
-[node name="Sprite3D153" type="Sprite3D" parent="."]
-transform = Transform3D(3.20748, 0, 0, 0, 1.62003, 0, 0, 0, 0.38478, 37.3091, 49.5114, 1.28942)
-shaded = true
-alpha_cut = 2
-texture = ExtResource("28_pvto1")
-
-[node name="Sprite3D154" type="Sprite3D" parent="."]
-transform = Transform3D(3.20748, 0, 0, 0, 1.62003, 0, 0, 0, 0.38478, 43.1124, 49.556, 1.26727)
-shaded = true
-alpha_cut = 2
-texture = ExtResource("28_pvto1")
-
-[node name="Sprite3D155" type="Sprite3D" parent="."]
-transform = Transform3D(3.20748, 0, 0, 0, 1.62003, 0, 0, 0, 0.38478, 48.526, 49.4446, 1.36254)
-shaded = true
-alpha_cut = 2
-texture = ExtResource("28_pvto1")
-
-[node name="Sprite3D75" type="Sprite3D" parent="."]
-transform = Transform3D(3.20748, 0, 0, 0, 2.74434, 0, 0, 0, 0.38478, -0.972862, 8.68384, -3.38419)
-shaded = true
-alpha_cut = 2
-texture = ExtResource("28_pvto1")
-
-[node name="Sprite3D76" type="Sprite3D" parent="."]
-transform = Transform3D(3.20748, 0, 0, 0, 2.74434, 0, 0, 0, 0.38478, -33.8816, 9.10446, -3.38419)
-shaded = true
-alpha_cut = 2
-texture = ExtResource("28_pvto1")
-
-[node name="Sprite3D77" type="Sprite3D" parent="."]
-transform = Transform3D(3.20748, 0, 0, 0, 2.74434, 0, 0, 0, 0.38478, -28.1977, 9.10446, -3.38419)
-shaded = true
-alpha_cut = 2
-texture = ExtResource("28_pvto1")
-
-[node name="Sprite3D78" type="Sprite3D" parent="."]
-transform = Transform3D(3.20748, 0, 0, 0, 2.74434, 0, 0, 0, 0.38478, -22.3944, 8.68384, -3.38419)
-shaded = true
-alpha_cut = 2
-texture = ExtResource("28_pvto1")
-
-[node name="Sprite3D79" type="Sprite3D" parent="."]
-transform = Transform3D(3.20748, 0, 0, 0, 2.74434, 0, 0, 0, 0.38478, -16.9808, 8.68384, -3.38419)
-shaded = true
-alpha_cut = 2
-texture = ExtResource("28_pvto1")
 
 [node name="GPUParticles3D" type="GPUParticles3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 72.8471, 0)
@@ -2105,6 +1406,710 @@ surface_material_override/0 = SubResource("StandardMaterial3D_o1vpq")
 transform = Transform3D(3.59165, -0.928337, 3.35235, 1.35695, 4.81081, -0.121593, -3.20293, 0.997137, 3.70769, -86.9877, 65.7628, 0.116128)
 mesh = ExtResource("41_avy3x")
 surface_material_override/0 = SubResource("StandardMaterial3D_o1vpq")
+
+[node name="Grass" type="Node3D" parent="."]
+
+[node name="Sprite3D65" type="Sprite3D" parent="Grass"]
+transform = Transform3D(3.42287, 0, 0, 0, 4.21277, 0, 0, 0, 0.38478, -8.55044, 8.26548, -5.11657)
+shaded = true
+alpha_cut = 2
+texture = ExtResource("28_pvto1")
+
+[node name="Sprite3D66" type="Sprite3D" parent="Grass"]
+transform = Transform3D(3.42287, 0, 0, 0, 4.21277, 0, 0, 0, 0.38478, -43.6691, 8.91118, -5.11657)
+shaded = true
+alpha_cut = 2
+texture = ExtResource("28_pvto1")
+
+[node name="Sprite3D67" type="Sprite3D" parent="Grass"]
+transform = Transform3D(3.42287, 0, 0, 0, 4.21277, 0, 0, 0, 0.38478, -37.6035, 8.91118, -5.11657)
+shaded = true
+alpha_cut = 2
+texture = ExtResource("28_pvto1")
+
+[node name="Sprite3D68" type="Sprite3D" parent="Grass"]
+transform = Transform3D(3.42287, 0, 0, 0, 4.21277, 0, 0, 0, 0.38478, -31.4105, 8.26548, -5.11657)
+shaded = true
+alpha_cut = 2
+texture = ExtResource("28_pvto1")
+
+[node name="Sprite3D69" type="Sprite3D" parent="Grass"]
+transform = Transform3D(3.42287, 0, 0, 0, 4.21277, 0, 0, 0, 0.38478, -25.6334, 8.26548, -5.11657)
+shaded = true
+alpha_cut = 2
+texture = ExtResource("28_pvto1")
+
+[node name="Sprite3D70" type="Sprite3D" parent="Grass"]
+transform = Transform3D(3.20748, 0, 0, 0, 2.74434, 0, 0, 0, 0.38478, -6.32308, 8.68384, -0.0101762)
+shaded = true
+alpha_cut = 2
+texture = ExtResource("28_pvto1")
+
+[node name="Sprite3D71" type="Sprite3D" parent="Grass"]
+transform = Transform3D(3.20748, 0, 0, 0, 2.74434, 0, 0, 0, 0.38478, -39.2318, 9.10446, 0.45019)
+shaded = true
+alpha_cut = 2
+texture = ExtResource("28_pvto1")
+
+[node name="Sprite3D72" type="Sprite3D" parent="Grass"]
+transform = Transform3D(3.20748, 0, 0, 0, 2.74434, 0, 0, 0, 0.38478, -33.5479, 9.10446, 0.472337)
+shaded = true
+alpha_cut = 2
+texture = ExtResource("28_pvto1")
+
+[node name="Sprite3D73" type="Sprite3D" parent="Grass"]
+transform = Transform3D(3.20748, 0, 0, 0, 2.74434, 0, 0, 0, 0.38478, -27.7446, 9.17999, 0.45019)
+shaded = true
+alpha_cut = 2
+texture = ExtResource("28_pvto1")
+
+[node name="Sprite3D74" type="Sprite3D" parent="Grass"]
+transform = Transform3D(3.20748, 0, 0, 0, 2.74434, 0, 0, 0, 0.38478, -22.331, 8.99121, 0.545455)
+shaded = true
+alpha_cut = 2
+texture = ExtResource("28_pvto1")
+
+[node name="Sprite3D80" type="Sprite3D" parent="Grass"]
+transform = Transform3D(3.20748, 0, 0, 0, 2.74434, 0, 0, 0, 0.38478, -48.6099, 24.3528, -2.47033)
+shaded = true
+alpha_cut = 2
+texture = ExtResource("28_pvto1")
+
+[node name="Sprite3D81" type="Sprite3D" parent="Grass"]
+transform = Transform3D(3.20748, 0, 0, 0, 2.74434, 0, 0, 0, 0.38478, -42.926, 24.3528, -2.44819)
+shaded = true
+alpha_cut = 2
+texture = ExtResource("28_pvto1")
+
+[node name="Sprite3D82" type="Sprite3D" parent="Grass"]
+transform = Transform3D(3.20748, 0, 0, 0, 2.74434, 0, 0, 0, 0.38478, -37.1227, 24.4283, -2.47033)
+shaded = true
+alpha_cut = 2
+texture = ExtResource("28_pvto1")
+
+[node name="Sprite3D83" type="Sprite3D" parent="Grass"]
+transform = Transform3D(3.20748, 0, 0, 0, 2.74434, 0, 0, 0, 0.38478, -31.7091, 24.2395, -2.37507)
+shaded = true
+alpha_cut = 2
+texture = ExtResource("28_pvto1")
+
+[node name="Sprite3D84" type="Sprite3D" parent="Grass"]
+transform = Transform3D(3.20748, 0, 0, 0, 2.74434, 0, 0, 0, 0.38478, -40.2108, 24.3528, -2.47033)
+shaded = true
+alpha_cut = 2
+texture = ExtResource("28_pvto1")
+
+[node name="Sprite3D85" type="Sprite3D" parent="Grass"]
+transform = Transform3D(3.20748, 0, 0, 0, 2.74434, 0, 0, 0, 0.38478, -34.5269, 24.3528, -2.44819)
+shaded = true
+alpha_cut = 2
+texture = ExtResource("28_pvto1")
+
+[node name="Sprite3D86" type="Sprite3D" parent="Grass"]
+transform = Transform3D(3.20748, 0, 0, 0, 2.74434, 0, 0, 0, 0.38478, -28.7236, 24.4283, -2.47033)
+shaded = true
+alpha_cut = 2
+texture = ExtResource("28_pvto1")
+
+[node name="Sprite3D87" type="Sprite3D" parent="Grass"]
+transform = Transform3D(3.20748, 0, 0, 0, 2.74434, 0, 0, 0, 0.38478, -23.31, 24.2395, -2.37507)
+shaded = true
+alpha_cut = 2
+texture = ExtResource("28_pvto1")
+
+[node name="Sprite3D88" type="Sprite3D" parent="Grass"]
+transform = Transform3D(3.20748, 0, 0, 0, 1.62003, 0, 0, 0, 0.38478, -46.5143, 24.3489, -0.0302844)
+shaded = true
+alpha_cut = 2
+texture = ExtResource("28_pvto1")
+
+[node name="Sprite3D89" type="Sprite3D" parent="Grass"]
+transform = Transform3D(3.20748, 0, 0, 0, 1.62003, 0, 0, 0, 0.38478, -40.8304, 24.3489, -0.00813699)
+shaded = true
+alpha_cut = 2
+texture = ExtResource("28_pvto1")
+
+[node name="Sprite3D90" type="Sprite3D" parent="Grass"]
+transform = Transform3D(3.20748, 0, 0, 0, 1.62003, 0, 0, 0, 0.38478, -35.0271, 24.3935, -0.0302844)
+shaded = true
+alpha_cut = 2
+texture = ExtResource("28_pvto1")
+
+[node name="Sprite3D91" type="Sprite3D" parent="Grass"]
+transform = Transform3D(3.20748, 0, 0, 0, 1.62003, 0, 0, 0, 0.38478, -29.6135, 24.282, 0.0649812)
+shaded = true
+alpha_cut = 2
+texture = ExtResource("28_pvto1")
+
+[node name="Sprite3D92" type="Sprite3D" parent="Grass"]
+transform = Transform3D(3.20748, 0, 0, 0, 1.62003, 0, 0, 0, 0.38478, -40.1521, 23.9568, -0.0302844)
+shaded = true
+alpha_cut = 2
+texture = ExtResource("28_pvto1")
+
+[node name="Sprite3D93" type="Sprite3D" parent="Grass"]
+transform = Transform3D(3.20748, 0, 0, 0, 1.62003, 0, 0, 0, 0.38478, -34.4682, 23.9568, -0.00813699)
+shaded = true
+alpha_cut = 2
+texture = ExtResource("28_pvto1")
+
+[node name="Sprite3D94" type="Sprite3D" parent="Grass"]
+transform = Transform3D(3.20748, 0, 0, 0, 1.62003, 0, 0, 0, 0.38478, -28.6649, 24.0014, -0.0302844)
+shaded = true
+alpha_cut = 2
+texture = ExtResource("28_pvto1")
+
+[node name="Sprite3D95" type="Sprite3D" parent="Grass"]
+transform = Transform3D(3.20748, 0, 0, 0, 1.62003, 0, 0, 0, 0.38478, -23.2513, 23.8899, 0.0649812)
+shaded = true
+alpha_cut = 2
+texture = ExtResource("28_pvto1")
+
+[node name="Sprite3D96" type="Sprite3D" parent="Grass"]
+transform = Transform3D(3.20748, 0, 0, 0, 1.62003, 0, 0, 0, 0.38478, -29.7492, 37.6487, -4.05912)
+shaded = true
+alpha_cut = 2
+texture = ExtResource("28_pvto1")
+
+[node name="Sprite3D97" type="Sprite3D" parent="Grass"]
+transform = Transform3D(3.20748, 0, 0, 0, 1.62003, 0, 0, 0, 0.38478, -24.0425, 37.6152, -4.02062)
+shaded = true
+alpha_cut = 2
+texture = ExtResource("28_pvto1")
+
+[node name="Sprite3D98" type="Sprite3D" parent="Grass"]
+transform = Transform3D(3.20748, 0, 0, 0, 1.62003, 0, 0, 0, 0.38478, -18.262, 37.427, -4.05912)
+shaded = true
+alpha_cut = 2
+texture = ExtResource("28_pvto1")
+
+[node name="Sprite3D99" type="Sprite3D" parent="Grass"]
+transform = Transform3D(3.20748, 0, 0, 0, 1.62003, 0, 0, 0, 0.38478, -12.8484, 37.2441, -3.96386)
+shaded = true
+alpha_cut = 2
+texture = ExtResource("28_pvto1")
+
+[node name="Sprite3D100" type="Sprite3D" parent="Grass"]
+transform = Transform3D(3.20748, 0, 0, 0, 1.62003, 0, 0, 0, 0.38478, -37.8243, 37.5556, -4.06149)
+shaded = true
+alpha_cut = 2
+texture = ExtResource("28_pvto1")
+
+[node name="Sprite3D101" type="Sprite3D" parent="Grass"]
+transform = Transform3D(3.20748, 0, 0, 0, 1.62003, 0, 0, 0, 0.38478, -32.1176, 37.5871, -4.02298)
+shaded = true
+alpha_cut = 2
+texture = ExtResource("28_pvto1")
+
+[node name="Sprite3D102" type="Sprite3D" parent="Grass"]
+transform = Transform3D(3.20748, 0, 0, 0, 1.62003, 0, 0, 0, 0.38478, -26.3656, 37.6002, -4.05912)
+shaded = true
+alpha_cut = 2
+texture = ExtResource("28_pvto1")
+
+[node name="Sprite3D103" type="Sprite3D" parent="Grass"]
+transform = Transform3D(3.20748, 0, 0, 0, 1.62003, 0, 0, 0, 0.38478, -20.9305, 37.5951, -3.95801)
+shaded = true
+alpha_cut = 2
+texture = ExtResource("28_pvto1")
+
+[node name="Sprite3D104" type="Sprite3D" parent="Grass"]
+transform = Transform3D(3.20748, 0, 0, 0, 0.834833, 0, 0, 0, 0.38478, -33.7451, 37.5256, -0.0377603)
+shaded = true
+alpha_cut = 2
+texture = ExtResource("28_pvto1")
+
+[node name="Sprite3D105" type="Sprite3D" parent="Grass"]
+transform = Transform3D(3.20748, 0, 0, 0, 0.834833, 0, 0, 0, 0.38478, -28.0612, 37.2157, -0.0156126)
+shaded = true
+alpha_cut = 2
+texture = ExtResource("28_pvto1")
+
+[node name="Sprite3D106" type="Sprite3D" parent="Grass"]
+transform = Transform3D(3.20748, 0, 0, 0, 0.834833, 0, 0, 0, 0.38478, -22.2579, 37.2387, -0.0377603)
+shaded = true
+alpha_cut = 2
+texture = ExtResource("28_pvto1")
+
+[node name="Sprite3D107" type="Sprite3D" parent="Grass"]
+transform = Transform3D(3.20748, 0, 0, 0, 0.834833, 0, 0, 0, 0.38478, -16.8443, 37.1812, 0.0575054)
+shaded = true
+alpha_cut = 2
+texture = ExtResource("28_pvto1")
+
+[node name="Sprite3D108" type="Sprite3D" parent="Grass"]
+transform = Transform3D(3.20748, 0, 0, 0, 1.62003, 0, 0, 0, 0.38478, -49.3115, 49.8971, -0.160396)
+shaded = true
+alpha_cut = 2
+texture = ExtResource("28_pvto1")
+
+[node name="Sprite3D109" type="Sprite3D" parent="Grass"]
+transform = Transform3D(3.20748, 0, 0, 0, 1.62003, 0, 0, 0, 0.38478, -43.6276, 49.8971, -0.138248)
+shaded = true
+alpha_cut = 2
+texture = ExtResource("28_pvto1")
+
+[node name="Sprite3D110" type="Sprite3D" parent="Grass"]
+transform = Transform3D(3.20748, 0, 0, 0, 1.62003, 0, 0, 0, 0.38478, -37.8243, 49.9417, -0.160396)
+shaded = true
+alpha_cut = 2
+texture = ExtResource("28_pvto1")
+
+[node name="Sprite3D111" type="Sprite3D" parent="Grass"]
+transform = Transform3D(3.20748, 0, 0, 0, 1.62003, 0, 0, 0, 0.38478, -32.4209, 49.8302, -0.0651305)
+shaded = true
+alpha_cut = 2
+texture = ExtResource("28_pvto1")
+
+[node name="Sprite3D112" type="Sprite3D" parent="Grass"]
+transform = Transform3D(3.20748, 0, 0, 0, 1.62003, 0, 0, 0, 0.38478, -37.9669, 49.8971, -0.202578)
+shaded = true
+alpha_cut = 2
+texture = ExtResource("28_pvto1")
+
+[node name="Sprite3D113" type="Sprite3D" parent="Grass"]
+transform = Transform3D(3.20748, 0, 0, 0, 1.62003, 0, 0, 0, 0.38478, -32.283, 49.8971, -0.18043)
+shaded = true
+alpha_cut = 2
+texture = ExtResource("28_pvto1")
+
+[node name="Sprite3D114" type="Sprite3D" parent="Grass"]
+transform = Transform3D(3.20748, 0, 0, 0, 1.62003, 0, 0, 0, 0.38478, -26.4797, 49.9417, -0.0709262)
+shaded = true
+alpha_cut = 2
+texture = ExtResource("28_pvto1")
+
+[node name="Sprite3D115" type="Sprite3D" parent="Grass"]
+transform = Transform3D(3.20748, 0, 0, 0, 1.62003, 0, 0, 0, 0.38478, -21.0661, 49.8302, -0.107312)
+shaded = true
+alpha_cut = 2
+texture = ExtResource("28_pvto1")
+
+[node name="Sprite3D116" type="Sprite3D" parent="Grass"]
+transform = Transform3D(3.20748, 0, 0, 0, 1.62003, 0, 0, 0, 0.38478, -37.9669, 49.8971, -2.91986)
+shaded = true
+alpha_cut = 2
+texture = ExtResource("28_pvto1")
+
+[node name="Sprite3D117" type="Sprite3D" parent="Grass"]
+transform = Transform3D(3.20748, 0, 0, 0, 1.62003, 0, 0, 0, 0.38478, -32.283, 49.8971, -2.89772)
+shaded = true
+alpha_cut = 2
+texture = ExtResource("28_pvto1")
+
+[node name="Sprite3D118" type="Sprite3D" parent="Grass"]
+transform = Transform3D(3.20748, 0, 0, 0, 1.62003, 0, 0, 0, 0.38478, -26.4797, 49.9417, -2.91986)
+shaded = true
+alpha_cut = 2
+texture = ExtResource("28_pvto1")
+
+[node name="Sprite3D119" type="Sprite3D" parent="Grass"]
+transform = Transform3D(3.20748, 0, 0, 0, 1.62003, 0, 0, 0, 0.38478, -21.0661, 49.8302, -2.8246)
+shaded = true
+alpha_cut = 2
+texture = ExtResource("28_pvto1")
+
+[node name="Sprite3D120" type="Sprite3D" parent="Grass"]
+transform = Transform3D(3.20748, 0, 0, 0, 1.62003, 0, 0, 0, 0.38478, -49.4279, 49.9726, -2.40812)
+shaded = true
+alpha_cut = 2
+texture = ExtResource("28_pvto1")
+
+[node name="Sprite3D156" type="Sprite3D" parent="Grass"]
+transform = Transform3D(3.20748, 0, 0, 0, 1.62003, 0, 0, 0, 0.38478, -5.34222, 74.6423, -0.160396)
+shaded = true
+alpha_cut = 2
+texture = ExtResource("28_pvto1")
+
+[node name="Sprite3D158" type="Sprite3D" parent="Grass"]
+transform = Transform3D(3.20748, 0, 0, 0, 1.62003, 0, 0, 0, 0.38478, 7.99252, 74.6869, -0.160396)
+shaded = true
+alpha_cut = 2
+texture = ExtResource("28_pvto1")
+
+[node name="Sprite3D159" type="Sprite3D" parent="Grass"]
+transform = Transform3D(3.20748, 0, 0, 0, 1.62003, 0, 0, 0, 0.38478, 11.5586, 74.5755, -0.0651305)
+shaded = true
+alpha_cut = 2
+texture = ExtResource("28_pvto1")
+
+[node name="Sprite3D160" type="Sprite3D" parent="Grass"]
+transform = Transform3D(3.20748, 0, 0, 0, 1.62003, 0, 0, 0, 0.38478, 7.86856, 74.6423, -0.202578)
+shaded = true
+alpha_cut = 2
+texture = ExtResource("28_pvto1")
+
+[node name="Sprite3D182" type="Sprite3D" parent="Grass"]
+transform = Transform3D(3.20748, 0, 0, 0, 1.62003, 0, 0, 0, 0.38478, 7.86856, 74.6423, -0.202578)
+shaded = true
+alpha_cut = 2
+texture = ExtResource("28_pvto1")
+
+[node name="Sprite3D161" type="Sprite3D" parent="Grass"]
+transform = Transform3D(3.20748, 0, 0, 0, 1.62003, 0, 0, 0, 0.38478, 11.6864, 74.6423, -0.18043)
+shaded = true
+alpha_cut = 2
+texture = ExtResource("28_pvto1")
+
+[node name="Sprite3D162" type="Sprite3D" parent="Grass"]
+transform = Transform3D(3.20748, 0, 0, 0, 1.62003, 0, 0, 0, 0.38478, 17.4897, 74.6869, -0.202578)
+shaded = true
+alpha_cut = 2
+texture = ExtResource("28_pvto1")
+
+[node name="Sprite3D163" type="Sprite3D" parent="Grass"]
+transform = Transform3D(3.20748, 0, 0, 0, 1.62003, 0, 0, 0, 0.38478, 22.9033, 74.5755, -0.107312)
+shaded = true
+alpha_cut = 2
+texture = ExtResource("28_pvto1")
+
+[node name="Sprite3D164" type="Sprite3D" parent="Grass"]
+transform = Transform3D(3.20748, 0, 0, 0, 1.62003, 0, 0, 0, 0.38478, 6.00245, 74.6423, -2.91986)
+shaded = true
+alpha_cut = 2
+texture = ExtResource("28_pvto1")
+
+[node name="Sprite3D165" type="Sprite3D" parent="Grass"]
+transform = Transform3D(3.20748, 0, 0, 0, 1.62003, 0, 0, 0, 0.38478, 11.6864, 74.6423, -2.89772)
+shaded = true
+alpha_cut = 2
+texture = ExtResource("28_pvto1")
+
+[node name="Sprite3D166" type="Sprite3D" parent="Grass"]
+transform = Transform3D(3.20748, 0, 0, 0, 1.62003, 0, 0, 0, 0.38478, 17.4897, 74.6869, -2.91986)
+shaded = true
+alpha_cut = 2
+texture = ExtResource("28_pvto1")
+
+[node name="Sprite3D167" type="Sprite3D" parent="Grass"]
+transform = Transform3D(3.20748, 0, 0, 0, 1.62003, 0, 0, 0, 0.38478, 22.9033, 74.5755, -2.8246)
+shaded = true
+alpha_cut = 2
+texture = ExtResource("28_pvto1")
+
+[node name="Sprite3D168" type="Sprite3D" parent="Grass"]
+transform = Transform3D(3.20748, 0, 0, 0, 1.62003, 0, 0, 0, 0.38478, -5.45859, 74.7178, -2.40812)
+shaded = true
+alpha_cut = 2
+texture = ExtResource("28_pvto1")
+
+[node name="Sprite3D169" type="Sprite3D" parent="Grass"]
+transform = Transform3D(3.20748, 0, 0, 0, 1.62003, 0, 0, 0, 0.38478, -31.0797, 74.6423, -0.160396)
+shaded = true
+alpha_cut = 2
+texture = ExtResource("28_pvto1")
+
+[node name="Sprite3D170" type="Sprite3D" parent="Grass"]
+transform = Transform3D(3.20748, 0, 0, 0, 1.62003, 0, 0, 0, 0.38478, -25.3958, 74.6423, -0.138248)
+shaded = true
+alpha_cut = 2
+texture = ExtResource("28_pvto1")
+
+[node name="Sprite3D171" type="Sprite3D" parent="Grass"]
+transform = Transform3D(3.20748, 0, 0, 0, 1.62003, 0, 0, 0, 0.38478, -19.5925, 74.6869, -0.160396)
+shaded = true
+alpha_cut = 2
+texture = ExtResource("28_pvto1")
+
+[node name="Sprite3D172" type="Sprite3D" parent="Grass"]
+transform = Transform3D(3.20748, 0, 0, 0, 1.62003, 0, 0, 0, 0.38478, -14.1789, 74.5755, -0.0651305)
+shaded = true
+alpha_cut = 2
+texture = ExtResource("28_pvto1")
+
+[node name="Sprite3D173" type="Sprite3D" parent="Grass"]
+transform = Transform3D(3.20748, 0, 0, 0, 1.62003, 0, 0, 0, 0.38478, -19.735, 74.6423, -0.202578)
+shaded = true
+alpha_cut = 2
+texture = ExtResource("28_pvto1")
+
+[node name="Sprite3D174" type="Sprite3D" parent="Grass"]
+transform = Transform3D(3.20748, 0, 0, 0, 1.62003, 0, 0, 0, 0.38478, -14.0511, 74.6423, -0.18043)
+shaded = true
+alpha_cut = 2
+texture = ExtResource("28_pvto1")
+
+[node name="Sprite3D175" type="Sprite3D" parent="Grass"]
+transform = Transform3D(3.20748, 0, 0, 0, 1.62003, 0, 0, 0, 0.38478, -8.24779, 74.6869, -0.202578)
+shaded = true
+alpha_cut = 2
+texture = ExtResource("28_pvto1")
+
+[node name="Sprite3D176" type="Sprite3D" parent="Grass"]
+transform = Transform3D(3.20748, 0, 0, 0, 1.62003, 0, 0, 0, 0.38478, -5.14475, 74.5755, -0.107312)
+shaded = true
+alpha_cut = 2
+texture = ExtResource("28_pvto1")
+
+[node name="Sprite3D177" type="Sprite3D" parent="Grass"]
+transform = Transform3D(3.20748, 0, 0, 0, 1.62003, 0, 0, 0, 0.38478, -19.735, 74.6423, -2.91986)
+shaded = true
+alpha_cut = 2
+texture = ExtResource("28_pvto1")
+
+[node name="Sprite3D178" type="Sprite3D" parent="Grass"]
+transform = Transform3D(3.20748, 0, 0, 0, 1.62003, 0, 0, 0, 0.38478, -14.0511, 74.6423, -2.89772)
+shaded = true
+alpha_cut = 2
+texture = ExtResource("28_pvto1")
+
+[node name="Sprite3D179" type="Sprite3D" parent="Grass"]
+transform = Transform3D(3.20748, 0, 0, 0, 1.62003, 0, 0, 0, 0.38478, -8.24779, 74.6869, -2.91986)
+shaded = true
+alpha_cut = 2
+texture = ExtResource("28_pvto1")
+
+[node name="Sprite3D180" type="Sprite3D" parent="Grass"]
+transform = Transform3D(3.20748, 0, 0, 0, 1.62003, 0, 0, 0, 0.38478, -2.83418, 74.5755, -2.8246)
+shaded = true
+alpha_cut = 2
+texture = ExtResource("28_pvto1")
+
+[node name="Sprite3D181" type="Sprite3D" parent="Grass"]
+transform = Transform3D(3.20748, 0, 0, 0, 1.62003, 0, 0, 0, 0.38478, -31.196, 74.7178, -2.40812)
+shaded = true
+alpha_cut = 2
+texture = ExtResource("28_pvto1")
+
+[node name="Sprite3D121" type="Sprite3D" parent="Grass"]
+transform = Transform3D(3.20748, 0, 0, 0, 1.62003, 0, 0, 0, 0.38478, -45.4025, 49.9726, -2.38597)
+shaded = true
+alpha_cut = 2
+texture = ExtResource("28_pvto1")
+
+[node name="Sprite3D122" type="Sprite3D" parent="Grass"]
+transform = Transform3D(3.20748, 0, 0, 0, 1.62003, 0, 0, 0, 0.38478, -39.5992, 50.0172, -2.40812)
+shaded = true
+alpha_cut = 2
+texture = ExtResource("28_pvto1")
+
+[node name="Sprite3D123" type="Sprite3D" parent="Grass"]
+transform = Transform3D(3.20748, 0, 0, 0, 1.62003, 0, 0, 0, 0.38478, -34.1856, 49.9058, -2.31285)
+shaded = true
+alpha_cut = 2
+texture = ExtResource("28_pvto1")
+
+[node name="Sprite3D124" type="Sprite3D" parent="Grass"]
+transform = Transform3D(3.20748, 0, 0, 0, 1.62003, 0, 0, 0, 0.38478, -85.7262, 62.1673, -2.03894)
+shaded = true
+alpha_cut = 2
+texture = ExtResource("28_pvto1")
+
+[node name="Sprite3D125" type="Sprite3D" parent="Grass"]
+transform = Transform3D(3.20748, 0, 0, 0, 1.62003, 0, 0, 0, 0.38478, -80.0423, 62.1673, -2.0168)
+shaded = true
+alpha_cut = 2
+texture = ExtResource("28_pvto1")
+
+[node name="Sprite3D126" type="Sprite3D" parent="Grass"]
+transform = Transform3D(3.20748, 0, 0, 0, 1.62003, 0, 0, 0, 0.38478, -74.239, 62.2119, -2.03894)
+shaded = true
+alpha_cut = 2
+texture = ExtResource("28_pvto1")
+
+[node name="Sprite3D127" type="Sprite3D" parent="Grass"]
+transform = Transform3D(3.20748, 0, 0, 0, 1.62003, 0, 0, 0, 0.38478, -68.8254, 62.1005, -1.94368)
+shaded = true
+alpha_cut = 2
+texture = ExtResource("28_pvto1")
+
+[node name="Sprite3D128" type="Sprite3D" parent="Grass"]
+transform = Transform3D(3.20748, 0, 0, 0, 1.62003, 0, 0, 0, 0.38478, -88.4442, 61.0215, 1.97922)
+shaded = true
+alpha_cut = 2
+texture = ExtResource("28_pvto1")
+
+[node name="Sprite3D129" type="Sprite3D" parent="Grass"]
+transform = Transform3D(3.20748, 0, 0, 0, 1.62003, 0, 0, 0, 0.38478, -82.7603, 61.0215, 2.00136)
+shaded = true
+alpha_cut = 2
+texture = ExtResource("28_pvto1")
+
+[node name="Sprite3D130" type="Sprite3D" parent="Grass"]
+transform = Transform3D(3.20748, 0, 0, 0, 1.62003, 0, 0, 0, 0.38478, -76.957, 61.0661, 1.97922)
+shaded = true
+alpha_cut = 2
+texture = ExtResource("28_pvto1")
+
+[node name="Sprite3D131" type="Sprite3D" parent="Grass"]
+transform = Transform3D(3.20748, 0, 0, 0, 1.62003, 0, 0, 0, 0.38478, -71.5434, 60.9547, 2.07448)
+shaded = true
+alpha_cut = 2
+texture = ExtResource("28_pvto1")
+
+[node name="Sprite3D132" type="Sprite3D" parent="Grass"]
+transform = Transform3D(3.20748, 0, 0, 0, 1.62003, 0, 0, 0, 0.38478, -84.6687, 61.0215, 1.97922)
+shaded = true
+alpha_cut = 2
+texture = ExtResource("28_pvto1")
+
+[node name="Sprite3D133" type="Sprite3D" parent="Grass"]
+transform = Transform3D(3.20748, 0, 0, 0, 1.62003, 0, 0, 0, 0.38478, -78.9848, 61.0215, 2.00136)
+shaded = true
+alpha_cut = 2
+texture = ExtResource("28_pvto1")
+
+[node name="Sprite3D134" type="Sprite3D" parent="Grass"]
+transform = Transform3D(3.20748, 0, 0, 0, 1.62003, 0, 0, 0, 0.38478, -73.1815, 61.0661, 1.97922)
+shaded = true
+alpha_cut = 2
+texture = ExtResource("28_pvto1")
+
+[node name="Sprite3D135" type="Sprite3D" parent="Grass"]
+transform = Transform3D(3.20748, 0, 0, 0, 1.62003, 0, 0, 0, 0.38478, -67.7679, 60.9547, 2.07448)
+shaded = true
+alpha_cut = 2
+texture = ExtResource("28_pvto1")
+
+[node name="Sprite3D136" type="Sprite3D" parent="Grass"]
+transform = Transform3D(3.20748, 0, 0, 0, 1.62003, 0, 0, 0, 0.38478, -83.9991, 60.0165, 3.54274)
+shaded = true
+alpha_cut = 2
+texture = ExtResource("28_pvto1")
+
+[node name="Sprite3D137" type="Sprite3D" parent="Grass"]
+transform = Transform3D(3.20748, 0, 0, 0, 1.62003, 0, 0, 0, 0.38478, -78.3152, 60.0165, 3.56489)
+shaded = true
+alpha_cut = 2
+texture = ExtResource("28_pvto1")
+
+[node name="Sprite3D138" type="Sprite3D" parent="Grass"]
+transform = Transform3D(3.20748, 0, 0, 0, 1.62003, 0, 0, 0, 0.38478, -72.5119, 60.0611, 3.54274)
+shaded = true
+alpha_cut = 2
+texture = ExtResource("28_pvto1")
+
+[node name="Sprite3D139" type="Sprite3D" parent="Grass"]
+transform = Transform3D(3.20748, 0, 0, 0, 1.62003, 0, 0, 0, 0.38478, -67.0983, 59.9497, 3.63801)
+shaded = true
+alpha_cut = 2
+texture = ExtResource("28_pvto1")
+
+[node name="Sprite3D140" type="Sprite3D" parent="Grass"]
+transform = Transform3D(3.20748, 0, 0, 0, 1.62003, 0, 0, 0, 0.38478, 34.0195, 49.5722, -3.19321)
+shaded = true
+alpha_cut = 2
+texture = ExtResource("28_pvto1")
+
+[node name="Sprite3D141" type="Sprite3D" parent="Grass"]
+transform = Transform3D(3.20748, 0, 0, 0, 1.62003, 0, 0, 0, 0.38478, 39.7034, 49.5722, -3.17106)
+shaded = true
+alpha_cut = 2
+texture = ExtResource("28_pvto1")
+
+[node name="Sprite3D142" type="Sprite3D" parent="Grass"]
+transform = Transform3D(3.20748, 0, 0, 0, 1.62003, 0, 0, 0, 0.38478, 45.5067, 49.6167, -3.19321)
+shaded = true
+alpha_cut = 2
+texture = ExtResource("28_pvto1")
+
+[node name="Sprite3D143" type="Sprite3D" parent="Grass"]
+transform = Transform3D(3.20748, 0, 0, 0, 1.62003, 0, 0, 0, 0.38478, 50.9203, 49.5053, -3.09794)
+shaded = true
+alpha_cut = 2
+texture = ExtResource("28_pvto1")
+
+[node name="Sprite3D144" type="Sprite3D" parent="Grass"]
+transform = Transform3D(3.20748, 0, 0, 0, 1.62003, 0, 0, 0, 0.38478, 22.3437, 49.5114, -3.19321)
+shaded = true
+alpha_cut = 2
+texture = ExtResource("28_pvto1")
+
+[node name="Sprite3D145" type="Sprite3D" parent="Grass"]
+transform = Transform3D(3.20748, 0, 0, 0, 1.62003, 0, 0, 0, 0.38478, 28.0276, 49.5114, -3.17106)
+shaded = true
+alpha_cut = 2
+texture = ExtResource("28_pvto1")
+
+[node name="Sprite3D146" type="Sprite3D" parent="Grass"]
+transform = Transform3D(3.20748, 0, 0, 0, 1.62003, 0, 0, 0, 0.38478, 33.8309, 49.556, -3.19321)
+shaded = true
+alpha_cut = 2
+texture = ExtResource("28_pvto1")
+
+[node name="Sprite3D147" type="Sprite3D" parent="Grass"]
+transform = Transform3D(3.20748, 0, 0, 0, 1.62003, 0, 0, 0, 0.38478, 39.2445, 49.4446, -3.09794)
+shaded = true
+alpha_cut = 2
+texture = ExtResource("28_pvto1")
+
+[node name="Sprite3D148" type="Sprite3D" parent="Grass"]
+transform = Transform3D(3.20748, 0, 0, 0, 1.62003, 0, 0, 0, 0.38478, 25.2612, 49.5114, 1.26727)
+shaded = true
+alpha_cut = 2
+texture = ExtResource("28_pvto1")
+
+[node name="Sprite3D149" type="Sprite3D" parent="Grass"]
+transform = Transform3D(3.20748, 0, 0, 0, 1.62003, 0, 0, 0, 0.38478, 30.9451, 49.5114, 1.28942)
+shaded = true
+alpha_cut = 2
+texture = ExtResource("28_pvto1")
+
+[node name="Sprite3D150" type="Sprite3D" parent="Grass"]
+transform = Transform3D(3.20748, 0, 0, 0, 1.62003, 0, 0, 0, 0.38478, 36.7484, 49.556, 1.26727)
+shaded = true
+alpha_cut = 2
+texture = ExtResource("28_pvto1")
+
+[node name="Sprite3D151" type="Sprite3D" parent="Grass"]
+transform = Transform3D(3.20748, 0, 0, 0, 1.62003, 0, 0, 0, 0.38478, 42.162, 49.4446, 1.36254)
+shaded = true
+alpha_cut = 2
+texture = ExtResource("28_pvto1")
+
+[node name="Sprite3D152" type="Sprite3D" parent="Grass"]
+transform = Transform3D(3.20748, 0, 0, 0, 1.62003, 0, 0, 0, 0.38478, 31.6252, 49.5114, 1.26727)
+shaded = true
+alpha_cut = 2
+texture = ExtResource("28_pvto1")
+
+[node name="Sprite3D153" type="Sprite3D" parent="Grass"]
+transform = Transform3D(3.20748, 0, 0, 0, 1.62003, 0, 0, 0, 0.38478, 37.3091, 49.5114, 1.28942)
+shaded = true
+alpha_cut = 2
+texture = ExtResource("28_pvto1")
+
+[node name="Sprite3D154" type="Sprite3D" parent="Grass"]
+transform = Transform3D(3.20748, 0, 0, 0, 1.62003, 0, 0, 0, 0.38478, 43.1124, 49.556, 1.26727)
+shaded = true
+alpha_cut = 2
+texture = ExtResource("28_pvto1")
+
+[node name="Sprite3D155" type="Sprite3D" parent="Grass"]
+transform = Transform3D(3.20748, 0, 0, 0, 1.62003, 0, 0, 0, 0.38478, 48.526, 49.4446, 1.36254)
+shaded = true
+alpha_cut = 2
+texture = ExtResource("28_pvto1")
+
+[node name="Sprite3D75" type="Sprite3D" parent="Grass"]
+transform = Transform3D(3.20748, 0, 0, 0, 2.74434, 0, 0, 0, 0.38478, -0.972862, 8.68384, -3.38419)
+shaded = true
+alpha_cut = 2
+texture = ExtResource("28_pvto1")
+
+[node name="Sprite3D76" type="Sprite3D" parent="Grass"]
+transform = Transform3D(3.20748, 0, 0, 0, 2.74434, 0, 0, 0, 0.38478, -33.8816, 9.10446, -3.38419)
+shaded = true
+alpha_cut = 2
+texture = ExtResource("28_pvto1")
+
+[node name="Sprite3D77" type="Sprite3D" parent="Grass"]
+transform = Transform3D(3.20748, 0, 0, 0, 2.74434, 0, 0, 0, 0.38478, -28.1977, 9.10446, -3.38419)
+shaded = true
+alpha_cut = 2
+texture = ExtResource("28_pvto1")
+
+[node name="Sprite3D78" type="Sprite3D" parent="Grass"]
+transform = Transform3D(3.20748, 0, 0, 0, 2.74434, 0, 0, 0, 0.38478, -22.3944, 8.68384, -3.38419)
+shaded = true
+alpha_cut = 2
+texture = ExtResource("28_pvto1")
+
+[node name="Sprite3D79" type="Sprite3D" parent="Grass"]
+transform = Transform3D(3.20748, 0, 0, 0, 2.74434, 0, 0, 0, 0.38478, -16.9808, 8.68384, -3.38419)
+shaded = true
+alpha_cut = 2
+texture = ExtResource("28_pvto1")
 
 [connection signal="switch_toggled" from="DynamicObjects/pressure_plate_03" to="MovingPlatforms/moving platform_03" method="_on_plate_press"]
 [connection signal="switch_hit" from="DynamicObjects/switch2" to="DynamicObjects/switch2/Door_02" method="open"]

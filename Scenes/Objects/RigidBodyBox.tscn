@@ -7,7 +7,7 @@
 [sub_resource type="BoxMesh" id="BoxMesh_0o8yw"]
 material = ExtResource("1_gl6er")
 
-[node name="box" type="RigidBody3D"]
+[node name="box" type="RigidBody3D" groups=["heavy"]]
 collision_layer = 16
 collision_mask = 23
 axis_lock_linear_z = true

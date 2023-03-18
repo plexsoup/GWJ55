@@ -1,7 +1,6 @@
-[gd_scene load_steps=10 format=3 uid="uid://dy000li05s73h"]
+[gd_scene load_steps=9 format=3 uid="uid://dy000li05s73h"]
 
 [ext_resource type="Script" path="res://Scenes/Objects/TimedTextArea.gd" id="1_ofqdi"]
-[ext_resource type="Script" path="res://Scenes/Objects/Text.gd" id="2_mi03w"]
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_x6e35"]
 
@@ -79,7 +78,6 @@ label_settings = SubResource("LabelSettings_npxdi")
 horizontal_alignment = 3
 vertical_alignment = 1
 autowrap_mode = 3
-script = ExtResource("2_mi03w")
 
 [node name="timeout" type="Timer" parent="."]
 wait_time = 2.0

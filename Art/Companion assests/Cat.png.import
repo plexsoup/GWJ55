@@ -3,16 +3,16 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://btflhndbdc2f2"
-path.s3tc="res://.godot/imported/Cat.png-f622a0b036e06ad798167a3aa5665e21.s3tc.ctex"
+path.etc2="res://.godot/imported/Cat.png-f622a0b036e06ad798167a3aa5665e21.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://Art/Companion assests/Cat.png"
-dest_files=["res://.godot/imported/Cat.png-f622a0b036e06ad798167a3aa5665e21.s3tc.ctex"]
+dest_files=["res://.godot/imported/Cat.png-f622a0b036e06ad798167a3aa5665e21.etc2.ctex"]
 
 [params]
 

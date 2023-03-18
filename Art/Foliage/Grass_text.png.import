@@ -3,16 +3,16 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dsuw60ly4uf07"
-path.s3tc="res://.godot/imported/Grass_text.png-cbed68dcd3abd8cf79c2285c53db6279.s3tc.ctex"
+path.etc2="res://.godot/imported/Grass_text.png-cbed68dcd3abd8cf79c2285c53db6279.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://Art/Foliage/Grass_text.png"
-dest_files=["res://.godot/imported/Grass_text.png-cbed68dcd3abd8cf79c2285c53db6279.s3tc.ctex"]
+dest_files=["res://.godot/imported/Grass_text.png-cbed68dcd3abd8cf79c2285c53db6279.etc2.ctex"]
 
 [params]
 
@@ -20,12 +20,12 @@ compress/mode=2
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/hdr_compression=1
-compress/normal_map=0
+compress/normal_map=1
 compress/channel_pack=0
 mipmaps/generate=true
 mipmaps/limit=-1
-roughness/mode=0
-roughness/src_normal=""
+roughness/mode=1
+roughness/src_normal="res://Art/Foliage/Grass_text.png"
 process/fix_alpha_border=true
 process/premult_alpha=false
 process/normal_map_invert_y=false

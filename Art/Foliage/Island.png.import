@@ -3,16 +3,16 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cewv0v0iot6yl"
-path.s3tc="res://.godot/imported/Island.png-5975d77f8b96c885a218d27b8aed4637.s3tc.ctex"
+path.etc2="res://.godot/imported/Island.png-5975d77f8b96c885a218d27b8aed4637.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://Art/Foliage/Island.png"
-dest_files=["res://.godot/imported/Island.png-5975d77f8b96c885a218d27b8aed4637.s3tc.ctex"]
+dest_files=["res://.godot/imported/Island.png-5975d77f8b96c885a218d27b8aed4637.etc2.ctex"]
 
 [params]
 

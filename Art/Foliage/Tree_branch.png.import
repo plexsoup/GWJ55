@@ -2,17 +2,17 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bavp0sd2e1sdb"
-path.etc2="res://.godot/imported/vaccuum.png-5090a445db3aa1425dc1b9e25b11a766.etc2.ctex"
+uid="uid://l2jl8rouowof"
+path.s3tc="res://.godot/imported/Tree_branch.png-9345820ec2c7bd2e9345cc5cfde3eb1d.s3tc.ctex"
 metadata={
-"imported_formats": ["etc2_astc"],
+"imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
 
 [deps]
 
-source_file="res://Art/objects/vaccuum.png"
-dest_files=["res://.godot/imported/vaccuum.png-5090a445db3aa1425dc1b9e25b11a766.etc2.ctex"]
+source_file="res://Art/Foliage/Tree_branch.png"
+dest_files=["res://.godot/imported/Tree_branch.png-9345820ec2c7bd2e9345cc5cfde3eb1d.s3tc.ctex"]
 
 [params]
 

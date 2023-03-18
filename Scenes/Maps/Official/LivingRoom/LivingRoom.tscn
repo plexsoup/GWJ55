@@ -13,6 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://ch0xqdmee1xnu" path="res://WorldEnvironments/sky_and_lighting.tscn" id="7_12lrh"]
 [ext_resource type="PackedScene" uid="uid://dwte3a8axt6kp" path="res://Scenes/Objects/door.tscn" id="7_4288d"]
 [ext_resource type="Shader" uid="uid://cx2ac458h8a83" path="res://Shaders/Cloud_Water.tres" id="8_pjrtt"]
+[ext_resource type="PackedScene" uid="uid://dy000li05s73h" path="res://Scenes/Objects/TimedTextArea.tscn" id="9_sm6vs"]
 [ext_resource type="PackedScene" uid="uid://cmd16bdree5a7" path="res://Scenes/Objects/fall_reset_volume.tscn" id="11_k54t8"]
 [ext_resource type="Script" path="res://Scenes/Maps/ReferenceSprite3D.gd" id="11_x1kbs"]
 [ext_resource type="Texture2D" uid="uid://coaanccqd0h8j" path="res://Art/Foliage/Tree.png" id="13_8fou7"]
@@ -203,7 +204,7 @@ subdivide_width = 200
 subdivide_depth = 200
 
 [node name="LivingRoom" type="Node3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0499344, 0.0498085, -0.00127125)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25.5324, 15.7693, -3.91102)
 script = ExtResource("1_3v50y")
 
 [node name="PlatformGridMap-placeholder" type="GridMap" parent="."]
@@ -281,6 +282,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -40.7504, 0)
 mesh = SubResource("PlaneMesh_kw84f")
 
 [node name="DynamicObjects" type="Node3D" parent="."]
+
+[node name="TimedTextArea" parent="DynamicObjects" instance=ExtResource("9_sm6vs")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24.0898, -16.573, 2.3093)
 
 [node name="TriggerVolumeWin" parent="DynamicObjects" instance=ExtResource("4_jclyg")]
 transform = Transform3D(1.36912, 0, 0, 0, 1.36912, 0, 0, 0, 1.36912, 24.1752, 23.2401, -0.00569916)

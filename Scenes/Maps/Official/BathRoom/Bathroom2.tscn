@@ -1,0 +1,739 @@
+[gd_scene load_steps=69 format=3 uid="uid://cp3lj510xmwmh"]
+
+[ext_resource type="Script" path="res://Scenes/Maps/base_level.gd" id="1_27clu"]
+[ext_resource type="MeshLibrary" uid="uid://dmh5e52qprx6r" path="res://MeshLibraries/cat_tower_plex.tres" id="2_6n4ip"]
+[ext_resource type="PackedScene" uid="uid://cey6vaorec8ca" path="res://Scenes/Entities/Player/player_controller.tscn" id="3_xstnt"]
+[ext_resource type="PackedScene" uid="uid://cm2o1lkpf6s0w" path="res://Scenes/Entities/NPCs/vacuum_cleaner.tscn" id="4_nfrgl"]
+[ext_resource type="PackedScene" uid="uid://cw6hwlepf4hp8" path="res://Scenes/Entities/Player/cloud_kitten_companion.tscn" id="5_ayoq2"]
+[ext_resource type="PackedScene" uid="uid://iy2fvk38ehxj" path="res://Scenes/Entities/NPCs/deadly_tile.tscn" id="6_vdhck"]
+[ext_resource type="PackedScene" uid="uid://dd3fox603os7x" path="res://Scenes/Entities/moving platform.tscn" id="7_abbws"]
+[ext_resource type="PackedScene" uid="uid://ch0xqdmee1xnu" path="res://WorldEnvironments/sky_and_lighting.tscn" id="8_5xkyp"]
+[ext_resource type="Script" path="res://WorldEnvironments/sky_and_lighting_Bathroom.gd" id="9_6f5c6"]
+[ext_resource type="Shader" uid="uid://cx2ac458h8a83" path="res://Shaders/Cloud_Water.tres" id="10_jicij"]
+[ext_resource type="PackedScene" path="res://Scenes/Objects/trigger_volume_win.tscn" id="11_kq2ig"]
+[ext_resource type="Texture2D" uid="uid://dhm4vtuux462g" path="res://Materials/arrow_01.png" id="12_yil0e"]
+[ext_resource type="PackedScene" path="res://Scenes/Objects/fall_reset_volume.tscn" id="13_eo0uv"]
+[ext_resource type="PackedScene" uid="uid://crvvpifd7a146" path="res://Scenes/Entities/NPCs/pressure_plate.tscn" id="14_3nxwi"]
+[ext_resource type="PackedScene" uid="uid://dwte3a8axt6kp" path="res://Scenes/Objects/door.tscn" id="15_yq723"]
+[ext_resource type="PackedScene" uid="uid://ted21c8mecho" path="res://Scenes/Entities/NPCs/switch.tscn" id="16_pfye1"]
+[ext_resource type="Texture2D" uid="uid://d2tun4dqdssdx" path="res://Scenes/Maps/Official/BathRoom/level01_mockup_section3.png" id="17_dx5oe"]
+[ext_resource type="Script" path="res://Scenes/Maps/ReferenceSprite3D.gd" id="18_ur7p8"]
+[ext_resource type="ArrayMesh" uid="uid://bbje4wl4kivx0" path="res://Art/objects/mirror.obj" id="19_7vj2q"]
+[ext_resource type="Script" path="res://Scenes/Objects/RandomLazyMotion.gd" id="20_7jfqy"]
+[ext_resource type="ArrayMesh" uid="uid://cqerpxbfucmkm" path="res://Art/objects/sink.obj" id="21_l5ck4"]
+[ext_resource type="Texture2D" uid="uid://bpp08atu8a8u0" path="res://Art/objects/sink.png" id="22_ecm14"]
+[ext_resource type="PackedScene" uid="uid://b3p7s4vjxe0y0" path="res://Scenes/Objects/VolumeTriggerHintThoughtBubble.tscn" id="23_qxqug"]
+[ext_resource type="PackedScene" uid="uid://b2tb1owb5nnun" path="res://Scenes/Objects/spawn_point.tscn" id="24_kcyay"]
+[ext_resource type="Texture2D" uid="uid://lmde70nwacgw" path="res://Art/Eye_text.png" id="25_344wu"]
+[ext_resource type="Curve" path="res://Shaders/Waterdrop.tres" id="26_ouyca"]
+[ext_resource type="Shader" uid="uid://btl5ebnoijhp2" path="res://Shaders/Envi_Water.tres" id="27_5bim5"]
+[ext_resource type="Texture2D" uid="uid://b8b3xjek6q7wy" path="res://Art/Foliage/Grass3.png" id="28_c6qc5"]
+[ext_resource type="Texture2D" uid="uid://ddaucwcbe7q1y" path="res://Art/Foliage/Mushrooms.png" id="29_ochm2"]
+[ext_resource type="Texture2D" uid="uid://1yt0bsisi0p6" path="res://Art/Foliage/Bush_1.png" id="30_qj37p"]
+[ext_resource type="Texture2D" uid="uid://coaanccqd0h8j" path="res://Art/Foliage/Tree.png" id="31_21ash"]
+[ext_resource type="Texture2D" uid="uid://b6jmphr0ugk78" path="res://Art/Foliage/Mountains 2.png" id="32_i28k1"]
+[ext_resource type="ArrayMesh" path="res://Art/objects/Water_twist2.obj" id="33_kvykl"]
+[ext_resource type="Shader" path="res://Water_Ground.tres" id="34_42414"]
+[ext_resource type="AudioStream" path="res://sfx/Rain.mp3" id="35_eetkf"]
+
+[sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_qs5tq"]
+dof_blur_far_enabled = true
+dof_blur_far_distance = 108.62
+dof_blur_near_enabled = true
+dof_blur_near_distance = 6.28
+dof_blur_amount = 0.13
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_op2lt"]
+render_priority = 0
+shader = ExtResource("10_jicij")
+shader_parameter/FloatParameter = 1.0
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_kw84f"]
+material = SubResource("ShaderMaterial_op2lt")
+size = Vector2(300, 300)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4owc6"]
+albedo_texture = ExtResource("22_ecm14")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0fbmc"]
+vertex_color_use_as_albedo = true
+albedo_texture = ExtResource("25_344wu")
+metallic_specular = 1.0
+roughness = 0.33
+rim_enabled = true
+rim_tint = 0.41
+clearcoat_enabled = true
+clearcoat_roughness = 0.0
+heightmap_enabled = true
+subsurf_scatter_enabled = true
+
+[sub_resource type="SphereMesh" id="SphereMesh_ovymh"]
+material = SubResource("StandardMaterial3D_0fbmc")
+radius = 9.411
+height = 18.822
+
+[sub_resource type="Animation" id="Animation_deyvl"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-0.865234, -3.07662, -1.3596)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_ohep0"]
+resource_name = "Twitching_Eye"
+length = 10.0
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 9.7),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(-0.865234, -3.07662, -1.3596), Vector3(-0.321395, -1.5078, -2.40971)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(9.7),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_4u500"]
+_data = {
+"RESET": SubResource("Animation_deyvl"),
+"Twitching_Eye": SubResource("Animation_ohep0")
+}
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_vffpx"]
+render_priority = 0
+shader = ExtResource("27_5bim5")
+shader_parameter/Vertex_Roughness = 1.0
+shader_parameter/ColorParameter = Color(0.10844, 0.397392, 0.688247, 1)
+shader_parameter/FloatParameter = 0.2
+
+[sub_resource type="TubeTrailMesh" id="TubeTrailMesh_76on5"]
+material = SubResource("ShaderMaterial_vffpx")
+radius = 0.491
+radial_steps = 119
+section_length = 70.971
+section_rings = 17
+curve = ExtResource("26_ouyca")
+
+[sub_resource type="AnimationNodeBlendSpace2D" id="AnimationNodeBlendSpace2D_qrb4l"]
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_74k40"]
+animation = &"Drop"
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_hoslx"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_y2n01"]
+xfade_time = 38.92
+switch_mode = 2
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_si66s"]
+states/BlendSpace2D/node = SubResource("AnimationNodeBlendSpace2D_qrb4l")
+states/BlendSpace2D/position = Vector2(317, 132)
+states/Drop/node = SubResource("AnimationNodeAnimation_74k40")
+states/Drop/position = Vector2(413, 32)
+states/Start/position = Vector2(177, 78)
+states/StateMachine/node = SubResource("AnimationNodeStateMachine_hoslx")
+states/StateMachine/position = Vector2(533, 78)
+transitions = ["Start", "Drop", SubResource("AnimationNodeStateMachineTransition_y2n01")]
+graph_offset = Vector2(-55, -1)
+
+[sub_resource type="AnimationNodeStateMachinePlayback" id="AnimationNodeStateMachinePlayback_8nuwr"]
+
+[sub_resource type="AnimationNodeStateMachinePlayback" id="AnimationNodeStateMachinePlayback_oat0l"]
+
+[sub_resource type="Animation" id="Animation_gmlqj"]
+resource_name = "Drop"
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_4mrw4"]
+_data = {
+"Drop": SubResource("Animation_gmlqj")
+}
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_a5c6y"]
+render_priority = 0
+shader = ExtResource("27_5bim5")
+shader_parameter/Vertex_Roughness = 0.1
+shader_parameter/ColorParameter = Color(0.10844, 0.397392, 0.688247, 1)
+shader_parameter/FloatParameter = 0.2
+
+[sub_resource type="Animation" id="Animation_ofael"]
+length = 0.001
+
+[sub_resource type="Animation" id="Animation_jngr1"]
+resource_name = "twist"
+length = 10.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 10),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 6.28319, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ce648"]
+_data = {
+"RESET": SubResource("Animation_ofael"),
+"twist": SubResource("Animation_jngr1")
+}
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_y34xl"]
+render_priority = 0
+shader = ExtResource("34_42414")
+shader_parameter/Wave_Height = Quaternion(1, 1, 1, 1)
+shader_parameter/Vertex_Roughness = 0.1
+shader_parameter/ColorParameter = Color(0.10844, 0.397392, 0.688247, 1)
+shader_parameter/FloatParameter = 0.2
+
+[sub_resource type="QuadMesh" id="QuadMesh_8pkyx"]
+material = SubResource("ShaderMaterial_y34xl")
+size = Vector2(900, 350)
+subdivide_width = 65
+subdivide_depth = 199
+
+[sub_resource type="Gradient" id="Gradient_xdfgo"]
+offsets = PackedFloat32Array(0, 0.99187)
+colors = PackedColorArray(0, 0, 0, 1, 0.689952, 0.0732167, 0.329843, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_8n0en"]
+gradient = SubResource("Gradient_xdfgo")
+
+[sub_resource type="Curve" id="Curve_1cl40"]
+_data = [Vector2(0, 0.709091), 0.0, 0.0, 0, 0, Vector2(0.993506, 0.190909), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_j8aao"]
+curve = SubResource("Curve_1cl40")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_ctbpw"]
+emission_shape = 3
+emission_box_extents = Vector3(150, 50, 80)
+spread = 38.94
+gravity = Vector3(0, -90, 0)
+linear_accel_max = 96.63
+angle_min = -485.4
+angle_max = -485.4
+scale_curve = SubResource("CurveTexture_j8aao")
+color_ramp = SubResource("GradientTexture1D_8n0en")
+hue_variation_min = -0.07
+hue_variation_max = 0.86
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gv07r"]
+albedo_color = Color(0, 0.447059, 0.447059, 1)
+rim_enabled = true
+rim_tint = 0.52
+clearcoat_enabled = true
+clearcoat_roughness = 1.0
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_5dvjo"]
+material = SubResource("StandardMaterial3D_gv07r")
+radius = 0.075
+height = 2.053
+radial_segments = 4
+rings = 1
+
+[node name="Bathroom" type="Node3D"]
+script = ExtResource("1_27clu")
+
+[node name="NonClimbableGridmap" type="GridMap" parent="."]
+transform = Transform3D(1.5, 0, 0, 0, -8.74228e-08, -1.5, 0, 2, -6.55671e-08, 0, 0, -2.25)
+mesh_library = ExtResource("2_6n4ip")
+cell_size = Vector3(1, 1, 1)
+collision_layer = 4
+collision_mask = 3
+data = {
+"cells": PackedInt32Array(65489, 65525, 7, 65490, 65525, 7, 65491, 65525, 7, 65492, 65525, 7, 65493, 65525, 7, 65494, 65525, 7, 65495, 65525, 7, 65496, 65525, 7, 65497, 65525, 7, 65498, 65525, 7, 65499, 65525, 7, 65500, 65525, 7, 65501, 65525, 7, 65502, 65525, 7, 65502, 65506, 7, 65502, 65507, 7, 65502, 65508, 7, 65502, 65509, 7, 65502, 65510, 7, 65502, 65511, 7, 65502, 65512, 7, 65502, 65513, 7, 65502, 65514, 7, 65502, 65515, 7, 65502, 65516, 7, 65502, 65517, 7, 65502, 65518, 7, 65502, 65519, 7, 65502, 65520, 7, 65502, 65521, 7, 65502, 65522, 7, 65502, 65523, 7, 65502, 65524, 7, 65502, 65503, 7, 65502, 65504, 7, 65502, 65505, 7, 65501, 65523, 7, 65501, 65524, 7, 65501, 65510, 7, 65501, 65511, 7, 65501, 65512, 7, 65501, 65513, 7, 65501, 65514, 7, 65503, 65503, 7, 65504, 65503, 7, 65505, 65503, 7, 65506, 65503, 7, 65507, 65503, 7, 65508, 65503, 7, 65509, 65503, 7, 65510, 65503, 7, 65511, 65503, 7, 65512, 65503, 7, 65513, 65503, 7, 65514, 65503, 7, 65515, 65503, 7, 65516, 65503, 7, 65517, 65503, 7, 65518, 65503, 7, 65519, 65503, 7, 65520, 65503, 7, 65521, 65503, 7, 65522, 65503, 7, 65523, 65503, 7, 65510, 65511, 7, 65511, 65511, 7, 65512, 65511, 7, 65513, 65511, 7, 65514, 65511, 7, 65515, 65511, 7, 65516, 65511, 7, 65517, 65511, 7, 65518, 65511, 7, 65519, 65511, 7, 65520, 65511, 7, 65521, 65511, 7, 65522, 65511, 7, 65523, 65511, 7, 65524, 65511, 7, 65525, 65511, 7, 65526, 65511, 7, 65503, 65520, 7, 65504, 65520, 7, 65505, 65520, 7, 65506, 65520, 7, 65507, 65520, 7, 65508, 65520, 7, 65509, 65520, 7, 65510, 65520, 7, 65511, 65520, 7, 65512, 65520, 7, 65513, 65520, 7, 65514, 65520, 7, 65515, 65520, 7, 65516, 65520, 7, 65517, 65520, 7, 65518, 65520, 7, 65519, 65520, 7, 65520, 65520, 7, 65521, 65520, 7, 65522, 65520, 7, 65527, 65509, 10, 65527, 65510, 10, 65527, 65511, 10, 65527, 65512, 10, 65527, 65513, 10, 65527, 65514, 10, 65527, 65515, 10, 65527, 65516, 10, 65527, 65517, 10, 65527, 65518, 10, 65527, 65519, 10, 65527, 65520, 10, 65527, 65521, 10, 65527, 65522, 10, 65528, 65509, 10, 65528, 65510, 10, 65528, 65511, 10, 65528, 65512, 10, 65528, 65513, 10, 65528, 65514, 10, 65528, 65515, 10, 65528, 65516, 10, 65528, 65517, 10, 65528, 65518, 10, 65528, 65519, 10, 65528, 65520, 10, 65528, 65521, 10, 65528, 65522, 10, 65529, 65509, 10, 65529, 65510, 10, 65529, 65511, 10, 65529, 65512, 10, 65529, 65513, 10, 65529, 65514, 10, 65529, 65515, 10, 65529, 65516, 10, 65529, 65517, 10, 65529, 65518, 10, 65529, 65519, 10, 65529, 65520, 10, 65529, 65521, 10, 65529, 65522, 10, 65528, 65501, 10, 65528, 65502, 10, 65528, 65503, 10, 65528, 65504, 10, 65528, 65505, 10, 65528, 65506, 10, 65528, 65507, 10, 65528, 65508, 10, 65529, 65501, 10, 65529, 65502, 10, 65529, 65503, 10, 65529, 65504, 10, 65529, 65505, 10, 65529, 65506, 10, 65529, 65507, 10, 65529, 65508, 10, 65533, 65501, 7, 65532, 65501, 7, 65531, 65501, 7, 65530, 65501, 7, 65530, 65502, 7, 65531, 65502, 7, 65532, 65502, 7, 65533, 65502, 7, 65533, 65503, 7, 65533, 65504, 7, 65533, 65505, 7, 65532, 65505, 7, 65532, 65506, 7, 65532, 65507, 7, 65531, 65507, 7, 65530, 65507, 7, 65530, 65508, 7, 65530, 65509, 7, 65530, 65510, 7, 65530, 65511, 7, 65531, 65511, 7, 65532, 65511, 7, 3, 65507, 7, 4, 65507, 7, 5, 65507, 7, 5, 65506, 7, 5, 65505, 7, 5, 65504, 7, 5, 65503, 7, 6, 65503, 7, 65530, 65520, 7, 65531, 65520, 7, 65532, 65520, 7, 65533, 65520, 7, 65534, 65520, 7, 65535, 65520, 7, 0, 65520, 7, 1, 65520, 7, 2, 65520, 7, 3, 65520, 7, 4, 65520, 7, 65535, 65518, 8, 0, 65518, 8, 0, 65519, 8, 65535, 65519, 8, 2, 65516, 8, 2, 65517, 8, 3, 65517, 8, 3, 65518, 8, 3, 65519, 8, 2, 65519, 8, 2, 65518, 8, 3, 65516, 8, 6, 65514, 7, 7, 65514, 7, 8, 65514, 7, 9, 65514, 7, 10, 65514, 7, 33, 65514, 7, 33, 65513, 7, 33, 65512, 7, 33, 65511, 7, 33, 65510, 7, 34, 65510, 7, 35, 65510, 7, 35, 65509, 7, 35, 65508, 7, 35, 65495, 7, 35, 65496, 7, 35, 65497, 7, 35, 65498, 7, 35, 65499, 7, 35, 65500, 7, 35, 65501, 7, 35, 65502, 7, 35, 65503, 7, 35, 65504, 7, 35, 65505, 7, 35, 65506, 7, 35, 65507, 7, 7, 65503, 7, 8, 65503, 7, 9, 65503, 7, 10, 65503, 7, 11, 65503, 7, 12, 65503, 7, 13, 65503, 7, 14, 65503, 7, 15, 65503, 7, 16, 65503, 7, 17, 65503, 7, 18, 65503, 7, 19, 65503, 7, 20, 65503, 7, 21, 65503, 7, 22, 65503, 7, 23, 65503, 7, 24, 65503, 7, 25, 65503, 7, 26, 65503, 7, 27, 65503, 7, 28, 65503, 7, 29, 65503, 7, 30, 65503, 7, 31, 65503, 7, 32, 65503, 7, 33, 65503, 7, 34, 65503, 7, 65508, 65530, 7, 65509, 65530, 7, 65510, 65530, 7, 65511, 65530, 7, 65512, 65530, 7, 65513, 65530, 7, 65514, 65530, 7, 65515, 65530, 7, 65516, 65530, 7, 65517, 65530, 7, 65518, 65530, 7, 65519, 65530, 7, 65520, 65530, 7, 65521, 65530, 7, 65522, 65530, 7, 65523, 65530, 7, 65524, 65530, 7, 65525, 65530, 7, 65526, 65530, 7, 65527, 65530, 7, 65528, 65530, 7, 65529, 65530, 7, 65530, 65530, 7, 65531, 65530, 7, 65532, 65530, 7, 65533, 65530, 7, 65508, 65531, 7, 65508, 65532, 7, 65508, 65533, 7, 65502, 65526, 7, 65502, 65527, 7, 65502, 65528, 7, 65502, 65529, 7, 65502, 65530, 7, 65502, 65531, 7, 65502, 65532, 7, 65502, 3, 7, 65502, 4, 7, 65503, 3, 7, 65503, 4, 7, 65504, 3, 7, 65504, 4, 7, 65505, 3, 7, 65505, 4, 7, 65506, 3, 7, 65506, 4, 7, 65507, 3, 7, 65507, 4, 7, 65508, 3, 7, 65508, 4, 7, 65509, 3, 7, 65509, 4, 7, 65510, 3, 7, 65510, 4, 7, 65511, 3, 7, 65511, 4, 7, 65512, 3, 7, 65512, 4, 7, 65513, 3, 7, 65513, 4, 7, 65514, 3, 7, 65514, 4, 7, 65515, 3, 7, 65515, 4, 7, 65516, 3, 7, 65516, 4, 7, 65517, 3, 7, 65517, 4, 7, 65518, 3, 7, 65518, 4, 7, 65519, 3, 7, 65519, 4, 7, 65520, 3, 7, 65520, 4, 7, 65521, 3, 7, 65521, 4, 7, 65522, 3, 7, 65522, 4, 7, 65523, 3, 7, 65523, 4, 7, 65524, 3, 7, 65524, 4, 7, 65525, 3, 7, 65525, 4, 7, 65526, 3, 7, 65526, 4, 7, 65527, 3, 7, 65527, 4, 7, 65528, 3, 7, 65528, 4, 7, 65529, 3, 7, 65529, 4, 7, 65530, 3, 7, 65530, 4, 7, 65531, 3, 7, 65531, 4, 7, 65532, 3, 7, 65532, 4, 7, 65533, 3, 7, 65533, 4, 7, 65534, 3, 7, 65534, 4, 7, 65535, 3, 7, 65535, 4, 7, 0, 3, 7, 0, 4, 7, 1, 3, 7, 1, 4, 7, 2, 3, 7, 2, 4, 7, 3, 3, 7, 3, 4, 7, 4, 3, 7, 4, 4, 7, 5, 3, 7, 5, 4, 7, 6, 3, 7, 6, 4, 7, 7, 3, 7, 7, 4, 7, 8, 3, 7, 8, 4, 7, 9, 3, 7, 9, 4, 7, 10, 3, 7, 10, 4, 7, 11, 3, 7, 11, 4, 7, 12, 3, 7, 12, 4, 7, 13, 3, 7, 13, 4, 7, 14, 3, 7, 14, 4, 7, 15, 3, 7, 15, 4, 7, 16, 3, 7, 16, 4, 7, 17, 3, 7, 17, 4, 7, 18, 3, 7, 18, 4, 7, 19, 3, 7, 19, 4, 7, 20, 3, 7, 20, 4, 7, 21, 3, 7, 21, 4, 7, 22, 3, 7, 22, 4, 7, 23, 3, 7, 23, 4, 7, 24, 3, 7, 24, 4, 7, 25, 3, 7, 25, 4, 7, 26, 3, 7, 26, 4, 7, 27, 3, 7, 27, 4, 7, 28, 3, 7, 28, 4, 7, 29, 3, 7, 29, 4, 7, 30, 3, 7, 30, 4, 7, 31, 3, 7, 31, 4, 7, 32, 3, 7, 32, 4, 7, 33, 3, 7, 33, 4, 7, 34, 3, 7, 34, 4, 7, 35, 3, 7, 35, 4, 7, 36, 3, 7, 36, 4, 7, 37, 3, 7, 37, 4, 7, 38, 3, 7, 38, 4, 7, 39, 3, 7, 39, 4, 7, 40, 3, 7, 40, 4, 7, 41, 3, 7, 41, 4, 7, 42, 3, 7, 42, 4, 7, 65528, 65531, 7, 65528, 65532, 7, 65528, 65533, 7, 65528, 65534, 7, 65528, 65535, 7, 65528, 0, 7, 65528, 1, 7, 65528, 2, 7, 65529, 65531, 7, 65529, 65532, 7, 65529, 65533, 7, 65529, 65534, 7, 65529, 65535, 7, 65529, 0, 7, 65529, 1, 7, 65529, 2, 7, 12, 65530, 7, 12, 65531, 7, 13, 65530, 7, 13, 65531, 7, 14, 65530, 7, 14, 65531, 7, 15, 65530, 7, 15, 65531, 7, 16, 65530, 7, 16, 65531, 7, 17, 65530, 7, 17, 65531, 7, 18, 65530, 7, 18, 65531, 7, 19, 65530, 7, 19, 65531, 7, 20, 65530, 7, 20, 65531, 7, 21, 65530, 7, 21, 65531, 7, 22, 65530, 7, 22, 65531, 7, 23, 65530, 7, 23, 65531, 7, 24, 65530, 7, 24, 65531, 7, 25, 65530, 7, 25, 65531, 7, 26, 65530, 7, 26, 65531, 7, 27, 65530, 7, 27, 65531, 7, 28, 65530, 7, 28, 65531, 7, 29, 65530, 7, 29, 65531, 7, 30, 65530, 7, 30, 65531, 7, 31, 65530, 7, 31, 65531, 7, 19, 65532, 7, 19, 65533, 7, 19, 65534, 7, 19, 65535, 7, 19, 0, 7, 19, 1, 7, 19, 2, 7, 20, 65532, 7, 20, 65533, 7, 20, 65534, 7, 20, 65535, 7, 20, 0, 7, 20, 1, 7, 20, 2, 7, 21, 65532, 7, 21, 65533, 7, 21, 65534, 7, 21, 65535, 7, 21, 0, 7, 21, 1, 7, 21, 2, 7, 22, 65532, 7, 22, 65533, 7, 22, 65534, 7, 22, 65535, 7, 22, 0, 7, 22, 1, 7, 22, 2, 7, 23, 65532, 7, 23, 65533, 7, 23, 65534, 7, 23, 65535, 7, 23, 0, 7, 23, 1, 7, 23, 2, 7, 24, 65532, 7, 24, 65533, 7, 24, 65534, 7, 24, 65535, 7, 24, 0, 7, 24, 1, 7, 24, 2, 7, 32, 65530, 7, 33, 65530, 7, 33, 65529, 7, 33, 65528, 7, 33, 65527, 7, 33, 65526, 7, 33, 65525, 7, 33, 65524, 7, 33, 65523, 7, 32, 65523, 7, 32, 65524, 7, 32, 65525, 7, 32, 65526, 7, 32, 65527, 7, 32, 65528, 7, 32, 65529, 7, 31, 65529, 7, 31, 65528, 7, 31, 65527, 7, 31, 65526, 7, 31, 65525, 7, 31, 65524, 7, 31, 65523, 7, 10, 65525, 7, 10, 65526, 7, 10, 65527, 7, 10, 65528, 7, 10, 65529, 7, 10, 65530, 7, 11, 65525, 7, 11, 65526, 7, 11, 65527, 7, 11, 65528, 7, 11, 65529, 7, 11, 65530, 7, 8, 65525, 7, 9, 65525, 7, 36, 65510, 7, 37, 65510, 7, 38, 65510, 7, 39, 65510, 7, 40, 65510, 7, 41, 65510, 7, 42, 65510, 7, 34, 65521, 7, 35, 65521, 7, 36, 65521, 7, 37, 65521, 7, 38, 65521, 7, 39, 65521, 7, 40, 65521, 7, 41, 65521, 7, 42, 65521, 7, 65511, 65487, 7, 65512, 65487, 7, 65513, 65487, 7, 65514, 65487, 7, 65515, 65487, 7, 65516, 65487, 7, 65517, 65487, 7, 65518, 65487, 7, 65519, 65487, 7, 65520, 65487, 7, 65521, 65487, 7, 65522, 65487, 7, 65523, 65487, 7, 65524, 65487, 7, 65525, 65487, 7, 65526, 65487, 7, 65527, 65487, 7, 65528, 65487, 7, 65529, 65487, 7, 65530, 65487, 7, 65531, 65487, 7, 65532, 65487, 7, 65533, 65487, 7, 65534, 65487, 7, 65535, 65487, 7, 0, 65487, 7, 1, 65487, 7, 2, 65487, 7, 3, 65487, 7, 4, 65487, 7, 5, 65487, 7, 6, 65487, 7, 7, 65487, 7, 8, 65487, 7, 9, 65487, 7, 10, 65487, 7, 11, 65487, 7, 12, 65487, 7, 13, 65487, 7, 14, 65487, 7, 15, 65487, 7, 16, 65487, 7, 17, 65487, 7, 18, 65487, 7, 19, 65487, 7, 65510, 65488, 7, 65510, 65489, 7, 65510, 65490, 7, 65499, 65492, 7, 65500, 65492, 7, 65501, 65492, 7, 65502, 65492, 7, 65503, 65492, 7, 65523, 65486, 7, 65524, 65486, 7, 65525, 65486, 7, 65526, 65486, 7, 65527, 65486, 7, 65528, 65486, 7, 65529, 65486, 7, 65530, 65486, 7, 65531, 65486, 7, 65532, 65486, 7, 65533, 65486, 7, 65534, 65486, 7, 5, 65486, 7, 4, 65486, 7, 3, 65486, 7, 65518, 65486, 7, 65517, 65486, 7, 65516, 65486, 7, 65515, 65486, 7, 65514, 65486, 7, 65513, 65486, 7, 10, 65486, 7, 11, 65486, 7, 12, 65486, 7, 13, 65486, 7, 14, 65486, 7, 15, 65486, 7, 16, 65486, 7, 17, 65479, 7, 17, 65480, 7, 17, 65481, 7, 17, 65482, 7, 17, 65483, 7, 17, 65484, 7, 17, 65485, 7, 17, 65486, 7, 18, 65479, 7, 18, 65480, 7, 18, 65481, 7, 18, 65482, 7, 18, 65483, 7, 18, 65484, 7, 18, 65485, 7, 18, 65486, 7, 19, 65479, 7, 19, 65480, 7, 19, 65481, 7, 19, 65482, 7, 19, 65483, 7, 19, 65484, 7, 19, 65485, 7, 19, 65486, 7, 20, 65479, 7, 20, 65480, 7, 20, 65481, 7, 20, 65482, 7, 20, 65483, 7, 20, 65484, 7, 20, 65485, 7, 20, 65486, 7, 21, 65479, 7, 21, 65480, 7, 22, 65479, 7, 22, 65480, 7, 23, 65479, 7, 23, 65480, 7, 24, 65479, 7, 24, 65480, 7, 25, 65479, 7, 25, 65480, 7, 26, 65479, 7, 26, 65480, 7, 65528, 65476, 7, 65527, 65476, 7, 65526, 65476, 7, 65525, 65476, 7, 65524, 65476, 7, 65524, 65477, 7, 65524, 65478, 7, 65523, 65478, 7, 65522, 65478, 7, 65521, 65478, 7, 11, 65476, 7, 12, 65476, 7, 13, 65476, 7, 14, 65476, 7, 11, 65470, 7, 11, 65471, 7, 11, 65472, 7, 12, 65470, 7, 12, 65471, 7, 12, 65472, 7, 13, 65470, 7, 13, 65471, 7, 13, 65472, 7, 14, 65470, 7, 14, 65471, 7, 14, 65472, 7, 15, 65470, 7, 15, 65471, 7, 15, 65472, 7, 16, 65470, 7, 16, 65471, 7, 16, 65472, 7, 17, 65470, 7, 17, 65471, 7, 17, 65472, 7, 18, 65470, 7, 18, 65471, 7, 18, 65472, 7, 19, 65470, 7, 19, 65471, 7, 19, 65472, 7, 20, 65470, 7, 20, 65471, 7, 20, 65472, 7, 21, 65470, 7, 21, 65471, 7, 21, 65472, 7, 22, 65470, 7, 22, 65471, 7, 22, 65472, 7, 23, 65470, 7, 23, 65471, 7, 23, 65472, 7, 24, 65470, 7, 24, 65471, 7, 24, 65472, 7, 25, 65470, 7, 25, 65471, 7, 25, 65472, 7, 26, 65470, 7, 26, 65471, 7, 26, 65472, 7, 27, 65470, 7, 27, 65471, 7, 27, 65472, 7, 28, 65470, 7, 28, 65471, 7, 28, 65472, 7, 29, 65470, 7, 29, 65471, 7, 29, 65472, 7, 30, 65470, 7, 30, 65471, 7, 30, 65472, 7, 31, 65470, 7, 31, 65471, 7, 31, 65472, 7, 32, 65470, 7, 32, 65471, 7, 32, 65472, 7, 33, 65470, 7, 33, 65471, 7, 33, 65472, 7, 34, 65470, 7, 34, 65471, 7, 34, 65472, 7, 35, 65470, 7, 35, 65471, 7, 35, 65472, 7, 36, 65470, 7, 36, 65471, 7, 36, 65472, 7, 37, 65470, 7, 37, 65471, 7, 37, 65472, 7, 38, 65470, 7, 38, 65471, 7, 38, 65472, 7, 39, 65470, 7, 39, 65471, 7, 39, 65472, 7, 40, 65470, 7, 40, 65471, 7, 40, 65472, 7, 41, 65470, 7, 41, 65471, 7, 41, 65472, 7, 42, 65470, 7, 42, 65471, 7, 42, 65472, 7, 65507, 65470, 7, 65507, 65471, 7, 65507, 65472, 7, 65508, 65470, 7, 65508, 65471, 7, 65508, 65472, 7, 65509, 65470, 7, 65509, 65471, 7, 65509, 65472, 7, 65510, 65470, 7, 65510, 65471, 7, 65510, 65472, 7, 65511, 65470, 7, 65511, 65471, 7, 65511, 65472, 7, 65512, 65470, 7, 65512, 65471, 7, 65512, 65472, 7, 65513, 65470, 7, 65513, 65471, 7, 65513, 65472, 7, 65514, 65470, 7, 65514, 65471, 7, 65514, 65472, 7, 65515, 65470, 7, 65515, 65471, 7, 65515, 65472, 7, 65516, 65470, 7, 65516, 65471, 7, 65516, 65472, 7, 65517, 65470, 7, 65517, 65471, 7, 65517, 65472, 7, 65518, 65470, 7, 65518, 65471, 7, 65518, 65472, 7, 65519, 65470, 7, 65519, 65471, 7, 65519, 65472, 7, 65520, 65470, 7, 65520, 65471, 7, 65520, 65472, 7, 65521, 65470, 7, 65521, 65471, 7, 65521, 65472, 7, 65522, 65470, 7, 65522, 65471, 7, 65522, 65472, 7, 65523, 65470, 7, 65523, 65471, 7, 65523, 65472, 7, 65524, 65470, 7, 65524, 65471, 7, 65524, 65472, 7, 65525, 65470, 7, 65525, 65471, 7, 65525, 65472, 7, 65526, 65470, 7, 65526, 65471, 7, 65526, 65472, 7, 65527, 65470, 7, 65527, 65471, 7, 65527, 65472, 7, 65528, 65470, 7, 65528, 65471, 7, 65528, 65472, 7, 65529, 65470, 7, 65530, 65470, 7, 65531, 65470, 7, 65532, 65470, 7, 65533, 65470, 7, 65534, 65470, 7, 65535, 65470, 7, 0, 65470, 7, 1, 65470, 7, 2, 65470, 7, 3, 65470, 7, 4, 65470, 7, 5, 65470, 7, 6, 65470, 7, 7, 65470, 7, 8, 65470, 7, 9, 65470, 7, 10, 65470, 7, 65506, 65472, 7, 65505, 65472, 7, 65505, 65473, 7, 65505, 65474, 7, 65505, 65475, 7, 65504, 65475, 7, 65503, 65475, 7, 65502, 65476, 7, 65502, 65475, 7, 65502, 65477, 7, 65502, 65478, 7, 65501, 65478, 7, 65500, 65478, 7, 65499, 65478, 7, 65498, 65478, 7, 65498, 65479, 7, 65498, 65480, 7, 65498, 65481, 7, 65498, 65482, 7, 65498, 65483, 7, 65498, 65484, 7, 65498, 65485, 7, 65498, 65486, 7, 65490, 65486, 7, 65491, 65486, 7, 65492, 65486, 7, 65493, 65486, 7, 65494, 65486, 7, 65495, 65486, 7, 65496, 65486, 7, 65497, 65486, 7, 65492, 65495, 7, 65492, 65496, 7, 65492, 65497, 7, 65492, 65498, 7, 65492, 65499, 7, 65492, 65500, 7, 65492, 65501, 7, 65492, 65502, 7, 65492, 65503, 7, 65492, 65504, 7, 65492, 65505, 7, 65492, 65506, 7, 65492, 65507, 7, 65492, 65508, 7, 65492, 65509, 7, 65492, 65510, 7, 65492, 65511, 7, 65492, 65512, 7, 65492, 65513, 7, 65492, 65514, 7, 65492, 65515, 7, 65492, 65516, 7, 65493, 65502, 7, 65493, 65503, 7, 65493, 65504, 7, 65493, 65505, 7, 65493, 65506, 7, 65493, 65507, 7, 65493, 65508, 7, 65491, 65495, 7, 65490, 65495, 7, 65489, 65495, 7, 65488, 65495, 7, 65487, 65495, 7, 65486, 65495, 7, 65486, 65486, 7, 65487, 65486, 7, 65488, 65486, 7, 65489, 65486, 7, 65488, 65525, 7, 65487, 65525, 7, 65486, 65525, 7, 65485, 65525, 7, 65485, 65524, 7, 65485, 65523, 7, 65485, 65522, 7, 65485, 65521, 7, 65485, 65520, 7, 65485, 65519, 7, 65485, 65518, 7, 65485, 65517, 7, 65485, 65516, 7, 65486, 65516, 7, 65487, 65516, 7, 65488, 65516, 7, 65489, 65516, 7, 65490, 65516, 7, 65491, 65516, 7, 14, 65502, 7, 14, 65501, 7, 14, 65500, 7, 5, 65500, 7, 6, 65500, 7, 7, 65500, 7, 8, 65500, 7, 9, 65500, 7, 10, 65500, 7, 11, 65500, 7, 12, 65500, 7, 13, 65500, 7, 5, 65501, 7, 5, 65502, 7, 19, 65488, 7, 10, 65488, 7, 10, 65489, 7, 10, 65490, 7, 10, 65491, 7, 10, 65492, 7, 11, 65488, 7, 11, 65489, 7, 11, 65490, 7, 11, 65491, 7, 11, 65492, 7, 65511, 65490, 7, 65512, 65490, 7, 65513, 65490, 7, 65514, 65490, 7, 65515, 65490, 7, 65516, 65490, 7, 65517, 65490, 7, 65518, 65490, 7, 65519, 65490, 7, 65520, 65490, 7, 65521, 65490, 7, 65522, 65490, 7, 65523, 65490, 7, 65524, 65490, 7, 65525, 65490, 7, 65526, 65490, 7, 65527, 65490, 7, 65528, 65490, 7, 65529, 65490, 7, 65530, 65490, 7, 65531, 65490, 7, 65532, 65490, 7, 65533, 65490, 7, 65534, 65490, 7, 65535, 65490, 7, 0, 65490, 7, 1, 65490, 7, 2, 65490, 7, 3, 65490, 7, 4, 65490, 7, 5, 65490, 7, 6, 65490, 7, 7, 65490, 7, 8, 65490, 7, 9, 65490, 7, 2, 65530, 7, 3, 65530, 7, 4, 65530, 7, 5, 65530, 7, 6, 65530, 7, 7, 65530, 7, 8, 65530, 7, 9, 65530, 7, 65534, 65531, 7, 65534, 65530, 7, 65521, 65533, 7, 65522, 65533, 7, 65522, 65532, 7, 65521, 65532, 7, 65521, 65531, 7, 65522, 65531, 7, 65490, 65532, 7, 65491, 65532, 7, 65492, 65532, 7, 65493, 65532, 7, 65494, 65532, 7, 65495, 65532, 7, 65496, 65532, 7, 65497, 65532, 7, 65498, 65532, 7, 65499, 65532, 7, 65500, 65532, 7, 65501, 65532, 7, 65516, 65502, 8, 65516, 65501, 8, 65516, 65500, 8, 65517, 65500, 8, 65518, 65500, 8, 65518, 65501, 8, 65518, 65502, 8, 65517, 65502, 8, 65509, 65490, 7, 2, 65531, 7, 2, 65532, 7, 2, 65533, 7, 2, 65534, 7, 1, 65534, 7, 0, 65534, 7, 65535, 65534, 7, 65534, 65534, 7, 65534, 65533, 7, 65534, 65532, 7, 32, 65481, 7, 33, 65481, 7, 34, 65481, 7, 35, 65481, 7, 36, 65481, 7, 37, 65481, 7, 38, 65481, 7, 38, 65482, 7, 38, 65483, 7, 38, 65484, 7, 38, 65485, 7, 38, 65486, 7, 38, 65487, 7, 38, 65488, 7, 38, 65489, 7, 38, 65490, 7, 38, 65491, 7, 38, 65492, 7, 38, 65493, 7, 38, 65494, 7, 35, 65494, 7, 36, 65494, 7, 37, 65494, 7, 39, 65490, 7, 40, 65490, 7, 41, 65490, 7, 42, 65490, 7, 39, 65494, 7, 40, 65494, 7, 41, 65494, 7, 42, 65494, 7, 42, 65491, 7, 42, 65492, 7, 42, 65493, 7, 42, 65495, 7, 42, 65496, 7, 42, 65497, 7, 42, 65498, 11, 42, 65499, 11, 42, 65500, 11, 42, 65501, 11, 42, 65502, 11, 42, 65503, 11, 42, 65504, 11, 42, 65505, 11, 42, 65506, 7, 42, 65507, 7, 42, 65508, 7, 42, 65509, 7, 42, 65511, 7, 42, 65512, 7, 42, 65513, 11, 42, 65514, 11, 42, 65515, 11, 42, 65516, 11, 42, 65517, 11, 42, 65518, 11, 42, 65519, 7, 42, 65520, 7, 42, 65522, 7, 42, 65523, 7, 42, 65524, 7, 42, 65525, 7, 42, 65526, 7, 42, 65527, 7, 42, 65528, 7, 42, 65529, 7, 42, 65530, 7, 42, 65531, 7, 42, 65532, 7, 42, 65533, 7, 42, 65534, 7, 42, 65535, 7, 42, 0, 7, 42, 1, 7, 42, 2, 7, 65515, 65502, 8, 65514, 65502, 8, 65485, 65495, 7, 65484, 65495, 7, 65483, 65495, 7, 65483, 65486, 7, 65483, 65487, 7, 65483, 65488, 7, 65483, 65489, 7, 65483, 65490, 7, 65483, 65491, 7, 65483, 65492, 7, 65483, 65493, 7, 65483, 65494, 7, 65484, 65486, 7, 65485, 65486, 7)
+}
+metadata/_editor_floor_ = Vector3(0, 0, 0)
+
+[node name="climbable" type="GridMap" parent="."]
+transform = Transform3D(1.5, 0, 0, 0, -8.74228e-08, -1.5, 0, 2, -6.55671e-08, 0, 0, -2.25)
+mesh_library = ExtResource("2_6n4ip")
+cell_size = Vector3(1, 1, 1)
+data = {
+"cells": PackedInt32Array(65493, 65495, 9, 65493, 65496, 9, 65493, 65497, 9, 65493, 65498, 9, 65493, 65499, 9, 65493, 65501, 9, 65493, 65500, 9, 65501, 65503, 9, 65501, 65504, 9, 65501, 65505, 9, 65501, 65506, 9, 65501, 65507, 9, 65501, 65508, 9, 65501, 65509, 9, 65493, 65509, 9, 65493, 65510, 9, 65493, 65511, 9, 65493, 65512, 9, 65493, 65513, 9, 65493, 65514, 9, 65493, 65515, 9, 65493, 65516, 9, 65501, 65515, 9, 65501, 65516, 9, 65501, 65517, 9, 65501, 65518, 9, 65501, 65519, 9, 65501, 65520, 9, 65501, 65521, 9, 65501, 65522, 9, 65503, 65514, 9, 65503, 65515, 9, 65503, 65516, 9, 65503, 65517, 9, 65509, 65511, 9, 65509, 65512, 9, 65509, 65513, 9, 65527, 65501, 9, 65527, 65502, 9, 65527, 65503, 9, 65527, 65504, 9, 65527, 65505, 9, 65527, 65506, 9, 65527, 65507, 9, 65527, 65508, 9, 65533, 65511, 9, 2, 65509, 9, 2, 65508, 9, 2, 65507, 9, 65534, 65501, 9, 65534, 65502, 9, 65534, 65503, 9, 65534, 65504, 9, 65534, 65505, 9, 7, 65524, 9, 7, 65525, 9, 7, 65526, 9, 7, 65527, 9, 7, 65528, 9, 7, 65529, 9, 17, 65515, 9, 17, 65514, 9, 27, 65514, 9, 27, 65515, 9, 33, 65515, 9, 33, 65516, 9, 33, 65517, 9, 33, 65518, 9, 33, 65519, 9, 33, 65520, 9, 33, 65521, 9, 30, 65523, 9, 30, 65522, 9, 31, 65522, 9, 32, 65522, 9, 33, 65522, 9, 27, 65513, 9, 26, 65513, 9, 25, 65513, 9, 24, 65513, 9, 23, 65513, 9, 22, 65513, 9, 17, 65513, 9, 16, 65513, 9, 15, 65513, 9, 14, 65513, 9, 19, 65489, 9, 19, 65490, 9, 19, 65491, 9, 19, 65492, 9, 19, 65493, 9, 19, 65494, 9, 19, 65495, 9, 19, 65496, 9, 19, 65497, 9, 24, 65488, 9, 24, 65489, 9, 29, 65483, 9, 29, 65484, 9, 29, 65485, 9, 29, 65486, 9, 27, 65479, 9, 27, 65480, 9, 42, 65473, 9, 42, 65474, 9, 42, 65475, 9, 42, 65476, 9, 42, 65477, 9, 42, 65478, 9, 42, 65479, 9, 42, 65480, 9, 42, 65481, 9, 42, 65482, 9, 42, 65483, 9, 42, 65484, 9, 42, 65485, 9, 42, 65486, 9, 42, 65487, 9, 42, 65488, 9, 42, 65489, 9, 31, 65492, 9, 31, 65493, 9, 65511, 65496, 9, 65511, 65497, 9, 65511, 65498, 9, 65510, 65496, 9, 65509, 65496, 9, 65508, 65496, 9, 65507, 65496, 9, 65502, 65533, 9, 65502, 65534, 9, 65502, 65535, 9, 65502, 0, 9, 65502, 1, 9, 65502, 2, 9, 65507, 65530, 9, 65507, 65531, 9, 65507, 65532, 9, 65507, 65533, 9, 65512, 65498, 9)
+}
+metadata/_editor_floor_ = Vector3(0, 0, 0)
+
+[node name="player" parent="." instance=ExtResource("3_xstnt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -59.4713, 22.0935, -0.382575)
+
+[node name="AnimatedSprite3D" parent="player" index="1"]
+shaded = true
+
+[node name="Camera3D" parent="player" index="8"]
+attributes = SubResource("CameraAttributesPractical_qs5tq")
+
+[node name="NPCs" type="Node3D" parent="."]
+
+[node name="VacuumCleaner" parent="NPCs" instance=ExtResource("4_nfrgl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -33.0463, 10.5016, -0.382767)
+
+[node name="VacuumCleaner2" parent="NPCs" instance=ExtResource("4_nfrgl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -35.9063, 25.1535, -0.224964)
+
+[node name="VacuumCleaner3" parent="NPCs" instance=ExtResource("4_nfrgl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26.1909, 37.5113, -0.907943)
+
+[node name="VacuumCleaner4" parent="NPCs" instance=ExtResource("4_nfrgl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 36.2493, 50.891, -0.0702057)
+
+[node name="VacuumCleaner5" parent="NPCs" instance=ExtResource("4_nfrgl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 54.0975, 82.9028, -0.614047)
+
+[node name="VacuumCleaner6" parent="NPCs" instance=ExtResource("4_nfrgl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.06701, 76.5359, 2.08165e-12)
+
+[node name="VacuumCleaner7" parent="NPCs" instance=ExtResource("4_nfrgl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.73434, 76.0831, 2.08165e-12)
+
+[node name="Kitten" parent="NPCs" instance=ExtResource("5_ayoq2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.8046, -2.35665, -0.917665)
+
+[node name="EnvironmentalHazards" type="Node3D" parent="."]
+
+[node name="DeadlyTile" parent="EnvironmentalHazards" instance=ExtResource("6_vdhck")]
+transform = Transform3D(2, 0, 0, 0, 2.846, 0, 0, 0, 1.784, 1.53926, 74.2414, -1.26307)
+
+[node name="DeadlyTile2" parent="EnvironmentalHazards" instance=ExtResource("6_vdhck")]
+transform = Transform3D(2, 0, 0, 0, 3.939, 0, 0, 0, 2.18, -22.4522, 74.2819, -1.19557)
+
+[node name="DeadlyTile3" parent="EnvironmentalHazards" instance=ExtResource("6_vdhck")]
+transform = Transform3D(2.02115, 0, 0, 0, 2.51781, 0, 0, 0, 1.8989, 12.0039, 74.094, -1.31139)
+
+[node name="DeadlyTile4" parent="EnvironmentalHazards" instance=ExtResource("6_vdhck")]
+transform = Transform3D(9.51193, 0, 0, 0, 11.6936, 0, 0, 0, 2.82544, 32.2281, 11.6057, -1.8231)
+
+[node name="DeadlyTile5" parent="EnvironmentalHazards" instance=ExtResource("6_vdhck")]
+transform = Transform3D(1.52259, 0, 0, 0, 9.96751, 0, 0, 0, 2.05156, 0.764902, 5.31566, -1.2881)
+
+[node name="MovingPlatforms" type="Node3D" parent="."]
+
+[node name="moving platform_03" parent="MovingPlatforms" instance=ExtResource("7_abbws")]
+transform = Transform3D(1.81612, 0, 0, 0, 0.657119, 0, 0, 0, 1.81612, 21.7745, 17.6009, 0)
+target = Vector3(11, 0, 0)
+needs_activation = true
+
+[node name="moving platform_04" parent="MovingPlatforms" instance=ExtResource("7_abbws")]
+transform = Transform3D(1.82457, 0, 0, 0, 0.660174, 0, 0, 0, 1.82457, -8.37885, 90.1397, 0)
+target = Vector3(13, 0, 0)
+
+[node name="Lighting" type="Node3D" parent="."]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="Lighting"]
+transform = Transform3D(0.822889, 0.469704, -0.319738, 0, 0.562718, 0.826649, 0.568203, -0.68024, 0.463054, 0, 39.1774, 14.9607)
+light_color = Color(0.47451, 0.870588, 0.556863, 1)
+light_energy = 1.386
+shadow_enabled = true
+shadow_opacity = 0.41
+
+[node name="Sky and Lighting" parent="." instance=ExtResource("8_5xkyp")]
+script = ExtResource("9_6f5c6")
+
+[node name="Cloud_water" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -38.2472, 0)
+mesh = SubResource("PlaneMesh_kw84f")
+
+[node name="DynamicObjects" type="Node3D" parent="."]
+
+[node name="TriggerVolumeWin" parent="DynamicObjects" instance=ExtResource("11_kq2ig")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -71.6781, 17.6238, 0)
+next_scene_path = "res://Scenes/Maps/Official/LivingRoom/LivingRoom.tscn"
+
+[node name="Sprite3D" type="Sprite3D" parent="DynamicObjects/TriggerVolumeWin"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.754967, 1.49037, 0)
+pixel_size = 0.033
+texture = ExtResource("12_yil0e")
+
+[node name="FallResetVolume" parent="DynamicObjects" instance=ExtResource("13_eo0uv")]
+transform = Transform3D(2.0931, 0, 0, 0, 1, 0, 0, 0, 1, 0, -46.9851, 0)
+
+[node name="pressure_plate_03" parent="DynamicObjects" instance=ExtResource("14_3nxwi")]
+transform = Transform3D(2.64431, 0, 0, 0, 1.32216, 0, 0, 0, 2.64431, 14.2627, 16.6801, -1.2033)
+connected_to = Array[NodePath]([NodePath("../../MovingPlatforms/moving platform_03")])
+
+[node name="pressure_plate_01" parent="DynamicObjects" instance=ExtResource("14_3nxwi")]
+transform = Transform3D(2.48064, 0, 0, 0, 1.24032, 0, 0, 0, 2.48064, -26.491, 9.06742, -1.2509)
+connected_to = Array[NodePath]([NodePath("Door_01")])
+
+[node name="Door_01" parent="DynamicObjects/pressure_plate_01" instance=ExtResource("15_yq723")]
+transform = Transform3D(1.35287, 0, 0, 0, 4.24202, 0, 0, 0, 0.835543, 5.34122, 0.0406771, 0.00577545)
+
+[node name="pressure_plate_05" parent="DynamicObjects" instance=ExtResource("14_3nxwi")]
+transform = Transform3D(2.06846, 0, 0, 0, 1.03423, 0, 0, 0, 2.06846, -4.59074, 52.6224, -1.34077)
+connected_to = Array[NodePath]([NodePath("Door_05")])
+
+[node name="Door_05" parent="DynamicObjects/pressure_plate_05" instance=ExtResource("15_yq723")]
+transform = Transform3D(1.93381, 0, 0, 0, 5.08335, 0, 0, 0, 0.9559, 10.2699, 1.40037, 0.0494281)
+
+[node name="Door_06" parent="DynamicObjects" instance=ExtResource("15_yq723")]
+transform = Transform3D(2.95137, 0, 0, 0, 4.34356, 0, 0, 0, 1.89974, 40.2708, 85.6249, -1.14892)
+
+[node name="Door_08" parent="DynamicObjects" instance=ExtResource("15_yq723")]
+transform = Transform3D(4, 0, 0, 0, 6.29502, 0, 0, 0, 5.88684, -64.3452, 4.07695, 0)
+
+[node name="TriggerVolumeWin2" parent="DynamicObjects" instance=ExtResource("11_kq2ig")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -73.373, 62.6368, 0)
+next_scene_path = "res://Scenes/Maps/Official/Attic/Attic.tscn"
+
+[node name="Sprite3D2" type="Sprite3D" parent="DynamicObjects/TriggerVolumeWin2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0322189, 2.04771, 0)
+pixel_size = 0.033
+texture = ExtResource("12_yil0e")
+
+[node name="switch_09" parent="DynamicObjects" instance=ExtResource("16_pfye1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.72826, 24.2633, -1.049)
+target_node = NodePath("Door_09")
+
+[node name="Door_09" parent="DynamicObjects/switch_09" instance=ExtResource("15_yq723")]
+transform = Transform3D(-1.74846e-07, -4.64339, 0, 4, -2.02969e-07, 0, 0, 0, 2.20799, 12.3455, 27.9718, -0.297897)
+
+[node name="switch2" parent="DynamicObjects" instance=ExtResource("16_pfye1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -35.706, -4.50876, -1.049)
+target_node = NodePath("Door_02")
+
+[node name="Door_02" parent="DynamicObjects/switch2" instance=ExtResource("15_yq723")]
+transform = Transform3D(3.11012, 0, 0, 0, 3.77443, 0, 0, 0, 2.83406, 14.6424, 0.0249424, -0.0628264)
+
+[node name="switch_07" parent="DynamicObjects" instance=ExtResource("16_pfye1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30.3587, 75.5784, -1.04949)
+target_node = NodePath("Door_07")
+
+[node name="Door_07" parent="DynamicObjects/switch_07" instance=ExtResource("15_yq723")]
+transform = Transform3D(4, 0, 0, 0, 5.9898, 0, 0, 0, 5.88684, -36.887, -14.2022, 1.04949)
+
+[node name="switch06" parent="DynamicObjects" instance=ExtResource("16_pfye1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 62.1553, 69.6934, -1.049)
+target_node = NodePath("../Door_06")
+
+[node name="ReferenceSprite3D" type="Sprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.11905, 40.0068, -3.0423)
+visible = false
+pixel_size = 0.067
+texture = ExtResource("17_dx5oe")
+script = ExtResource("18_ur7p8")
+
+[node name="BackgroundImagery" type="Node3D" parent="."]
+
+[node name="Mirror" type="MeshInstance3D" parent="BackgroundImagery"]
+transform = Transform3D(9.16321, 1.24946, -2.01679, -0.992309, 9.32715, 1.26991, 2.15498, -1.01794, 9.1604, 0, 0, -67.5307)
+mesh = ExtResource("19_7vj2q")
+skeleton = NodePath("../..")
+script = ExtResource("20_7jfqy")
+
+[node name="Mirror2" type="MeshInstance3D" parent="BackgroundImagery"]
+transform = Transform3D(13.3382, -9.54884, 1.39789, 7.15964, 11.3901, 9.48938, -6.47101, -7.08015, 13.3806, -50.277, 0, -194.096)
+mesh = ExtResource("19_7vj2q")
+skeleton = NodePath("../..")
+script = ExtResource("20_7jfqy")
+
+[node name="sink1" type="MeshInstance3D" parent="BackgroundImagery"]
+transform = Transform3D(13.3382, -9.54884, 1.39789, 8.31883, 10.1675, -9.92284, 4.89199, 8.74558, 13.0624, 35.8686, 0, -194.096)
+mesh = ExtResource("21_l5ck4")
+skeleton = NodePath("../..")
+script = ExtResource("20_7jfqy")
+
+[node name="sink2" type="MeshInstance3D" parent="BackgroundImagery"]
+transform = Transform3D(-7.99453, -16.4886, -21.2978, 6.34873, 20.4367, -18.2049, 26.1757, -9.99269, -2.08926, 62.2076, 31.387, -66.1482)
+mesh = ExtResource("21_l5ck4")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_4owc6")
+script = ExtResource("20_7jfqy")
+
+[node name="Hints" type="Node3D" parent="."]
+
+[node name="LivingRoomHint" parent="Hints" instance=ExtResource("23_qxqug")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -64.6937, 21.507, 0)
+hint_text = "This way to Living Room."
+
+[node name="AtticHint" parent="Hints" instance=ExtResource("23_qxqug")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -60.0076, 66.6066, 0)
+hint_text = "This way to Attic"
+
+[node name="CloudKittyHint1" parent="Hints" instance=ExtResource("23_qxqug")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26.6455, -0.457138, 0)
+hint_text = "It's my good friend!
+CloudKitty!"
+
+[node name="CloudKittyHint2" parent="Hints" instance=ExtResource("23_qxqug")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26.6455, 14.2872, 0)
+hint_text = "If only I had CloudKitty.
+They could hold the door."
+
+[node name="SpawnPoints" type="Node3D" parent="."]
+
+[node name="SpawnPointLivingRoom" parent="SpawnPoints" instance=ExtResource("24_kcyay")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -59.0866, 18.921, 0)
+
+[node name="SpawnPointAttic" parent="SpawnPoints" instance=ExtResource("24_kcyay")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -63.7226, 63.2027, 0)
+
+[node name="Background_elements" type="Node3D" parent="."]
+
+[node name="Eye" type="MeshInstance3D" parent="Background_elements"]
+transform = Transform3D(-0.257515, -0.965357, -0.0421026, -0.634054, 0.135937, 0.761247, -0.729152, 0.222728, -0.647094, -55.1568, 25.0689, -50.3926)
+mesh = SubResource("SphereMesh_ovymh")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Background_elements/Eye"]
+autoplay = "Twitching_Eye"
+libraries = {
+"": SubResource("AnimationLibrary_4u500")
+}
+
+[node name="Eye2" type="MeshInstance3D" parent="Background_elements"]
+transform = Transform3D(-0.257515, -0.965357, -0.0421026, -0.634054, 0.135937, 0.761247, -0.729152, 0.222728, -0.647094, -26.2585, 31.0863, -14.0856)
+mesh = SubResource("SphereMesh_ovymh")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Background_elements/Eye2"]
+autoplay = "Twitching_Eye"
+libraries = {
+"": SubResource("AnimationLibrary_4u500")
+}
+
+[node name="water" type="MeshInstance3D" parent="Background_elements"]
+transform = Transform3D(0.676304, 0, 0, 0, 0.299487, 0, 0, 0, 0.727787, -45.1248, 87.9304, -149.967)
+mesh = SubResource("TubeTrailMesh_76on5")
+
+[node name="AnimationTree" type="AnimationTree" parent="Background_elements/water"]
+tree_root = SubResource("AnimationNodeStateMachine_si66s")
+anim_player = NodePath("AnimationPlayer")
+parameters/playback = SubResource("AnimationNodeStateMachinePlayback_8nuwr")
+parameters/BlendSpace2D/blend_position = Vector2(-0.5232, 0.137725)
+parameters/StateMachine/playback = SubResource("AnimationNodeStateMachinePlayback_oat0l")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Background_elements/water/AnimationTree"]
+root_node = NodePath("../..")
+libraries = {
+"": SubResource("AnimationLibrary_4mrw4")
+}
+
+[node name="water2" type="MeshInstance3D" parent="Background_elements"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -79.9058, 0, -100.79)
+visible = false
+mesh = SubResource("TubeTrailMesh_76on5")
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+transform = Transform3D(5.09637, 0, 0, 0, 4.89496, 0, 0, 0, 1, -70.0162, 17.9851, -2.17274)
+shaded = true
+alpha_cut = 2
+texture = ExtResource("28_c6qc5")
+
+[node name="Sprite3D2" type="Sprite3D" parent="."]
+transform = Transform3D(5.09637, 0, 0, 0, 4.89496, 0, 0, 0, 1, -55.0662, 17.9851, -2.17274)
+shaded = true
+alpha_cut = 2
+texture = ExtResource("28_c6qc5")
+
+[node name="Sprite3D16" type="Sprite3D" parent="."]
+transform = Transform3D(5.09637, 0, 0, 0, 4.89496, 0, 0, 0, 1, -63.0939, 16.5795, -2.17274)
+shaded = true
+alpha_cut = 2
+texture = ExtResource("28_c6qc5")
+
+[node name="Sprite3D4" type="Sprite3D" parent="."]
+transform = Transform3D(5.09637, 0, 0, 0, 4.89496, 0, 0, 0, 1, -69.2476, 14.7085, 3.69806)
+shaded = true
+alpha_cut = 2
+texture = ExtResource("28_c6qc5")
+
+[node name="Sprite3D20" type="Sprite3D" parent="."]
+transform = Transform3D(5.09637, 0, 0, 0, 4.89496, 0, 0, 0, 1, -69.2476, 15.1332, 3.69806)
+shaded = true
+alpha_cut = 2
+texture = ExtResource("28_c6qc5")
+
+[node name="Sprite3D5" type="Sprite3D" parent="."]
+transform = Transform3D(5.09637, 0, 0, 0, 4.89496, 0, 0, 0, 1, -54.9678, 14.7085, 0.834274)
+visible = false
+shaded = true
+alpha_cut = 2
+texture = ExtResource("28_c6qc5")
+
+[node name="Mushroom" type="Sprite3D" parent="."]
+transform = Transform3D(5.09637, 0, 0, 0, 4.89496, 0, 0, 0, 1, -67.609, 14.7085, 2.87822)
+shaded = true
+alpha_cut = 2
+texture = ExtResource("29_ochm2")
+
+[node name="Mushroom2" type="Sprite3D" parent="."]
+transform = Transform3D(3.15427, 0, 0, 0, 2.98926, 0, 0, 0, 1, -55.4186, 14.903, 2.5874)
+shaded = true
+alpha_cut = 2
+texture = ExtResource("29_ochm2")
+
+[node name="Mushroom3" type="Sprite3D" parent="."]
+transform = Transform3D(5.09637, 0, 0, 0, 4.89496, 0, 0, 0, 1, -72.3519, 17.4232, 2.5874)
+shaded = true
+alpha_cut = 2
+texture = ExtResource("29_ochm2")
+
+[node name="Sprite3D8" type="Sprite3D" parent="."]
+transform = Transform3D(5.09637, 0, 0, 0, 4.89496, 0, 0, 0, 1, -58.5421, 10.7446, 2.58971)
+shaded = true
+alpha_cut = 2
+texture = ExtResource("30_qj37p")
+
+[node name="Sprite3D12" type="Sprite3D" parent="."]
+transform = Transform3D(5.09637, 0, 0, 0, 4.89496, 0, 0, 0, 1, -88.0097, 24.3232, -13.6712)
+shaded = true
+alpha_cut = 2
+texture = ExtResource("31_21ash")
+
+[node name="Sprite3D13" type="Sprite3D" parent="."]
+transform = Transform3D(1.79553, 0, 0, 0, 3.24091, 0, 0, 0, 1, -69.0279, 27.0549, 5.2047)
+visible = false
+modulate = Color(0.596078, 0.596078, 0.596078, 1)
+shaded = true
+alpha_cut = 2
+texture = ExtResource("31_21ash")
+
+[node name="Sprite3D14" type="Sprite3D" parent="."]
+transform = Transform3D(2.19836, 0, 0, 0, 1.99696, 0, 0, 0, 1, -82.9135, 25.034, 3.93687)
+shaded = true
+alpha_cut = 2
+texture = ExtResource("31_21ash")
+
+[node name="Sprite3D15" type="Sprite3D" parent="."]
+transform = Transform3D(2.19836, 0, 0, 0, 1.99696, 0, 0, 0, 1, -84.0075, 25.034, -0.244978)
+shaded = true
+alpha_cut = 2
+texture = ExtResource("31_21ash")
+
+[node name="Sprite3D9" type="Sprite3D" parent="."]
+transform = Transform3D(5.09637, 0, 0, 0, 4.89496, 0, 0, 0, 1, -53.0431, 10.7446, -0.0600798)
+shaded = true
+alpha_cut = 2
+texture = ExtResource("30_qj37p")
+
+[node name="Sprite3D18" type="Sprite3D" parent="."]
+transform = Transform3D(9.69844, 0, 0, 0, 12.7985, 0, 0, 0, 1, -60.0604, 2.50668, -0.0600798)
+shaded = true
+alpha_cut = 2
+texture = ExtResource("30_qj37p")
+
+[node name="Sprite3D19" type="Sprite3D" parent="."]
+transform = Transform3D(9.69844, 0, 0, 0, 12.7985, 0, 0, 0, 1, -58.0735, 2.50668, -7.35534)
+shaded = true
+alpha_cut = 2
+texture = ExtResource("30_qj37p")
+
+[node name="Sprite3D17" type="Sprite3D" parent="."]
+transform = Transform3D(5.09637, 0, 0, 0, 4.89496, 0, 0, 0, 1, -53.0431, 10.7446, -0.0600798)
+shaded = true
+alpha_cut = 2
+texture = ExtResource("30_qj37p")
+
+[node name="Sprite3D10" type="Sprite3D" parent="."]
+transform = Transform3D(11.2315, 0, 0, 0, 5.75154, 0, 0, 0, 1, -59.3616, 11.4084, -0.067713)
+shaded = true
+alpha_cut = 2
+texture = ExtResource("30_qj37p")
+
+[node name="Sprite3D11" type="Sprite3D" parent="."]
+transform = Transform3D(11.2315, 0, 0, 0, 5.75154, 0, 0, 0, 1, -70.6537, 11.4084, -0.067713)
+shaded = true
+alpha_cut = 2
+texture = ExtResource("30_qj37p")
+
+[node name="Sprite3D6" type="Sprite3D" parent="."]
+transform = Transform3D(312.319, 0, 0, 0, 300, 0, 0, 0, 61.287, -179.916, -70.394, -456.568)
+shaded = true
+alpha_cut = 2
+texture = ExtResource("32_i28k1")
+
+[node name="Sprite3D7" type="Sprite3D" parent="."]
+transform = Transform3D(247.377, -183.131, 0, 190.651, 237.62, 0, 0, 0, 61.287, 526.944, -70.394, -456.568)
+shaded = true
+alpha_cut = 2
+texture = ExtResource("32_i28k1")
+
+[node name="WaterTwist2" type="MeshInstance3D" parent="."]
+transform = Transform3D(7.109, 0, 0, 0, 7.522, 0, 0, 0, 7.088, -23.0962, -22.3288, -42.1405)
+mesh = ExtResource("33_kvykl")
+surface_material_override/0 = SubResource("ShaderMaterial_a5c6y")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="WaterTwist2"]
+autoplay = "twist"
+libraries = {
+"": SubResource("AnimationLibrary_ce648")
+}
+
+[node name="WaterTwist3" type="MeshInstance3D" parent="."]
+transform = Transform3D(12.152, 0, 0, 0, 13.3975, 0, 0, 0, 12.1334, -121.967, -76.962, -40.4067)
+mesh = ExtResource("33_kvykl")
+surface_material_override/0 = SubResource("ShaderMaterial_a5c6y")
+
+[node name="Water_floor" type="MeshInstance3D" parent="."]
+transform = Transform3D(3.47524, 0, 0, 0, -0.161479, 0.997756, 0, -2.40641, -0.066953, 0, -28.3122, 1.89985)
+mesh = SubResource("QuadMesh_8pkyx")
+
+[node name="Water_floor2" type="MeshInstance3D" parent="."]
+transform = Transform3D(8.67054, 0, 0, 0, -0.066953, 0.997756, 0, -0.997756, -0.066953, 0, -50.6776, -331.396)
+mesh = SubResource("QuadMesh_8pkyx")
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 72.8471, 0)
+amount = 500
+lifetime = 3.0
+speed_scale = 4.0
+randomness = 1.0
+visibility_aabb = AABB(-85.4964, -147.493, -45.7144, 170.993, 294.986, 91.4288)
+process_material = SubResource("ParticleProcessMaterial_ctbpw")
+draw_pass_1 = SubResource("CapsuleMesh_5dvjo")
+
+[node name="Rain" type="AudioStreamPlayer" parent="GPUParticles3D"]
+stream = ExtResource("35_eetkf")
+volume_db = -17.396
+autoplay = true
+
+[connection signal="switch_toggled" from="DynamicObjects/pressure_plate_03" to="MovingPlatforms/moving platform_03" method="_on_plate_press"]
+[connection signal="switch_hit" from="DynamicObjects/switch2" to="DynamicObjects/switch2/Door_02" method="open"]
+[connection signal="switch_hit" from="DynamicObjects/switch06" to="DynamicObjects/Door_06" method="open"]
+
+[editable path="player"]
+[editable path="player/Audio/Footsteps"]
+[editable path="player/Audio/Landing"]
+[editable path="player/Audio/Jumping"]
+[editable path="DynamicObjects/pressure_plate_05"]
+[editable path="DynamicObjects/pressure_plate_05/PressedNoises"]
+[editable path="DynamicObjects/pressure_plate_05/ReleasedNoises"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=69 format=3 uid="uid://cp3lj510xmwmh"]
+[gd_scene load_steps=79 format=3 uid="uid://cp3lj510xmwmh"]
 
 [ext_resource type="Script" path="res://Scenes/Maps/base_level.gd" id="1_27clu"]
 [ext_resource type="MeshLibrary" uid="uid://dmh5e52qprx6r" path="res://MeshLibraries/cat_tower_plex.tres" id="2_6n4ip"]
@@ -20,13 +20,18 @@
 [ext_resource type="Script" path="res://Scenes/Maps/ReferenceSprite3D.gd" id="18_ur7p8"]
 [ext_resource type="ArrayMesh" uid="uid://bbje4wl4kivx0" path="res://Art/objects/mirror.obj" id="19_7vj2q"]
 [ext_resource type="Script" path="res://Scenes/Objects/RandomLazyMotion.gd" id="20_7jfqy"]
+[ext_resource type="Texture2D" uid="uid://dm3mow1h2luih" path="res://Art/objects/mirror.png" id="20_8xjad"]
 [ext_resource type="ArrayMesh" uid="uid://cqerpxbfucmkm" path="res://Art/objects/sink.obj" id="21_l5ck4"]
 [ext_resource type="Texture2D" uid="uid://bpp08atu8a8u0" path="res://Art/objects/sink.png" id="22_ecm14"]
 [ext_resource type="PackedScene" uid="uid://b3p7s4vjxe0y0" path="res://Scenes/Objects/VolumeTriggerHintThoughtBubble.tscn" id="23_qxqug"]
+[ext_resource type="ArrayMesh" uid="uid://cyne6geriblpu" path="res://Art/objects/toothbrush.obj" id="24_iagjr"]
 [ext_resource type="PackedScene" uid="uid://b2tb1owb5nnun" path="res://Scenes/Objects/spawn_point.tscn" id="24_kcyay"]
 [ext_resource type="Texture2D" uid="uid://lmde70nwacgw" path="res://Art/Eye_text.png" id="25_344wu"]
+[ext_resource type="Texture2D" uid="uid://bwfkqfanh43ke" path="res://Art/objects/toothbrush.png" id="25_wrrtw"]
 [ext_resource type="Curve" uid="uid://ctp0miqywpyoo" path="res://Shaders/Waterdrop.tres" id="26_ouyca"]
+[ext_resource type="ArrayMesh" uid="uid://cxvvh1cnt5604" path="res://Art/objects/toothpaste.obj" id="26_q71du"]
 [ext_resource type="Shader" uid="uid://btl5ebnoijhp2" path="res://Shaders/Envi_Water.tres" id="27_5bim5"]
+[ext_resource type="Texture2D" uid="uid://8taaseu1bw40" path="res://Art/objects/toothpaste.png" id="27_5v1s5"]
 [ext_resource type="Texture2D" uid="uid://b8b3xjek6q7wy" path="res://Art/Foliage/Grass3.png" id="28_c6qc5"]
 [ext_resource type="Texture2D" uid="uid://ddaucwcbe7q1y" path="res://Art/Foliage/Mushrooms.png" id="29_ochm2"]
 [ext_resource type="Texture2D" uid="uid://1yt0bsisi0p6" path="res://Art/Foliage/Bush_1.png" id="30_qj37p"]
@@ -52,8 +57,23 @@ shader_parameter/FloatParameter = 1.0
 material = SubResource("ShaderMaterial_op2lt")
 size = Vector2(300, 300)
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_shyqw"]
+albedo_texture = ExtResource("20_8xjad")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_81he6"]
+albedo_texture = ExtResource("20_8xjad")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_a1yli"]
+albedo_texture = ExtResource("22_ecm14")
+
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4owc6"]
 albedo_texture = ExtResource("22_ecm14")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_e7522"]
+albedo_texture = ExtResource("25_wrrtw")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3i5y4"]
+albedo_texture = ExtResource("27_5v1s5")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0fbmc"]
 vertex_color_use_as_albedo = true
@@ -459,18 +479,21 @@ script = ExtResource("18_ur7p8")
 transform = Transform3D(9.16321, 1.24946, -2.01679, -0.992309, 9.32715, 1.26991, 2.15498, -1.01794, 9.1604, 0, 0, -67.5307)
 mesh = ExtResource("19_7vj2q")
 skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_shyqw")
 script = ExtResource("20_7jfqy")
 
 [node name="Mirror2" type="MeshInstance3D" parent="BackgroundImagery"]
 transform = Transform3D(13.3382, -9.54884, 1.39789, 7.15964, 11.3901, 9.48938, -6.47101, -7.08015, 13.3806, -50.277, 0, -194.096)
 mesh = ExtResource("19_7vj2q")
 skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_81he6")
 script = ExtResource("20_7jfqy")
 
 [node name="sink1" type="MeshInstance3D" parent="BackgroundImagery"]
 transform = Transform3D(13.3382, -9.54884, 1.39789, 8.31883, 10.1675, -9.92284, 4.89199, 8.74558, 13.0624, 35.8686, 0, -194.096)
 mesh = ExtResource("21_l5ck4")
 skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_a1yli")
 script = ExtResource("20_7jfqy")
 
 [node name="sink2" type="MeshInstance3D" parent="BackgroundImagery"]
@@ -479,6 +502,30 @@ mesh = ExtResource("21_l5ck4")
 skeleton = NodePath("../..")
 surface_material_override/0 = SubResource("StandardMaterial3D_4owc6")
 script = ExtResource("20_7jfqy")
+
+[node name="Toothbrush" type="MeshInstance3D" parent="BackgroundImagery"]
+transform = Transform3D(5.12906, 4.85603, 8.43278, 2.50729, 8.55112, -6.44918, -9.40246, 4.92924, 2.88034, -52.4253, 32.3813, -28.0288)
+mesh = ExtResource("24_iagjr")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_e7522")
+
+[node name="Toothbrush2" type="MeshInstance3D" parent="BackgroundImagery"]
+transform = Transform3D(2.90346, 5.83286, 8.86271, 2.50729, 8.55111, -6.44918, -10.3094, 3.72239, 0.927562, -52.4253, 54.7052, -28.0288)
+mesh = ExtResource("24_iagjr")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_e7522")
+
+[node name="Toothpaste" type="MeshInstance3D" parent="BackgroundImagery"]
+transform = Transform3D(7.5007, -1.38709, -7.92562, -5.66283, 6.78732, -6.5471, 5.71593, 8.54448, 3.91407, 2.87831, 58.5334, -22.5851)
+mesh = ExtResource("26_q71du")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_3i5y4")
+
+[node name="Toothpaste2" type="MeshInstance3D" parent="BackgroundImagery"]
+transform = Transform3D(-6.03107, 1.31569, 9.10467, 9.1243, -0.531266, 6.12085, 1.17183, 10.9081, -0.800061, -35.6237, 14.0468, -22.5851)
+mesh = ExtResource("26_q71du")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_3i5y4")
 
 [node name="Hints" type="Node3D" parent="."]
 

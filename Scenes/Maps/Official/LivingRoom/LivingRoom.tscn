@@ -1,4 +1,4 @@
-[gd_scene load_steps=49 format=3 uid="uid://1iy51lohnni2"]
+[gd_scene load_steps=56 format=3 uid="uid://1iy51lohnni2"]
 
 [ext_resource type="Script" path="res://Scenes/Maps/base_level.gd" id="1_3v50y"]
 [ext_resource type="MeshLibrary" uid="uid://dmh5e52qprx6r" path="res://MeshLibraries/cat_tower_plex.tres" id="2_bcvq3"]
@@ -23,7 +23,7 @@
 [ext_resource type="Texture2D" uid="uid://chbwgc8vef2e5" path="res://Art/Foliage/Grass_Forground.png" id="16_6sdku"]
 [ext_resource type="Texture2D" uid="uid://cewv0v0iot6yl" path="res://Art/Foliage/Island.png" id="16_kxdor"]
 [ext_resource type="ArrayMesh" uid="uid://b6mhxdpgi20yt" path="res://Art/objects/bookshelf.obj" id="16_lkj75"]
-[ext_resource type="ArrayMesh" uid="uid://63v6yq080qx8" path="res://Art/objects/couch.obj" id="17_lejdv"]
+[ext_resource type="ArrayMesh" uid="uid://cf56qx5kpygr8" path="res://Art/objects/couch.obj" id="17_lejdv"]
 [ext_resource type="Script" path="res://Scenes/Objects/RandomLazyMotion.gd" id="17_xb7d8"]
 [ext_resource type="Texture2D" uid="uid://b8b3xjek6q7wy" path="res://Art/Foliage/Grass3.png" id="18_2q4c1"]
 [ext_resource type="Texture2D" uid="uid://ddaucwcbe7q1y" path="res://Art/Foliage/Mushrooms.png" id="18_b3l4t"]
@@ -36,6 +36,10 @@
 [ext_resource type="PackedScene" uid="uid://b3p7s4vjxe0y0" path="res://Scenes/Objects/VolumeTriggerHintThoughtBubble.tscn" id="31_s35qv"]
 [ext_resource type="PackedScene" uid="uid://b2tb1owb5nnun" path="res://Scenes/Objects/spawn_point.tscn" id="32_drfq3"]
 [ext_resource type="AudioStream" uid="uid://7qiv1uacfw8p" path="res://Music/MUS_TitleV2_9M_7-4_78.mp3" id="35_i1i05"]
+[ext_resource type="Texture2D" uid="uid://cky6muvp26xng" path="res://Art/objects/couch.png" id="36_hym5w"]
+[ext_resource type="Texture2D" uid="uid://b24huxgotcjdv" path="res://Art/objects/pillow.png" id="37_e054b"]
+[ext_resource type="ArrayMesh" uid="uid://d3e882kokc133" path="res://Art/objects/drawer.obj" id="39_4qw75"]
+[ext_resource type="Texture2D" uid="uid://cthlnxbgb425h" path="res://Art/objects/drawer.png" id="40_3k4vq"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_op2lt"]
 render_priority = 0
@@ -46,15 +50,6 @@ shader_parameter/FloatParameter = 1.0
 material = SubResource("ShaderMaterial_op2lt")
 size = Vector2(300, 300)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_goya4"]
-albedo_texture = ExtResource("26_atfjs")
-
-[sub_resource type="AnimatedTexture" id="AnimatedTexture_n8u26"]
-frame_0/duration = 0.1
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vib1r"]
-albedo_texture = SubResource("AnimatedTexture_n8u26")
-
 [sub_resource type="Animation" id="Animation_hwajo"]
 resource_name = "Floating around"
 length = 30.0277
@@ -62,7 +57,7 @@ loop_mode = 2
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Bookshelf:position")
+tracks/0/path = NodePath("../../Props/Bookshelf:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -74,7 +69,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Tv:position")
+tracks/1/path = NodePath("../../Props/Tv:position")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -86,7 +81,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("Couch:position")
+tracks/2/path = NodePath("../../Props/Couch:position")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -98,7 +93,7 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("Couch:rotation")
+tracks/3/path = NodePath("../../Props/Couch:rotation")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
@@ -125,7 +120,7 @@ length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Bookshelf:position")
+tracks/0/path = NodePath("../../Props/Bookshelf:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -137,7 +132,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Tv:position")
+tracks/1/path = NodePath("../../Props/Tv:position")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -149,7 +144,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("Couch:position")
+tracks/2/path = NodePath("../../Props/Couch:position")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -161,7 +156,7 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("Couch:rotation")
+tracks/3/path = NodePath("../../Props/Couch:rotation")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
@@ -212,6 +207,23 @@ material = SubResource("ShaderMaterial_a0rty")
 size = Vector2(500, 500)
 subdivide_width = 200
 subdivide_depth = 200
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_goya4"]
+albedo_texture = ExtResource("26_atfjs")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_iwjco"]
+albedo_texture = ExtResource("40_3k4vq")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xhjfy"]
+albedo_texture = ExtResource("36_hym5w")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_k41ca"]
+albedo_texture = ExtResource("37_e054b")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_a1bam"]
+albedo_texture = ExtResource("37_e054b")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vib1r"]
 
 [node name="LivingRoom" type="Node3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25.5324, 15.7693, -3.91102)
@@ -538,58 +550,6 @@ texture = ExtResource("20_cip6y")
 [node name="High_Spec" type="Node3D" parent="Background Elements"]
 script = ExtResource("15_7wpix")
 
-[node name="Bookshelf" type="MeshInstance3D" parent="Background Elements/High_Spec"]
-transform = Transform3D(2.72107, 1.46196, 0, -1.46196, 2.72107, 0, 0, 0, 1.74258, -1.64463, -5.46658, -26.4103)
-mesh = ExtResource("16_lkj75")
-skeleton = NodePath("../../..")
-surface_material_override/0 = SubResource("StandardMaterial3D_goya4")
-script = ExtResource("17_xb7d8")
-lazy_motion_active = false
-
-[node name="Bookshelf2" type="MeshInstance3D" parent="Background Elements/High_Spec"]
-transform = Transform3D(2.72107, 1.46196, 0, -1.46196, 2.72107, 0, 0, 0, 1.74258, 60.5401, -38.8769, -65.6224)
-mesh = ExtResource("16_lkj75")
-skeleton = NodePath("../../..")
-surface_material_override/0 = SubResource("StandardMaterial3D_goya4")
-script = ExtResource("17_xb7d8")
-lazy_motion_active = false
-
-[node name="Couch" type="MeshInstance3D" parent="Background Elements/High_Spec"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -32.5869, -17.0744, -11.9504)
-mesh = ExtResource("17_lejdv")
-skeleton = NodePath("../../..")
-script = ExtResource("17_xb7d8")
-lazy_motion_active = false
-
-[node name="Couch2" type="MeshInstance3D" parent="Background Elements/High_Spec"]
-transform = Transform3D(3.06308, -1.12342, 0, 1.19973, 2.86826, 0, 0, 0, 3.11703, -38.4485, -14.7417, -104.325)
-mesh = ExtResource("17_lejdv")
-skeleton = NodePath("../../..")
-script = ExtResource("17_xb7d8")
-lazy_motion_active = false
-
-[node name="Pillow" type="MeshInstance3D" parent="Background Elements/High_Spec"]
-transform = Transform3D(1, 0, 0, 0, 0.744743, -0.667352, 0, 0.667352, 0.744743, -37.8004, -9.82975, -18.7828)
-mesh = ExtResource("18_x66xe")
-skeleton = NodePath("../../..")
-script = ExtResource("17_xb7d8")
-lazy_motion_active = false
-
-[node name="Pillow2" type="MeshInstance3D" parent="Background Elements/High_Spec"]
-transform = Transform3D(6.834, 0, 0, 0, 5.23607, -4.32527, 0, 4.69196, 4.82686, -62.3044, -11.3462, -20.1417)
-mesh = ExtResource("18_x66xe")
-skeleton = NodePath("../../..")
-script = ExtResource("17_xb7d8")
-lazy_motion_active = false
-
-[node name="Tv" type="MeshInstance3D" parent="Background Elements/High_Spec"]
-transform = Transform3D(5.8872, -2.04803, 0, 2.6832, 4.49358, 0, 0, 0, 4.30561, -5.43769, 13.4384, -10.951)
-mesh = ExtResource("19_vwaly")
-skeleton = NodePath("../../..")
-surface_material_override/1 = SubResource("StandardMaterial3D_vib1r")
-script = ExtResource("17_xb7d8")
-lazy_motion_active = false
-
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Background Elements/High_Spec"]
 autoplay = "Floating around"
 libraries = {
@@ -672,6 +632,134 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 26.4085, 15.5292, 0)
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("35_i1i05")
 autoplay = true
+
+[node name="Background Scenery" type="Node3D" parent="."]
+
+[node name="Tv" type="MeshInstance3D" parent="Background Scenery"]
+transform = Transform3D(17.4994, -4.66146, 8.48778, 5.14805, 19.3261, -2.66835e-07, -8.20178, 2.18478, 18.1096, -84.8996, -22.1357, -88.2943)
+mesh = ExtResource("19_vwaly")
+skeleton = NodePath("../..")
+
+[node name="Bookshelf3" type="MeshInstance3D" parent="Background Scenery"]
+transform = Transform3D(7.34721, -1.86912, -6.52111, 1.02189, 9.80818, -1.65994, 6.70629, 0.553211, 7.39727, 101.218, -25.2045, -91.6084)
+mesh = ExtResource("16_lkj75")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_goya4")
+
+[node name="Bookshelf4" type="MeshInstance3D" parent="Background Scenery"]
+transform = Transform3D(12.7696, 0.00149835, 7.87002, 1.53283, 14.7123, -2.48991, -7.7193, 2.92391, 12.5245, -103.072, -25.2045, -206.143)
+mesh = ExtResource("16_lkj75")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_goya4")
+
+[node name="Drawer" type="MeshInstance3D" parent="Background Scenery"]
+transform = Transform3D(17.2274, 9.22254, -4.26163, -6.48415, 16.4395, 9.36475, 7.8213, -6.68486, 17.1505, 16.0017, -34.8954, -195.524)
+mesh = ExtResource("39_4qw75")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_iwjco")
+
+[node name="Props" type="Node3D" parent="."]
+
+[node name="Bookshelf" type="MeshInstance3D" parent="Props"]
+transform = Transform3D(2.72107, 1.46196, 0, -1.46196, 2.72107, 0, 0, 0, 1.74258, -1.64463, -5.46658, -26.4103)
+mesh = ExtResource("16_lkj75")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_goya4")
+script = ExtResource("17_xb7d8")
+lazy_motion_active = false
+
+[node name="Bookshelf2" type="MeshInstance3D" parent="Props"]
+transform = Transform3D(2.72107, 1.46196, 0, -1.46196, 2.72107, 0, 0, 0, 1.74258, 60.5401, -2.64968, -65.6224)
+mesh = ExtResource("16_lkj75")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_goya4")
+script = ExtResource("17_xb7d8")
+lazy_motion_active = false
+
+[node name="Bookshelf3" type="MeshInstance3D" parent="Props"]
+transform = Transform3D(2.65479, -1.57912, 0, 1.57912, 2.65479, 0, 0, 0, 1.74258, -27.3911, 2.34964, -65.6224)
+mesh = ExtResource("16_lkj75")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_goya4")
+script = ExtResource("17_xb7d8")
+lazy_motion_active = false
+
+[node name="Couch" type="MeshInstance3D" parent="Props"]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -32.5869, -17.0744, -11.9504)
+mesh = ExtResource("17_lejdv")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_xhjfy")
+script = ExtResource("17_xb7d8")
+lazy_motion_active = false
+
+[node name="Couch2" type="MeshInstance3D" parent="Props"]
+transform = Transform3D(1.86225, -0.729396, 0, 0.729396, 1.86225, 0, 0, 0, 2, -38.4485, -14.7417, -104.325)
+mesh = ExtResource("17_lejdv")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_xhjfy")
+script = ExtResource("17_xb7d8")
+lazy_motion_active = false
+
+[node name="Pillow" type="MeshInstance3D" parent="Props"]
+transform = Transform3D(4.15967, -2.06619, 1.85148, 2.58027, 4.10728, -1.21345, -1.01947, 1.96497, 4.48325, -25.0928, 0.870798, -18.7828)
+mesh = ExtResource("18_x66xe")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_k41ca")
+script = ExtResource("17_xb7d8")
+lazy_motion_active = false
+
+[node name="Pillow3" type="MeshInstance3D" parent="Props"]
+transform = Transform3D(5, 0, 0, 0, -4.09651, -2.86681, 0, 2.86681, -4.09651, 65.7803, 1.67288, -18.7828)
+mesh = ExtResource("18_x66xe")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_k41ca")
+script = ExtResource("17_xb7d8")
+lazy_motion_active = false
+
+[node name="Pillow2" type="MeshInstance3D" parent="Props"]
+transform = Transform3D(1.21199, -0.101399, 6.37782, 2.08878, 6.68801, -0.266651, -6.3931, 2.16591, 1.12197, -62.3044, -11.3462, -20.1417)
+mesh = ExtResource("18_x66xe")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_a1bam")
+script = ExtResource("17_xb7d8")
+lazy_motion_active = false
+
+[node name="Tv" type="MeshInstance3D" parent="Props"]
+transform = Transform3D(5.8872, -2.04803, 0, 2.6832, 4.49358, 0, 0, 0, 4.30561, -5.43769, 13.4384, -10.951)
+mesh = ExtResource("19_vwaly")
+skeleton = NodePath("../..")
+surface_material_override/1 = SubResource("StandardMaterial3D_vib1r")
+script = ExtResource("17_xb7d8")
+lazy_motion_active = false
+
+[node name="Tv2" type="MeshInstance3D" parent="Props"]
+transform = Transform3D(4.64967, 1.57389, 2.66091, -2.62285, 4.51429, 0, -3.65512, -1.23724, 3.38494, 48.6326, 0.567101, -27.4637)
+mesh = ExtResource("19_vwaly")
+skeleton = NodePath("../..")
+surface_material_override/1 = SubResource("StandardMaterial3D_vib1r")
+script = ExtResource("17_xb7d8")
+lazy_motion_active = false
+
+[node name="Drawer" type="MeshInstance3D" parent="Props"]
+transform = Transform3D(3.18221, -1.68811, 3.46754, 1.1414, 4.70641, 1.24375, -3.68385, 0, 3.38072, -55.5689, -12.2377, -37.6217)
+mesh = ExtResource("39_4qw75")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_iwjco")
+script = ExtResource("17_xb7d8")
+
+[node name="Drawer2" type="MeshInstance3D" parent="Props"]
+transform = Transform3D(-0.54769, -2.35487, -4.3766, 1.05238, 4.2483, -2.41753, 4.85721, -1.18598, 0.0302923, 76.8586, 12.9115, -37.6217)
+mesh = ExtResource("39_4qw75")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_iwjco")
+script = ExtResource("17_xb7d8")
+
+[node name="Drawer3" type="MeshInstance3D" parent="Props"]
+transform = Transform3D(4.1482, -2.37648, -1.4645, 2.23165, 4.39906, -0.817321, 1.67696, 0.0244326, 4.71033, -45.4909, 12.9115, -103.828)
+mesh = ExtResource("39_4qw75")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_iwjco")
+script = ExtResource("17_xb7d8")
 
 [editable path="player"]
 [editable path="player/Audio/Footsteps"]

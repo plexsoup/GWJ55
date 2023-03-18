@@ -1,4 +1,4 @@
-[gd_scene load_steps=45 format=3 uid="uid://1iy51lohnni2"]
+[gd_scene load_steps=49 format=3 uid="uid://1iy51lohnni2"]
 
 [ext_resource type="Script" path="res://Scenes/Maps/base_level.gd" id="1_3v50y"]
 [ext_resource type="MeshLibrary" uid="uid://dmh5e52qprx6r" path="res://MeshLibraries/cat_tower_plex.tres" id="2_bcvq3"]
@@ -23,13 +23,14 @@
 [ext_resource type="Texture2D" uid="uid://chbwgc8vef2e5" path="res://Art/Foliage/Grass_Forground.png" id="16_6sdku"]
 [ext_resource type="Texture2D" uid="uid://cewv0v0iot6yl" path="res://Art/Foliage/Island.png" id="16_kxdor"]
 [ext_resource type="ArrayMesh" uid="uid://b6mhxdpgi20yt" path="res://Art/objects/bookshelf.obj" id="16_lkj75"]
-[ext_resource type="ArrayMesh" uid="uid://63v6yq080qx8" path="res://Art/objects/couch.obj" id="17_lejdv"]
+[ext_resource type="ArrayMesh" uid="uid://cf56qx5kpygr8" path="res://Art/objects/couch.obj" id="17_lejdv"]
 [ext_resource type="Script" path="res://Scenes/Objects/RandomLazyMotion.gd" id="17_xb7d8"]
 [ext_resource type="Texture2D" uid="uid://b8b3xjek6q7wy" path="res://Art/Foliage/Grass3.png" id="18_2q4c1"]
 [ext_resource type="Texture2D" uid="uid://ddaucwcbe7q1y" path="res://Art/Foliage/Mushrooms.png" id="18_b3l4t"]
 [ext_resource type="ArrayMesh" uid="uid://ugyiwsce5kcv" path="res://Art/objects/pillow.obj" id="18_x66xe"]
 [ext_resource type="ArrayMesh" uid="uid://d2s12jb7pdygk" path="res://Art/objects/tv.obj" id="19_vwaly"]
 [ext_resource type="Texture2D" uid="uid://cynsdc3oljjuy" path="res://Art/Foliage/Light house.png" id="20_cip6y"]
+[ext_resource type="Texture2D" uid="uid://byrvn46n7v4ug" path="res://Art/objects/bookshelf.png" id="26_atfjs"]
 [ext_resource type="Shader" uid="uid://drv4hywg6luaj" path="res://Shaders/Clouds_R.tres" id="27_prkw3"]
 [ext_resource type="PackedScene" uid="uid://c4rndh2lw447j" path="res://Scenes/Objects/koi_on_path.tscn" id="30_gqfgd"]
 [ext_resource type="PackedScene" uid="uid://b3p7s4vjxe0y0" path="res://Scenes/Objects/VolumeTriggerHintThoughtBubble.tscn" id="31_s35qv"]
@@ -44,6 +45,15 @@ shader_parameter/FloatParameter = 1.0
 [sub_resource type="PlaneMesh" id="PlaneMesh_kw84f"]
 material = SubResource("ShaderMaterial_op2lt")
 size = Vector2(300, 300)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_goya4"]
+albedo_texture = ExtResource("26_atfjs")
+
+[sub_resource type="AnimatedTexture" id="AnimatedTexture_n8u26"]
+frame_0/duration = 0.1
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vib1r"]
+albedo_texture = SubResource("AnimatedTexture_n8u26")
 
 [sub_resource type="Animation" id="Animation_hwajo"]
 resource_name = "Floating around"
@@ -531,6 +541,7 @@ script = ExtResource("15_7wpix")
 transform = Transform3D(2.72107, 1.46196, 0, -1.46196, 2.72107, 0, 0, 0, 1.74258, -1.64463, -5.46658, -26.4103)
 mesh = ExtResource("16_lkj75")
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_goya4")
 script = ExtResource("17_xb7d8")
 lazy_motion_active = false
 
@@ -538,6 +549,7 @@ lazy_motion_active = false
 transform = Transform3D(2.72107, 1.46196, 0, -1.46196, 2.72107, 0, 0, 0, 1.74258, 60.5401, -38.8769, -65.6224)
 mesh = ExtResource("16_lkj75")
 skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_goya4")
 script = ExtResource("17_xb7d8")
 lazy_motion_active = false
 
@@ -573,6 +585,7 @@ lazy_motion_active = false
 transform = Transform3D(5.8872, -2.04803, 0, 2.6832, 4.49358, 0, 0, 0, 4.30561, -5.43769, 13.4384, -10.951)
 mesh = ExtResource("19_vwaly")
 skeleton = NodePath("../../..")
+surface_material_override/1 = SubResource("StandardMaterial3D_vib1r")
 script = ExtResource("17_xb7d8")
 lazy_motion_active = false
 

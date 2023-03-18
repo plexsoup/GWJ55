@@ -759,7 +759,6 @@ surface_material_override/0 = SubResource("ORMMaterial3D_p6qhi")
 collision_layer = 4
 
 [node name="Convex" type="CollisionShape3D" parent="FlowerPlatforms/Flower10/StaticBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 shape = SubResource("ConvexPolygonShape3D_647p8")
 
 [node name="Flower11" type="MeshInstance3D" parent="FlowerPlatforms"]
@@ -772,7 +771,6 @@ surface_material_override/0 = SubResource("ORMMaterial3D_p6qhi")
 collision_layer = 4
 
 [node name="Convex" type="CollisionShape3D" parent="FlowerPlatforms/Flower11/StaticBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 shape = SubResource("ConvexPolygonShape3D_nmixc")
 
 [node name="LadderSegment" type="MeshInstance3D" parent="FlowerPlatforms"]

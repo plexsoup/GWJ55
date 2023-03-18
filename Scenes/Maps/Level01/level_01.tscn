@@ -12,10 +12,10 @@
 [ext_resource type="PackedScene" uid="uid://cbs51rpoxintc" path="res://Scenes/Entities/NPCs/hair_dryer.tscn" id="7_xr8v7"]
 [ext_resource type="PackedScene" uid="uid://cey6vaorec8ca" path="res://Scenes/Entities/Player/player_controller.tscn" id="9_5f8ps"]
 [ext_resource type="PackedScene" uid="uid://dd3fox603os7x" path="res://Scenes/Entities/moving platform.tscn" id="10_leyvi"]
-[ext_resource type="PackedScene" path="res://Scenes/Objects/platform_destination_viz.tscn" id="11_vu1uo"]
+[ext_resource type="PackedScene" uid="uid://bt5w6utrspojh" path="res://Scenes/Objects/platform_destination_viz.tscn" id="11_vu1uo"]
 [ext_resource type="MeshLibrary" uid="uid://bwnlh1tt3m4sd" path="res://MeshLibraries/cat_tower_no_light.tres" id="13_aerbq"]
-[ext_resource type="PackedScene" path="res://WorldEnvironments/sky_and_lighting.tscn" id="15_4h5h3"]
-[ext_resource type="Shader" uid="uid://cv41x4rsicmpb" path="res://Shaders/Cloud_Water.tres" id="16_sjfbj"]
+[ext_resource type="PackedScene" uid="uid://ch0xqdmee1xnu" path="res://WorldEnvironments/sky_and_lighting.tscn" id="15_4h5h3"]
+[ext_resource type="Shader" uid="uid://cx2ac458h8a83" path="res://Shaders/Cloud_Water.tres" id="16_sjfbj"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_x45mn"]
 
@@ -84,7 +84,6 @@ skeleton = NodePath("../..")
 
 [node name="switch" parent="DynamicObjects" instance=ExtResource("4_bysw5")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 29.609, -9.96006, 0.339363)
-skeleton = NodePath("../../NPCs")
 
 [node name="FallResetVolume" parent="DynamicObjects" instance=ExtResource("5_3x88f")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 61.5127, -34.8951, 0)

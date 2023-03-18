@@ -8,13 +8,13 @@
 [ext_resource type="PackedScene" path="res://Scenes/Objects/trigger_volume_win.tscn" id="7_ed1vt"]
 [ext_resource type="PackedScene" uid="uid://cey6vaorec8ca" path="res://Scenes/Entities/Player/player_controller.tscn" id="10_hwjpx"]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_op2lt"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_5v0on"]
 render_priority = 0
 shader = ExtResource("7_ai6nt")
 shader_parameter/FloatParameter = 1.0
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_kw84f"]
-material = SubResource("ShaderMaterial_op2lt")
+material = SubResource("ShaderMaterial_5v0on")
 size = Vector2(300, 300)
 
 [node name="LevelTemplate" type="Node3D"]

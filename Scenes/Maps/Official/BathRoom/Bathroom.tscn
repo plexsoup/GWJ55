@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 [gd_scene load_steps=48 format=3 uid="uid://cn7kly3fslq62"]
+=======
+[gd_scene load_steps=47 format=3 uid="uid://dyn1atg77jsnm"]
+>>>>>>> parent of 7b3f8f1 (Bathroom)
 
 [ext_resource type="Script" path="res://Scenes/Maps/base_level.gd" id="1_3t2kx"]
 [ext_resource type="MeshLibrary" uid="uid://dmh5e52qprx6r" path="res://MeshLibraries/cat_tower_plex.tres" id="2_tx034"]
@@ -25,7 +29,10 @@
 [ext_resource type="PackedScene" uid="uid://b2tb1owb5nnun" path="res://Scenes/Objects/spawn_point.tscn" id="22_0ifv0"]
 [ext_resource type="Texture2D" uid="uid://bpp08atu8a8u0" path="res://Art/objects/sink.png" id="22_3q82r"]
 [ext_resource type="Texture2D" uid="uid://lmde70nwacgw" path="res://Art/Eye_text.png" id="24_xk33q"]
+<<<<<<< HEAD
 [ext_resource type="PackedScene" uid="uid://beeeabp6iyqb5" path="res://Scenes/Objects/giant_floating_eye.tscn" id="25_chv52"]
+=======
+>>>>>>> parent of 7b3f8f1 (Bathroom)
 [ext_resource type="Shader" uid="uid://btl5ebnoijhp2" path="res://Shaders/Envi_Water.tres" id="26_yyjx1"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_op2lt"]
@@ -57,33 +64,6 @@ material = SubResource("StandardMaterial3D_0fbmc")
 radius = 9.411
 height = 18.822
 
-[sub_resource type="Animation" id="Animation_deyvl"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:rotation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(-0.865234, -3.07662, -1.3596)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".:scale")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(1, 1, 1)]
-}
-
 [sub_resource type="Animation" id="Animation_ohep0"]
 resource_name = "Twitching_Eye"
 length = 10.0
@@ -113,6 +93,33 @@ tracks/1/keys = {
 "values": [Vector3(1, 1, 1)]
 }
 
+[sub_resource type="Animation" id="Animation_deyvl"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-0.865234, -3.07662, -1.3596)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(1, 1, 1)]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_4u500"]
 _data = {
 "RESET": SubResource("Animation_deyvl"),
@@ -129,7 +136,7 @@ render_priority = 0
 shader = ExtResource("26_yyjx1")
 shader_parameter/Vertex_Roughness = 1.0
 shader_parameter/ColorParameter = Color(0.10844, 0.397392, 0.688247, 1)
-shader_parameter/FloatParameter = 0.2
+shader_parameter/FloatParameter = null
 
 [sub_resource type="TubeTrailMesh" id="TubeTrailMesh_76on5"]
 material = SubResource("ShaderMaterial_vffpx")
@@ -410,8 +417,14 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -63.7226, 63.2027, -0.645507)
 
 [node name="Background_elements" type="Node3D" parent="."]
 
+<<<<<<< HEAD
 [node name="Eye" parent="Background_elements" instance=ExtResource("25_chv52")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -38.8963)
+=======
+[node name="Eye" type="MeshInstance3D" parent="Background_elements"]
+transform = Transform3D(-0.257518, -0.965356, -0.0421026, -0.634053, 0.135939, 0.761247, -0.729151, 0.22273, -0.647094, -55.1568, 25.0689, -50.3926)
+mesh = SubResource("SphereMesh_ovymh")
+>>>>>>> parent of 7b3f8f1 (Bathroom)
 
 [node name="Eye3" parent="Background_elements" instance=ExtResource("25_chv52")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -52.521, 46.9771, -38.8963)
@@ -423,8 +436,12 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30.5655, 46.9771, -38.8963)
 transform = Transform3D(1.38445, 0, 0, 0, 1.38445, 0, 0, 0, 1.38445, -36.328, 22.1743, -33.7719)
 
 [node name="Eye2" type="MeshInstance3D" parent="Background_elements"]
+<<<<<<< HEAD
 transform = Transform3D(-0.257515, -0.965357, -0.0421026, -0.634054, 0.135937, 0.761247, -0.729152, 0.222728, -0.647094, -26.2585, 31.0863, -14.0856)
 visible = false
+=======
+transform = Transform3D(-0.257518, -0.965356, -0.0421026, -0.634053, 0.135939, 0.761247, -0.729151, 0.22273, -0.647094, -26.2585, 31.0863, -14.0856)
+>>>>>>> parent of 7b3f8f1 (Bathroom)
 mesh = SubResource("SphereMesh_ovymh")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Background_elements/Eye2"]

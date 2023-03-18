@@ -177,7 +177,7 @@ func begin_dying():
 		
 func knockback(impactVector):
 	state = States.KNOCKBACK
-	var magnitude = knockback_magnitude
+	
 	knockback_angular_velocity = randf_range(8.0, 20.0)
 	if randf()<0.5 : knockback_angular_velocity *= -1.0
 	

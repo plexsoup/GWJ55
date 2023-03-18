@@ -1,4 +1,4 @@
-[gd_scene load_steps=43 format=3 uid="uid://1iy51lohnni2"]
+[gd_scene load_steps=44 format=3 uid="uid://1iy51lohnni2"]
 
 [ext_resource type="Script" path="res://Scenes/Maps/base_level.gd" id="1_3v50y"]
 [ext_resource type="MeshLibrary" uid="uid://dmh5e52qprx6r" path="res://MeshLibraries/cat_tower_plex.tres" id="2_bcvq3"]
@@ -16,6 +16,7 @@
 [ext_resource type="PackedScene" uid="uid://cmd16bdree5a7" path="res://Scenes/Objects/fall_reset_volume.tscn" id="11_k54t8"]
 [ext_resource type="Script" path="res://Scenes/Maps/ReferenceSprite3D.gd" id="11_x1kbs"]
 [ext_resource type="Texture2D" uid="uid://coaanccqd0h8j" path="res://Art/Foliage/Tree.png" id="13_8fou7"]
+[ext_resource type="PackedScene" uid="uid://dy000li05s73h" path="res://Scenes/Objects/TimedTextArea.tscn" id="14_cr18n"]
 [ext_resource type="Texture2D" uid="uid://dhagpqi7ourpo" path="res://Art/Foliage/Mountains.png" id="14_k8juc"]
 [ext_resource type="Script" path="res://Scenes/Maps/Official/LivingRoom/High_Spec.gd" id="15_7wpix"]
 [ext_resource type="Texture2D" uid="uid://b6jmphr0ugk78" path="res://Art/Foliage/Mountains 2.png" id="15_use7y"]
@@ -332,6 +333,15 @@ transform = Transform3D(9, 0, 0, 0, 3.38894, 0, 0, 0, 2.26638, 68.2287, -8.15729
 [node name="Door2" parent="DynamicObjects" instance=ExtResource("7_4288d")]
 transform = Transform3D(-3.93403e-07, 3.91795, 0, -9, -1.71259e-07, 0, 0, 0, 2.22827, 20.8017, 19.4175, -0.938312)
 open_on_previous_map_name = "attic"
+
+[node name="TimedTextArea" parent="DynamicObjects" instance=ExtResource("14_cr18n")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -23.4451, -16.9147, 0)
+
+[node name="timeout" parent="DynamicObjects/TimedTextArea" index="1"]
+wait_time = 10.0
+
+[node name="CollisionShape3D" parent="DynamicObjects/TimedTextArea" index="2"]
+transform = Transform3D(2.25311, 0, 0, 0, 1, 0, 0, 0, 1, 0.725246, 1.94097, 0.386038)
 
 [node name="ReferenceSprite3D" type="Sprite3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2.05205)
@@ -662,4 +672,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 26.4085, 15.5292, 0)
 [editable path="player/Audio/Footsteps"]
 [editable path="player/Audio/Landing"]
 [editable path="player/Audio/Jumping"]
+[editable path="player/Audio/Hurt"]
+[editable path="DynamicObjects/TimedTextArea"]
 [editable path="Background Elements/KoiOnPath"]

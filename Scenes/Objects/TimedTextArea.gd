@@ -4,8 +4,12 @@ extends Area3D
 @onready var timer = $timeout
 @onready var label = $Panel
 
+@export_multiline var text_to_display : String = "WASD Move, Space jump"
 
 var is_in_area = false;
+
+func _ready():
+	$Panel/Text.text = text_to_display
 
 # TimedTextArea body_exited -> _on_timed_text_area_body_exited
 func _on_timed_text_area_body_exited(body):

@@ -1,40 +1,40 @@
-[gd_scene load_steps=69 format=3 uid="uid://dyn1atg77jsnm"]
+[gd_scene load_steps=69 format=3 uid="uid://cp3lj510xmwmh"]
 
-[ext_resource type="Script" path="res://Scenes/Maps/base_level.gd" id="1_3t2kx"]
-[ext_resource type="MeshLibrary" uid="uid://dmh5e52qprx6r" path="res://MeshLibraries/cat_tower_plex.tres" id="2_tx034"]
-[ext_resource type="PackedScene" uid="uid://cm2o1lkpf6s0w" path="res://Scenes/Entities/NPCs/vacuum_cleaner.tscn" id="2_wvmyr"]
-[ext_resource type="PackedScene" uid="uid://iy2fvk38ehxj" path="res://Scenes/Entities/NPCs/deadly_tile.tscn" id="3_g2pdu"]
-[ext_resource type="PackedScene" uid="uid://cey6vaorec8ca" path="res://Scenes/Entities/Player/player_controller.tscn" id="3_rv5u6"]
-[ext_resource type="PackedScene" uid="uid://cw6hwlepf4hp8" path="res://Scenes/Entities/Player/cloud_kitten_companion.tscn" id="4_he5h7"]
-[ext_resource type="PackedScene" uid="uid://dd3fox603os7x" path="res://Scenes/Entities/moving platform.tscn" id="4_ldbyu"]
-[ext_resource type="Texture2D" uid="uid://dhm4vtuux462g" path="res://Materials/arrow_01.png" id="5_r5rsb"]
-[ext_resource type="PackedScene" uid="uid://crvvpifd7a146" path="res://Scenes/Entities/NPCs/pressure_plate.tscn" id="6_jvxdu"]
-[ext_resource type="PackedScene" uid="uid://dwte3a8axt6kp" path="res://Scenes/Objects/door.tscn" id="7_vtp6s"]
-[ext_resource type="PackedScene" path="res://Scenes/Objects/trigger_volume_win.tscn" id="8_ctuvk"]
-[ext_resource type="PackedScene" uid="uid://ch0xqdmee1xnu" path="res://WorldEnvironments/sky_and_lighting.tscn" id="8_tngek"]
-[ext_resource type="Shader" uid="uid://cx2ac458h8a83" path="res://Shaders/Cloud_Water.tres" id="9_24d24"]
-[ext_resource type="Texture2D" uid="uid://d2tun4dqdssdx" path="res://Scenes/Maps/Official/BathRoom/level01_mockup_section3.png" id="9_dy6eo"]
-[ext_resource type="Script" path="res://WorldEnvironments/sky_and_lighting_Bathroom.gd" id="9_qwmps"]
-[ext_resource type="PackedScene" uid="uid://ted21c8mecho" path="res://Scenes/Entities/NPCs/switch.tscn" id="10_7ywxi"]
-[ext_resource type="PackedScene" path="res://Scenes/Objects/fall_reset_volume.tscn" id="12_4q8sl"]
-[ext_resource type="Script" path="res://Scenes/Maps/ReferenceSprite3D.gd" id="12_p2k0u"]
-[ext_resource type="ArrayMesh" uid="uid://bbje4wl4kivx0" path="res://Art/objects/mirror.obj" id="13_do3yh"]
-[ext_resource type="Script" path="res://Scenes/Objects/RandomLazyMotion.gd" id="14_olyda"]
-[ext_resource type="ArrayMesh" uid="uid://cqerpxbfucmkm" path="res://Art/objects/sink.obj" id="15_w2qbg"]
-[ext_resource type="PackedScene" uid="uid://b3p7s4vjxe0y0" path="res://Scenes/Objects/VolumeTriggerHintThoughtBubble.tscn" id="21_cgked"]
-[ext_resource type="PackedScene" uid="uid://b2tb1owb5nnun" path="res://Scenes/Objects/spawn_point.tscn" id="22_0ifv0"]
-[ext_resource type="Texture2D" uid="uid://bpp08atu8a8u0" path="res://Art/objects/sink.png" id="22_3q82r"]
-[ext_resource type="Texture2D" uid="uid://lmde70nwacgw" path="res://Art/Eye_text.png" id="24_xk33q"]
-[ext_resource type="Curve" uid="uid://ctp0miqywpyoo" path="res://Shaders/Waterdrop.tres" id="26_5djuc"]
-[ext_resource type="Shader" uid="uid://btl5ebnoijhp2" path="res://Shaders/Envi_Water.tres" id="26_yyjx1"]
-[ext_resource type="ArrayMesh" uid="uid://crqdcvpu65qav" path="res://Art/objects/Water_twist2.obj" id="27_fjhtx"]
-[ext_resource type="Shader" uid="uid://hkuj1qssy6ue" path="res://Water_Ground.tres" id="28_d6crc"]
-[ext_resource type="Texture2D" uid="uid://b8b3xjek6q7wy" path="res://Art/Foliage/Grass3.png" id="28_pvto1"]
-[ext_resource type="Texture2D" uid="uid://ddaucwcbe7q1y" path="res://Art/Foliage/Mushrooms.png" id="29_420ga"]
-[ext_resource type="Texture2D" uid="uid://b6jmphr0ugk78" path="res://Art/Foliage/Mountains 2.png" id="30_7hnmv"]
-[ext_resource type="Texture2D" uid="uid://1yt0bsisi0p6" path="res://Art/Foliage/Bush_1.png" id="30_a6qsh"]
-[ext_resource type="AudioStream" uid="uid://c75ktirujy5pe" path="res://sfx/Rain.mp3" id="31_mhp4h"]
-[ext_resource type="Texture2D" uid="uid://coaanccqd0h8j" path="res://Art/Foliage/Tree.png" id="31_yuwoy"]
+[ext_resource type="Script" path="res://Scenes/Maps/base_level.gd" id="1_27clu"]
+[ext_resource type="MeshLibrary" uid="uid://dmh5e52qprx6r" path="res://MeshLibraries/cat_tower_plex.tres" id="2_6n4ip"]
+[ext_resource type="PackedScene" uid="uid://cey6vaorec8ca" path="res://Scenes/Entities/Player/player_controller.tscn" id="3_xstnt"]
+[ext_resource type="PackedScene" uid="uid://cm2o1lkpf6s0w" path="res://Scenes/Entities/NPCs/vacuum_cleaner.tscn" id="4_nfrgl"]
+[ext_resource type="PackedScene" uid="uid://cw6hwlepf4hp8" path="res://Scenes/Entities/Player/cloud_kitten_companion.tscn" id="5_ayoq2"]
+[ext_resource type="PackedScene" uid="uid://iy2fvk38ehxj" path="res://Scenes/Entities/NPCs/deadly_tile.tscn" id="6_vdhck"]
+[ext_resource type="PackedScene" uid="uid://dd3fox603os7x" path="res://Scenes/Entities/moving platform.tscn" id="7_abbws"]
+[ext_resource type="PackedScene" uid="uid://ch0xqdmee1xnu" path="res://WorldEnvironments/sky_and_lighting.tscn" id="8_5xkyp"]
+[ext_resource type="Script" path="res://WorldEnvironments/sky_and_lighting_Bathroom.gd" id="9_6f5c6"]
+[ext_resource type="Shader" uid="uid://cx2ac458h8a83" path="res://Shaders/Cloud_Water.tres" id="10_jicij"]
+[ext_resource type="PackedScene" path="res://Scenes/Objects/trigger_volume_win.tscn" id="11_kq2ig"]
+[ext_resource type="Texture2D" uid="uid://dhm4vtuux462g" path="res://Materials/arrow_01.png" id="12_yil0e"]
+[ext_resource type="PackedScene" path="res://Scenes/Objects/fall_reset_volume.tscn" id="13_eo0uv"]
+[ext_resource type="PackedScene" uid="uid://crvvpifd7a146" path="res://Scenes/Entities/NPCs/pressure_plate.tscn" id="14_3nxwi"]
+[ext_resource type="PackedScene" uid="uid://dwte3a8axt6kp" path="res://Scenes/Objects/door.tscn" id="15_yq723"]
+[ext_resource type="PackedScene" uid="uid://ted21c8mecho" path="res://Scenes/Entities/NPCs/switch.tscn" id="16_pfye1"]
+[ext_resource type="Texture2D" uid="uid://d2tun4dqdssdx" path="res://Scenes/Maps/Official/BathRoom/level01_mockup_section3.png" id="17_dx5oe"]
+[ext_resource type="Script" path="res://Scenes/Maps/ReferenceSprite3D.gd" id="18_ur7p8"]
+[ext_resource type="ArrayMesh" uid="uid://bbje4wl4kivx0" path="res://Art/objects/mirror.obj" id="19_7vj2q"]
+[ext_resource type="Script" path="res://Scenes/Objects/RandomLazyMotion.gd" id="20_7jfqy"]
+[ext_resource type="ArrayMesh" uid="uid://cqerpxbfucmkm" path="res://Art/objects/sink.obj" id="21_l5ck4"]
+[ext_resource type="Texture2D" uid="uid://bpp08atu8a8u0" path="res://Art/objects/sink.png" id="22_ecm14"]
+[ext_resource type="PackedScene" uid="uid://b3p7s4vjxe0y0" path="res://Scenes/Objects/VolumeTriggerHintThoughtBubble.tscn" id="23_qxqug"]
+[ext_resource type="PackedScene" uid="uid://b2tb1owb5nnun" path="res://Scenes/Objects/spawn_point.tscn" id="24_kcyay"]
+[ext_resource type="Texture2D" uid="uid://lmde70nwacgw" path="res://Art/Eye_text.png" id="25_344wu"]
+[ext_resource type="Curve" path="res://Shaders/Waterdrop.tres" id="26_ouyca"]
+[ext_resource type="Shader" uid="uid://btl5ebnoijhp2" path="res://Shaders/Envi_Water.tres" id="27_5bim5"]
+[ext_resource type="Texture2D" uid="uid://b8b3xjek6q7wy" path="res://Art/Foliage/Grass3.png" id="28_c6qc5"]
+[ext_resource type="Texture2D" uid="uid://ddaucwcbe7q1y" path="res://Art/Foliage/Mushrooms.png" id="29_ochm2"]
+[ext_resource type="Texture2D" uid="uid://1yt0bsisi0p6" path="res://Art/Foliage/Bush_1.png" id="30_qj37p"]
+[ext_resource type="Texture2D" uid="uid://coaanccqd0h8j" path="res://Art/Foliage/Tree.png" id="31_21ash"]
+[ext_resource type="Texture2D" uid="uid://b6jmphr0ugk78" path="res://Art/Foliage/Mountains 2.png" id="32_i28k1"]
+[ext_resource type="ArrayMesh" path="res://Art/objects/Water_twist2.obj" id="33_kvykl"]
+[ext_resource type="Shader" path="res://Water_Ground.tres" id="34_42414"]
+[ext_resource type="AudioStream" path="res://sfx/Rain.mp3" id="35_eetkf"]
 
 [sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_qs5tq"]
 dof_blur_far_enabled = true
@@ -45,7 +45,7 @@ dof_blur_amount = 0.13
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_op2lt"]
 render_priority = 0
-shader = ExtResource("9_24d24")
+shader = ExtResource("10_jicij")
 shader_parameter/FloatParameter = 1.0
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_kw84f"]
@@ -53,11 +53,11 @@ material = SubResource("ShaderMaterial_op2lt")
 size = Vector2(300, 300)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4owc6"]
-albedo_texture = ExtResource("22_3q82r")
+albedo_texture = ExtResource("22_ecm14")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0fbmc"]
 vertex_color_use_as_albedo = true
-albedo_texture = ExtResource("24_xk33q")
+albedo_texture = ExtResource("25_344wu")
 metallic_specular = 1.0
 roughness = 0.33
 rim_enabled = true
@@ -136,7 +136,7 @@ _data = {
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_vffpx"]
 render_priority = 0
-shader = ExtResource("26_yyjx1")
+shader = ExtResource("27_5bim5")
 shader_parameter/Vertex_Roughness = 1.0
 shader_parameter/ColorParameter = Color(0.10844, 0.397392, 0.688247, 1)
 shader_parameter/FloatParameter = 0.2
@@ -147,7 +147,7 @@ radius = 0.491
 radial_steps = 119
 section_length = 70.971
 section_rings = 17
-curve = ExtResource("26_5djuc")
+curve = ExtResource("26_ouyca")
 
 [sub_resource type="AnimationNodeBlendSpace2D" id="AnimationNodeBlendSpace2D_qrb4l"]
 
@@ -186,10 +186,13 @@ _data = {
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_a5c6y"]
 render_priority = 0
-shader = ExtResource("26_yyjx1")
+shader = ExtResource("27_5bim5")
 shader_parameter/Vertex_Roughness = 0.1
 shader_parameter/ColorParameter = Color(0.10844, 0.397392, 0.688247, 1)
 shader_parameter/FloatParameter = 0.2
+
+[sub_resource type="Animation" id="Animation_ofael"]
+length = 0.001
 
 [sub_resource type="Animation" id="Animation_jngr1"]
 resource_name = "twist"
@@ -208,9 +211,6 @@ tracks/0/keys = {
 "values": [Vector3(0, 0, 0), Vector3(0, 6.28319, 0)]
 }
 
-[sub_resource type="Animation" id="Animation_ofael"]
-length = 0.001
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_ce648"]
 _data = {
 "RESET": SubResource("Animation_ofael"),
@@ -219,7 +219,7 @@ _data = {
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_y34xl"]
 render_priority = 0
-shader = ExtResource("28_d6crc")
+shader = ExtResource("34_42414")
 shader_parameter/Wave_Height = Quaternion(1, 1, 1, 1)
 shader_parameter/Vertex_Roughness = 0.1
 shader_parameter/ColorParameter = Color(0.10844, 0.397392, 0.688247, 1)
@@ -273,11 +273,11 @@ radial_segments = 4
 rings = 1
 
 [node name="Bathroom" type="Node3D"]
-script = ExtResource("1_3t2kx")
+script = ExtResource("1_27clu")
 
 [node name="NonClimbableGridmap" type="GridMap" parent="."]
 transform = Transform3D(1.5, 0, 0, 0, -8.74228e-08, -1.5, 0, 2, -6.55671e-08, 0, 0, -2.25)
-mesh_library = ExtResource("2_tx034")
+mesh_library = ExtResource("2_6n4ip")
 cell_size = Vector3(1, 1, 1)
 collision_layer = 4
 collision_mask = 3
@@ -288,14 +288,14 @@ metadata/_editor_floor_ = Vector3(0, 0, 0)
 
 [node name="climbable" type="GridMap" parent="."]
 transform = Transform3D(1.5, 0, 0, 0, -8.74228e-08, -1.5, 0, 2, -6.55671e-08, 0, 0, -2.25)
-mesh_library = ExtResource("2_tx034")
+mesh_library = ExtResource("2_6n4ip")
 cell_size = Vector3(1, 1, 1)
 data = {
 "cells": PackedInt32Array(65493, 65495, 9, 65493, 65496, 9, 65493, 65497, 9, 65493, 65498, 9, 65493, 65499, 9, 65493, 65501, 9, 65493, 65500, 9, 65501, 65503, 9, 65501, 65504, 9, 65501, 65505, 9, 65501, 65506, 9, 65501, 65507, 9, 65501, 65508, 9, 65501, 65509, 9, 65493, 65509, 9, 65493, 65510, 9, 65493, 65511, 9, 65493, 65512, 9, 65493, 65513, 9, 65493, 65514, 9, 65493, 65515, 9, 65493, 65516, 9, 65501, 65515, 9, 65501, 65516, 9, 65501, 65517, 9, 65501, 65518, 9, 65501, 65519, 9, 65501, 65520, 9, 65501, 65521, 9, 65501, 65522, 9, 65503, 65514, 9, 65503, 65515, 9, 65503, 65516, 9, 65503, 65517, 9, 65509, 65511, 9, 65509, 65512, 9, 65509, 65513, 9, 65527, 65501, 9, 65527, 65502, 9, 65527, 65503, 9, 65527, 65504, 9, 65527, 65505, 9, 65527, 65506, 9, 65527, 65507, 9, 65527, 65508, 9, 65533, 65511, 9, 2, 65509, 9, 2, 65508, 9, 2, 65507, 9, 65534, 65501, 9, 65534, 65502, 9, 65534, 65503, 9, 65534, 65504, 9, 65534, 65505, 9, 7, 65524, 9, 7, 65525, 9, 7, 65526, 9, 7, 65527, 9, 7, 65528, 9, 7, 65529, 9, 17, 65515, 9, 17, 65514, 9, 27, 65514, 9, 27, 65515, 9, 33, 65515, 9, 33, 65516, 9, 33, 65517, 9, 33, 65518, 9, 33, 65519, 9, 33, 65520, 9, 33, 65521, 9, 30, 65523, 9, 30, 65522, 9, 31, 65522, 9, 32, 65522, 9, 33, 65522, 9, 27, 65513, 9, 26, 65513, 9, 25, 65513, 9, 24, 65513, 9, 23, 65513, 9, 22, 65513, 9, 17, 65513, 9, 16, 65513, 9, 15, 65513, 9, 14, 65513, 9, 19, 65489, 9, 19, 65490, 9, 19, 65491, 9, 19, 65492, 9, 19, 65493, 9, 19, 65494, 9, 19, 65495, 9, 19, 65496, 9, 19, 65497, 9, 24, 65488, 9, 24, 65489, 9, 29, 65483, 9, 29, 65484, 9, 29, 65485, 9, 29, 65486, 9, 27, 65479, 9, 27, 65480, 9, 42, 65473, 9, 42, 65474, 9, 42, 65475, 9, 42, 65476, 9, 42, 65477, 9, 42, 65478, 9, 42, 65479, 9, 42, 65480, 9, 42, 65481, 9, 42, 65482, 9, 42, 65483, 9, 42, 65484, 9, 42, 65485, 9, 42, 65486, 9, 42, 65487, 9, 42, 65488, 9, 42, 65489, 9, 31, 65492, 9, 31, 65493, 9, 65511, 65496, 9, 65511, 65497, 9, 65511, 65498, 9, 65510, 65496, 9, 65509, 65496, 9, 65508, 65496, 9, 65507, 65496, 9, 65502, 65533, 9, 65502, 65534, 9, 65502, 65535, 9, 65502, 0, 9, 65502, 1, 9, 65502, 2, 9, 65507, 65530, 9, 65507, 65531, 9, 65507, 65532, 9, 65507, 65533, 9, 65512, 65498, 9)
 }
 metadata/_editor_floor_ = Vector3(0, 0, 0)
 
-[node name="player" parent="." instance=ExtResource("3_rv5u6")]
+[node name="player" parent="." instance=ExtResource("3_xstnt")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -59.4713, 22.0935, -0.382575)
 
 [node name="AnimatedSprite3D" parent="player" index="1"]
@@ -306,55 +306,55 @@ attributes = SubResource("CameraAttributesPractical_qs5tq")
 
 [node name="NPCs" type="Node3D" parent="."]
 
-[node name="VacuumCleaner" parent="NPCs" instance=ExtResource("2_wvmyr")]
+[node name="VacuumCleaner" parent="NPCs" instance=ExtResource("4_nfrgl")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -33.0463, 10.5016, -0.382767)
 
-[node name="VacuumCleaner2" parent="NPCs" instance=ExtResource("2_wvmyr")]
+[node name="VacuumCleaner2" parent="NPCs" instance=ExtResource("4_nfrgl")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -35.9063, 25.1535, -0.224964)
 
-[node name="VacuumCleaner3" parent="NPCs" instance=ExtResource("2_wvmyr")]
+[node name="VacuumCleaner3" parent="NPCs" instance=ExtResource("4_nfrgl")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26.1909, 37.5113, -0.907943)
 
-[node name="VacuumCleaner4" parent="NPCs" instance=ExtResource("2_wvmyr")]
+[node name="VacuumCleaner4" parent="NPCs" instance=ExtResource("4_nfrgl")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 36.2493, 50.891, -0.0702057)
 
-[node name="VacuumCleaner5" parent="NPCs" instance=ExtResource("2_wvmyr")]
+[node name="VacuumCleaner5" parent="NPCs" instance=ExtResource("4_nfrgl")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 54.0975, 82.9028, -0.614047)
 
-[node name="VacuumCleaner6" parent="NPCs" instance=ExtResource("2_wvmyr")]
+[node name="VacuumCleaner6" parent="NPCs" instance=ExtResource("4_nfrgl")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.06701, 76.5359, 2.08165e-12)
 
-[node name="VacuumCleaner7" parent="NPCs" instance=ExtResource("2_wvmyr")]
+[node name="VacuumCleaner7" parent="NPCs" instance=ExtResource("4_nfrgl")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.73434, 76.0831, 2.08165e-12)
 
-[node name="Kitten" parent="NPCs" instance=ExtResource("4_he5h7")]
+[node name="Kitten" parent="NPCs" instance=ExtResource("5_ayoq2")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.8046, -2.35665, -0.917665)
 
 [node name="EnvironmentalHazards" type="Node3D" parent="."]
 
-[node name="DeadlyTile" parent="EnvironmentalHazards" instance=ExtResource("3_g2pdu")]
+[node name="DeadlyTile" parent="EnvironmentalHazards" instance=ExtResource("6_vdhck")]
 transform = Transform3D(2, 0, 0, 0, 2.846, 0, 0, 0, 1.784, 1.53926, 74.2414, -1.26307)
 
-[node name="DeadlyTile2" parent="EnvironmentalHazards" instance=ExtResource("3_g2pdu")]
+[node name="DeadlyTile2" parent="EnvironmentalHazards" instance=ExtResource("6_vdhck")]
 transform = Transform3D(2, 0, 0, 0, 3.939, 0, 0, 0, 2.18, -22.4522, 74.2819, -1.19557)
 
-[node name="DeadlyTile3" parent="EnvironmentalHazards" instance=ExtResource("3_g2pdu")]
+[node name="DeadlyTile3" parent="EnvironmentalHazards" instance=ExtResource("6_vdhck")]
 transform = Transform3D(2.02115, 0, 0, 0, 2.51781, 0, 0, 0, 1.8989, 12.0039, 74.094, -1.31139)
 
-[node name="DeadlyTile4" parent="EnvironmentalHazards" instance=ExtResource("3_g2pdu")]
+[node name="DeadlyTile4" parent="EnvironmentalHazards" instance=ExtResource("6_vdhck")]
 transform = Transform3D(9.51193, 0, 0, 0, 11.6936, 0, 0, 0, 2.82544, 32.2281, 11.6057, -1.8231)
 
-[node name="DeadlyTile5" parent="EnvironmentalHazards" instance=ExtResource("3_g2pdu")]
+[node name="DeadlyTile5" parent="EnvironmentalHazards" instance=ExtResource("6_vdhck")]
 transform = Transform3D(1.52259, 0, 0, 0, 9.96751, 0, 0, 0, 2.05156, 0.764902, 5.31566, -1.2881)
 
 [node name="MovingPlatforms" type="Node3D" parent="."]
 
-[node name="moving platform_03" parent="MovingPlatforms" instance=ExtResource("4_ldbyu")]
+[node name="moving platform_03" parent="MovingPlatforms" instance=ExtResource("7_abbws")]
 transform = Transform3D(1.81612, 0, 0, 0, 0.657119, 0, 0, 0, 1.81612, 21.7745, 17.6009, 0)
 target = Vector3(11, 0, 0)
 needs_activation = true
 
-[node name="moving platform_04" parent="MovingPlatforms" instance=ExtResource("4_ldbyu")]
+[node name="moving platform_04" parent="MovingPlatforms" instance=ExtResource("7_abbws")]
 transform = Transform3D(1.82457, 0, 0, 0, 0.660174, 0, 0, 0, 1.82457, -8.37885, 90.1397, 0)
 target = Vector3(13, 0, 0)
 
@@ -367,8 +367,8 @@ light_energy = 1.386
 shadow_enabled = true
 shadow_opacity = 0.41
 
-[node name="Sky and Lighting" parent="." instance=ExtResource("8_tngek")]
-script = ExtResource("9_qwmps")
+[node name="Sky and Lighting" parent="." instance=ExtResource("8_5xkyp")]
+script = ExtResource("9_6f5c6")
 
 [node name="Cloud_water" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -38.2472, 0)
@@ -376,73 +376,73 @@ mesh = SubResource("PlaneMesh_kw84f")
 
 [node name="DynamicObjects" type="Node3D" parent="."]
 
-[node name="TriggerVolumeWin" parent="DynamicObjects" instance=ExtResource("8_ctuvk")]
+[node name="TriggerVolumeWin" parent="DynamicObjects" instance=ExtResource("11_kq2ig")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -71.6781, 17.6238, 0)
 next_scene_path = "res://Scenes/Maps/Official/LivingRoom/LivingRoom.tscn"
 
 [node name="Sprite3D" type="Sprite3D" parent="DynamicObjects/TriggerVolumeWin"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.754967, 1.49037, 0)
 pixel_size = 0.033
-texture = ExtResource("5_r5rsb")
+texture = ExtResource("12_yil0e")
 
-[node name="FallResetVolume" parent="DynamicObjects" instance=ExtResource("12_4q8sl")]
+[node name="FallResetVolume" parent="DynamicObjects" instance=ExtResource("13_eo0uv")]
 transform = Transform3D(2.0931, 0, 0, 0, 1, 0, 0, 0, 1, 0, -46.9851, 0)
 
-[node name="pressure_plate_03" parent="DynamicObjects" instance=ExtResource("6_jvxdu")]
+[node name="pressure_plate_03" parent="DynamicObjects" instance=ExtResource("14_3nxwi")]
 transform = Transform3D(2.64431, 0, 0, 0, 1.32216, 0, 0, 0, 2.64431, 14.2627, 16.6801, -1.2033)
 connected_to = Array[NodePath]([NodePath("../../MovingPlatforms/moving platform_03")])
 
-[node name="pressure_plate_01" parent="DynamicObjects" instance=ExtResource("6_jvxdu")]
+[node name="pressure_plate_01" parent="DynamicObjects" instance=ExtResource("14_3nxwi")]
 transform = Transform3D(2.48064, 0, 0, 0, 1.24032, 0, 0, 0, 2.48064, -26.491, 9.06742, -1.2509)
 connected_to = Array[NodePath]([NodePath("Door_01")])
 
-[node name="Door_01" parent="DynamicObjects/pressure_plate_01" instance=ExtResource("7_vtp6s")]
+[node name="Door_01" parent="DynamicObjects/pressure_plate_01" instance=ExtResource("15_yq723")]
 transform = Transform3D(1.35287, 0, 0, 0, 4.24202, 0, 0, 0, 0.835543, 5.34122, 0.0406771, 0.00577545)
 
-[node name="pressure_plate_05" parent="DynamicObjects" instance=ExtResource("6_jvxdu")]
+[node name="pressure_plate_05" parent="DynamicObjects" instance=ExtResource("14_3nxwi")]
 transform = Transform3D(2.06846, 0, 0, 0, 1.03423, 0, 0, 0, 2.06846, -4.59074, 52.6224, -1.34077)
 connected_to = Array[NodePath]([NodePath("Door_05")])
 
-[node name="Door_05" parent="DynamicObjects/pressure_plate_05" instance=ExtResource("7_vtp6s")]
+[node name="Door_05" parent="DynamicObjects/pressure_plate_05" instance=ExtResource("15_yq723")]
 transform = Transform3D(1.93381, 0, 0, 0, 5.08335, 0, 0, 0, 0.9559, 10.2699, 1.40037, 0.0494281)
 
-[node name="Door_06" parent="DynamicObjects" instance=ExtResource("7_vtp6s")]
+[node name="Door_06" parent="DynamicObjects" instance=ExtResource("15_yq723")]
 transform = Transform3D(2.95137, 0, 0, 0, 4.34356, 0, 0, 0, 1.89974, 40.2708, 85.6249, -1.14892)
 
-[node name="Door_08" parent="DynamicObjects" instance=ExtResource("7_vtp6s")]
+[node name="Door_08" parent="DynamicObjects" instance=ExtResource("15_yq723")]
 transform = Transform3D(4, 0, 0, 0, 6.29502, 0, 0, 0, 5.88684, -64.3452, 4.07695, 0)
 
-[node name="TriggerVolumeWin2" parent="DynamicObjects" instance=ExtResource("8_ctuvk")]
+[node name="TriggerVolumeWin2" parent="DynamicObjects" instance=ExtResource("11_kq2ig")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -73.373, 62.6368, 0)
 next_scene_path = "res://Scenes/Maps/Official/Attic/Attic.tscn"
 
 [node name="Sprite3D2" type="Sprite3D" parent="DynamicObjects/TriggerVolumeWin2"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0322189, 2.04771, 0)
 pixel_size = 0.033
-texture = ExtResource("5_r5rsb")
+texture = ExtResource("12_yil0e")
 
-[node name="switch_09" parent="DynamicObjects" instance=ExtResource("10_7ywxi")]
+[node name="switch_09" parent="DynamicObjects" instance=ExtResource("16_pfye1")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.72826, 24.2633, -1.049)
 target_node = NodePath("Door_09")
 
-[node name="Door_09" parent="DynamicObjects/switch_09" instance=ExtResource("7_vtp6s")]
+[node name="Door_09" parent="DynamicObjects/switch_09" instance=ExtResource("15_yq723")]
 transform = Transform3D(-1.74846e-07, -4.64339, 0, 4, -2.02969e-07, 0, 0, 0, 2.20799, 12.3455, 27.9718, -0.297897)
 
-[node name="switch2" parent="DynamicObjects" instance=ExtResource("10_7ywxi")]
+[node name="switch2" parent="DynamicObjects" instance=ExtResource("16_pfye1")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -35.706, -4.50876, -1.049)
 target_node = NodePath("Door_02")
 
-[node name="Door_02" parent="DynamicObjects/switch2" instance=ExtResource("7_vtp6s")]
+[node name="Door_02" parent="DynamicObjects/switch2" instance=ExtResource("15_yq723")]
 transform = Transform3D(3.11012, 0, 0, 0, 3.77443, 0, 0, 0, 2.83406, 14.6424, 0.0249424, -0.0628264)
 
-[node name="switch_07" parent="DynamicObjects" instance=ExtResource("10_7ywxi")]
+[node name="switch_07" parent="DynamicObjects" instance=ExtResource("16_pfye1")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30.3587, 75.5784, -1.04949)
 target_node = NodePath("Door_07")
 
-[node name="Door_07" parent="DynamicObjects/switch_07" instance=ExtResource("7_vtp6s")]
+[node name="Door_07" parent="DynamicObjects/switch_07" instance=ExtResource("15_yq723")]
 transform = Transform3D(4, 0, 0, 0, 5.9898, 0, 0, 0, 5.88684, -36.887, -14.2022, 1.04949)
 
-[node name="switch06" parent="DynamicObjects" instance=ExtResource("10_7ywxi")]
+[node name="switch06" parent="DynamicObjects" instance=ExtResource("16_pfye1")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 62.1553, 69.6934, -1.049)
 target_node = NodePath("../Door_06")
 
@@ -450,62 +450,62 @@ target_node = NodePath("../Door_06")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.11905, 40.0068, -3.0423)
 visible = false
 pixel_size = 0.067
-texture = ExtResource("9_dy6eo")
-script = ExtResource("12_p2k0u")
+texture = ExtResource("17_dx5oe")
+script = ExtResource("18_ur7p8")
 
 [node name="BackgroundImagery" type="Node3D" parent="."]
 
 [node name="Mirror" type="MeshInstance3D" parent="BackgroundImagery"]
 transform = Transform3D(9.16321, 1.24946, -2.01679, -0.992309, 9.32715, 1.26991, 2.15498, -1.01794, 9.1604, 0, 0, -67.5307)
-mesh = ExtResource("13_do3yh")
+mesh = ExtResource("19_7vj2q")
 skeleton = NodePath("../..")
-script = ExtResource("14_olyda")
+script = ExtResource("20_7jfqy")
 
 [node name="Mirror2" type="MeshInstance3D" parent="BackgroundImagery"]
 transform = Transform3D(13.3382, -9.54884, 1.39789, 7.15964, 11.3901, 9.48938, -6.47101, -7.08015, 13.3806, -50.277, 0, -194.096)
-mesh = ExtResource("13_do3yh")
+mesh = ExtResource("19_7vj2q")
 skeleton = NodePath("../..")
-script = ExtResource("14_olyda")
+script = ExtResource("20_7jfqy")
 
 [node name="sink1" type="MeshInstance3D" parent="BackgroundImagery"]
 transform = Transform3D(13.3382, -9.54884, 1.39789, 8.31883, 10.1675, -9.92284, 4.89199, 8.74558, 13.0624, 35.8686, 0, -194.096)
-mesh = ExtResource("15_w2qbg")
+mesh = ExtResource("21_l5ck4")
 skeleton = NodePath("../..")
-script = ExtResource("14_olyda")
+script = ExtResource("20_7jfqy")
 
 [node name="sink2" type="MeshInstance3D" parent="BackgroundImagery"]
 transform = Transform3D(-7.99453, -16.4886, -21.2978, 6.34873, 20.4367, -18.2049, 26.1757, -9.99269, -2.08926, 62.2076, 31.387, -66.1482)
-mesh = ExtResource("15_w2qbg")
+mesh = ExtResource("21_l5ck4")
 skeleton = NodePath("../..")
 surface_material_override/0 = SubResource("StandardMaterial3D_4owc6")
-script = ExtResource("14_olyda")
+script = ExtResource("20_7jfqy")
 
 [node name="Hints" type="Node3D" parent="."]
 
-[node name="LivingRoomHint" parent="Hints" instance=ExtResource("21_cgked")]
+[node name="LivingRoomHint" parent="Hints" instance=ExtResource("23_qxqug")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -64.6937, 21.507, 0)
 hint_text = "This way to Living Room."
 
-[node name="AtticHint" parent="Hints" instance=ExtResource("21_cgked")]
+[node name="AtticHint" parent="Hints" instance=ExtResource("23_qxqug")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -60.0076, 66.6066, 0)
 hint_text = "This way to Attic"
 
-[node name="CloudKittyHint1" parent="Hints" instance=ExtResource("21_cgked")]
+[node name="CloudKittyHint1" parent="Hints" instance=ExtResource("23_qxqug")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26.6455, -0.457138, 0)
 hint_text = "It's my good friend!
 CloudKitty!"
 
-[node name="CloudKittyHint2" parent="Hints" instance=ExtResource("21_cgked")]
+[node name="CloudKittyHint2" parent="Hints" instance=ExtResource("23_qxqug")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26.6455, 14.2872, 0)
 hint_text = "If only I had CloudKitty.
 They could hold the door."
 
 [node name="SpawnPoints" type="Node3D" parent="."]
 
-[node name="SpawnPointLivingRoom" parent="SpawnPoints" instance=ExtResource("22_0ifv0")]
+[node name="SpawnPointLivingRoom" parent="SpawnPoints" instance=ExtResource("24_kcyay")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -59.0866, 18.921, 0)
 
-[node name="SpawnPointAttic" parent="SpawnPoints" instance=ExtResource("22_0ifv0")]
+[node name="SpawnPointAttic" parent="SpawnPoints" instance=ExtResource("24_kcyay")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -63.7226, 63.2027, 0)
 
 [node name="Background_elements" type="Node3D" parent="."]
@@ -556,68 +556,68 @@ mesh = SubResource("TubeTrailMesh_76on5")
 transform = Transform3D(5.09637, 0, 0, 0, 4.89496, 0, 0, 0, 1, -70.0162, 17.9851, -2.17274)
 shaded = true
 alpha_cut = 2
-texture = ExtResource("28_pvto1")
+texture = ExtResource("28_c6qc5")
 
 [node name="Sprite3D2" type="Sprite3D" parent="."]
 transform = Transform3D(5.09637, 0, 0, 0, 4.89496, 0, 0, 0, 1, -55.0662, 17.9851, -2.17274)
 shaded = true
 alpha_cut = 2
-texture = ExtResource("28_pvto1")
+texture = ExtResource("28_c6qc5")
 
 [node name="Sprite3D16" type="Sprite3D" parent="."]
 transform = Transform3D(5.09637, 0, 0, 0, 4.89496, 0, 0, 0, 1, -63.0939, 16.5795, -2.17274)
 shaded = true
 alpha_cut = 2
-texture = ExtResource("28_pvto1")
+texture = ExtResource("28_c6qc5")
 
 [node name="Sprite3D4" type="Sprite3D" parent="."]
 transform = Transform3D(5.09637, 0, 0, 0, 4.89496, 0, 0, 0, 1, -69.2476, 14.7085, 3.69806)
 shaded = true
 alpha_cut = 2
-texture = ExtResource("28_pvto1")
+texture = ExtResource("28_c6qc5")
 
 [node name="Sprite3D20" type="Sprite3D" parent="."]
 transform = Transform3D(5.09637, 0, 0, 0, 4.89496, 0, 0, 0, 1, -69.2476, 15.1332, 3.69806)
 shaded = true
 alpha_cut = 2
-texture = ExtResource("28_pvto1")
+texture = ExtResource("28_c6qc5")
 
 [node name="Sprite3D5" type="Sprite3D" parent="."]
 transform = Transform3D(5.09637, 0, 0, 0, 4.89496, 0, 0, 0, 1, -54.9678, 14.7085, 0.834274)
 visible = false
 shaded = true
 alpha_cut = 2
-texture = ExtResource("28_pvto1")
+texture = ExtResource("28_c6qc5")
 
 [node name="Mushroom" type="Sprite3D" parent="."]
 transform = Transform3D(5.09637, 0, 0, 0, 4.89496, 0, 0, 0, 1, -67.609, 14.7085, 2.87822)
 shaded = true
 alpha_cut = 2
-texture = ExtResource("29_420ga")
+texture = ExtResource("29_ochm2")
 
 [node name="Mushroom2" type="Sprite3D" parent="."]
 transform = Transform3D(3.15427, 0, 0, 0, 2.98926, 0, 0, 0, 1, -55.4186, 14.903, 2.5874)
 shaded = true
 alpha_cut = 2
-texture = ExtResource("29_420ga")
+texture = ExtResource("29_ochm2")
 
 [node name="Mushroom3" type="Sprite3D" parent="."]
 transform = Transform3D(5.09637, 0, 0, 0, 4.89496, 0, 0, 0, 1, -72.3519, 17.4232, 2.5874)
 shaded = true
 alpha_cut = 2
-texture = ExtResource("29_420ga")
+texture = ExtResource("29_ochm2")
 
 [node name="Sprite3D8" type="Sprite3D" parent="."]
 transform = Transform3D(5.09637, 0, 0, 0, 4.89496, 0, 0, 0, 1, -58.5421, 10.7446, 2.58971)
 shaded = true
 alpha_cut = 2
-texture = ExtResource("30_a6qsh")
+texture = ExtResource("30_qj37p")
 
 [node name="Sprite3D12" type="Sprite3D" parent="."]
 transform = Transform3D(5.09637, 0, 0, 0, 4.89496, 0, 0, 0, 1, -88.0097, 24.3232, -13.6712)
 shaded = true
 alpha_cut = 2
-texture = ExtResource("31_yuwoy")
+texture = ExtResource("31_21ash")
 
 [node name="Sprite3D13" type="Sprite3D" parent="."]
 transform = Transform3D(1.79553, 0, 0, 0, 3.24091, 0, 0, 0, 1, -69.0279, 27.0549, 5.2047)
@@ -625,71 +625,71 @@ visible = false
 modulate = Color(0.596078, 0.596078, 0.596078, 1)
 shaded = true
 alpha_cut = 2
-texture = ExtResource("31_yuwoy")
+texture = ExtResource("31_21ash")
 
 [node name="Sprite3D14" type="Sprite3D" parent="."]
 transform = Transform3D(2.19836, 0, 0, 0, 1.99696, 0, 0, 0, 1, -82.9135, 25.034, 3.93687)
 shaded = true
 alpha_cut = 2
-texture = ExtResource("31_yuwoy")
+texture = ExtResource("31_21ash")
 
 [node name="Sprite3D15" type="Sprite3D" parent="."]
 transform = Transform3D(2.19836, 0, 0, 0, 1.99696, 0, 0, 0, 1, -84.0075, 25.034, -0.244978)
 shaded = true
 alpha_cut = 2
-texture = ExtResource("31_yuwoy")
+texture = ExtResource("31_21ash")
 
 [node name="Sprite3D9" type="Sprite3D" parent="."]
 transform = Transform3D(5.09637, 0, 0, 0, 4.89496, 0, 0, 0, 1, -53.0431, 10.7446, -0.0600798)
 shaded = true
 alpha_cut = 2
-texture = ExtResource("30_a6qsh")
+texture = ExtResource("30_qj37p")
 
 [node name="Sprite3D18" type="Sprite3D" parent="."]
 transform = Transform3D(9.69844, 0, 0, 0, 12.7985, 0, 0, 0, 1, -60.0604, 2.50668, -0.0600798)
 shaded = true
 alpha_cut = 2
-texture = ExtResource("30_a6qsh")
+texture = ExtResource("30_qj37p")
 
 [node name="Sprite3D19" type="Sprite3D" parent="."]
 transform = Transform3D(9.69844, 0, 0, 0, 12.7985, 0, 0, 0, 1, -58.0735, 2.50668, -7.35534)
 shaded = true
 alpha_cut = 2
-texture = ExtResource("30_a6qsh")
+texture = ExtResource("30_qj37p")
 
 [node name="Sprite3D17" type="Sprite3D" parent="."]
 transform = Transform3D(5.09637, 0, 0, 0, 4.89496, 0, 0, 0, 1, -53.0431, 10.7446, -0.0600798)
 shaded = true
 alpha_cut = 2
-texture = ExtResource("30_a6qsh")
+texture = ExtResource("30_qj37p")
 
 [node name="Sprite3D10" type="Sprite3D" parent="."]
 transform = Transform3D(11.2315, 0, 0, 0, 5.75154, 0, 0, 0, 1, -59.3616, 11.4084, -0.067713)
 shaded = true
 alpha_cut = 2
-texture = ExtResource("30_a6qsh")
+texture = ExtResource("30_qj37p")
 
 [node name="Sprite3D11" type="Sprite3D" parent="."]
 transform = Transform3D(11.2315, 0, 0, 0, 5.75154, 0, 0, 0, 1, -70.6537, 11.4084, -0.067713)
 shaded = true
 alpha_cut = 2
-texture = ExtResource("30_a6qsh")
+texture = ExtResource("30_qj37p")
 
 [node name="Sprite3D6" type="Sprite3D" parent="."]
 transform = Transform3D(312.319, 0, 0, 0, 300, 0, 0, 0, 61.287, -179.916, -70.394, -456.568)
 shaded = true
 alpha_cut = 2
-texture = ExtResource("30_7hnmv")
+texture = ExtResource("32_i28k1")
 
 [node name="Sprite3D7" type="Sprite3D" parent="."]
 transform = Transform3D(247.377, -183.131, 0, 190.651, 237.62, 0, 0, 0, 61.287, 526.944, -70.394, -456.568)
 shaded = true
 alpha_cut = 2
-texture = ExtResource("30_7hnmv")
+texture = ExtResource("32_i28k1")
 
 [node name="WaterTwist2" type="MeshInstance3D" parent="."]
 transform = Transform3D(7.109, 0, 0, 0, 7.522, 0, 0, 0, 7.088, -23.0962, -22.3288, -42.1405)
-mesh = ExtResource("27_fjhtx")
+mesh = ExtResource("33_kvykl")
 surface_material_override/0 = SubResource("ShaderMaterial_a5c6y")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="WaterTwist2"]
@@ -700,7 +700,7 @@ libraries = {
 
 [node name="WaterTwist3" type="MeshInstance3D" parent="."]
 transform = Transform3D(12.152, 0, 0, 0, 13.3975, 0, 0, 0, 12.1334, -121.967, -76.962, -40.4067)
-mesh = ExtResource("27_fjhtx")
+mesh = ExtResource("33_kvykl")
 surface_material_override/0 = SubResource("ShaderMaterial_a5c6y")
 
 [node name="Water_floor" type="MeshInstance3D" parent="."]
@@ -722,7 +722,7 @@ process_material = SubResource("ParticleProcessMaterial_ctbpw")
 draw_pass_1 = SubResource("CapsuleMesh_5dvjo")
 
 [node name="Rain" type="AudioStreamPlayer" parent="GPUParticles3D"]
-stream = ExtResource("31_mhp4h")
+stream = ExtResource("35_eetkf")
 volume_db = -17.396
 autoplay = true
 

@@ -1,5 +1,9 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 [gd_scene load_steps=48 format=3 uid="uid://cn7kly3fslq62"]
+=======
+[gd_scene load_steps=47 format=3 uid="uid://dyn1atg77jsnm"]
+>>>>>>> parent of 7b3f8f1 (Bathroom)
 =======
 [gd_scene load_steps=47 format=3 uid="uid://dyn1atg77jsnm"]
 >>>>>>> parent of 7b3f8f1 (Bathroom)
@@ -30,7 +34,10 @@
 [ext_resource type="Texture2D" uid="uid://bpp08atu8a8u0" path="res://Art/objects/sink.png" id="22_3q82r"]
 [ext_resource type="Texture2D" uid="uid://lmde70nwacgw" path="res://Art/Eye_text.png" id="24_xk33q"]
 <<<<<<< HEAD
+<<<<<<< HEAD
 [ext_resource type="PackedScene" uid="uid://beeeabp6iyqb5" path="res://Scenes/Objects/giant_floating_eye.tscn" id="25_chv52"]
+=======
+>>>>>>> parent of 7b3f8f1 (Bathroom)
 =======
 >>>>>>> parent of 7b3f8f1 (Bathroom)
 [ext_resource type="Shader" uid="uid://btl5ebnoijhp2" path="res://Shaders/Envi_Water.tres" id="26_yyjx1"]
@@ -437,8 +444,12 @@ transform = Transform3D(1.38445, 0, 0, 0, 1.38445, 0, 0, 0, 1.38445, -36.328, 22
 
 [node name="Eye2" type="MeshInstance3D" parent="Background_elements"]
 <<<<<<< HEAD
+<<<<<<< HEAD
 transform = Transform3D(-0.257515, -0.965357, -0.0421026, -0.634054, 0.135937, 0.761247, -0.729152, 0.222728, -0.647094, -26.2585, 31.0863, -14.0856)
 visible = false
+=======
+transform = Transform3D(-0.257518, -0.965356, -0.0421026, -0.634053, 0.135939, 0.761247, -0.729151, 0.22273, -0.647094, -26.2585, 31.0863, -14.0856)
+>>>>>>> parent of 7b3f8f1 (Bathroom)
 =======
 transform = Transform3D(-0.257518, -0.965356, -0.0421026, -0.634053, 0.135939, 0.761247, -0.729151, 0.22273, -0.647094, -26.2585, 31.0863, -14.0856)
 >>>>>>> parent of 7b3f8f1 (Bathroom)

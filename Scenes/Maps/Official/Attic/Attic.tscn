@@ -24,7 +24,7 @@
 [ext_resource type="Texture2D" uid="uid://dhagpqi7ourpo" path="res://Art/Foliage/Mountains.png" id="17_en30g"]
 [ext_resource type="Texture2D" uid="uid://coaanccqd0h8j" path="res://Art/Foliage/Tree.png" id="19_cm5fj"]
 [ext_resource type="Texture2D" uid="uid://cynsdc3oljjuy" path="res://Art/Foliage/Light house.png" id="20_c3rgl"]
-[ext_resource type="PackedScene" path="res://Scenes/Objects/spawn_point.tscn" id="21_47lhw"]
+[ext_resource type="PackedScene" uid="uid://b2tb1owb5nnun" path="res://Scenes/Objects/spawn_point.tscn" id="21_47lhw"]
 [ext_resource type="AudioStream" uid="uid://7qiv1uacfw8p" path="res://Music/MUS_TitleV2_9M_7-4_78.mp3" id="23_dcvxg"]
 
 [sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_yla2b"]
@@ -259,6 +259,7 @@ target_node = NodePath("Door_03_ExitDown")
 [node name="Door_03_ExitDown" parent="DynamicObjects/switch_03" instance=ExtResource("7_tpc43")]
 transform = Transform3D(-1.74846e-07, 3.83316, 0, -4, -1.67553e-07, 0, 0, 0, 1.75808, 15.727, -0.146738, 0.805582)
 open_on_previous_map_name = "livingroom"
+door_id = "attic-livingroom"
 
 [node name="switch_05" parent="DynamicObjects" instance=ExtResource("11_gdsl8")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.401249, -1.58203, -1.83688)

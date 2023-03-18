@@ -23,5 +23,8 @@ var abilities_unlocked = [
 	"dash",
 ]
 
+var doors_open = [] # important doors will add themselves to this list, based on door_id parameter.
+
+
 func reset_player():
 	player_stats["health"] = player_stats["health_max"]

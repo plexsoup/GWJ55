@@ -291,7 +291,7 @@ script = ExtResource("1_od55u")
 [node name="SpawnPoints" type="Node3D" parent="."]
 
 [node name="LivingroomSpawn" parent="SpawnPoints" instance=ExtResource("2_cw7as")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 336.244, 18.1523, 9.69066)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 339.384, 57.2921, 0)
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(-0.335452, -0.328375, 0.882973, 0, 0.937282, 0.348572, -0.942057, 0.116929, -0.314413, 0, 0, 0)
@@ -300,7 +300,7 @@ light_energy = 2.301
 shadow_enabled = true
 
 [node name="player" parent="." instance=ExtResource("5_nvlcg")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.091, 58.898, 10)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 341.845, 58.898, 0)
 jump_time_to_peak = 0.33
 jump_time_to_descent = 0.24
 
@@ -544,7 +544,7 @@ skeleton = NodePath("../..")
 [node name="Exits" type="Node3D" parent="."]
 
 [node name="ExitToLivingRoom" parent="Exits" instance=ExtResource("20_y4p00")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 346.823, 16.442, 10)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 352.291, 55.7277, 0)
 next_scene_path = "res://Scenes/Maps/Official/LivingRoom/LivingRoom.tscn"
 
 [node name="Arrow" type="Sprite3D" parent="Exits/ExitToLivingRoom"]
@@ -552,7 +552,7 @@ transform = Transform3D(-1.68576, 1.47374e-07, 0, -1.47374e-07, -1.68576, 0, 0, 
 texture = ExtResource("21_qano6")
 
 [node name="ExitToWinScreen" parent="Exits" instance=ExtResource("20_y4p00")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -51.5645, 54.7938, 10)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -33.9331, 17.0187, 0)
 next_scene_path = "res://Menus/Credits/credits.tscn"
 
 [node name="Arrow" type="Sprite3D" parent="Exits/ExitToWinScreen"]
@@ -560,6 +560,7 @@ transform = Transform3D(1.68576, 0, 0, 0, 1.68576, 0, 0, 0, 1.68576, 0, 0, 0)
 texture = ExtResource("21_qano6")
 
 [node name="FlowerPlatforms" type="Node3D" parent="."]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 297.725, 0, 8.20962)
 
 [node name="Flower" type="MeshInstance3D" parent="FlowerPlatforms"]
 transform = Transform3D(1, 0, 0, 0, 1.75417, 0, 0, 0, 1, -47.5119, 0, 8.92209)

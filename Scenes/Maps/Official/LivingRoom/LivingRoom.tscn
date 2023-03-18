@@ -13,7 +13,6 @@
 [ext_resource type="PackedScene" uid="uid://ch0xqdmee1xnu" path="res://WorldEnvironments/sky_and_lighting.tscn" id="7_12lrh"]
 [ext_resource type="PackedScene" uid="uid://dwte3a8axt6kp" path="res://Scenes/Objects/door.tscn" id="7_4288d"]
 [ext_resource type="Shader" uid="uid://cx2ac458h8a83" path="res://Shaders/Cloud_Water.tres" id="8_pjrtt"]
-[ext_resource type="PackedScene" uid="uid://dy000li05s73h" path="res://Scenes/Objects/TimedTextArea.tscn" id="9_sm6vs"]
 [ext_resource type="PackedScene" uid="uid://cmd16bdree5a7" path="res://Scenes/Objects/fall_reset_volume.tscn" id="11_k54t8"]
 [ext_resource type="Script" path="res://Scenes/Maps/ReferenceSprite3D.gd" id="11_x1kbs"]
 [ext_resource type="Texture2D" uid="uid://coaanccqd0h8j" path="res://Art/Foliage/Tree.png" id="13_8fou7"]
@@ -283,9 +282,6 @@ mesh = SubResource("PlaneMesh_kw84f")
 
 [node name="DynamicObjects" type="Node3D" parent="."]
 
-[node name="TimedTextArea" parent="DynamicObjects" instance=ExtResource("9_sm6vs")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24.0898, -16.573, 2.3093)
-
 [node name="TriggerVolumeWin" parent="DynamicObjects" instance=ExtResource("4_jclyg")]
 transform = Transform3D(1.36912, 0, 0, 0, 1.36912, 0, 0, 0, 1.36912, 24.1752, 23.2401, -0.00569916)
 next_scene_path = "res://Scenes/Maps/Official/Attic/Attic.tscn"
@@ -329,12 +325,7 @@ open_on_previous_map_name = "attic"
 
 [node name="TimedTextArea" parent="DynamicObjects" instance=ExtResource("14_cr18n")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -23.4451, -16.9147, 0)
-
-[node name="timeout" parent="DynamicObjects/TimedTextArea" index="1"]
-wait_time = 10.0
-
-[node name="CollisionShape3D" parent="DynamicObjects/TimedTextArea" index="2"]
-transform = Transform3D(2.25311, 0, 0, 0, 1, 0, 0, 0, 1, 0.725246, 1.94097, 0.386038)
+text_to_display = "WASD move. Space to jump"
 
 [node name="ReferenceSprite3D" type="Sprite3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2.05205)
@@ -666,5 +657,4 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 26.4085, 15.5292, 0)
 [editable path="player/Audio/Landing"]
 [editable path="player/Audio/Jumping"]
 [editable path="player/Audio/Hurt"]
-[editable path="DynamicObjects/TimedTextArea"]
 [editable path="Background Elements/KoiOnPath"]

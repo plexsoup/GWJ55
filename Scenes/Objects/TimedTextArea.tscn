@@ -7,8 +7,13 @@ script/source = "extends Area3D
 @onready var timer = $timeout
 @onready var label = $Panel
 
+@export_multiline var text_to_display : String = \"\"
 
 var is_in_area = false;
+
+func _ready():
+	if text_to_display != \"\":
+		$Panel/Text.text = text_to_display
 
 # TimedTextArea body_exited -> _on_timed_text_area_body_exited
 func _on_timed_text_area_body_exited(body):
@@ -132,5 +137,5 @@ libraries = {
 [connection signal="body_entered" from="." to="." method="_on_timed_text_area_body_entered"]
 [connection signal="body_exited" from="." to="." method="_on_timed_text_area_body_exited"]
 [connection signal="timeout" from="timeout" to="." method="_on_timer_timeout"]
-[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="animation_finished"]
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

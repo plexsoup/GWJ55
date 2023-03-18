@@ -1,9 +1,11 @@
-[gd_scene load_steps=12 format=3 uid="uid://cm2o1lkpf6s0w"]
+[gd_scene load_steps=14 format=3 uid="uid://cm2o1lkpf6s0w"]
 
 [ext_resource type="PackedScene" uid="uid://bpr26601pqhqe" path="res://Scenes/Entities/NPCs/npc.tscn" id="1_61f12"]
 [ext_resource type="Material" uid="uid://blly5mllk3bkf" path="res://Scenes/Entities/NPCs/monster_face_material.tres" id="2_mm2l4"]
 [ext_resource type="ArrayMesh" uid="uid://slkmpulojqde" path="res://Art/objects/vaccuum.obj" id="3_qy7mo"]
 [ext_resource type="Texture2D" uid="uid://bavp0sd2e1sdb" path="res://Art/objects/vaccuum.png" id="4_x0ymk"]
+[ext_resource type="PackedScene" uid="uid://cakkghby15ea5" path="res://sfx/temporary_sound.tscn" id="5_ifyrn"]
+[ext_resource type="AudioStream" uid="uid://cxexix7ol1j0b" path="res://Menus/Buttons/click_placeholder.wav" id="6_yekm3"]
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_vad55"]
 
@@ -73,3 +75,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_r6sel")
 
 [node name="JumpScare" parent="Behaviours" index="1"]
 visible = false
+
+[node name="ThunkSound" parent="." index="7" instance=ExtResource("5_ifyrn")]
+stream = ExtResource("6_yekm3")
+pitch_jitter = 0.3

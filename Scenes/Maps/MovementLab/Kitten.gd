@@ -63,8 +63,12 @@ func _physics_process(delta):
 				dropped = false
 		else:
 			thrown = false
+	if Input.is_action_just_pressed("swap") and (dropped || thrown) and target:
+		var save_pos = global_position
+		global_position = target.global_position
+		target.global_position = save_pos
 		
-			
+		
 func update_trajectory(delta):
 	line.show()
 	var fast_time = delta * 2

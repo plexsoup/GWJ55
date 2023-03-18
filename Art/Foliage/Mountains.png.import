@@ -3,16 +3,16 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dhagpqi7ourpo"
-path.s3tc="res://.godot/imported/Mountains.png-59a0dcf9a01bedf98c6d5449f1921c28.s3tc.ctex"
+path.etc2="res://.godot/imported/Mountains.png-59a0dcf9a01bedf98c6d5449f1921c28.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://Art/Foliage/Mountains.png"
-dest_files=["res://.godot/imported/Mountains.png-59a0dcf9a01bedf98c6d5449f1921c28.s3tc.ctex"]
+dest_files=["res://.godot/imported/Mountains.png-59a0dcf9a01bedf98c6d5449f1921c28.etc2.ctex"]
 
 [params]
 

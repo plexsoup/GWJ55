@@ -3,16 +3,16 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://d2tun4dqdssdx"
-path.s3tc="res://.godot/imported/level01_mockup_section3.png-71a09c6c0ac36c0305c978f1e7044bbe.s3tc.ctex"
+path.etc2="res://.godot/imported/level01_mockup_section3.png-71a09c6c0ac36c0305c978f1e7044bbe.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://Scenes/Maps/Official/BathRoom/level01_mockup_section3.png"
-dest_files=["res://.godot/imported/level01_mockup_section3.png-71a09c6c0ac36c0305c978f1e7044bbe.s3tc.ctex"]
+dest_files=["res://.godot/imported/level01_mockup_section3.png-71a09c6c0ac36c0305c978f1e7044bbe.etc2.ctex"]
 
 [params]
 

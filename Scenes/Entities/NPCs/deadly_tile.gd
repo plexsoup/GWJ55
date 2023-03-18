@@ -22,7 +22,7 @@ func _on_area_3d_body_entered(body):
 			print("player hit deadly tile")
 			if not hit.is_connected(body._on_hit):
 				hit.connect(body._on_hit)
-			hit.emit(1)
+			hit.emit(1, Vector3(0, 10, 0))
 			$SplashNoise.start()
 			$CPUParticles3D.emitting = true
 			await get_tree().create_timer(2.5).timeout

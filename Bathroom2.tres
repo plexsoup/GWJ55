@@ -1,0 +1,59 @@
+[gd_resource type="Environment" load_steps=4 format=3 uid="uid://d3k80qgfttpx"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_xgfn7"]
+load_path = "res://.godot/imported/Sky_Y.png-b7d8dea446f996074b19681c52cb7ec2.s3tc.ctex"
+
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_l1u8n"]
+panorama = SubResource("CompressedTexture2D_xgfn7")
+
+[sub_resource type="Sky" id="Sky_d55dc"]
+sky_material = SubResource("PanoramaSkyMaterial_l1u8n")
+
+[resource]
+background_mode = 2
+sky = SubResource("Sky_d55dc")
+ambient_light_source = 3
+ambient_light_color = Color(0.266667, 0.737255, 0.792157, 1)
+ambient_light_sky_contribution = 0.41
+ambient_light_energy = 9.76
+reflected_light_source = 2
+tonemap_mode = 2
+tonemap_exposure = 0.83
+tonemap_white = 6.05
+ssr_enabled = true
+ssao_enabled = true
+ssao_radius = 2.01
+ssao_intensity = 4.86
+ssao_detail = 3.29
+ssao_horizon = 0.25
+ssao_sharpness = 0.25
+ssao_light_affect = 0.04
+ssao_ao_channel_affect = 0.75
+ssil_enabled = true
+ssil_radius = 0.6
+ssil_intensity = 5.05
+ssil_sharpness = 0.13
+sdfgi_enabled = true
+sdfgi_use_occlusion = true
+glow_enabled = true
+glow_intensity = 8.0
+glow_strength = 0.27
+glow_bloom = 0.46
+glow_blend_mode = 1
+fog_light_color = Color(0.729412, 0.470588, 0.470588, 1)
+fog_light_energy = 0.16
+fog_density = 0.0205
+fog_height = 689.85
+fog_height_density = -1.0105
+volumetric_fog_enabled = true
+volumetric_fog_density = 0.0184
+volumetric_fog_albedo = Color(0, 0.623529, 0.607843, 1)
+volumetric_fog_emission = Color(0.101961, 0.133333, 0.392157, 1)
+volumetric_fog_gi_inject = 1.16
+volumetric_fog_anisotropy = 0.07
+volumetric_fog_length = 107.12
+volumetric_fog_ambient_inject = 0.44
+volumetric_fog_sky_affect = 0.174
+adjustment_enabled = true
+adjustment_brightness = 0.83
+adjustment_contrast = 1.33

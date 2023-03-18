@@ -28,8 +28,17 @@ var jumping = false
 var dashing = false
 var on_dash_cooldown = false
 var dash_usable = true
+
+
 var climb_side = "none"
 var climb_flip = 0
+
+var last_knockback_time : float = 0.0
+var knockback_duration : float = 0.8
+
+enum States { READY, KNOCKBACK, DYING }
+var state = States.READY
+
 
 var no_clip_mode : bool = false
 
@@ -37,24 +46,25 @@ func _ready():
 	Global.current_player = self
 
 func _physics_process(delta):
-	
-	check_climb()
-	check_stairs()
-	set_gravity_states(delta)
-	handle_dash()
-	if !dashing and !on_dash_cooldown:
-		handle_jump()
-		if !no_clip_mode:
-			move()
-		else:
-			move_noclip(delta)
+	if state in [ States.READY ]:
+		check_climb()
+		check_stairs()
+		set_gravity_states(delta)
+		handle_dash()
+		if !dashing and !on_dash_cooldown:
+			handle_jump()
+			if !no_clip_mode:
+				move()
+			else:
+				move_noclip(delta)
 
-	move_and_slide()
-	update_gravity_states()
-	animate()
-	play_audio()
-	previous_animation_frame = animated_sprite.get_frame()
-	
+		move_and_slide()
+		update_gravity_states()
+		animate()
+		play_audio()
+		previous_animation_frame = animated_sprite.get_frame()
+	elif state == States.KNOCKBACK:
+		execute_knockback(delta)
 
 func wind_throw():
 	pass
@@ -262,6 +272,28 @@ func move():
 		if is_on_floor() and velocity.y < 0:
 			velocity.x = direction.x * SPEED * fall_modifier
 
+func receive_knockback(impactVector):
+	
+	if Global.player_stats["health"] > 0:
+		last_knockback_time = Time.get_ticks_msec()
+		var knockback_magnitude = 20.0
+		state = States.KNOCKBACK
+		velocity.x = impactVector.normalized().x * knockback_magnitude
+		velocity.y = 20.0
+		move_and_slide()
+
+func execute_knockback(delta):
+	set_gravity_states(delta)
+	move_and_slide()
+	if Time.get_ticks_msec() > last_knockback_time + knockback_duration:
+		if is_on_floor() or is_on_ceiling() or is_on_wall():
+			if Global.player_stats["health"] > 0:
+				state = States.READY
+			else:
+				state = States.DYING
+			
+	
+
 func move_noclip(delta):
 	var noclip_speed = 200.0
 	velocity = Vector3( Input.get_axis("move_left", "move_right"), Input.get_axis("move_down", "move_up"), 0) * noclip_speed * delta
@@ -277,12 +309,15 @@ func jump():
 func _on_jump_buffer_timeout():
 	buffered_jump = false
 
-func _on_hit(damage):
-	Global.player_stats["health"] -= damage
-	$HUD._on_hit()
+func _on_hit(damage, impactVector):
+	if state in [ States.READY ]: # knockback gives iframes
+		$Audio/Hurt.start()
+		receive_knockback(impactVector)
+		Global.player_stats["health"] -= damage
+		$HUD._on_hit()
 
-	if Global.player_stats["health"] < 1:
-		begin_dying()
+		if Global.player_stats["health"] < 1:
+			begin_dying()
 	
 func begin_dying():
 	Global.reset_player()

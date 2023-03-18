@@ -1,22 +1,10 @@
-[gd_scene load_steps=14 format=3 uid="uid://cm2o1lkpf6s0w"]
+[gd_scene load_steps=8 format=3 uid="uid://cm2o1lkpf6s0w"]
 
 [ext_resource type="PackedScene" uid="uid://bpr26601pqhqe" path="res://Scenes/Entities/NPCs/npc.tscn" id="1_61f12"]
-[ext_resource type="Material" uid="uid://blly5mllk3bkf" path="res://Scenes/Entities/NPCs/monster_face_material.tres" id="2_mm2l4"]
 [ext_resource type="ArrayMesh" uid="uid://slkmpulojqde" path="res://Art/objects/vaccuum.obj" id="3_qy7mo"]
 [ext_resource type="Texture2D" uid="uid://bavp0sd2e1sdb" path="res://Art/objects/vaccuum.png" id="4_x0ymk"]
 [ext_resource type="PackedScene" uid="uid://cakkghby15ea5" path="res://sfx/temporary_sound.tscn" id="5_ifyrn"]
 [ext_resource type="AudioStream" uid="uid://cxexix7ol1j0b" path="res://Menus/Buttons/click_placeholder.wav" id="6_yekm3"]
-
-[sub_resource type="CylinderMesh" id="CylinderMesh_vad55"]
-
-[sub_resource type="SphereMesh" id="SphereMesh_0snr5"]
-
-[sub_resource type="BoxMesh" id="BoxMesh_w1uvf"]
-
-[sub_resource type="CylinderMesh" id="CylinderMesh_afg06"]
-
-[sub_resource type="PlaneMesh" id="PlaneMesh_0sy4c"]
-material = ExtResource("2_mm2l4")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_vye7k"]
 size = Vector3(1, 1, 2.14004)
@@ -34,32 +22,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.500838, 0, 0)
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0)
 visible = false
 
-[node name="Body" type="MeshInstance3D" parent="Visuals/VacuumCleaner" index="0"]
-transform = Transform3D(0.37492, 0.567873, 0, -0.25866, 0.823117, 0, 0, 0, 1, 0.768968, 1.25583, 0)
-mesh = SubResource("CylinderMesh_vad55")
-
-[node name="Bag" type="MeshInstance3D" parent="Visuals/VacuumCleaner" index="1"]
-transform = Transform3D(0.481924, 0.966737, 0, -0.333289, 1.39786, 0, 0, 0, 1, 1.10622, 0.988782, 0)
-mesh = SubResource("SphereMesh_0snr5")
-
-[node name="Foot" type="MeshInstance3D" parent="Visuals/VacuumCleaner" index="2"]
-transform = Transform3D(1, 0, 0, 0, 0.354348, 0, 0, 0, 2.20932, 0, 0.375214, 0)
-mesh = SubResource("BoxMesh_w1uvf")
-
-[node name="Handle" type="MeshInstance3D" parent="Visuals/VacuumCleaner" index="3"]
-transform = Transform3D(0.257719, 0, 0, 0, -4.37114e-08, -0.257719, 0, 1, -1.12653e-08, 1.32478, 2.17531, 0)
-mesh = SubResource("CylinderMesh_afg06")
-
-[node name="MonsterFace" type="MeshInstance3D" parent="Visuals/VacuumCleaner" index="4"]
-transform = Transform3D(-0.542097, -0.332891, -0.743613, 0.210965, 0.242248, -1.33341, 0.61133, -0.378789, -0.199251, 0.21089, 1.96951, 1.84366e-08)
-mesh = SubResource("PlaneMesh_0sy4c")
-skeleton = NodePath("../../..")
-
-[node name="MonsterFace2" type="MeshInstance3D" parent="Visuals/VacuumCleaner" index="5"]
-transform = Transform3D(0.519957, -0.355188, -0.71766, -0.353644, 0.13247, -1.34958, 0.562744, 0.41143, -0.185023, 0.444479, 1.96951, 0.556178)
-mesh = SubResource("PlaneMesh_0sy4c")
-skeleton = NodePath("../../..")
-
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Visuals/Hurtbox" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.954028, 1.14386, 0)
 shape = SubResource("BoxShape3D_vye7k")
@@ -67,7 +29,7 @@ shape = SubResource("BoxShape3D_vye7k")
 [node name="WeakSpot" parent="Visuals" index="3"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.59841, 1.07064, 0)
 
-[node name="Vaccuum" type="MeshInstance3D" parent="Visuals" index="4"]
+[node name="VaccuumMesh" type="MeshInstance3D" parent="Visuals" index="4"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.792501, -2.08165e-12, -0.278133)
 mesh = ExtResource("3_qy7mo")
 skeleton = NodePath("../..")

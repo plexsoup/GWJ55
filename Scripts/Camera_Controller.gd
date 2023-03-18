@@ -11,10 +11,22 @@ var follow = false
 var starting_position : Vector3
 var starting_fov : float
 
+var found_player : bool = false
+
+
 func _ready():
 	top_level = true
 	starting_position = position
 	starting_fov = fov
+	
+	# Trying to figure out why the camera won't center on the player when the player gets moved to a spawnpoint.
+	
+	# workaround spawn point bug, player moves immediately after level starts
+#	await get_tree().create_timer(0.25).timeout
+#	global_position.x = Global.current_player.global_position.x
+#	global_position.y = Global.current_player.global_position.y
+#	follow = true
+		
 
 func _physics_process(delta):
 	if follow:
@@ -32,6 +44,7 @@ func _physics_process(delta):
 	global_position.y = y
 		
 func _on_area_3d_body_exited(body):
+	
 	if body == target:
 		follow = true
 

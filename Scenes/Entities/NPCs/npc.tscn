@@ -1,7 +1,7 @@
 [gd_scene load_steps=17 format=3 uid="uid://bpr26601pqhqe"]
 
 [ext_resource type="Script" path="res://Scenes/Entities/NPCs/npc.gd" id="1_t13r0"]
-[ext_resource type="PackedScene" path="res://Scenes/Entities/NPCs/Behaviours/virtual_input_controller.tscn" id="2_85tmj"]
+[ext_resource type="PackedScene" uid="uid://cjk0fbax45jl3" path="res://Scenes/Entities/NPCs/Behaviours/virtual_input_controller.tscn" id="2_85tmj"]
 [ext_resource type="PackedScene" uid="uid://bqe4y0cbhefd8" path="res://Scenes/Entities/NPCs/Behaviours/back_and_forth.tscn" id="3_kspxs"]
 [ext_resource type="PackedScene" uid="uid://d0rerk6xellrg" path="res://Scenes/Entities/NPCs/Behaviours/jump_scare.tscn" id="4_fwjoq"]
 [ext_resource type="Material" uid="uid://b30wkuohpie3w" path="res://Materials/OrangeCarpetNoiseShader.tres" id="5_8jyod"]

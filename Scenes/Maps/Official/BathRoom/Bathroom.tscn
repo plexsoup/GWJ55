@@ -1,4 +1,4 @@
-[gd_scene load_steps=48 format=3 uid="uid://cn7kly3fslq62"]
+[gd_scene load_steps=69 format=3 uid="uid://dyn1atg77jsnm"]
 
 [ext_resource type="Script" path="res://Scenes/Maps/base_level.gd" id="1_3t2kx"]
 [ext_resource type="MeshLibrary" uid="uid://dmh5e52qprx6r" path="res://MeshLibraries/cat_tower_plex.tres" id="2_tx034"]
@@ -25,8 +25,23 @@
 [ext_resource type="PackedScene" uid="uid://b2tb1owb5nnun" path="res://Scenes/Objects/spawn_point.tscn" id="22_0ifv0"]
 [ext_resource type="Texture2D" uid="uid://bpp08atu8a8u0" path="res://Art/objects/sink.png" id="22_3q82r"]
 [ext_resource type="Texture2D" uid="uid://lmde70nwacgw" path="res://Art/Eye_text.png" id="24_xk33q"]
-[ext_resource type="PackedScene" uid="uid://beeeabp6iyqb5" path="res://Scenes/Objects/giant_floating_eye.tscn" id="25_chv52"]
+[ext_resource type="Curve" uid="uid://ctp0miqywpyoo" path="res://Shaders/Waterdrop.tres" id="26_5djuc"]
 [ext_resource type="Shader" uid="uid://btl5ebnoijhp2" path="res://Shaders/Envi_Water.tres" id="26_yyjx1"]
+[ext_resource type="ArrayMesh" uid="uid://crqdcvpu65qav" path="res://Art/objects/Water_twist2.obj" id="27_fjhtx"]
+[ext_resource type="Shader" uid="uid://hkuj1qssy6ue" path="res://Water_Ground.tres" id="28_d6crc"]
+[ext_resource type="Texture2D" uid="uid://b8b3xjek6q7wy" path="res://Art/Foliage/Grass3.png" id="28_pvto1"]
+[ext_resource type="Texture2D" uid="uid://ddaucwcbe7q1y" path="res://Art/Foliage/Mushrooms.png" id="29_420ga"]
+[ext_resource type="Texture2D" uid="uid://b6jmphr0ugk78" path="res://Art/Foliage/Mountains 2.png" id="30_7hnmv"]
+[ext_resource type="Texture2D" uid="uid://1yt0bsisi0p6" path="res://Art/Foliage/Bush_1.png" id="30_a6qsh"]
+[ext_resource type="AudioStream" uid="uid://c75ktirujy5pe" path="res://sfx/Rain.mp3" id="31_mhp4h"]
+[ext_resource type="Texture2D" uid="uid://coaanccqd0h8j" path="res://Art/Foliage/Tree.png" id="31_yuwoy"]
+
+[sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_qs5tq"]
+dof_blur_far_enabled = true
+dof_blur_far_distance = 108.62
+dof_blur_near_enabled = true
+dof_blur_near_distance = 6.28
+dof_blur_amount = 0.13
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_op2lt"]
 render_priority = 0
@@ -119,11 +134,6 @@ _data = {
 "Twitching_Eye": SubResource("Animation_ohep0")
 }
 
-[sub_resource type="Curve" id="Curve_31aaj"]
-max_value = 697.74
-_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(1, 1), 976.836, 0.0, 0, 0]
-point_count = 2
-
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_vffpx"]
 render_priority = 0
 shader = ExtResource("26_yyjx1")
@@ -137,7 +147,7 @@ radius = 0.491
 radial_steps = 119
 section_length = 70.971
 section_rings = 17
-curve = SubResource("Curve_31aaj")
+curve = ExtResource("26_5djuc")
 
 [sub_resource type="AnimationNodeBlendSpace2D" id="AnimationNodeBlendSpace2D_qrb4l"]
 
@@ -174,6 +184,94 @@ _data = {
 "Drop": SubResource("Animation_gmlqj")
 }
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_a5c6y"]
+render_priority = 0
+shader = ExtResource("26_yyjx1")
+shader_parameter/Vertex_Roughness = 0.1
+shader_parameter/ColorParameter = Color(0.10844, 0.397392, 0.688247, 1)
+shader_parameter/FloatParameter = 0.2
+
+[sub_resource type="Animation" id="Animation_jngr1"]
+resource_name = "twist"
+length = 10.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 10),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 6.28319, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_ofael"]
+length = 0.001
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ce648"]
+_data = {
+"RESET": SubResource("Animation_ofael"),
+"twist": SubResource("Animation_jngr1")
+}
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_y34xl"]
+render_priority = 0
+shader = ExtResource("28_d6crc")
+shader_parameter/Wave_Height = Quaternion(1, 1, 1, 1)
+shader_parameter/Vertex_Roughness = 0.1
+shader_parameter/ColorParameter = Color(0.10844, 0.397392, 0.688247, 1)
+shader_parameter/FloatParameter = 0.2
+
+[sub_resource type="QuadMesh" id="QuadMesh_8pkyx"]
+material = SubResource("ShaderMaterial_y34xl")
+size = Vector2(900, 350)
+subdivide_width = 65
+subdivide_depth = 199
+
+[sub_resource type="Gradient" id="Gradient_xdfgo"]
+offsets = PackedFloat32Array(0, 0.99187)
+colors = PackedColorArray(0, 0, 0, 1, 0.689952, 0.0732167, 0.329843, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_8n0en"]
+gradient = SubResource("Gradient_xdfgo")
+
+[sub_resource type="Curve" id="Curve_1cl40"]
+_data = [Vector2(0, 0.709091), 0.0, 0.0, 0, 0, Vector2(0.993506, 0.190909), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_j8aao"]
+curve = SubResource("Curve_1cl40")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_ctbpw"]
+emission_shape = 3
+emission_box_extents = Vector3(150, 50, 80)
+spread = 38.94
+gravity = Vector3(0, -90, 0)
+linear_accel_max = 96.63
+angle_min = -485.4
+angle_max = -485.4
+scale_curve = SubResource("CurveTexture_j8aao")
+color_ramp = SubResource("GradientTexture1D_8n0en")
+hue_variation_min = -0.07
+hue_variation_max = 0.86
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gv07r"]
+albedo_color = Color(0, 0.447059, 0.447059, 1)
+rim_enabled = true
+rim_tint = 0.52
+clearcoat_enabled = true
+clearcoat_roughness = 1.0
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_5dvjo"]
+material = SubResource("StandardMaterial3D_gv07r")
+radius = 0.075
+height = 2.053
+radial_segments = 4
+rings = 1
+
 [node name="Bathroom" type="Node3D"]
 script = ExtResource("1_3t2kx")
 
@@ -202,6 +300,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -59.4713, 22.0935, -0.382575)
 
 [node name="AnimatedSprite3D" parent="player" index="1"]
 shaded = true
+
+[node name="Camera3D" parent="player" index="8"]
+attributes = SubResource("CameraAttributesPractical_qs5tq")
 
 [node name="NPCs" type="Node3D" parent="."]
 
@@ -424,7 +525,6 @@ transform = Transform3D(1.38445, 0, 0, 0, 1.38445, 0, 0, 0, 1.38445, -36.328, 22
 
 [node name="Eye2" type="MeshInstance3D" parent="Background_elements"]
 transform = Transform3D(-0.257515, -0.965357, -0.0421026, -0.634054, 0.135937, 0.761247, -0.729152, 0.222728, -0.647094, -26.2585, 31.0863, -14.0856)
-visible = false
 mesh = SubResource("SphereMesh_ovymh")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Background_elements/Eye2"]
@@ -454,6 +554,180 @@ libraries = {
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -79.9058, 0, -100.79)
 visible = false
 mesh = SubResource("TubeTrailMesh_76on5")
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+transform = Transform3D(5.09637, 0, 0, 0, 4.89496, 0, 0, 0, 1, -70.0162, 17.9851, -2.17274)
+shaded = true
+alpha_cut = 2
+texture = ExtResource("28_pvto1")
+
+[node name="Sprite3D2" type="Sprite3D" parent="."]
+transform = Transform3D(5.09637, 0, 0, 0, 4.89496, 0, 0, 0, 1, -55.0662, 17.9851, -2.17274)
+shaded = true
+alpha_cut = 2
+texture = ExtResource("28_pvto1")
+
+[node name="Sprite3D16" type="Sprite3D" parent="."]
+transform = Transform3D(5.09637, 0, 0, 0, 4.89496, 0, 0, 0, 1, -63.0939, 16.5795, -2.17274)
+shaded = true
+alpha_cut = 2
+texture = ExtResource("28_pvto1")
+
+[node name="Sprite3D4" type="Sprite3D" parent="."]
+transform = Transform3D(5.09637, 0, 0, 0, 4.89496, 0, 0, 0, 1, -69.2476, 14.7085, 3.69806)
+shaded = true
+alpha_cut = 2
+texture = ExtResource("28_pvto1")
+
+[node name="Sprite3D20" type="Sprite3D" parent="."]
+transform = Transform3D(5.09637, 0, 0, 0, 4.89496, 0, 0, 0, 1, -69.2476, 15.1332, 3.69806)
+shaded = true
+alpha_cut = 2
+texture = ExtResource("28_pvto1")
+
+[node name="Sprite3D5" type="Sprite3D" parent="."]
+transform = Transform3D(5.09637, 0, 0, 0, 4.89496, 0, 0, 0, 1, -54.9678, 14.7085, 0.834274)
+visible = false
+shaded = true
+alpha_cut = 2
+texture = ExtResource("28_pvto1")
+
+[node name="Mushroom" type="Sprite3D" parent="."]
+transform = Transform3D(5.09637, 0, 0, 0, 4.89496, 0, 0, 0, 1, -67.609, 14.7085, 2.87822)
+shaded = true
+alpha_cut = 2
+texture = ExtResource("29_420ga")
+
+[node name="Mushroom2" type="Sprite3D" parent="."]
+transform = Transform3D(3.15427, 0, 0, 0, 2.98926, 0, 0, 0, 1, -55.4186, 14.903, 2.5874)
+shaded = true
+alpha_cut = 2
+texture = ExtResource("29_420ga")
+
+[node name="Mushroom3" type="Sprite3D" parent="."]
+transform = Transform3D(5.09637, 0, 0, 0, 4.89496, 0, 0, 0, 1, -72.3519, 17.4232, 2.5874)
+shaded = true
+alpha_cut = 2
+texture = ExtResource("29_420ga")
+
+[node name="Sprite3D8" type="Sprite3D" parent="."]
+transform = Transform3D(5.09637, 0, 0, 0, 4.89496, 0, 0, 0, 1, -58.5421, 10.7446, 2.58971)
+shaded = true
+alpha_cut = 2
+texture = ExtResource("30_a6qsh")
+
+[node name="Sprite3D12" type="Sprite3D" parent="."]
+transform = Transform3D(5.09637, 0, 0, 0, 4.89496, 0, 0, 0, 1, -88.0097, 24.3232, -13.6712)
+shaded = true
+alpha_cut = 2
+texture = ExtResource("31_yuwoy")
+
+[node name="Sprite3D13" type="Sprite3D" parent="."]
+transform = Transform3D(1.79553, 0, 0, 0, 3.24091, 0, 0, 0, 1, -69.0279, 27.0549, 5.2047)
+visible = false
+modulate = Color(0.596078, 0.596078, 0.596078, 1)
+shaded = true
+alpha_cut = 2
+texture = ExtResource("31_yuwoy")
+
+[node name="Sprite3D14" type="Sprite3D" parent="."]
+transform = Transform3D(2.19836, 0, 0, 0, 1.99696, 0, 0, 0, 1, -82.9135, 25.034, 3.93687)
+shaded = true
+alpha_cut = 2
+texture = ExtResource("31_yuwoy")
+
+[node name="Sprite3D15" type="Sprite3D" parent="."]
+transform = Transform3D(2.19836, 0, 0, 0, 1.99696, 0, 0, 0, 1, -84.0075, 25.034, -0.244978)
+shaded = true
+alpha_cut = 2
+texture = ExtResource("31_yuwoy")
+
+[node name="Sprite3D9" type="Sprite3D" parent="."]
+transform = Transform3D(5.09637, 0, 0, 0, 4.89496, 0, 0, 0, 1, -53.0431, 10.7446, -0.0600798)
+shaded = true
+alpha_cut = 2
+texture = ExtResource("30_a6qsh")
+
+[node name="Sprite3D18" type="Sprite3D" parent="."]
+transform = Transform3D(9.69844, 0, 0, 0, 12.7985, 0, 0, 0, 1, -60.0604, 2.50668, -0.0600798)
+shaded = true
+alpha_cut = 2
+texture = ExtResource("30_a6qsh")
+
+[node name="Sprite3D19" type="Sprite3D" parent="."]
+transform = Transform3D(9.69844, 0, 0, 0, 12.7985, 0, 0, 0, 1, -58.0735, 2.50668, -7.35534)
+shaded = true
+alpha_cut = 2
+texture = ExtResource("30_a6qsh")
+
+[node name="Sprite3D17" type="Sprite3D" parent="."]
+transform = Transform3D(5.09637, 0, 0, 0, 4.89496, 0, 0, 0, 1, -53.0431, 10.7446, -0.0600798)
+shaded = true
+alpha_cut = 2
+texture = ExtResource("30_a6qsh")
+
+[node name="Sprite3D10" type="Sprite3D" parent="."]
+transform = Transform3D(11.2315, 0, 0, 0, 5.75154, 0, 0, 0, 1, -59.3616, 11.4084, -0.067713)
+shaded = true
+alpha_cut = 2
+texture = ExtResource("30_a6qsh")
+
+[node name="Sprite3D11" type="Sprite3D" parent="."]
+transform = Transform3D(11.2315, 0, 0, 0, 5.75154, 0, 0, 0, 1, -70.6537, 11.4084, -0.067713)
+shaded = true
+alpha_cut = 2
+texture = ExtResource("30_a6qsh")
+
+[node name="Sprite3D6" type="Sprite3D" parent="."]
+transform = Transform3D(312.319, 0, 0, 0, 300, 0, 0, 0, 61.287, -179.916, -70.394, -456.568)
+shaded = true
+alpha_cut = 2
+texture = ExtResource("30_7hnmv")
+
+[node name="Sprite3D7" type="Sprite3D" parent="."]
+transform = Transform3D(247.377, -183.131, 0, 190.651, 237.62, 0, 0, 0, 61.287, 526.944, -70.394, -456.568)
+shaded = true
+alpha_cut = 2
+texture = ExtResource("30_7hnmv")
+
+[node name="WaterTwist2" type="MeshInstance3D" parent="."]
+transform = Transform3D(7.109, 0, 0, 0, 7.522, 0, 0, 0, 7.088, -23.0962, -22.3288, -42.1405)
+mesh = ExtResource("27_fjhtx")
+surface_material_override/0 = SubResource("ShaderMaterial_a5c6y")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="WaterTwist2"]
+autoplay = "twist"
+libraries = {
+"": SubResource("AnimationLibrary_ce648")
+}
+
+[node name="WaterTwist3" type="MeshInstance3D" parent="."]
+transform = Transform3D(12.152, 0, 0, 0, 13.3975, 0, 0, 0, 12.1334, -121.967, -76.962, -40.4067)
+mesh = ExtResource("27_fjhtx")
+surface_material_override/0 = SubResource("ShaderMaterial_a5c6y")
+
+[node name="Water_floor" type="MeshInstance3D" parent="."]
+transform = Transform3D(3.47524, 0, 0, 0, -0.161479, 0.997756, 0, -2.40641, -0.066953, 0, -28.3122, 1.89985)
+mesh = SubResource("QuadMesh_8pkyx")
+
+[node name="Water_floor2" type="MeshInstance3D" parent="."]
+transform = Transform3D(8.67054, 0, 0, 0, -0.066953, 0.997756, 0, -0.997756, -0.066953, 0, -50.6776, -331.396)
+mesh = SubResource("QuadMesh_8pkyx")
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 72.8471, 0)
+amount = 500
+lifetime = 3.0
+speed_scale = 4.0
+randomness = 1.0
+visibility_aabb = AABB(-85.4964, -147.493, -45.7144, 170.993, 294.986, 91.4288)
+process_material = SubResource("ParticleProcessMaterial_ctbpw")
+draw_pass_1 = SubResource("CapsuleMesh_5dvjo")
+
+[node name="Rain" type="AudioStreamPlayer" parent="GPUParticles3D"]
+stream = ExtResource("31_mhp4h")
+volume_db = -17.396
+autoplay = true
 
 [connection signal="switch_toggled" from="DynamicObjects/pressure_plate_03" to="MovingPlatforms/moving platform_03" method="_on_plate_press"]
 [connection signal="switch_hit" from="DynamicObjects/switch2" to="DynamicObjects/switch2/Door_02" method="open"]

@@ -669,6 +669,24 @@ shaded = true
 alpha_cut = 2
 texture = ExtResource("30_a6qsh")
 
+[node name="Sprite3D21" type="Sprite3D" parent="."]
+transform = Transform3D(11.2315, 0, 0, 0, 5.75154, 0, 0, 0, 1, -52.6619, -8.35658, -0.067713)
+shaded = true
+alpha_cut = 2
+texture = ExtResource("30_a6qsh")
+
+[node name="Sprite3D22" type="Sprite3D" parent="."]
+transform = Transform3D(3.77063, 0, 0, 0, 5.75154, 0, 0, 0, 1, -10.5661, -5.64785, -0.067713)
+shaded = true
+alpha_cut = 2
+texture = ExtResource("30_a6qsh")
+
+[node name="Sprite3D23" type="Sprite3D" parent="."]
+transform = Transform3D(3.77063, 0, 0, 0, 5.75154, 0, 0, 0, 1, 10.2541, -7.10713, -0.067713)
+shaded = true
+alpha_cut = 2
+texture = ExtResource("30_a6qsh")
+
 [node name="Sprite3D11" type="Sprite3D" parent="."]
 transform = Transform3D(11.2315, 0, 0, 0, 5.75154, 0, 0, 0, 1, -70.6537, 11.4084, -0.067713)
 shaded = true

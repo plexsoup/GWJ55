@@ -78,6 +78,23 @@ material = SubResource("StandardMaterial3D_0fbmc")
 radius = 9.411
 height = 18.822
 
+[sub_resource type="Animation" id="Animation_1qh7g"]
+resource_name = "Drip drop"
+length = 2.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.9),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(32.3414, 28.4375, -6.79861), Vector3(32.3414, 4.15541, -6.79861)]
+}
+
 [sub_resource type="Animation" id="Animation_deyvl"]
 length = 0.001
 
@@ -108,23 +125,6 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Vector3(1, 1, 1)]
-}
-
-[sub_resource type="Animation" id="Animation_1qh7g"]
-resource_name = "Drip drop"
-length = 2.0
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 1.9),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector3(32.3414, 28.4375, -6.79861), Vector3(32.3414, 4.15541, -6.79861)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_4u500"]

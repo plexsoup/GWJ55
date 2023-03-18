@@ -1,0 +1,48 @@
+[gd_resource type="Environment" load_steps=4 format=3 uid="uid://3rskckwhpfre"]
+
+[ext_resource type="Texture2D" uid="uid://bsvatxcqcqx71" path="res://Art/Sky_g.png" id="1_ub4a1"]
+
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_qtie3"]
+panorama = ExtResource("1_ub4a1")
+
+[sub_resource type="Sky" id="Sky_08wnt"]
+sky_material = SubResource("PanoramaSkyMaterial_qtie3")
+
+[resource]
+background_mode = 2
+sky = SubResource("Sky_08wnt")
+sky_rotation = Vector3(0.228638, 1.24267, -3.36674)
+ambient_light_source = 3
+ambient_light_color = Color(0.152941, 0.760784, 0.741176, 1)
+ambient_light_energy = 10.43
+ssao_enabled = true
+ssao_radius = 2.01
+ssao_intensity = 4.86
+ssao_detail = 3.29
+ssao_horizon = 0.25
+ssao_sharpness = 0.25
+ssao_light_affect = 0.04
+ssao_ao_channel_affect = 0.75
+ssil_enabled = true
+ssil_radius = 0.6
+ssil_intensity = 5.05
+ssil_sharpness = 0.13
+sdfgi_enabled = true
+sdfgi_use_occlusion = true
+glow_enabled = true
+glow_intensity = 8.0
+fog_light_color = Color(0.729412, 0.470588, 0.470588, 1)
+volumetric_fog_enabled = true
+volumetric_fog_density = 0.0184
+volumetric_fog_albedo = Color(0, 0.384314, 0.792157, 1)
+volumetric_fog_emission = Color(0.0313726, 0.290196, 0.184314, 1)
+volumetric_fog_emission_energy = 11.78
+volumetric_fog_gi_inject = 1.03
+volumetric_fog_anisotropy = 0.07
+volumetric_fog_length = 74.78
+volumetric_fog_detail_spread = 5.79562
+volumetric_fog_ambient_inject = 0.44
+volumetric_fog_sky_affect = 0.174
+adjustment_enabled = true
+adjustment_brightness = 0.83
+adjustment_contrast = 1.33

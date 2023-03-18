@@ -3,16 +3,16 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cynsdc3oljjuy"
-path.etc2="res://.godot/imported/Light house.png-1c9690d7f899382b3550537fcb10dfaa.etc2.ctex"
+path.s3tc="res://.godot/imported/Light house.png-1c9690d7f899382b3550537fcb10dfaa.s3tc.ctex"
 metadata={
-"imported_formats": ["etc2_astc"],
+"imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://Art/Foliage/Light house.png"
-dest_files=["res://.godot/imported/Light house.png-1c9690d7f899382b3550537fcb10dfaa.etc2.ctex"]
+dest_files=["res://.godot/imported/Light house.png-1c9690d7f899382b3550537fcb10dfaa.s3tc.ctex"]
 
 [params]
 

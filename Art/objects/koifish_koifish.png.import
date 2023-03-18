@@ -3,16 +3,16 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://4w6pchuqp63u"
-path.etc2="res://.godot/imported/koifish_koifish.png-c5d368118b6c76f5b70e4e28a43e6359.etc2.ctex"
+path.s3tc="res://.godot/imported/koifish_koifish.png-c5d368118b6c76f5b70e4e28a43e6359.s3tc.ctex"
 metadata={
-"imported_formats": ["etc2_astc"],
+"imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://Art/objects/koifish_koifish.png"
-dest_files=["res://.godot/imported/koifish_koifish.png-c5d368118b6c76f5b70e4e28a43e6359.etc2.ctex"]
+dest_files=["res://.godot/imported/koifish_koifish.png-c5d368118b6c76f5b70e4e28a43e6359.s3tc.ctex"]
 
 [params]
 

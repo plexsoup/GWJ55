@@ -38,10 +38,10 @@ func _on_plate_press(pressed):
 	tween = get_tree().create_tween()
 	if pressed:
 		tween.tween_property($StaticBody3D,"global_position",startPos + (target * scale), speed * dist_to_perc())
-		print(dist_to_perc())
+		print("moving platform dist_to_perc() == ", dist_to_perc())
 	else:
 		tween.tween_property($StaticBody3D, "global_position", startPos, speed * abs(dist_to_perc()-1))
-		print(dist_to_perc())
+		print("moving platform dist_to_perc() == ", dist_to_perc())
 
 func dist_to_perc():
 	return (startPos + target * scale).distance_to($StaticBody3D.global_position)/distance

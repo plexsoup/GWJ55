@@ -16,10 +16,13 @@ extends CharacterBody3D
 
 var path : PathFollow3D
 
-var knockback_magnitude : float = 10.0
+var knockback_magnitude : float = 1.0
 var knockback_time : float
-var knockback_duration : float = 2.2
+var knockback_duration : float = 750 #ms
 var knockback_angular_velocity: float = 0.3
+
+var delay_after_attack : float = 2250 # ms
+var time_of_last_attack : float = 0.0
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
@@ -30,7 +33,7 @@ var current_map
 
 @onready var input_controller = $VirtualInputController
 
-enum States { READY, KNOCKBACK, DYING, DEAD }
+enum States { READY, KNOCKBACK, PAUSED, DYING, DEAD }
 var state = States.READY
 
 signal hit
@@ -60,6 +63,16 @@ func _physics_process(delta):
 		orient_mesh(delta)
 	elif state == States.KNOCKBACK:
 		get_knocked_back(delta)
+	elif state == States.PAUSED:
+		if Time.get_ticks_msec() > time_of_last_attack + delay_after_attack:
+			resume()
+		
+func resume():
+	if has_node("RunningSound"):
+		$RunningSound.play()
+	state = States.READY
+
+
 
 func get_knocked_back(delta):
 	apply_gravity(delta)
@@ -143,6 +156,10 @@ func _on_hurtbox_body_entered(body):
 			if not hit.is_connected(body._on_hit) and body.has_method("_on_hit"):
 				hit.connect(body._on_hit)
 			hit.emit(damage, body.global_position - global_position)
+			state = States.PAUSED
+			if has_node("RunningSound"):
+				$RunningSound.stop()
+			time_of_last_attack = Time.get_ticks_msec()
 
 
 func _on_player_sighted(body, originator): 
@@ -183,7 +200,7 @@ func knockback(impactVector):
 	
 	velocity = Vector3.ZERO
 	velocity.x = impactVector.x * knockback_magnitude
-	velocity.y = JUMP_VELOCITY * 2.0
+	velocity.y = JUMP_VELOCITY
 	
 	if impactVector.x < 0:
 		velocity.x *= -1
@@ -197,11 +214,13 @@ func knockback(impactVector):
 
 
 func _on_weak_spot_body_entered(body):
-	if not state in [States.READY]:
+	if not state in [States.READY, States.PAUSED]:
 		return
 		
 	if $Visuals/WeakSpot.monitoring and "player" in body.name.to_lower():
 		$HurtSound.start()
+		if has_node("RunningSound"):
+			$RunningSound.stop()
 		knockback(global_position - body.global_position)
 		
 func _on_electrocuted(): # from water

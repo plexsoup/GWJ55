@@ -34,7 +34,7 @@ var climb_side = "none"
 var climb_flip = 0
 
 var last_knockback_time : float = 0.0
-var knockback_duration : float = 0.8
+var knockback_duration : float = 600 # ms
 
 enum States { READY, KNOCKBACK, DYING }
 var state = States.READY

@@ -13,7 +13,7 @@ func attempt_ascent(x_direction : int):
 	# must be pressing a direction and not moving forward and not be obstructed.
 	var magnitude = 1.5
 	$UpperRayCast.target_position = Vector3.RIGHT * x_direction * magnitude
-	if player.is_on_wall():
+	if player != null and is_instance_valid(player) and player.is_on_wall():
 		var dir = Input.get_axis("move_left", "move_right")
 		if abs(dir) > 0.05:
 			if $UpperRayCast.is_colliding(): # hit a platform (on layer 3)

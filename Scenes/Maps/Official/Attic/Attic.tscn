@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=3 uid="uid://dv6mgvqyrydae"]
+[gd_scene load_steps=32 format=3 uid="uid://dv6mgvqyrydae"]
 
 [ext_resource type="PackedScene" uid="uid://cjiok7gin5bk5" path="res://Scenes/Maps/base_level.tscn" id="1_0tska"]
 [ext_resource type="MeshLibrary" uid="uid://dmh5e52qprx6r" path="res://MeshLibraries/cat_tower_plex.tres" id="2_18ox2"]
@@ -11,7 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://crvvpifd7a146" path="res://Scenes/Entities/NPCs/pressure_plate.tscn" id="6_nya5f"]
 [ext_resource type="Script" path="res://WorldEnvironments/sky_and_lighting_Night.gd" id="7_m6huc"]
 [ext_resource type="PackedScene" uid="uid://dwte3a8axt6kp" path="res://Scenes/Objects/door.tscn" id="7_tpc43"]
-[ext_resource type="PackedScene" path="res://Scenes/Objects/trigger_volume_win.tscn" id="8_pd66h"]
+[ext_resource type="PackedScene" uid="uid://eb3wwyaluatx" path="res://Scenes/Objects/trigger_volume_win.tscn" id="8_pd66h"]
 [ext_resource type="PackedScene" uid="uid://ted21c8mecho" path="res://Scenes/Entities/NPCs/switch.tscn" id="11_gdsl8"]
 [ext_resource type="PackedScene" uid="uid://b3p7s4vjxe0y0" path="res://Scenes/Objects/VolumeTriggerHintThoughtBubble.tscn" id="13_k8sh5"]
 [ext_resource type="Script" path="res://Scenes/Maps/ReferenceSprite3D.gd" id="13_q5c4o"]
@@ -22,6 +22,7 @@
 [ext_resource type="Texture2D" uid="uid://coaanccqd0h8j" path="res://Art/Foliage/Tree.png" id="19_cm5fj"]
 [ext_resource type="Texture2D" uid="uid://cynsdc3oljjuy" path="res://Art/Foliage/Light house.png" id="20_c3rgl"]
 [ext_resource type="PackedScene" uid="uid://b2tb1owb5nnun" path="res://Scenes/Objects/spawn_point.tscn" id="21_47lhw"]
+[ext_resource type="AudioStream" uid="uid://7qiv1uacfw8p" path="res://Music/MUS_TitleV2_9M_7-4_78.mp3" id="23_dcvxg"]
 
 [sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_yla2b"]
 dof_blur_far_enabled = true
@@ -402,6 +403,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.1124, 0.557629, -0.563348)
 
 [node name="SpawnPointBathroom" parent="SpawnPoints" index="1" instance=ExtResource("21_47lhw")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 62.0675, 20.0949, -0.620568)
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." index="15"]
+stream = ExtResource("23_dcvxg")
+autoplay = true
 
 [connection signal="switch_toggled" from="DynamicObjects/pressure_plate_04_N" to="MovingPlatforms/moving platform3" method="_on_plate_press"]
 [connection signal="switch_toggled" from="DynamicObjects/pressure_plate_05_top" to="MovingPlatforms/moving platform2" method="_on_plate_press"]

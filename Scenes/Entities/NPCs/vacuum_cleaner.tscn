@@ -1,9 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://cm2o1lkpf6s0w"]
+[gd_scene load_steps=9 format=3 uid="uid://cm2o1lkpf6s0w"]
 
 [ext_resource type="PackedScene" uid="uid://bpr26601pqhqe" path="res://Scenes/Entities/NPCs/npc.tscn" id="1_61f12"]
 [ext_resource type="ArrayMesh" uid="uid://slkmpulojqde" path="res://Art/objects/vaccuum.obj" id="3_qy7mo"]
 [ext_resource type="Texture2D" uid="uid://bavp0sd2e1sdb" path="res://Art/objects/vaccuum.png" id="4_x0ymk"]
 [ext_resource type="PackedScene" uid="uid://cakkghby15ea5" path="res://sfx/temporary_sound.tscn" id="5_ifyrn"]
+[ext_resource type="AudioStream" uid="uid://dl7s1ppax8wev" path="res://sfx/Vacuum/SFX_VacuumRunning.wav" id="6_8btn3"]
 [ext_resource type="AudioStream" uid="uid://cxexix7ol1j0b" path="res://Menus/Buttons/click_placeholder.wav" id="6_yekm3"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_vye7k"]
@@ -41,3 +42,8 @@ visible = false
 [node name="ThunkSound" parent="." index="7" instance=ExtResource("5_ifyrn")]
 stream = ExtResource("6_yekm3")
 pitch_jitter = 0.3
+
+[node name="RunningSound" type="AudioStreamPlayer3D" parent="." index="8"]
+stream = ExtResource("6_8btn3")
+volume_db = -15.0
+autoplay = true

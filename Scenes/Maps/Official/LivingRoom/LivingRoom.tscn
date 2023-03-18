@@ -283,12 +283,12 @@ mesh = SubResource("PlaneMesh_kw84f")
 
 [node name="DynamicObjects" type="Node3D" parent="."]
 
-[node name="TriggerVolumeWin" parent="DynamicObjects" instance=ExtResource("4_jclyg")]
+[node name="ExitToAttic" parent="DynamicObjects" instance=ExtResource("4_jclyg")]
 transform = Transform3D(1.36912, 0, 0, 0, 1.36912, 0, 0, 0, 1.36912, 24.1752, 23.2401, -0.00569916)
 next_scene_path = "res://Scenes/Maps/Official/Attic/Attic.tscn"
 
-[node name="Sprite3D" type="Sprite3D" parent="DynamicObjects/TriggerVolumeWin"]
-transform = Transform3D(-4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, 0, 1.95539, 0)
+[node name="Sprite3D" type="Sprite3D" parent="DynamicObjects/ExitToAttic"]
+transform = Transform3D(-2.50108e-08, 0.57218, 0, -0.57218, -2.50108e-08, 0, 0, 0, 0.57218, 0, 0.0130196, 0)
 pixel_size = 0.033
 texture = ExtResource("5_p0717")
 
@@ -300,7 +300,7 @@ transform = Transform3D(1.22473, 0, 0, 0, 1.5, 0, 0, 0, 0.645259, 76.0788, -6.03
 next_scene_path = "res://Scenes/Maps/Official/BathRoom/Bathroom.tscn"
 
 [node name="Sprite3D" type="Sprite3D" parent="DynamicObjects/ExitToWarehouse"]
-transform = Transform3D(-1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 0, 0, 1, -0.186256, 1.56153, -0.273537)
+transform = Transform3D(-0.452598, 3.95674e-08, 0, -3.95674e-08, -0.452598, 0, 0, 0, 0.452598, -0.186256, 0.607347, -0.273537)
 pixel_size = 0.033
 texture = ExtResource("5_p0717")
 
@@ -309,9 +309,14 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -67.0658, 1.22099, 0)
 next_scene_path = "res://Scenes/Maps/Official/BathRoom/Bathroom.tscn"
 
 [node name="Sprite3D" type="Sprite3D" parent="DynamicObjects/ExitToGarden"]
-transform = Transform3D(1, -1.74846e-07, 0, 1.74846e-07, 1, 0, 0, 0, 1, -0.186256, 1.56153, -0.273537)
+transform = Transform3D(0.431428, -7.54335e-08, 0, 7.54335e-08, 0.431428, 0, 0, 0, 0.431428, 0.254639, 0.669565, 0.0544531)
 pixel_size = 0.033
 texture = ExtResource("5_p0717")
+
+[node name="Label3D" type="Label3D" parent="DynamicObjects/ExitToGarden/Sprite3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.22164, 0)
+text = "Garden"
+font_size = 160
 
 [node name="pressure_plate" parent="DynamicObjects" instance=ExtResource("6_1r3rs")]
 transform = Transform3D(2.1462, 0, 0, 0, 1.0731, 0, 0, 0, 2.1462, 58.1886, -1.373, -1.20121)
@@ -323,10 +328,6 @@ transform = Transform3D(9, 0, 0, 0, 3.38894, 0, 0, 0, 2.26638, 68.2287, -8.15729
 [node name="Door2" parent="DynamicObjects" instance=ExtResource("7_4288d")]
 transform = Transform3D(-3.93403e-07, 3.91795, 0, -9, -1.71259e-07, 0, 0, 0, 2.22827, 20.8017, 19.4175, -0.938312)
 open_on_previous_map_name = "attic"
-
-[node name="TimedTextArea" parent="DynamicObjects" instance=ExtResource("14_cr18n")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -23.4451, -16.9147, 0)
-text_to_display = "WASD move. Space to jump"
 
 [node name="ReferenceSprite3D" type="Sprite3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2.05205)
@@ -617,12 +618,16 @@ mesh = SubResource("PlaneMesh_wfvhx")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25.7356, -16.8061, 0)
 hint_text = "WASD Move, Space Jump"
 
+[node name="TimedHelpWASD" parent="Hints" instance=ExtResource("14_cr18n")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -23.4451, -16.9147, 0)
+text_to_display = "WASD move. Space to jump"
+
 [node name="DeadlyWaterHint" parent="Hints" instance=ExtResource("31_s35qv")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -44.0592, 2.49699, 0)
 hint_text = "Water is Deadly"
 
 [node name="GardenHint" parent="Hints" instance=ExtResource("31_s35qv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -63.3909, 2.49699, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -49.2961, 2.49699, 0)
 hint_text = "This way to the Garden
 "
 

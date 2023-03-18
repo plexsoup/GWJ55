@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://6nntt2jjflfm"
 path.s3tc="res://.godot/imported/Tree_wall.png-5b0cb54e48a10519f15818ad66d1ba32.s3tc.ctex"
+path.etc2="res://.godot/imported/Tree_wall.png-5b0cb54e48a10519f15818ad66d1ba32.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://Art/Foliage/Tree_wall.png"
-dest_files=["res://.godot/imported/Tree_wall.png-5b0cb54e48a10519f15818ad66d1ba32.s3tc.ctex"]
+dest_files=["res://.godot/imported/Tree_wall.png-5b0cb54e48a10519f15818ad66d1ba32.s3tc.ctex", "res://.godot/imported/Tree_wall.png-5b0cb54e48a10519f15818ad66d1ba32.etc2.ctex"]
 
 [params]
 

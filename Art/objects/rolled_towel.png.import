@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://dy4suuetjfc5g"
 path.s3tc="res://.godot/imported/rolled_towel.png-3afd3c30131c9f64bfbb572cb8106850.s3tc.ctex"
+path.etc2="res://.godot/imported/rolled_towel.png-3afd3c30131c9f64bfbb572cb8106850.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://Art/objects/rolled_towel.png"
-dest_files=["res://.godot/imported/rolled_towel.png-3afd3c30131c9f64bfbb572cb8106850.s3tc.ctex"]
+dest_files=["res://.godot/imported/rolled_towel.png-3afd3c30131c9f64bfbb572cb8106850.s3tc.ctex", "res://.godot/imported/rolled_towel.png-3afd3c30131c9f64bfbb572cb8106850.etc2.ctex"]
 
 [params]
 

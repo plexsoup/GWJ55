@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=3 uid="uid://dv6mgvqyrydae"]
+[gd_scene load_steps=31 format=3 uid="uid://dv6mgvqyrydae"]
 
 [ext_resource type="PackedScene" uid="uid://cjiok7gin5bk5" path="res://Scenes/Maps/base_level.tscn" id="1_0tska"]
 [ext_resource type="MeshLibrary" uid="uid://dmh5e52qprx6r" path="res://MeshLibraries/cat_tower_plex.tres" id="2_18ox2"]
@@ -13,15 +13,14 @@
 [ext_resource type="PackedScene" uid="uid://dwte3a8axt6kp" path="res://Scenes/Objects/door.tscn" id="7_tpc43"]
 [ext_resource type="PackedScene" uid="uid://eb3wwyaluatx" path="res://Scenes/Objects/trigger_volume_win.tscn" id="8_pd66h"]
 [ext_resource type="PackedScene" uid="uid://ted21c8mecho" path="res://Scenes/Entities/NPCs/switch.tscn" id="11_gdsl8"]
-[ext_resource type="PackedScene" uid="uid://b3p7s4vjxe0y0" path="res://Scenes/Objects/VolumeTriggerHintThoughtBubble.tscn" id="13_k8sh5"]
 [ext_resource type="Script" path="res://Scenes/Maps/ReferenceSprite3D.gd" id="13_q5c4o"]
 [ext_resource type="Script" path="res://Scenes/Maps/Official/LivingRoom/High_Spec.gd" id="15_mbr8b"]
-[ext_resource type="Shader" uid="uid://drv4hywg6luaj" path="res://Shaders/Clouds_R.tres" id="15_md0xm"]
+[ext_resource type="Shader" uid="uid://d077br6ny4hmu" path="res://Shaders/Clouds_R.tres" id="15_md0xm"]
 [ext_resource type="Texture2D" uid="uid://b6jmphr0ugk78" path="res://Art/Foliage/Mountains 2.png" id="16_own6m"]
 [ext_resource type="Texture2D" uid="uid://dhagpqi7ourpo" path="res://Art/Foliage/Mountains.png" id="17_en30g"]
 [ext_resource type="Texture2D" uid="uid://coaanccqd0h8j" path="res://Art/Foliage/Tree.png" id="19_cm5fj"]
 [ext_resource type="Texture2D" uid="uid://cynsdc3oljjuy" path="res://Art/Foliage/Light house.png" id="20_c3rgl"]
-[ext_resource type="PackedScene" uid="uid://b2tb1owb5nnun" path="res://Scenes/Objects/spawn_point.tscn" id="21_47lhw"]
+[ext_resource type="PackedScene" path="res://Scenes/Objects/spawn_point.tscn" id="21_47lhw"]
 [ext_resource type="AudioStream" uid="uid://7qiv1uacfw8p" path="res://Music/MUS_TitleV2_9M_7-4_78.mp3" id="23_dcvxg"]
 
 [sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_yla2b"]
@@ -85,12 +84,14 @@ data = {
 transform = Transform3D(1.5, 0, 0, 0, -8.74228e-08, -1.5, 0, 2, -6.55671e-08, 0, 0, -2.25)
 mesh_library = ExtResource("2_18ox2")
 cell_size = Vector3(1, 1, 1)
+collision_layer = 4
+collision_mask = 3
 data = {
 "cells": PackedInt32Array(65532, 65523, 9, 65532, 65524, 9, 65533, 65524, 9, 65533, 65523, 9, 6, 65522, 9, 5, 65522, 9, 4, 65522, 9, 3, 65522, 9, 2, 65522, 9, 1, 65522, 9, 0, 65522, 9, 65535, 65522, 9, 65534, 65522, 9, 65533, 65522, 9, 65533, 65518, 9, 65533, 65519, 9, 65533, 65520, 9, 65533, 65521, 9, 65532, 65515, 9, 65532, 65516, 9, 9, 65519, 9, 10, 65519, 9, 10, 65520, 9, 10, 65521, 9, 10, 65522, 9, 10, 65523, 9, 10, 65524, 9, 9, 65524, 9, 9, 65523, 9, 9, 65522, 9, 9, 65521, 9, 9, 65520, 9, 18, 65521, 9, 18, 65522, 9, 18, 65523, 9, 18, 65524, 9, 18, 65525, 9, 18, 65526, 9, 18, 65527, 9, 18, 65528, 9, 12, 65529, 9, 13, 65529, 9, 14, 65529, 9, 15, 65529, 9, 16, 65529, 9, 17, 65529, 9, 18, 65529, 9, 18, 65530, 9, 18, 65531, 9, 18, 65532, 9, 18, 65533, 9, 18, 65534, 9, 18, 65535, 9, 18, 0, 9, 18, 1, 9, 65533, 65513, 9, 65533, 65512, 9, 65533, 65511, 9, 65533, 65510, 9, 65532, 65509, 9, 65532, 65508, 9, 65532, 65507, 9, 65533, 65507, 9, 65533, 65506, 9, 65533, 65505, 9, 65534, 65505, 9, 65534, 65504, 9, 65534, 65503, 9, 65535, 65502, 9, 65535, 65501, 9, 65535, 65500, 9, 65535, 65499, 9, 0, 65498, 9, 0, 65497, 9, 0, 65496, 9, 9, 65514, 9, 9, 65515, 9, 9, 65516, 9, 9, 65508, 9, 9, 65509, 9, 10, 65508, 9, 11, 65508, 9, 6, 65496, 9, 6, 65497, 9, 6, 65498, 9, 6, 65499, 9, 4, 65501, 9, 4, 65500, 9, 20, 65529, 9, 20, 65528, 9, 20, 65527, 9, 20, 65526, 9, 20, 65525, 9, 20, 65524, 9, 20, 65523, 9, 24, 65524, 9, 1, 65518, 9, 9, 65512, 9, 9, 65513, 9, 18, 2, 9, 18, 3, 9, 18, 4, 9, 18, 5, 9, 18, 6, 9, 8, 0, 9, 8, 65535, 9, 9, 65535, 9, 9, 0, 9, 12, 65530, 9, 12, 65531, 9, 12, 65532, 9, 0, 65526, 9, 1, 65510, 9, 2, 65510, 9, 3, 65510, 9, 4, 65510, 9, 65528, 65526, 9, 65528, 65527, 9, 65528, 65528, 9, 65528, 65529, 9, 65528, 65519, 9, 65528, 65520, 9, 65528, 65521, 9, 65528, 65511, 9, 65528, 65512, 9, 65528, 65513, 9)
 }
 
 [node name="player" parent="." index="2"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.077, 43.5956, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 58.185, 20.7615, 0)
 
 [node name="AnimatedSprite3D" parent="player" index="1"]
 shaded = true
@@ -165,6 +166,7 @@ shadow_opacity = 0.85
 
 [node name="Sky and Lighting" parent="." index="7"]
 script = ExtResource("7_m6huc")
+low_spec_in_editor = true
 
 [node name="TriggerVolumeWin" parent="DynamicObjects" index="0"]
 transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 23.1153, -10.4402, 0)
@@ -248,10 +250,10 @@ target_node = NodePath("Door_06")
 transform = Transform3D(3.30905, 0, 0, 0, 3.12607, 0, 0, 0, 1.78557, -1.58447, -0.103233, 0.775456)
 queue_free_on_activate = true
 
-[node name="TriggerVolumeHint" parent="DynamicObjects" index="14" instance=ExtResource("13_k8sh5")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 44.7598, 40.1164, 0)
-hint_text = "Looks a bit too far to jump.
-Maybe I can throw my kitty."
+[node name="switch" parent="DynamicObjects" index="14" instance=ExtResource("11_gdsl8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30.9579, 23.9944, -0.682626)
+target_node = NodePath("../../MovingPlatforms/moving platform3")
+single_use = false
 
 [node name="ReferenceSprite3D" type="Sprite3D" parent="." index="10"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 34.04, -1.79347)

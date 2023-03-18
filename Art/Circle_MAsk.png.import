@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://ceb42duow0tj7"
 path.s3tc="res://.godot/imported/Circle_MAsk.png-8f3d292dd5c56c0431571d638b4025bc.s3tc.ctex"
+path.etc2="res://.godot/imported/Circle_MAsk.png-8f3d292dd5c56c0431571d638b4025bc.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://Art/Circle_MAsk.png"
-dest_files=["res://.godot/imported/Circle_MAsk.png-8f3d292dd5c56c0431571d638b4025bc.s3tc.ctex"]
+dest_files=["res://.godot/imported/Circle_MAsk.png-8f3d292dd5c56c0431571d638b4025bc.s3tc.ctex", "res://.godot/imported/Circle_MAsk.png-8f3d292dd5c56c0431571d638b4025bc.etc2.ctex"]
 
 [params]
 

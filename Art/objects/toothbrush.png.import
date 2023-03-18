@@ -4,15 +4,16 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://bwfkqfanh43ke"
 path.s3tc="res://.godot/imported/toothbrush.png-428828b07e80820f840589a770992499.s3tc.ctex"
+path.etc2="res://.godot/imported/toothbrush.png-428828b07e80820f840589a770992499.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://Art/objects/toothbrush.png"
-dest_files=["res://.godot/imported/toothbrush.png-428828b07e80820f840589a770992499.s3tc.ctex"]
+dest_files=["res://.godot/imported/toothbrush.png-428828b07e80820f840589a770992499.s3tc.ctex", "res://.godot/imported/toothbrush.png-428828b07e80820f840589a770992499.etc2.ctex"]
 
 [params]
 

@@ -21,14 +21,14 @@
 [ext_resource type="ArrayMesh" uid="uid://bbje4wl4kivx0" path="res://Art/objects/mirror.obj" id="13_do3yh"]
 [ext_resource type="Script" path="res://Scenes/Objects/RandomLazyMotion.gd" id="14_olyda"]
 [ext_resource type="ArrayMesh" uid="uid://cqerpxbfucmkm" path="res://Art/objects/sink.obj" id="15_w2qbg"]
-[ext_resource type="PackedScene" uid="uid://b3p7s4vjxe0y0" path="res://Scenes/Objects/VolumeTriggerHintThoughtBubble.tscn" id="21_cgked"]
-[ext_resource type="PackedScene" uid="uid://b2tb1owb5nnun" path="res://Scenes/Objects/spawn_point.tscn" id="22_0ifv0"]
+[ext_resource type="PackedScene" path="res://Scenes/Objects/VolumeTriggerHintThoughtBubble.tscn" id="21_cgked"]
+[ext_resource type="PackedScene" path="res://Scenes/Objects/spawn_point.tscn" id="22_0ifv0"]
 [ext_resource type="Texture2D" uid="uid://bpp08atu8a8u0" path="res://Art/objects/sink.png" id="22_3q82r"]
 [ext_resource type="Texture2D" uid="uid://lmde70nwacgw" path="res://Art/Eye_text.png" id="24_xk33q"]
-[ext_resource type="Curve" uid="uid://ctp0miqywpyoo" path="res://Shaders/Waterdrop.tres" id="26_5djuc"]
-[ext_resource type="Shader" uid="uid://btl5ebnoijhp2" path="res://Shaders/Envi_Water.tres" id="26_yyjx1"]
+[ext_resource type="Curve" path="res://Shaders/Waterdrop.tres" id="26_5djuc"]
+[ext_resource type="Shader" uid="uid://bytvu2bbx3jrp" path="res://Shaders/Envi_Water.tres" id="26_yyjx1"]
 [ext_resource type="ArrayMesh" uid="uid://crqdcvpu65qav" path="res://Art/objects/Water_twist2.obj" id="27_fjhtx"]
-[ext_resource type="Shader" uid="uid://deoy3clg2jh4q" path="res://Water_Ground.tres" id="28_d6crc"]
+[ext_resource type="Shader" uid="uid://br3umhjcp7jfg" path="res://Water_Ground.tres" id="28_d6crc"]
 [ext_resource type="Texture2D" uid="uid://b8b3xjek6q7wy" path="res://Art/Foliage/Grass3.png" id="28_pvto1"]
 [ext_resource type="Texture2D" uid="uid://ddaucwcbe7q1y" path="res://Art/Foliage/Mushrooms.png" id="29_420ga"]
 [ext_resource type="Texture2D" uid="uid://b6jmphr0ugk78" path="res://Art/Foliage/Mountains 2.png" id="30_7hnmv"]
@@ -418,7 +418,7 @@ transform = Transform3D(2.48064, 0, 0, 0, 1.24032, 0, 0, 0, 2.48064, -26.491, 9.
 connected_to = Array[NodePath]([NodePath("Door_01")])
 
 [node name="Door_01" parent="DynamicObjects/pressure_plate_01" instance=ExtResource("7_vtp6s")]
-transform = Transform3D(1.35287, 0, 0, 0, 4.24202, 0, 0, 0, 0.835543, 5.34122, 0.0406771, 0.00577545)
+transform = Transform3D(1.35287, 0, 0, 0, 4.24202, 0, 0, 0, 0.835543, 5.33963, 0.0406771, 0.00577545)
 
 [node name="pressure_plate_05" parent="DynamicObjects" instance=ExtResource("6_jvxdu")]
 transform = Transform3D(2.06846, 0, 0, 0, 1.03423, 0, 0, 0, 2.06846, -4.59074, 52.6224, -1.34077)
@@ -464,6 +464,10 @@ open_on_previous_map_name = "attic"
 [node name="switch06" parent="DynamicObjects" instance=ExtResource("10_7ywxi")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 62.1553, 69.6934, -1.049)
 target_node = NodePath("../Door_06")
+
+[node name="pressure_plate" parent="DynamicObjects" instance=ExtResource("6_jvxdu")]
+transform = Transform3D(2.05011, 0, 0, 0, 1.02505, 0, 0, 0, 2.05011, -9.88012, 9.14584, -1.19195)
+connected_to = Array[NodePath]([NodePath("../pressure_plate_01/Door_01")])
 
 [node name="ReferenceSprite3D" type="Sprite3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.11905, 40.0068, -3.0423)
@@ -1728,31 +1732,13 @@ alpha_cut = 2
 texture = ExtResource("28_pvto1")
 
 [node name="Sprite3D158" type="Sprite3D" parent="Grass"]
-transform = Transform3D(3.20748, 0, 0, 0, 1.62003, 0, 0, 0, 0.38478, 7.99252, 74.6869, -0.160396)
-shaded = true
-alpha_cut = 2
-texture = ExtResource("28_pvto1")
-
-[node name="Sprite3D159" type="Sprite3D" parent="Grass"]
-transform = Transform3D(3.20748, 0, 0, 0, 1.62003, 0, 0, 0, 0.38478, 11.5586, 74.5755, -0.0651305)
+transform = Transform3D(2.00383, 0, 0, 0, 1.62003, 0, 0, 0, 0.38478, 6.09052, 74.6869, -0.160396)
 shaded = true
 alpha_cut = 2
 texture = ExtResource("28_pvto1")
 
 [node name="Sprite3D160" type="Sprite3D" parent="Grass"]
-transform = Transform3D(3.20748, 0, 0, 0, 1.62003, 0, 0, 0, 0.38478, 7.86856, 74.6423, -0.202578)
-shaded = true
-alpha_cut = 2
-texture = ExtResource("28_pvto1")
-
-[node name="Sprite3D182" type="Sprite3D" parent="Grass"]
-transform = Transform3D(3.20748, 0, 0, 0, 1.62003, 0, 0, 0, 0.38478, 7.86856, 74.6423, -0.202578)
-shaded = true
-alpha_cut = 2
-texture = ExtResource("28_pvto1")
-
-[node name="Sprite3D161" type="Sprite3D" parent="Grass"]
-transform = Transform3D(3.20748, 0, 0, 0, 1.62003, 0, 0, 0, 0.38478, 11.6864, 74.6423, -0.18043)
+transform = Transform3D(2.25346, 0, 0, 0, 1.62003, 0, 0, 0, 0.38478, 6.91374, 74.6423, -0.202578)
 shaded = true
 alpha_cut = 2
 texture = ExtResource("28_pvto1")

@@ -13,6 +13,9 @@ var tween
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	startPos = global_position
+	setup_tween()
+	
+func setup_tween():
 	tween = get_tree().create_tween()
 	tween.set_ease(tween.EASE_IN_OUT)
 	tween.tween_property($StaticBody3D,"global_position",startPos + (target * scale), speed)
@@ -31,7 +34,11 @@ func _on_child_exiting_tree(_node):
 	tween.kill()
 
 func _on_switch_hit():
+	setup_tween()
 	tween.play()
+
+func _on_switch_toggled(pressed):
+	_on_switch_hit()
 
 func _on_plate_press(pressed):
 	tween.kill()

@@ -31,7 +31,7 @@
 [ext_resource type="ArrayMesh" uid="uid://d2s12jb7pdygk" path="res://Art/objects/tv.obj" id="19_vwaly"]
 [ext_resource type="Texture2D" uid="uid://cynsdc3oljjuy" path="res://Art/Foliage/Light house.png" id="20_cip6y"]
 [ext_resource type="Texture2D" uid="uid://byrvn46n7v4ug" path="res://Art/objects/bookshelf.png" id="26_atfjs"]
-[ext_resource type="Shader" uid="uid://drv4hywg6luaj" path="res://Shaders/Clouds_R.tres" id="27_prkw3"]
+[ext_resource type="Shader" uid="uid://d077br6ny4hmu" path="res://Shaders/Clouds_R.tres" id="27_prkw3"]
 [ext_resource type="PackedScene" uid="uid://c4rndh2lw447j" path="res://Scenes/Objects/koi_on_path.tscn" id="30_gqfgd"]
 [ext_resource type="PackedScene" uid="uid://b3p7s4vjxe0y0" path="res://Scenes/Objects/VolumeTriggerHintThoughtBubble.tscn" id="31_s35qv"]
 [ext_resource type="PackedScene" uid="uid://b2tb1owb5nnun" path="res://Scenes/Objects/spawn_point.tscn" id="32_drfq3"]

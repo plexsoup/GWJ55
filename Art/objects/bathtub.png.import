@@ -4,16 +4,15 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://kw4ks66f74k8"
 path.s3tc="res://.godot/imported/bathtub.png-fa0ee948c101d916c69cec7c3a8c9d78.s3tc.ctex"
-path.etc2="res://.godot/imported/bathtub.png-fa0ee948c101d916c69cec7c3a8c9d78.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc", "etc2_astc"],
+"imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://Art/objects/bathtub.png"
-dest_files=["res://.godot/imported/bathtub.png-fa0ee948c101d916c69cec7c3a8c9d78.s3tc.ctex", "res://.godot/imported/bathtub.png-fa0ee948c101d916c69cec7c3a8c9d78.etc2.ctex"]
+dest_files=["res://.godot/imported/bathtub.png-fa0ee948c101d916c69cec7c3a8c9d78.s3tc.ctex"]
 
 [params]
 

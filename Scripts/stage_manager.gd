@@ -27,7 +27,7 @@ func fade_in():
 
 func change_scene_to_packed(packedScene : PackedScene):
 	# play a fade-out, load the new scene, play a fade in.
-	if current_map:
+	if current_map and is_instance_valid(current_map):
 		previous_map_name = current_map.name
 		
 	fade_out()

@@ -38,7 +38,7 @@ func _on_switch_hit():
 		setup_tween()
 		tween.play()
 
-func _on_switch_toggled(pressed):
+func _on_switch_toggled(_pressed):
 	if needs_activation:
 		_on_switch_hit()
 

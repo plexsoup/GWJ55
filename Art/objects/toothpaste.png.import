@@ -4,16 +4,15 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://8taaseu1bw40"
 path.s3tc="res://.godot/imported/toothpaste.png-5885baa4bd05f664899e86c60c5b2504.s3tc.ctex"
-path.etc2="res://.godot/imported/toothpaste.png-5885baa4bd05f664899e86c60c5b2504.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc", "etc2_astc"],
+"imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://Art/objects/toothpaste.png"
-dest_files=["res://.godot/imported/toothpaste.png-5885baa4bd05f664899e86c60c5b2504.s3tc.ctex", "res://.godot/imported/toothpaste.png-5885baa4bd05f664899e86c60c5b2504.etc2.ctex"]
+dest_files=["res://.godot/imported/toothpaste.png-5885baa4bd05f664899e86c60c5b2504.s3tc.ctex"]
 
 [params]
 

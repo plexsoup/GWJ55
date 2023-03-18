@@ -100,7 +100,6 @@ libraries = {
 "": SubResource("AnimationLibrary_ff8id")
 }
 
-[connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="body_entered" from="." to="." method="_on_timed_text_area_body_entered"]
 [connection signal="body_exited" from="." to="." method="_on_timed_text_area_body_exited"]
 [connection signal="timeout" from="timeout" to="." method="_on_timer_timeout"]

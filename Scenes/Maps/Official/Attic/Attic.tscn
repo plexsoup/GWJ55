@@ -11,7 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://crvvpifd7a146" path="res://Scenes/Entities/NPCs/pressure_plate.tscn" id="6_nya5f"]
 [ext_resource type="Script" path="res://WorldEnvironments/sky_and_lighting_Night.gd" id="7_m6huc"]
 [ext_resource type="PackedScene" uid="uid://dwte3a8axt6kp" path="res://Scenes/Objects/door.tscn" id="7_tpc43"]
-[ext_resource type="PackedScene" uid="uid://eb3wwyaluatx" path="res://Scenes/Objects/trigger_volume_win.tscn" id="8_pd66h"]
+[ext_resource type="PackedScene" path="res://Scenes/Objects/trigger_volume_win.tscn" id="8_pd66h"]
 [ext_resource type="PackedScene" uid="uid://ted21c8mecho" path="res://Scenes/Entities/NPCs/switch.tscn" id="11_gdsl8"]
 [ext_resource type="PackedScene" uid="uid://b3p7s4vjxe0y0" path="res://Scenes/Objects/VolumeTriggerHintThoughtBubble.tscn" id="13_k8sh5"]
 [ext_resource type="Script" path="res://Scenes/Maps/ReferenceSprite3D.gd" id="13_q5c4o"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=45 format=3 uid="uid://1iy51lohnni2"]
+[gd_scene load_steps=46 format=3 uid="uid://1iy51lohnni2"]
 
 [ext_resource type="Script" path="res://Scenes/Maps/base_level.gd" id="1_3v50y"]
 [ext_resource type="MeshLibrary" uid="uid://dmh5e52qprx6r" path="res://MeshLibraries/cat_tower_plex.tres" id="2_bcvq3"]
@@ -7,13 +7,13 @@
 [ext_resource type="CameraAttributesPractical" uid="uid://lwejjr4rdbk0" path="res://Shaders/Camera_Shader.tres" id="3_it8qf"]
 [ext_resource type="PackedScene" uid="uid://iy2fvk38ehxj" path="res://Scenes/Entities/NPCs/deadly_tile.tscn" id="3_ixud2"]
 [ext_resource type="PackedScene" uid="uid://cey6vaorec8ca" path="res://Scenes/Entities/Player/player_controller.tscn" id="3_xpv4y"]
-[ext_resource type="PackedScene" uid="uid://eb3wwyaluatx" path="res://Scenes/Objects/trigger_volume_win.tscn" id="4_jclyg"]
+[ext_resource type="PackedScene" path="res://Scenes/Objects/trigger_volume_win.tscn" id="4_jclyg"]
 [ext_resource type="Texture2D" uid="uid://dhm4vtuux462g" path="res://Materials/arrow_01.png" id="5_p0717"]
 [ext_resource type="PackedScene" uid="uid://crvvpifd7a146" path="res://Scenes/Entities/NPCs/pressure_plate.tscn" id="6_1r3rs"]
 [ext_resource type="PackedScene" uid="uid://ch0xqdmee1xnu" path="res://WorldEnvironments/sky_and_lighting.tscn" id="7_12lrh"]
 [ext_resource type="PackedScene" uid="uid://dwte3a8axt6kp" path="res://Scenes/Objects/door.tscn" id="7_4288d"]
 [ext_resource type="Shader" uid="uid://cx2ac458h8a83" path="res://Shaders/Cloud_Water.tres" id="8_pjrtt"]
-[ext_resource type="PackedScene" uid="uid://cmd16bdree5a7" path="res://Scenes/Objects/fall_reset_volume.tscn" id="11_k54t8"]
+[ext_resource type="PackedScene" path="res://Scenes/Objects/fall_reset_volume.tscn" id="11_k54t8"]
 [ext_resource type="Script" path="res://Scenes/Maps/ReferenceSprite3D.gd" id="11_x1kbs"]
 [ext_resource type="Texture2D" uid="uid://coaanccqd0h8j" path="res://Art/Foliage/Tree.png" id="13_8fou7"]
 [ext_resource type="PackedScene" uid="uid://dy000li05s73h" path="res://Scenes/Objects/TimedTextArea.tscn" id="14_cr18n"]
@@ -34,6 +34,7 @@
 [ext_resource type="PackedScene" uid="uid://c4rndh2lw447j" path="res://Scenes/Objects/koi_on_path.tscn" id="30_gqfgd"]
 [ext_resource type="PackedScene" uid="uid://b3p7s4vjxe0y0" path="res://Scenes/Objects/VolumeTriggerHintThoughtBubble.tscn" id="31_s35qv"]
 [ext_resource type="PackedScene" uid="uid://b2tb1owb5nnun" path="res://Scenes/Objects/spawn_point.tscn" id="32_drfq3"]
+[ext_resource type="SystemFont" uid="uid://cerxxtret1ec2" path="res://TimedTextArea.tres" id="34_31fwy"]
 [ext_resource type="AudioStream" uid="uid://7qiv1uacfw8p" path="res://Music/MUS_TitleV2_9M_7-4_78.mp3" id="35_i1i05"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_op2lt"]
@@ -615,11 +616,28 @@ mesh = SubResource("PlaneMesh_wfvhx")
 
 [node name="WASDHint" parent="Hints" instance=ExtResource("31_s35qv")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25.7356, -16.8061, 0)
-hint_text = "WASD Move, Space Jump"
+hint_text = "Use A and D to move
+Space to jump"
+local_coords = true
+
+[node name="Label3D" parent="Hints/WASDHint" index="1"]
+pixel_size = 0.01
+alpha_cut = 2
+outline_modulate = Color(0, 0, 0, 0)
+text = "Use A and D to move
+Space to jump"
+font = ExtResource("34_31fwy")
 
 [node name="DeadlyWaterHint" parent="Hints" instance=ExtResource("31_s35qv")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -44.0592, 2.49699, 0)
-hint_text = "Water is Deadly"
+hint_text = "Water is not my friend"
+
+[node name="Label3D" parent="Hints/DeadlyWaterHint" index="1"]
+pixel_size = 0.01
+alpha_cut = 1
+outline_modulate = Color(0, 0, 0, 0)
+text = "Water is not my friend"
+font = ExtResource("34_31fwy")
 
 [node name="GardenHint" parent="Hints" instance=ExtResource("31_s35qv")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -63.3909, 2.49699, 0)
@@ -663,3 +681,5 @@ autoplay = true
 [editable path="player/Audio/Jumping"]
 [editable path="player/Audio/Hurt"]
 [editable path="Background Elements/KoiOnPath"]
+[editable path="Hints/WASDHint"]
+[editable path="Hints/DeadlyWaterHint"]

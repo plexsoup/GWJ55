@@ -1,9 +1,10 @@
-[gd_scene load_steps=31 format=3 uid="uid://dv6mgvqyrydae"]
+[gd_scene load_steps=37 format=3 uid="uid://dv6mgvqyrydae"]
 
-[ext_resource type="PackedScene" uid="uid://cjiok7gin5bk5" path="res://Scenes/Maps/base_level.tscn" id="1_0tska"]
+[ext_resource type="Script" path="res://Scenes/Maps/base_level.gd" id="1_47d15"]
 [ext_resource type="MeshLibrary" uid="uid://dmh5e52qprx6r" path="res://MeshLibraries/cat_tower_plex.tres" id="2_18ox2"]
 [ext_resource type="Texture2D" uid="uid://26kvqtbad4tv" path="res://Scenes/Maps/Official/Attic/level01_mockup_section2.png" id="2_di4eq"]
 [ext_resource type="PackedScene" uid="uid://cm2o1lkpf6s0w" path="res://Scenes/Entities/NPCs/vacuum_cleaner.tscn" id="2_nlfxv"]
+[ext_resource type="PackedScene" uid="uid://cey6vaorec8ca" path="res://Scenes/Entities/Player/player_controller.tscn" id="3_lfdi4"]
 [ext_resource type="PackedScene" uid="uid://cbs51rpoxintc" path="res://Scenes/Entities/NPCs/hair_dryer.tscn" id="3_ntvup"]
 [ext_resource type="PackedScene" uid="uid://iy2fvk38ehxj" path="res://Scenes/Entities/NPCs/deadly_tile.tscn" id="4_o18aw"]
 [ext_resource type="PackedScene" uid="uid://dd3fox603os7x" path="res://Scenes/Entities/moving platform.tscn" id="5_m16ie"]
@@ -12,7 +13,10 @@
 [ext_resource type="Script" path="res://WorldEnvironments/sky_and_lighting_Night.gd" id="7_m6huc"]
 [ext_resource type="PackedScene" uid="uid://dwte3a8axt6kp" path="res://Scenes/Objects/door.tscn" id="7_tpc43"]
 [ext_resource type="PackedScene" uid="uid://eb3wwyaluatx" path="res://Scenes/Objects/trigger_volume_win.tscn" id="8_pd66h"]
+[ext_resource type="PackedScene" uid="uid://ch0xqdmee1xnu" path="res://WorldEnvironments/sky_and_lighting.tscn" id="8_y2inl"]
+[ext_resource type="Shader" uid="uid://cx2ac458h8a83" path="res://Shaders/Cloud_Water.tres" id="10_jqrs5"]
 [ext_resource type="PackedScene" uid="uid://ted21c8mecho" path="res://Scenes/Entities/NPCs/switch.tscn" id="11_gdsl8"]
+[ext_resource type="PackedScene" uid="uid://cmd16bdree5a7" path="res://Scenes/Objects/fall_reset_volume.tscn" id="13_dfiw2"]
 [ext_resource type="Script" path="res://Scenes/Maps/ReferenceSprite3D.gd" id="13_q5c4o"]
 [ext_resource type="Script" path="res://Scenes/Maps/Official/LivingRoom/High_Spec.gd" id="15_mbr8b"]
 [ext_resource type="Shader" uid="uid://d077br6ny4hmu" path="res://Shaders/Clouds_R.tres" id="15_md0xm"]
@@ -27,6 +31,15 @@
 dof_blur_far_enabled = true
 dof_blur_far_distance = 234.11
 dof_blur_far_transition = 263.73
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_5v0on"]
+render_priority = 0
+shader = ExtResource("10_jqrs5")
+shader_parameter/FloatParameter = 1.0
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_kw84f"]
+material = SubResource("ShaderMaterial_5v0on")
+size = Vector2(300, 300)
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_i0pm5"]
 lifetime_randomness = 1.0
@@ -73,24 +86,30 @@ size = Vector2(500, 500)
 subdivide_width = 200
 subdivide_depth = 200
 
-[node name="Attic" instance=ExtResource("1_0tska")]
+[node name="Attic" type="Node3D"]
+script = ExtResource("1_47d15")
 
-[node name="PlatformGridMap-placeholder" parent="." index="0"]
-data = {
-"cells": PackedInt32Array(65530, 65501, 10, 65530, 65500, 10, 65531, 65500, 10, 65531, 65499, 10, 65531, 65498, 10, 65532, 65498, 10, 65532, 65497, 10, 65532, 65496, 10, 65532, 65495, 10, 65533, 65495, 10, 65533, 65494, 10, 65533, 65493, 10, 65534, 65492, 10, 65534, 65493, 10, 65535, 65492, 10, 65535, 65491, 10, 0, 65491, 10, 1, 65491, 10, 1, 65490, 10, 2, 65490, 10, 3, 65490, 10, 4, 65490, 10, 5, 65490, 10, 6, 65490, 10, 6, 65491, 10, 7, 65491, 10, 8, 65491, 10, 8, 65492, 10, 9, 65492, 10, 10, 65492, 10, 10, 65493, 10, 11, 65493, 10, 11, 65494, 10, 12, 65497, 10, 11, 65495, 10, 12, 65495, 10, 12, 65496, 10, 13, 65497, 10, 13, 65498, 10, 14, 65498, 10, 14, 65499, 10, 14, 65500, 10, 14, 65501, 10, 14, 65502, 10, 15, 65502, 10, 17, 65530, 10, 16, 65530, 10, 15, 65530, 10, 14, 65530, 10, 13, 65530, 10, 65533, 65528, 10, 65533, 65525, 10, 65533, 65526, 10, 65533, 65527, 10, 65532, 65525, 10, 65532, 65526, 10, 65532, 65527, 10, 65532, 65528, 10, 65532, 65517, 10, 65532, 65518, 10, 65532, 65519, 10, 65532, 65520, 10, 65532, 65521, 10, 65532, 65522, 10, 65533, 65517, 10, 65533, 65516, 10, 65533, 65515, 10, 65532, 65514, 10, 65533, 65514, 10, 0, 65499, 10, 0, 65500, 10, 0, 65501, 10, 0, 65502, 10, 65535, 65503, 10, 65535, 65504, 10, 65535, 65505, 10, 65534, 65506, 10, 65534, 65507, 10, 65533, 65508, 10, 65533, 65509, 10, 9, 65517, 10, 10, 65517, 10, 11, 65517, 10, 10, 65518, 10, 9, 65518, 10, 10, 65516, 10, 10, 65515, 10, 10, 65514, 10, 6, 65500, 10, 5, 65500, 10, 5, 65501, 10, 5, 65502, 10, 5, 65503, 10, 5, 65504, 10, 4, 65504, 10, 4, 65503, 10, 4, 65502, 10, 1, 65496, 10, 2, 65496, 10, 3, 65496, 10, 4, 65496, 10, 5, 65496, 10, 7, 65500, 10, 11, 65500, 10, 12, 65500, 10, 13, 65500, 10, 15, 65503, 10, 15, 65504, 10, 15, 65517, 10, 14, 65517, 10, 13, 65517, 10, 12, 65517, 10, 13, 65514, 10, 14, 65514, 10, 15, 65514, 10, 16, 65514, 10, 17, 65514, 10, 18, 65514, 10, 19, 65514, 10, 19, 65513, 10, 18, 65513, 10, 17, 65513, 10, 16, 65513, 10, 18, 65515, 10, 19, 65515, 10, 20, 65515, 10, 21, 65515, 10, 22, 65515, 10, 23, 65515, 10, 24, 65515, 10, 25, 65515, 10, 31, 65514, 10, 30, 65514, 10, 31, 65513, 10, 32, 65513, 10, 32, 65512, 10, 33, 65512, 10, 33, 65511, 10, 34, 65511, 10, 35, 65511, 10, 36, 65511, 10, 37, 65511, 10, 39, 65507, 10, 38, 65507, 10, 37, 65507, 10, 36, 65507, 10, 33, 65507, 10, 34, 65507, 10, 28, 65506, 10, 27, 65506, 10, 22, 65507, 10, 21, 65507, 10, 20, 65507, 10, 18, 65506, 10, 17, 65506, 10, 13, 65506, 10, 14, 65506, 10, 14, 65505, 10, 15, 65505, 10, 13, 65505, 10, 13, 65507, 10, 13, 65508, 10, 12, 65508, 10, 12, 65509, 10, 11, 65509, 10, 10, 65509, 10, 10, 65510, 10, 9, 65510, 10, 9, 65511, 10, 10, 65513, 10, 10, 65512, 10, 10, 65511, 10, 5, 65514, 10, 1, 65514, 10, 0, 65514, 10, 65535, 65514, 10, 65534, 65514, 10, 2, 65518, 10, 3, 65518, 10, 5, 65518, 10, 1, 65515, 10, 2, 65515, 10, 3, 65515, 10, 4, 65515, 10, 5, 65515, 10, 9, 65525, 10, 10, 65525, 10, 11, 65525, 10, 12, 65525, 10, 13, 65525, 10, 14, 65525, 10, 15, 65525, 10, 19, 1, 10, 19, 65520, 10, 19, 65521, 10, 19, 65522, 10, 19, 65523, 10, 19, 65524, 10, 19, 65525, 10, 19, 65526, 10, 19, 65527, 10, 19, 65528, 10, 19, 65529, 10, 19, 65530, 10, 19, 65531, 10, 19, 65532, 10, 19, 65533, 10, 19, 65534, 10, 19, 65535, 10, 19, 0, 10, 14, 65520, 10, 15, 65520, 10, 16, 65520, 10, 17, 65520, 10, 18, 65520, 10, 11, 65524, 10, 11, 65523, 10, 12, 65524, 10, 20, 65530, 10, 21, 65530, 10, 22, 65530, 10, 23, 65530, 10, 20, 65520, 10, 20, 65521, 10, 20, 65522, 10, 25, 65524, 10, 26, 65524, 10, 27, 65524, 10, 28, 65524, 10, 29, 65524, 10, 30, 65524, 10, 31, 65524, 10, 29, 65523, 10, 29, 65522, 10, 30, 65522, 10, 30, 65521, 10, 31, 65521, 10, 32, 65521, 10, 32, 65520, 10, 33, 65520, 10, 34, 65520, 10, 34, 65519, 10, 35, 65519, 10, 36, 65519, 10, 37, 65519, 10, 38, 65519, 10, 39, 65519, 10, 40, 65519, 10, 31, 65523, 10, 31, 65522, 10, 32, 65522, 10, 33, 65522, 10, 34, 65522, 10, 34, 65521, 10, 35, 65521, 10, 36, 65521, 10, 36, 65520, 10, 40, 65507, 10, 40, 65508, 10, 40, 65509, 10, 40, 65510, 11, 40, 65511, 11, 40, 65512, 11, 40, 65513, 10, 40, 65514, 10, 40, 65515, 10, 41, 65507, 10, 41, 65515, 10, 42, 65507, 11, 42, 65515, 10, 43, 65507, 11, 43, 65515, 10, 44, 65507, 11, 44, 65515, 10, 45, 65507, 10, 45, 65515, 10, 46, 65507, 10, 46, 65508, 10, 46, 65509, 10, 46, 65510, 11, 46, 65511, 11, 46, 65512, 11, 46, 65513, 10, 46, 65514, 10, 46, 65515, 10, 40, 65516, 10, 40, 65517, 10, 40, 65518, 10, 45, 65524, 10, 44, 65524, 10, 43, 65524, 10, 42, 65524, 10, 41, 65524, 10, 40, 65524, 10, 39, 65524, 10, 39, 65525, 10, 39, 65526, 10, 38, 65526, 10, 37, 65526, 10, 37, 65527, 10, 37, 65528, 10, 36, 65528, 10, 35, 65528, 10, 35, 65529, 10, 35, 65530, 10, 34, 65530, 10, 33, 65530, 10, 32, 65530, 10, 31, 65530, 10, 31, 65531, 10, 31, 65532, 10, 23, 65531, 10, 23, 65532, 10, 23, 65533, 10, 24, 65533, 10, 25, 65533, 10, 26, 65533, 10, 27, 65533, 10, 28, 65533, 10, 29, 65533, 10, 30, 65533, 10, 31, 65533, 10, 44, 65525, 10, 44, 65526, 10, 44, 65527, 10, 44, 65528, 10, 44, 65529, 10, 44, 65530, 10, 44, 65531, 10, 44, 65532, 10, 44, 65533, 10, 44, 65534, 10, 44, 65535, 10, 44, 0, 10, 44, 1, 10, 45, 65525, 10, 45, 65526, 10, 45, 65527, 10, 45, 65528, 10, 45, 65529, 10, 45, 65530, 10, 45, 65531, 10, 45, 65532, 10, 45, 65533, 10, 45, 65534, 10, 45, 65535, 10, 45, 0, 10, 45, 1, 10, 32, 65531, 10, 32, 65532, 10, 32, 65533, 10, 32, 65534, 10, 32, 65535, 10, 32, 0, 10, 32, 1, 10, 33, 65531, 10, 33, 65532, 10, 33, 65533, 10, 33, 65534, 10, 33, 65535, 10, 33, 0, 10, 33, 1, 10, 65529, 1, 10, 65530, 65533, 10, 65530, 65534, 10, 65530, 65535, 10, 65530, 0, 10, 65530, 1, 10, 11, 1, 10, 12, 1, 10, 23, 65506, 11, 24, 65506, 11, 25, 65506, 11, 26, 65506, 11, 29, 65506, 11, 32, 65506, 11, 31, 65506, 11, 30, 65506, 11, 33, 65506, 10, 35, 65507, 10, 22, 65506, 10, 19, 65507, 10, 16, 65506, 10, 15, 65506, 10, 16, 65505, 10, 6, 65514, 10, 65532, 65510, 10, 65532, 65511, 10, 65532, 65512, 10, 65532, 65513, 10, 65531, 1, 10, 65532, 1, 10, 65533, 1, 10, 65534, 1, 10, 65535, 1, 10, 0, 1, 10, 1, 1, 10, 2, 1, 10, 3, 1, 10, 4, 1, 10, 5, 1, 10, 6, 1, 10, 7, 1, 10, 8, 1, 10, 9, 1, 10, 10, 1, 10, 11, 2, 10, 11, 3, 10, 11, 4, 10, 11, 5, 10, 11, 6, 10, 12, 2, 10, 12, 3, 10, 12, 4, 10, 12, 5, 10, 12, 6, 10, 19, 2, 10, 19, 3, 10, 19, 4, 10, 19, 5, 10, 19, 6, 10, 6, 65532, 10, 5, 65532, 10, 4, 65532, 10, 3, 65532, 10, 2, 65532, 10, 1, 65532, 10, 0, 65532, 10, 65535, 65532, 10, 7, 65531, 10, 8, 65531, 10, 65533, 65529, 10, 65533, 65530, 10, 65533, 65531, 10, 65534, 65531, 10, 9, 65526, 10, 8, 65527, 10, 7, 65527, 10, 6, 65527, 10, 5, 65527, 10, 4, 65527, 10, 3, 65527, 10, 2, 65527, 10, 1, 65527, 10, 8, 65518, 10, 7, 65518, 10, 6, 65518, 10, 7, 65509, 10, 6, 65509, 10, 5, 65509, 10, 4, 65509, 10, 3, 65509, 10, 2, 65509, 10, 1, 65509, 10, 65528, 65502, 10, 65528, 65503, 10, 65528, 65504, 10, 65528, 65505, 10, 65528, 65506, 10, 65528, 65507, 10, 65528, 65508, 10, 65528, 65509, 10, 65528, 65514, 10, 65528, 65515, 10, 65528, 65516, 10, 65528, 65517, 10, 65528, 65518, 10, 65528, 65522, 10, 65528, 65523, 10, 65528, 65524, 10, 65528, 65525, 10, 65528, 65530, 10, 65528, 65531, 10, 65528, 65532, 10, 65528, 65533, 10, 65528, 65534, 10, 65528, 65535, 10, 65528, 0, 10, 65528, 1, 10, 65529, 65501, 10, 65529, 65502, 10, 65528, 65510, 10, 30, 65515, 10, 28, 65515, 10, 27, 65515, 10, 26, 65515, 10, 29, 65515, 10)
-}
-
-[node name="climbable" type="GridMap" parent="." index="1"]
+[node name="NonClimbableGridmap" type="GridMap" parent="."]
 transform = Transform3D(1.5, 0, 0, 0, -8.74228e-08, -1.5, 0, 2, -6.55671e-08, 0, 0, -2.25)
 mesh_library = ExtResource("2_18ox2")
 cell_size = Vector3(1, 1, 1)
 collision_layer = 4
 collision_mask = 3
 data = {
-"cells": PackedInt32Array(65532, 65523, 9, 65532, 65524, 9, 65533, 65524, 9, 65533, 65523, 9, 6, 65522, 9, 5, 65522, 9, 4, 65522, 9, 3, 65522, 9, 2, 65522, 9, 1, 65522, 9, 0, 65522, 9, 65535, 65522, 9, 65534, 65522, 9, 65533, 65522, 9, 65533, 65518, 9, 65533, 65519, 9, 65533, 65520, 9, 65533, 65521, 9, 65532, 65515, 9, 65532, 65516, 9, 9, 65519, 9, 10, 65519, 9, 10, 65520, 9, 10, 65521, 9, 10, 65522, 9, 10, 65523, 9, 10, 65524, 9, 9, 65524, 9, 9, 65523, 9, 9, 65522, 9, 9, 65521, 9, 9, 65520, 9, 18, 65521, 9, 18, 65522, 9, 18, 65523, 9, 18, 65524, 9, 18, 65525, 9, 18, 65526, 9, 18, 65527, 9, 18, 65528, 9, 12, 65529, 9, 13, 65529, 9, 14, 65529, 9, 15, 65529, 9, 16, 65529, 9, 17, 65529, 9, 18, 65529, 9, 18, 65530, 9, 18, 65531, 9, 18, 65532, 9, 18, 65533, 9, 18, 65534, 9, 18, 65535, 9, 18, 0, 9, 18, 1, 9, 65533, 65513, 9, 65533, 65512, 9, 65533, 65511, 9, 65533, 65510, 9, 65532, 65509, 9, 65532, 65508, 9, 65532, 65507, 9, 65533, 65507, 9, 65533, 65506, 9, 65533, 65505, 9, 65534, 65505, 9, 65534, 65504, 9, 65534, 65503, 9, 65535, 65502, 9, 65535, 65501, 9, 65535, 65500, 9, 65535, 65499, 9, 0, 65498, 9, 0, 65497, 9, 0, 65496, 9, 9, 65514, 9, 9, 65515, 9, 9, 65516, 9, 9, 65508, 9, 9, 65509, 9, 10, 65508, 9, 11, 65508, 9, 6, 65496, 9, 6, 65497, 9, 6, 65498, 9, 6, 65499, 9, 4, 65501, 9, 4, 65500, 9, 20, 65529, 9, 20, 65528, 9, 20, 65527, 9, 20, 65526, 9, 20, 65525, 9, 20, 65524, 9, 20, 65523, 9, 24, 65524, 9, 1, 65518, 9, 9, 65512, 9, 9, 65513, 9, 18, 2, 9, 18, 3, 9, 18, 4, 9, 18, 5, 9, 18, 6, 9, 8, 0, 9, 8, 65535, 9, 9, 65535, 9, 9, 0, 9, 12, 65530, 9, 12, 65531, 9, 12, 65532, 9, 0, 65526, 9, 1, 65510, 9, 2, 65510, 9, 3, 65510, 9, 4, 65510, 9, 65528, 65526, 9, 65528, 65527, 9, 65528, 65528, 9, 65528, 65529, 9, 65528, 65519, 9, 65528, 65520, 9, 65528, 65521, 9, 65528, 65511, 9, 65528, 65512, 9, 65528, 65513, 9)
+"cells": PackedInt32Array(65530, 65501, 10, 65530, 65500, 10, 65531, 65500, 10, 65531, 65499, 10, 65531, 65498, 10, 65532, 65498, 10, 65532, 65497, 10, 65532, 65496, 10, 65532, 65495, 10, 65533, 65495, 10, 65533, 65494, 10, 65533, 65493, 10, 65534, 65492, 10, 65534, 65493, 10, 65535, 65492, 10, 65535, 65491, 10, 0, 65491, 10, 1, 65491, 10, 1, 65490, 10, 2, 65490, 10, 3, 65490, 10, 4, 65490, 10, 5, 65490, 10, 6, 65490, 10, 6, 65491, 10, 7, 65491, 10, 8, 65491, 10, 8, 65492, 10, 9, 65492, 10, 10, 65492, 10, 10, 65493, 10, 11, 65493, 10, 11, 65494, 10, 12, 65497, 10, 11, 65495, 10, 12, 65495, 10, 12, 65496, 10, 13, 65497, 10, 13, 65498, 10, 14, 65498, 10, 14, 65499, 10, 14, 65500, 10, 14, 65501, 10, 14, 65502, 10, 15, 65502, 10, 17, 65530, 10, 16, 65530, 10, 15, 65530, 10, 14, 65530, 10, 13, 65530, 10, 65533, 65525, 10, 65533, 65526, 10, 65533, 65527, 10, 65532, 65525, 10, 65532, 65526, 10, 65532, 65527, 10, 65532, 65528, 10, 65532, 65517, 10, 65532, 65518, 10, 65532, 65519, 10, 65532, 65520, 10, 65532, 65521, 10, 65532, 65522, 10, 65533, 65517, 10, 65533, 65516, 10, 65533, 65515, 10, 65532, 65514, 10, 65533, 65514, 10, 0, 65499, 10, 0, 65500, 10, 0, 65501, 10, 0, 65502, 10, 65535, 65503, 10, 65535, 65504, 10, 65535, 65505, 10, 65534, 65506, 10, 65534, 65507, 10, 65533, 65508, 10, 65533, 65509, 10, 9, 65517, 10, 10, 65517, 10, 11, 65517, 10, 10, 65518, 10, 9, 65518, 10, 10, 65516, 10, 10, 65515, 10, 10, 65514, 10, 6, 65500, 10, 5, 65500, 10, 5, 65501, 10, 5, 65502, 10, 5, 65503, 10, 5, 65504, 10, 4, 65504, 10, 4, 65503, 10, 4, 65502, 10, 1, 65496, 10, 2, 65496, 10, 3, 65496, 10, 4, 65496, 10, 5, 65496, 10, 7, 65500, 10, 11, 65500, 10, 12, 65500, 10, 13, 65500, 10, 15, 65503, 10, 15, 65504, 10, 15, 65517, 10, 14, 65517, 10, 13, 65517, 10, 12, 65517, 10, 13, 65514, 10, 14, 65514, 10, 15, 65514, 10, 16, 65514, 10, 17, 65514, 10, 18, 65514, 10, 19, 65514, 10, 19, 65513, 10, 18, 65513, 10, 17, 65513, 10, 16, 65513, 10, 18, 65515, 10, 19, 65515, 10, 20, 65515, 10, 21, 65515, 10, 22, 65515, 10, 23, 65515, 10, 24, 65515, 10, 25, 65515, 10, 31, 65514, 10, 30, 65514, 10, 31, 65513, 10, 32, 65513, 10, 32, 65512, 10, 33, 65512, 10, 33, 65511, 10, 34, 65511, 10, 35, 65511, 10, 36, 65511, 10, 37, 65511, 10, 39, 65507, 10, 38, 65507, 10, 37, 65507, 10, 36, 65507, 10, 33, 65507, 10, 34, 65507, 10, 28, 65506, 10, 27, 65506, 10, 22, 65507, 10, 21, 65507, 10, 20, 65507, 10, 18, 65506, 10, 17, 65506, 10, 13, 65506, 10, 14, 65506, 10, 14, 65505, 10, 15, 65505, 10, 13, 65505, 10, 13, 65507, 10, 13, 65508, 10, 12, 65508, 10, 12, 65509, 10, 11, 65509, 10, 10, 65509, 10, 10, 65510, 10, 9, 65510, 10, 9, 65511, 10, 10, 65513, 10, 10, 65512, 10, 10, 65511, 10, 5, 65514, 10, 1, 65514, 10, 0, 65514, 10, 65535, 65514, 10, 65534, 65514, 10, 2, 65518, 10, 3, 65518, 10, 5, 65518, 10, 1, 65515, 10, 2, 65515, 10, 3, 65515, 10, 4, 65515, 10, 5, 65515, 10, 9, 65525, 10, 10, 65525, 10, 11, 65525, 10, 12, 65525, 10, 13, 65525, 10, 14, 65525, 10, 15, 65525, 10, 19, 1, 10, 19, 65520, 10, 19, 65521, 10, 19, 65522, 10, 19, 65523, 10, 19, 65524, 10, 19, 65525, 10, 19, 65526, 10, 19, 65527, 10, 19, 65528, 10, 19, 65529, 10, 19, 65530, 10, 19, 65531, 10, 19, 65532, 10, 19, 65533, 10, 19, 65534, 10, 19, 65535, 10, 19, 0, 10, 14, 65520, 10, 15, 65520, 10, 16, 65520, 10, 17, 65520, 10, 18, 65520, 10, 11, 65524, 10, 11, 65523, 10, 12, 65524, 10, 20, 65530, 10, 21, 65530, 10, 22, 65530, 10, 23, 65530, 10, 20, 65520, 10, 20, 65521, 10, 20, 65522, 10, 25, 65524, 10, 26, 65524, 10, 27, 65524, 10, 28, 65524, 10, 29, 65524, 10, 30, 65524, 10, 31, 65524, 10, 29, 65523, 10, 29, 65522, 10, 30, 65522, 10, 30, 65521, 10, 31, 65521, 10, 32, 65521, 10, 32, 65520, 10, 33, 65520, 10, 34, 65520, 10, 34, 65519, 10, 35, 65519, 10, 36, 65519, 10, 37, 65519, 10, 38, 65519, 10, 39, 65519, 10, 40, 65519, 10, 31, 65523, 10, 31, 65522, 10, 32, 65522, 10, 33, 65522, 10, 34, 65522, 10, 34, 65521, 10, 35, 65521, 10, 36, 65521, 10, 36, 65520, 10, 40, 65507, 10, 40, 65508, 10, 40, 65509, 10, 40, 65510, 11, 40, 65511, 11, 40, 65512, 11, 40, 65513, 10, 40, 65514, 10, 40, 65515, 10, 41, 65507, 10, 41, 65515, 10, 42, 65507, 11, 42, 65515, 10, 43, 65507, 11, 43, 65515, 10, 44, 65507, 11, 44, 65515, 10, 45, 65507, 10, 45, 65515, 10, 46, 65507, 10, 46, 65508, 10, 46, 65509, 10, 46, 65510, 11, 46, 65511, 11, 46, 65512, 11, 46, 65513, 10, 46, 65514, 10, 46, 65515, 10, 40, 65516, 10, 40, 65517, 10, 40, 65518, 10, 45, 65524, 10, 44, 65524, 10, 43, 65524, 10, 42, 65524, 10, 41, 65524, 10, 40, 65524, 10, 39, 65524, 10, 39, 65525, 10, 39, 65526, 10, 38, 65526, 10, 37, 65526, 10, 37, 65527, 10, 37, 65528, 10, 36, 65528, 10, 35, 65528, 10, 35, 65529, 10, 35, 65530, 10, 34, 65530, 10, 33, 65530, 10, 32, 65530, 10, 31, 65530, 10, 31, 65531, 10, 31, 65532, 10, 23, 65531, 10, 23, 65532, 10, 23, 65533, 10, 24, 65533, 10, 25, 65533, 10, 26, 65533, 10, 27, 65533, 10, 28, 65533, 10, 29, 65533, 10, 30, 65533, 10, 31, 65533, 10, 44, 65525, 10, 44, 65526, 10, 44, 65527, 10, 44, 65528, 10, 44, 65529, 10, 44, 65530, 10, 44, 65531, 10, 44, 65532, 10, 44, 65533, 10, 44, 65534, 10, 44, 65535, 10, 44, 0, 10, 44, 1, 10, 45, 65525, 10, 45, 65526, 10, 45, 65527, 10, 45, 65528, 10, 45, 65529, 10, 45, 65530, 10, 45, 65531, 10, 45, 65532, 10, 45, 65533, 10, 45, 65534, 10, 45, 65535, 10, 45, 0, 10, 45, 1, 10, 32, 65531, 10, 32, 65532, 10, 32, 65533, 10, 32, 65534, 10, 32, 65535, 10, 32, 0, 10, 32, 1, 10, 33, 65531, 10, 33, 65532, 10, 33, 65533, 10, 33, 65534, 10, 33, 65535, 10, 33, 0, 10, 33, 1, 10, 65529, 1, 10, 65530, 65533, 10, 65530, 65534, 10, 65530, 65535, 10, 65530, 0, 10, 65530, 1, 10, 11, 1, 10, 12, 1, 10, 23, 65506, 11, 24, 65506, 11, 25, 65506, 11, 26, 65506, 11, 29, 65506, 11, 32, 65506, 11, 31, 65506, 11, 30, 65506, 11, 33, 65506, 10, 35, 65507, 10, 22, 65506, 10, 19, 65507, 10, 16, 65506, 10, 15, 65506, 10, 16, 65505, 10, 6, 65514, 10, 65532, 65510, 10, 65532, 65511, 10, 65532, 65512, 10, 65532, 65513, 10, 65531, 1, 10, 65532, 1, 10, 65533, 1, 10, 65534, 1, 10, 65535, 1, 10, 0, 1, 10, 1, 1, 10, 2, 1, 10, 3, 1, 10, 4, 1, 10, 5, 1, 10, 6, 1, 10, 7, 1, 10, 8, 1, 10, 9, 1, 10, 10, 1, 10, 11, 2, 10, 11, 3, 10, 11, 4, 10, 11, 5, 10, 11, 6, 10, 12, 2, 10, 12, 3, 10, 12, 4, 10, 12, 5, 10, 12, 6, 10, 19, 2, 10, 19, 3, 10, 19, 4, 10, 19, 5, 10, 19, 6, 10, 6, 65532, 10, 5, 65532, 10, 4, 65532, 10, 3, 65532, 10, 2, 65532, 10, 1, 65532, 10, 0, 65532, 10, 65535, 65532, 10, 7, 65531, 10, 8, 65531, 10, 65534, 65531, 10, 9, 65526, 10, 8, 65527, 10, 7, 65527, 10, 6, 65527, 10, 5, 65527, 10, 4, 65527, 10, 3, 65527, 10, 2, 65527, 10, 1, 65527, 10, 8, 65518, 10, 7, 65518, 10, 6, 65518, 10, 7, 65509, 10, 6, 65509, 10, 5, 65509, 10, 4, 65509, 10, 3, 65509, 10, 2, 65509, 10, 1, 65509, 10, 65528, 65502, 10, 65528, 65503, 10, 65528, 65504, 10, 65528, 65505, 10, 65528, 65506, 10, 65528, 65507, 10, 65528, 65508, 10, 65528, 65509, 10, 65528, 65514, 10, 65528, 65515, 10, 65528, 65516, 10, 65528, 65517, 10, 65528, 65518, 10, 65528, 65522, 10, 65528, 65523, 10, 65528, 65524, 10, 65528, 65525, 10, 65528, 65530, 10, 65528, 65531, 10, 65528, 65532, 10, 65528, 65533, 10, 65528, 65534, 10, 65528, 65535, 10, 65528, 0, 10, 65528, 1, 10, 65529, 65501, 10, 65529, 65502, 10, 65528, 65510, 10, 30, 65515, 10, 28, 65515, 10, 27, 65515, 10, 26, 65515, 10, 29, 65515, 10)
 }
 
-[node name="player" parent="." index="2"]
+[node name="climbable" type="GridMap" parent="."]
+transform = Transform3D(1.5, 0, 0, 0, -8.74228e-08, -1.5, 0, 2, -6.55671e-08, 0, 0, -2.25)
+mesh_library = ExtResource("2_18ox2")
+cell_size = Vector3(1, 1, 1)
+collision_layer = 4
+collision_mask = 3
+data = {
+"cells": PackedInt32Array(65532, 65523, 9, 65532, 65524, 9, 65533, 65524, 9, 65533, 65523, 9, 6, 65522, 9, 5, 65522, 9, 4, 65522, 9, 3, 65522, 9, 2, 65522, 9, 1, 65522, 9, 0, 65522, 9, 65535, 65522, 9, 65534, 65522, 9, 65533, 65522, 9, 65533, 65518, 9, 65533, 65519, 9, 65533, 65520, 9, 65533, 65521, 9, 65532, 65515, 9, 65532, 65516, 9, 9, 65519, 9, 10, 65519, 9, 10, 65520, 9, 10, 65521, 9, 10, 65522, 9, 10, 65523, 9, 10, 65524, 9, 9, 65524, 9, 9, 65523, 9, 9, 65522, 9, 9, 65521, 9, 9, 65520, 9, 18, 65521, 9, 18, 65522, 9, 18, 65523, 9, 18, 65524, 9, 18, 65525, 9, 18, 65526, 9, 18, 65527, 9, 18, 65528, 9, 12, 65529, 9, 13, 65529, 9, 14, 65529, 9, 15, 65529, 9, 16, 65529, 9, 17, 65529, 9, 18, 65529, 9, 18, 65530, 9, 18, 65531, 9, 18, 65532, 9, 18, 65533, 9, 18, 65534, 9, 18, 65535, 9, 18, 0, 9, 18, 1, 9, 65533, 65513, 9, 65533, 65512, 9, 65533, 65511, 9, 65533, 65510, 9, 65532, 65509, 9, 65532, 65508, 9, 65532, 65507, 9, 65533, 65507, 9, 65533, 65506, 9, 65533, 65505, 9, 65534, 65505, 9, 65534, 65504, 9, 65534, 65503, 9, 65535, 65502, 9, 65535, 65501, 9, 65535, 65500, 9, 65535, 65499, 9, 0, 65498, 9, 0, 65497, 9, 0, 65496, 9, 9, 65514, 9, 9, 65515, 9, 9, 65516, 9, 9, 65508, 9, 9, 65509, 9, 10, 65508, 9, 11, 65508, 9, 6, 65496, 9, 6, 65497, 9, 6, 65498, 9, 6, 65499, 9, 4, 65501, 9, 4, 65500, 9, 20, 65529, 9, 20, 65528, 9, 20, 65527, 9, 20, 65526, 9, 20, 65525, 9, 20, 65524, 9, 20, 65523, 9, 24, 65524, 9, 1, 65518, 9, 9, 65512, 9, 9, 65513, 9, 18, 2, 9, 18, 3, 9, 18, 4, 9, 18, 5, 9, 18, 6, 9, 8, 0, 9, 8, 65535, 9, 9, 65535, 9, 9, 0, 9, 12, 65530, 9, 12, 65531, 9, 12, 65532, 9, 0, 65526, 9, 1, 65510, 9, 2, 65510, 9, 3, 65510, 9, 4, 65510, 9, 65528, 65526, 9, 65528, 65527, 9, 65528, 65528, 9, 65528, 65529, 9, 65528, 65519, 9, 65528, 65520, 9, 65528, 65521, 9, 65528, 65511, 9, 65528, 65512, 9, 65528, 65513, 9, 65533, 65528, 9, 65533, 65529, 9, 65533, 65530, 9)
+}
+
+[node name="player" parent="." instance=ExtResource("3_lfdi4")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 58.185, 20.7615, 0)
 
 [node name="AnimatedSprite3D" parent="player" index="1"]
@@ -99,7 +118,7 @@ shaded = true
 [node name="Camera3D" parent="player" index="8"]
 attributes = SubResource("CameraAttributesPractical_yla2b")
 
-[node name="SpotLight3D" type="OmniLight3D" parent="player" index="10"]
+[node name="SpotLight3D" type="OmniLight3D" parent="player"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.131912, 1.11618, 0.751954)
 light_color = Color(0.501961, 0.34902, 0, 1)
 light_energy = 6.306
@@ -110,152 +129,163 @@ distance_fade_enabled = true
 distance_fade_length = 1830.44
 omni_range = 16.211
 
-[node name="VacuumCleaner" parent="NPCs" index="0" instance=ExtResource("2_nlfxv")]
+[node name="NPCs" type="Node3D" parent="."]
+
+[node name="VacuumCleaner" parent="NPCs" instance=ExtResource("2_nlfxv")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.677264, 21.3873, -0.796688)
 
-[node name="VacuumCleaner2" parent="NPCs" index="1" instance=ExtResource("2_nlfxv")]
+[node name="VacuumCleaner2" parent="NPCs" instance=ExtResource("2_nlfxv")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.56312, 21.4683, -0.796688)
 
-[node name="VacuumCleaner3" parent="NPCs" index="2" instance=ExtResource("2_nlfxv")]
+[node name="VacuumCleaner3" parent="NPCs" instance=ExtResource("2_nlfxv")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.61786, 21.7732, -0.796688)
 
-[node name="HairDryer" parent="NPCs" index="3" instance=ExtResource("3_ntvup")]
+[node name="HairDryer" parent="NPCs" instance=ExtResource("3_ntvup")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 33.6695, 9.40586, -0.714163)
 
-[node name="HairDryer2" parent="NPCs" index="4" instance=ExtResource("3_ntvup")]
+[node name="HairDryer2" parent="NPCs" instance=ExtResource("3_ntvup")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.22633, 33.5434, -0.939361)
 
-[node name="DeadlyTile" parent="EnvironmentalHazards" index="0" instance=ExtResource("4_o18aw")]
+[node name="EnvironmentalHazards" type="Node3D" parent="."]
+
+[node name="DeadlyTile" parent="EnvironmentalHazards" instance=ExtResource("4_o18aw")]
 transform = Transform3D(3.89308, 0, 0, 0, 1.31947, 0, 0, 0, 1.8701, 7.34326, 13.7088, -1.21702)
 
-[node name="DeadlyTile4" parent="EnvironmentalHazards" index="1" instance=ExtResource("4_o18aw")]
+[node name="DeadlyTile4" parent="EnvironmentalHazards" instance=ExtResource("4_o18aw")]
 transform = Transform3D(1.56365, 0, 0, 0, 1.31947, 0, 0, 0, 1.8701, 5.23287, 31.8925, -1.21702)
 
-[node name="DeadlyTile2" parent="EnvironmentalHazards" index="2" instance=ExtResource("4_o18aw")]
+[node name="DeadlyTile2" parent="EnvironmentalHazards" instance=ExtResource("4_o18aw")]
 transform = Transform3D(5.21472, 0.00235619, 0, -0.00409563, 3, 0, 0, 0, 1.72996, 37.5718, 32.1136, -1.25478)
 
-[node name="DeadlyTile3" parent="EnvironmentalHazards" index="3" instance=ExtResource("4_o18aw")]
+[node name="DeadlyTile3" parent="EnvironmentalHazards" instance=ExtResource("4_o18aw")]
 transform = Transform3D(3.57115, 0, 0, 0, 3, 0, 0, 0, 1.91568, 41.1764, 5.02719, -1.1007)
 
-[node name="moving_platform_top" parent="MovingPlatforms" index="0" instance=ExtResource("5_m16ie")]
+[node name="MovingPlatforms" type="Node3D" parent="."]
+
+[node name="moving_platform_top" parent="MovingPlatforms" instance=ExtResource("5_m16ie")]
 transform = Transform3D(1.7902, 0, 0, 0, 0.596735, 0, 0, 0, 1.19347, 3.78362, 40.8477, 0)
 target = Vector3(0, 23, 0)
 needs_activation = true
 
-[node name="moving platform2" parent="MovingPlatforms" index="1" instance=ExtResource("5_m16ie")]
+[node name="moving platform2" parent="MovingPlatforms" instance=ExtResource("5_m16ie")]
 transform = Transform3D(1.34581, 0, 0, 0, 0.672904, 0, 0, 0, 1.34581, 14.6707, 43.1527, 0)
 target = Vector3(0, 17, 0)
 needs_activation = true
 
-[node name="moving platform3" parent="MovingPlatforms" index="2" instance=ExtResource("5_m16ie")]
+[node name="moving platform3" parent="MovingPlatforms" instance=ExtResource("5_m16ie")]
 transform = Transform3D(1.63817, 0, 0, 0, 0.819085, 0, 0, 0, 1.63817, 58.3778, 26.0807, 0)
 target = Vector3(0, 13, 0)
 needs_activation = true
 
-[node name="moving platform_NE" parent="MovingPlatforms" index="3" instance=ExtResource("5_m16ie")]
+[node name="moving platform_NE" parent="MovingPlatforms" instance=ExtResource("5_m16ie")]
 transform = Transform3D(1.53287, 0, 0, 0, 0.766437, 0, 0, 0, 1.53287, 44.5889, 35.93, 0)
 target = Vector3(-8, 0, 0)
 
-[node name="DirectionalLight3D" parent="Lighting" index="0"]
+[node name="Lighting" type="Node3D" parent="."]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="Lighting"]
 unique_name_in_owner = true
+transform = Transform3D(0.822889, 0.469704, -0.319738, 0, 0.562718, 0.826649, 0.568203, -0.68024, 0.463054, 0, 39.1774, 14.9607)
 light_color = Color(0.0470588, 0.266667, 0.6, 1)
 light_energy = 9.405
 light_indirect_energy = 9.728
 shadow_enabled = true
 shadow_opacity = 0.85
 
-[node name="Sky and Lighting" parent="." index="7"]
+[node name="Sky and Lighting" parent="." instance=ExtResource("8_y2inl")]
 script = ExtResource("7_m6huc")
 low_spec_in_editor = true
 
-[node name="TriggerVolumeWin" parent="DynamicObjects" index="0"]
+[node name="Cloud_water" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -38.2472, 0)
+mesh = SubResource("PlaneMesh_kw84f")
+
+[node name="DynamicObjects" type="Node3D" parent="."]
+
+[node name="TriggerVolumeWin" parent="DynamicObjects" instance=ExtResource("8_pd66h")]
 transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 23.1153, -10.4402, 0)
 next_scene_path = "res://Scenes/Maps/Official/LivingRoom/LivingRoom.tscn"
 
-[node name="Sprite3D" type="Sprite3D" parent="DynamicObjects/TriggerVolumeWin" index="2"]
+[node name="Sprite3D" type="Sprite3D" parent="DynamicObjects/TriggerVolumeWin"]
 transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 0, 0, 0)
 pixel_size = 0.033
 texture = ExtResource("6_431y2")
 
-[node name="FallResetVolume" parent="DynamicObjects" index="1"]
+[node name="FallResetVolume" parent="DynamicObjects" instance=ExtResource("13_dfiw2")]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, -59.2983, 0)
 
-[node name="pressure_plate_02_NE" parent="DynamicObjects" index="2" instance=ExtResource("6_nya5f")]
+[node name="pressure_plate_02_NE" parent="DynamicObjects" instance=ExtResource("6_nya5f")]
 transform = Transform3D(2.16708, 0, 0, 0, 1.08354, 0, 0, 0, 2.16708, 26.7152, 34.6162, -1.19595)
 connected_to = Array[NodePath]([NodePath("../../MovingPlatforms/moving platform_NE")])
 
-[node name="pressure_plate_04_N" parent="DynamicObjects" index="3" instance=ExtResource("6_nya5f")]
-transform = Transform3D(1.97427, 0, 0, 0, 0.987135, 0, 0, 0, 1.97427, 41.3118, 18.1128, -0.894652)
-connected_to = Array[NodePath]([NodePath("../../MovingPlatforms/moving platform_NE")])
-
-[node name="pressure_plate_05_top" parent="DynamicObjects" index="4" instance=ExtResource("6_nya5f")]
+[node name="pressure_plate_05_top" parent="DynamicObjects" instance=ExtResource("6_nya5f")]
 transform = Transform3D(1.90546, 0, 0, 0, 0.952725, 0, 0, 0, 1.90546, 20.408, 46.5275, -0.824644)
 connected_to = Array[NodePath]([NodePath("../../MovingPlatforms/moving platform_NE")])
 
-[node name="pressure_plate_06_NW" parent="DynamicObjects" index="5" instance=ExtResource("6_nya5f")]
+[node name="pressure_plate_06_NW" parent="DynamicObjects" instance=ExtResource("6_nya5f")]
 transform = Transform3D(2.45643, 0, 0, 0, 1.22822, 0, 0, 0, 2.45643, 0.860338, 40.3889, -0.156532)
 connected_to = Array[NodePath]([NodePath("../../MovingPlatforms/moving_platform_top")])
 
-[node name="pressure_plate_08_middle" parent="DynamicObjects" index="6" instance=ExtResource("6_nya5f")]
+[node name="pressure_plate_08_middle" parent="DynamicObjects" instance=ExtResource("6_nya5f")]
 transform = Transform3D(1.98534, 0, 0, 0, 0.992672, 0, 0, 0, 1.98534, 56.8336, 15.101, -1.02811)
 connected_to = Array[NodePath]([NodePath("Door_08_hair_dryer")])
 
-[node name="Door_08_hair_dryer" parent="DynamicObjects/pressure_plate_08_middle" index="5" instance=ExtResource("7_tpc43")]
+[node name="Door_08_hair_dryer" parent="DynamicObjects/pressure_plate_08_middle" instance=ExtResource("7_tpc43")]
 transform = Transform3D(-1.74846e-07, -3.12171, 0, 4, -1.36454e-07, 0, 0, 0, 1.5604, -4.33168, -6.93505, 0)
 
-[node name="Door_01_W" parent="DynamicObjects" index="7" instance=ExtResource("7_tpc43")]
+[node name="Door_01_W" parent="DynamicObjects" instance=ExtResource("7_tpc43")]
 transform = Transform3D(4, 0, 0, 0, 2.75066, 0, 0, 0, 2.92067, 8.23157, -1.40352, -0.575484)
 
-[node name="pressure_plate_05" parent="DynamicObjects" index="8" instance=ExtResource("6_nya5f")]
+[node name="pressure_plate_05" parent="DynamicObjects" instance=ExtResource("6_nya5f")]
 transform = Transform3D(2.45643, 0, 0, 0, 1.22822, 0, 0, 0, 2.45643, 7.41621, 54.1185, -0.156532)
 connected_to = Array[NodePath]([NodePath("Door_05")])
 
-[node name="Door_05" parent="DynamicObjects/pressure_plate_05" index="5" instance=ExtResource("7_tpc43")]
+[node name="Door_05" parent="DynamicObjects/pressure_plate_05" instance=ExtResource("7_tpc43")]
 transform = Transform3D(1.3471, 0, 0, 0, 2.40685, 0, 0, 0, 0.687136, 0.331927, -11.0925, -0.372706)
 queue_free_on_activate = true
 
-[node name="TriggerVolumeWin2" parent="DynamicObjects" index="9" instance=ExtResource("8_pd66h")]
+[node name="TriggerVolumeWin2" parent="DynamicObjects" instance=ExtResource("8_pd66h")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 69.9896, 19.7704, 0)
 next_scene_path = "res://Scenes/Maps/Official/BathRoom/Bathroom.tscn"
 
-[node name="Sprite3D" type="Sprite3D" parent="DynamicObjects/TriggerVolumeWin2" index="2"]
+[node name="Sprite3D" type="Sprite3D" parent="DynamicObjects/TriggerVolumeWin2"]
 transform = Transform3D(-1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 0, 0, 1, 0, 1.87525, 0)
 pixel_size = 0.033
 texture = ExtResource("6_431y2")
 
-[node name="Door_02_E" parent="DynamicObjects" index="10" instance=ExtResource("7_tpc43")]
+[node name="Door_02_E" parent="DynamicObjects" instance=ExtResource("7_tpc43")]
 transform = Transform3D(4, 0, 0, 0, 5.89308, 0, 0, 0, 1.9925, 66.3531, 18.0165, -0.967863)
 open_on_previous_map_name = "bathroom"
 
-[node name="switch_03" parent="DynamicObjects" index="11" instance=ExtResource("11_gdsl8")]
+[node name="switch_03" parent="DynamicObjects" instance=ExtResource("11_gdsl8")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.66337, -1.58203, -1.83688)
 target_node = NodePath("Door_03_ExitDown")
 
-[node name="Door_03_ExitDown" parent="DynamicObjects/switch_03" index="4" instance=ExtResource("7_tpc43")]
+[node name="Door_03_ExitDown" parent="DynamicObjects/switch_03" instance=ExtResource("7_tpc43")]
 transform = Transform3D(-1.74846e-07, 3.83316, 0, -4, -1.67553e-07, 0, 0, 0, 1.75808, 15.727, -0.146738, 0.805582)
 open_on_previous_map_name = "livingroom"
 
-[node name="switch_04" parent="DynamicObjects" index="12" instance=ExtResource("11_gdsl8")]
+[node name="switch_04" parent="DynamicObjects" instance=ExtResource("11_gdsl8")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25.3245, 23.8517, -1.837)
 target_node = NodePath("Door_04")
 
-[node name="Door_04" parent="DynamicObjects/switch_04" index="4" instance=ExtResource("7_tpc43")]
+[node name="Door_04" parent="DynamicObjects/switch_04" instance=ExtResource("7_tpc43")]
 transform = Transform3D(4, 0, 0, 0, 2.75066, 0, 0, 0, 2.92067, 3.10206, 0.233763, 1.26152)
 
-[node name="switch_06" parent="DynamicObjects" index="13" instance=ExtResource("11_gdsl8")]
+[node name="switch_06" parent="DynamicObjects" instance=ExtResource("11_gdsl8")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.81604, 32.9097, -1.837)
 target_node = NodePath("Door_06")
 
-[node name="Door_06" parent="DynamicObjects/switch_06" index="4" instance=ExtResource("7_tpc43")]
+[node name="Door_06" parent="DynamicObjects/switch_06" instance=ExtResource("7_tpc43")]
 transform = Transform3D(3.30905, 0, 0, 0, 3.12607, 0, 0, 0, 1.78557, -1.58447, -0.103233, 0.775456)
 queue_free_on_activate = true
 
-[node name="switch" parent="DynamicObjects" index="14" instance=ExtResource("11_gdsl8")]
+[node name="switch" parent="DynamicObjects" instance=ExtResource("11_gdsl8")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30.9579, 23.9944, -0.682626)
 target_node = NodePath("../../MovingPlatforms/moving platform3")
-single_use = false
+function = 3
 
-[node name="ReferenceSprite3D" type="Sprite3D" parent="." index="10"]
+[node name="ReferenceSprite3D" type="Sprite3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 34.04, -1.79347)
 visible = false
 modulate = Color(1, 1, 1, 0.501961)
@@ -263,22 +293,22 @@ pixel_size = 0.067
 texture = ExtResource("2_di4eq")
 script = ExtResource("13_q5c4o")
 
-[node name="StickyTiles" type="Node3D" parent="." index="11"]
+[node name="StickyTiles" type="Node3D" parent="."]
 
-[node name="DevNotes" type="Node3D" parent="." index="12"]
+[node name="DevNotes" type="Node3D" parent="."]
 
-[node name="Label3D" type="Label3D" parent="DevNotes" index="0"]
+[node name="Label3D" type="Label3D" parent="DevNotes"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.04843, 71.2976, 0)
 text = "Need a Tail Checkpoint. Or some cool payoff.
 "
 font_size = 200
 
-[node name="Background elements" type="Node3D" parent="." index="13"]
+[node name="Background elements" type="Node3D" parent="."]
 
-[node name="High End" type="Node3D" parent="Background elements" index="0"]
+[node name="High End" type="Node3D" parent="Background elements"]
 script = ExtResource("15_mbr8b")
 
-[node name="GPUParticles3D" type="GPUParticles3D" parent="Background elements/High End" index="0"]
+[node name="GPUParticles3D" type="GPUParticles3D" parent="Background elements/High End"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 8.14951, -48.2252)
 amount = 400
 lifetime = 20.3
@@ -286,131 +316,130 @@ visibility_aabb = AABB(-121.013, 12.7665, -77.9529, 300.345, 76.6098, 169.685)
 process_material = SubResource("ParticleProcessMaterial_i0pm5")
 draw_pass_1 = SubResource("SphereMesh_nchim")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Background elements/High End" index="1"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Background elements/High End"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.50916, 52.2321, -280.557)
 mesh = SubResource("SphereMesh_0fyin")
 
-[node name="Clouds" type="MeshInstance3D" parent="Background elements" index="1"]
+[node name="Clouds" type="MeshInstance3D" parent="Background elements"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -24.3348, 0)
 mesh = SubResource("PlaneMesh_yfww1")
 
-[node name="Skyline" type="Node3D" parent="Background elements" index="2"]
+[node name="Skyline" type="Node3D" parent="Background elements"]
 
-[node name="Mountains" type="Sprite3D" parent="Background elements/Skyline" index="0"]
+[node name="Mountains" type="Sprite3D" parent="Background elements/Skyline"]
 transform = Transform3D(37.094, 0, 0, 0, 37.094, 0, 0, 0, 1, -18.6122, 35.4455, -74.1531)
 shaded = true
 alpha_cut = 2
 texture = ExtResource("16_own6m")
 
-[node name="Mountains2" type="Sprite3D" parent="Background elements/Skyline/Mountains" index="0"]
+[node name="Mountains2" type="Sprite3D" parent="Background elements/Skyline/Mountains"]
 transform = Transform3D(-0.999849, 0, 0.000468141, 0, 1, 0, -0.644145, 0, -0.999849, -0.730993, 0, -0.470936)
 shaded = true
 alpha_cut = 2
 texture = ExtResource("16_own6m")
 
-[node name="Mountains3" type="Sprite3D" parent="Background elements/Skyline" index="1"]
+[node name="Mountains3" type="Sprite3D" parent="Background elements/Skyline"]
 transform = Transform3D(101.861, 0, 0, 0, 73.3878, 0, 0, 0, 1, -38.059, 34.5701, -54.4256)
 shaded = true
 alpha_cut = 2
 texture = ExtResource("16_own6m")
 
-[node name="Mountains2" type="Sprite3D" parent="Background elements/Skyline/Mountains3" index="0"]
+[node name="Mountains2" type="Sprite3D" parent="Background elements/Skyline/Mountains3"]
 transform = Transform3D(-0.999849, 0, 0.000468141, 0, 1, 0, -0.644145, 0, -0.999849, -0.730993, 0, -0.470936)
 shaded = true
 alpha_cut = 2
 texture = ExtResource("16_own6m")
 
-[node name="Mountains2" type="Sprite3D" parent="Background elements/Skyline" index="2"]
+[node name="Mountains2" type="Sprite3D" parent="Background elements/Skyline"]
 transform = Transform3D(37.094, 0, 0, 0, 37.094, 0, 0, 0, 1, 4.3134, 35.4455, -113.951)
 shaded = true
 alpha_cut = 2
 texture = ExtResource("16_own6m")
 
-[node name="Mountains2" type="Sprite3D" parent="Background elements/Skyline/Mountains2" index="0"]
+[node name="Mountains2" type="Sprite3D" parent="Background elements/Skyline/Mountains2"]
 transform = Transform3D(-0.999849, 0, 0.000468141, 0, 1, 0, -0.644145, 0, -0.999849, -0.730993, 0, -0.470936)
 shaded = true
 alpha_cut = 2
 texture = ExtResource("16_own6m")
 
-[node name="SkyMountains" type="Sprite3D" parent="Background elements/Skyline" index="3"]
+[node name="SkyMountains" type="Sprite3D" parent="Background elements/Skyline"]
 transform = Transform3D(45.3484, 0, 0, 0, 37.6321, 0, 0, 0, 1, 229.927, 38.654, -217.279)
 alpha_cut = 2
 texture = ExtResource("17_en30g")
 
-[node name="SkyMountains2" type="Sprite3D" parent="Background elements/Skyline/SkyMountains" index="0"]
+[node name="SkyMountains2" type="Sprite3D" parent="Background elements/Skyline/SkyMountains"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.21613, 0, 0)
 alpha_cut = 2
 texture = ExtResource("17_en30g")
 
-[node name="SkyMountains6" type="Sprite3D" parent="Background elements/Skyline/SkyMountains" index="1"]
+[node name="SkyMountains6" type="Sprite3D" parent="Background elements/Skyline/SkyMountains"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.32111, 0, 0)
 alpha_cut = 2
 texture = ExtResource("17_en30g")
 
-[node name="SkyMountains3" type="Sprite3D" parent="Background elements/Skyline/SkyMountains" index="2"]
+[node name="SkyMountains3" type="Sprite3D" parent="Background elements/Skyline/SkyMountains"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.49393, 0, 0)
 alpha_cut = 2
 texture = ExtResource("17_en30g")
 
-[node name="SkyMountains4" type="Sprite3D" parent="Background elements/Skyline/SkyMountains" index="3"]
+[node name="SkyMountains4" type="Sprite3D" parent="Background elements/Skyline/SkyMountains"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.46557, 0, 0)
 alpha_cut = 2
 texture = ExtResource("17_en30g")
 
-[node name="SkyMountains5" type="Sprite3D" parent="Background elements/Skyline/SkyMountains" index="4"]
+[node name="SkyMountains5" type="Sprite3D" parent="Background elements/Skyline/SkyMountains"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.74337, 0, 0)
 alpha_cut = 2
 texture = ExtResource("17_en30g")
 
-[node name="Trees" type="Node3D" parent="Background elements" index="3"]
+[node name="Trees" type="Node3D" parent="Background elements"]
 
-[node name="Tree" type="Sprite3D" parent="Background elements/Trees" index="0"]
+[node name="Tree" type="Sprite3D" parent="Background elements/Trees"]
 transform = Transform3D(9.09928, 0, 0, 0, 9.09928, 0, 0, 0, 1, -17.3028, 14.0808, -113.257)
 texture = ExtResource("19_cm5fj")
 
-[node name="Tree2" type="Sprite3D" parent="Background elements/Trees" index="1"]
+[node name="Tree2" type="Sprite3D" parent="Background elements/Trees"]
 transform = Transform3D(7.85944, -4.58539, 0.00167209, 4.58537, 7.85918, -0.0073324, 0.0204806, 0.0652957, 0.999972, -57.8338, 50.2385, -105.414)
 texture = ExtResource("19_cm5fj")
 
-[node name="Tree3" type="Sprite3D" parent="Background elements/Trees" index="2"]
+[node name="Tree3" type="Sprite3D" parent="Background elements/Trees"]
 transform = Transform3D(9.07809, -0.62037, 0.00167209, 0.620466, 9.07785, -0.0073324, -0.0106303, 0.0676016, 0.999972, 73.0367, 26.1606, -225.339)
 texture = ExtResource("19_cm5fj")
 
-[node name="Tree4" type="Sprite3D" parent="Background elements/Trees" index="3"]
+[node name="Tree4" type="Sprite3D" parent="Background elements/Trees"]
 transform = Transform3D(9.07809, -0.62037, 0.00167209, 0.620466, 9.07785, -0.0073324, -0.0106303, 0.0676016, 0.999972, 97.9665, 53.647, -124.315)
 texture = ExtResource("19_cm5fj")
 
-[node name="Tree5" type="Sprite3D" parent="Background elements/Trees" index="4"]
+[node name="Tree5" type="Sprite3D" parent="Background elements/Trees"]
 transform = Transform3D(9.07809, -0.62037, 0.00167209, 0.620466, 9.07785, -0.0073324, -0.0106303, 0.0676016, 0.999972, 167.251, 13.5462, -216.874)
 texture = ExtResource("19_cm5fj")
 
-[node name="Tree6" type="Sprite3D" parent="Background elements/Trees" index="5"]
+[node name="Tree6" type="Sprite3D" parent="Background elements/Trees"]
 transform = Transform3D(9.07809, -0.62037, 0.00167209, 0.620466, 9.07785, -0.0073324, -0.0106303, 0.0676016, 0.999972, 28.5086, -12.1603, -216.83)
 texture = ExtResource("19_cm5fj")
 
-[node name="Tree7" type="Sprite3D" parent="Background elements/Trees" index="6"]
+[node name="Tree7" type="Sprite3D" parent="Background elements/Trees"]
 transform = Transform3D(9.07809, -0.62037, 0.00167209, 0.620466, 9.07785, -0.0073324, -0.0106303, 0.0676016, 0.999972, -63.8154, 101.687, -215.841)
 texture = ExtResource("19_cm5fj")
 
-[node name="Light house" type="Sprite3D" parent="Background elements" index="4"]
+[node name="Light house" type="Sprite3D" parent="Background elements"]
 transform = Transform3D(31.2143, 0, 0, 0, 31.2143, 0, 0, 0, 1, 87.6862, 65.1438, -36.6669)
 shaded = true
 alpha_cut = 2
 texture = ExtResource("20_c3rgl")
 
-[node name="SpawnPoints" type="Node3D" parent="." index="14"]
+[node name="SpawnPoints" type="Node3D" parent="."]
 
-[node name="SpawnPointLivingRoom" parent="SpawnPoints" index="0" instance=ExtResource("21_47lhw")]
+[node name="SpawnPointLivingRoom" parent="SpawnPoints" instance=ExtResource("21_47lhw")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.1124, 0.557629, -0.563348)
 
-[node name="SpawnPointBathroom" parent="SpawnPoints" index="1" instance=ExtResource("21_47lhw")]
+[node name="SpawnPointBathroom" parent="SpawnPoints" instance=ExtResource("21_47lhw")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 62.0675, 20.0949, -0.620568)
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." index="15"]
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("23_dcvxg")
 autoplay = true
 
-[connection signal="switch_toggled" from="DynamicObjects/pressure_plate_04_N" to="MovingPlatforms/moving platform3" method="_on_plate_press"]
 [connection signal="switch_toggled" from="DynamicObjects/pressure_plate_05_top" to="MovingPlatforms/moving platform2" method="_on_plate_press"]
 [connection signal="switch_toggled" from="DynamicObjects/pressure_plate_06_NW" to="MovingPlatforms/moving_platform_top" method="_on_plate_press"]
 

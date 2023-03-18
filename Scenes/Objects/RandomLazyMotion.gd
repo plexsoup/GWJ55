@@ -23,7 +23,7 @@ func _process(delta):
 		choose_new_direction()
 		last_decision_time = now
 
-	position += direction * delta * speed
+	global_position += direction * delta * speed
 	rotation += tumble_rotation * delta * angular_speed
 	# TBD: it'd be nice to add some sin wave or lerp or something smooth
 
@@ -37,7 +37,7 @@ func get_rand_vector():
 
 func choose_new_direction():
 	var proposedDirection = get_rand_vector()
-	if proposedDirection.z > 0 and get_global_position().z > -10.0:
+	if proposedDirection.z > 0 and get_global_position().z > -30.0:
 		proposedDirection.z *= -1.0 # don't come forward through the level
 	direction = proposedDirection
 	var axes = [ Vector3.UP, Vector3.RIGHT, Vector3.DOWN ]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=79 format=3 uid="uid://cp3lj510xmwmh"]
+[gd_scene load_steps=85 format=3 uid="uid://cp3lj510xmwmh"]
 
 [ext_resource type="Script" path="res://Scenes/Maps/base_level.gd" id="1_27clu"]
 [ext_resource type="MeshLibrary" uid="uid://dmh5e52qprx6r" path="res://MeshLibraries/cat_tower_plex.tres" id="2_6n4ip"]
@@ -34,12 +34,16 @@
 [ext_resource type="Texture2D" uid="uid://8taaseu1bw40" path="res://Art/objects/toothpaste.png" id="27_5v1s5"]
 [ext_resource type="Texture2D" uid="uid://b8b3xjek6q7wy" path="res://Art/Foliage/Grass3.png" id="28_c6qc5"]
 [ext_resource type="Texture2D" uid="uid://ddaucwcbe7q1y" path="res://Art/Foliage/Mushrooms.png" id="29_ochm2"]
+[ext_resource type="ArrayMesh" uid="uid://bop4i63wjkgln" path="res://Art/objects/rolled_towel.obj" id="30_7bf00"]
 [ext_resource type="Texture2D" uid="uid://1yt0bsisi0p6" path="res://Art/Foliage/Bush_1.png" id="30_qj37p"]
 [ext_resource type="Texture2D" uid="uid://coaanccqd0h8j" path="res://Art/Foliage/Tree.png" id="31_21ash"]
+[ext_resource type="Texture2D" uid="uid://dy4suuetjfc5g" path="res://Art/objects/rolled_towel.png" id="31_p4msx"]
 [ext_resource type="Texture2D" uid="uid://b6jmphr0ugk78" path="res://Art/Foliage/Mountains 2.png" id="32_i28k1"]
 [ext_resource type="ArrayMesh" uid="uid://crqdcvpu65qav" path="res://Art/objects/Water_twist2.obj" id="33_kvykl"]
 [ext_resource type="Shader" uid="uid://deoy3clg2jh4q" path="res://Water_Ground.tres" id="34_42414"]
 [ext_resource type="AudioStream" uid="uid://cj43ny2gxq3d6" path="res://sfx/Rain.mp3" id="35_eetkf"]
+[ext_resource type="ArrayMesh" uid="uid://dp5r03qn8vvvj" path="res://Art/objects/bathtub.obj" id="41_oqpw4"]
+[ext_resource type="Texture2D" uid="uid://kw4ks66f74k8" path="res://Art/objects/bathtub.png" id="42_0ws6o"]
 
 [sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_qs5tq"]
 dof_blur_far_enabled = true
@@ -74,6 +78,12 @@ albedo_texture = ExtResource("25_wrrtw")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3i5y4"]
 albedo_texture = ExtResource("27_5v1s5")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1x7x8"]
+albedo_texture = ExtResource("42_0ws6o")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7bpdd"]
+albedo_texture = ExtResource("31_p4msx")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0fbmc"]
 vertex_color_use_as_albedo = true
@@ -510,7 +520,7 @@ skeleton = NodePath("../..")
 surface_material_override/0 = SubResource("StandardMaterial3D_e7522")
 
 [node name="Toothbrush2" type="MeshInstance3D" parent="BackgroundImagery"]
-transform = Transform3D(2.90346, 5.83286, 8.86271, 2.50729, 8.55111, -6.44918, -10.3094, 3.72239, 0.927562, -52.4253, 54.7052, -28.0288)
+transform = Transform3D(2.90346, 5.83286, 8.86271, 2.50729, 8.55111, -6.44918, -10.3094, 3.72239, 0.927562, 48.8107, 54.7052, -28.0288)
 mesh = ExtResource("24_iagjr")
 skeleton = NodePath("../..")
 surface_material_override/0 = SubResource("StandardMaterial3D_e7522")
@@ -526,6 +536,30 @@ transform = Transform3D(-6.03107, 1.31569, 9.10467, 9.1243, -0.531266, 6.12085, 
 mesh = ExtResource("26_q71du")
 skeleton = NodePath("../..")
 surface_material_override/0 = SubResource("StandardMaterial3D_3i5y4")
+
+[node name="Bathtub" type="MeshInstance3D" parent="BackgroundImagery"]
+transform = Transform3D(8.02013, -3.20607, 2.52955, 4.08382, 6.29635, -4.96774, 0, 5.57468, 7.06562, -80.7627, 53.5204, -67.1468)
+mesh = ExtResource("41_oqpw4")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_1x7x8")
+
+[node name="Bathtub2" type="MeshInstance3D" parent="BackgroundImagery"]
+transform = Transform3D(8.68762, 1.84539, -1.45599, -2.35061, 6.82037, -5.38119, 0, 5.57468, 7.06562, 67.323, -11.8371, -67.1468)
+mesh = ExtResource("41_oqpw4")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_1x7x8")
+
+[node name="RolledTowel" type="MeshInstance3D" parent="BackgroundImagery"]
+transform = Transform3D(14.628, 0.970048, -14.6141, 6.40515, 18.151, 7.61607, 13.1714, -9.90401, 12.5265, -15.9299, 35.7807, -81.0641)
+mesh = ExtResource("30_7bf00")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_7bpdd")
+
+[node name="RolledTowel2" type="MeshInstance3D" parent="BackgroundImagery"]
+transform = Transform3D(15.5205, 7.42277, -11.5111, -10.8074, 17.3242, -3.40052, 8.41442, 8.55956, 16.8648, -69.9352, -20.9311, -81.0641)
+mesh = ExtResource("30_7bf00")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_7bpdd")
 
 [node name="Hints" type="Node3D" parent="."]
 

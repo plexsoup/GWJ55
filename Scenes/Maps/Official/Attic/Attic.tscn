@@ -411,4 +411,5 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 62.0675, 20.0949, -0.620568)
 [editable path="player/Audio/Footsteps"]
 [editable path="player/Audio/Landing"]
 [editable path="player/Audio/Jumping"]
+[editable path="player/Audio/Hurt"]
 [editable path="Sky and Lighting"]

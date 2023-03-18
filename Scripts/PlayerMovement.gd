@@ -276,10 +276,10 @@ func receive_knockback(impactVector):
 	
 	if Global.player_stats["health"] > 0:
 		last_knockback_time = Time.get_ticks_msec()
-		var knockback_magnitude = 20.0
+		var knockback_magnitude = 10.0
 		state = States.KNOCKBACK
 		velocity.x = impactVector.normalized().x * knockback_magnitude
-		velocity.y = 20.0
+		velocity.y = 10.0
 		move_and_slide()
 
 func execute_knockback(delta):

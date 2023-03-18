@@ -1,4 +1,4 @@
-[gd_scene load_steps=84 format=3 uid="uid://dyn1atg77jsnm"]
+[gd_scene load_steps=103 format=3 uid="uid://dyn1atg77jsnm"]
 
 [ext_resource type="Script" path="res://Scenes/Maps/base_level.gd" id="1_3t2kx"]
 [ext_resource type="MeshLibrary" uid="uid://dmh5e52qprx6r" path="res://MeshLibraries/cat_tower_plex.tres" id="2_tx034"]
@@ -21,11 +21,12 @@
 [ext_resource type="ArrayMesh" uid="uid://bbje4wl4kivx0" path="res://Art/objects/mirror.obj" id="13_do3yh"]
 [ext_resource type="Script" path="res://Scenes/Objects/RandomLazyMotion.gd" id="14_olyda"]
 [ext_resource type="ArrayMesh" uid="uid://cqerpxbfucmkm" path="res://Art/objects/sink.obj" id="15_w2qbg"]
-[ext_resource type="PackedScene" path="res://Scenes/Objects/VolumeTriggerHintThoughtBubble.tscn" id="21_cgked"]
-[ext_resource type="PackedScene" path="res://Scenes/Objects/spawn_point.tscn" id="22_0ifv0"]
+[ext_resource type="Texture2D" uid="uid://dm3mow1h2luih" path="res://Art/objects/mirror.png" id="20_pr0l1"]
+[ext_resource type="PackedScene" uid="uid://b3p7s4vjxe0y0" path="res://Scenes/Objects/VolumeTriggerHintThoughtBubble.tscn" id="21_cgked"]
+[ext_resource type="PackedScene" uid="uid://b2tb1owb5nnun" path="res://Scenes/Objects/spawn_point.tscn" id="22_0ifv0"]
 [ext_resource type="Texture2D" uid="uid://bpp08atu8a8u0" path="res://Art/objects/sink.png" id="22_3q82r"]
 [ext_resource type="Texture2D" uid="uid://lmde70nwacgw" path="res://Art/Eye_text.png" id="24_xk33q"]
-[ext_resource type="Curve" path="res://Shaders/Waterdrop.tres" id="26_5djuc"]
+[ext_resource type="Curve" uid="uid://ctp0miqywpyoo" path="res://Shaders/Waterdrop.tres" id="26_5djuc"]
 [ext_resource type="Shader" uid="uid://bytvu2bbx3jrp" path="res://Shaders/Envi_Water.tres" id="26_yyjx1"]
 [ext_resource type="ArrayMesh" uid="uid://crqdcvpu65qav" path="res://Art/objects/Water_twist2.obj" id="27_fjhtx"]
 [ext_resource type="Shader" uid="uid://br3umhjcp7jfg" path="res://Water_Ground.tres" id="28_d6crc"]
@@ -42,6 +43,13 @@
 [ext_resource type="Texture2D" uid="uid://kw4ks66f74k8" path="res://Art/objects/bathtub.png" id="39_b7bhv"]
 [ext_resource type="ArrayMesh" uid="uid://c2tf7sntjmx84" path="res://Art/objects/hair_dryer.obj" id="41_avy3x"]
 [ext_resource type="AudioStream" uid="uid://7qiv1uacfw8p" path="res://Music/MUS_TitleV2_9M_7-4_78.mp3" id="42_e8ou1"]
+[ext_resource type="ArrayMesh" uid="uid://cyne6geriblpu" path="res://Art/objects/toothbrush.obj" id="43_2au8t"]
+[ext_resource type="Texture2D" uid="uid://ctam1jr2rjkmg" path="res://Art/objects/hair_dryer.png" id="43_rqwe5"]
+[ext_resource type="Texture2D" uid="uid://bwfkqfanh43ke" path="res://Art/objects/toothbrush.png" id="44_wsiof"]
+[ext_resource type="ArrayMesh" uid="uid://cxvvh1cnt5604" path="res://Art/objects/toothpaste.obj" id="46_y1vkv"]
+[ext_resource type="Texture2D" uid="uid://8taaseu1bw40" path="res://Art/objects/toothpaste.png" id="47_y7gnr"]
+[ext_resource type="ArrayMesh" uid="uid://bop4i63wjkgln" path="res://Art/objects/rolled_towel.obj" id="48_djth4"]
+[ext_resource type="Texture2D" uid="uid://dy4suuetjfc5g" path="res://Art/objects/rolled_towel.png" id="49_ps0go"]
 
 [sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_qs5tq"]
 dof_blur_far_enabled = true
@@ -59,8 +67,35 @@ shader_parameter/FloatParameter = 1.0
 material = SubResource("ShaderMaterial_op2lt")
 size = Vector2(300, 300)
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hj5r3"]
+albedo_texture = ExtResource("20_pr0l1")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8r8fx"]
+albedo_texture = ExtResource("20_pr0l1")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pbohb"]
+albedo_texture = ExtResource("20_pr0l1")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5f6jr"]
+albedo_texture = ExtResource("20_pr0l1")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vwwcd"]
+albedo_texture = ExtResource("20_pr0l1")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_005lu"]
+albedo_texture = ExtResource("20_pr0l1")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ffqfw"]
+albedo_texture = ExtResource("20_pr0l1")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8r0nl"]
+albedo_texture = ExtResource("22_3q82r")
+
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4owc6"]
 albedo_texture = ExtResource("22_3q82r")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_q07ne"]
+albedo_texture = ExtResource("39_b7bhv")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0fbmc"]
 vertex_color_use_as_albedo = true
@@ -269,14 +304,21 @@ height = 2.053
 radial_segments = 4
 rings = 1
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_q07ne"]
-albedo_texture = ExtResource("39_b7bhv")
-
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_637la"]
 albedo_texture = ExtResource("22_3q82r")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_o1vpq"]
 albedo_color = Color(0.615686, 0.380392, 0.470588, 1)
+albedo_texture = ExtResource("43_rqwe5")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1r82w"]
+albedo_texture = ExtResource("44_wsiof")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_whgaw"]
+albedo_texture = ExtResource("47_y7gnr")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ufxcq"]
+albedo_texture = ExtResource("49_ps0go")
 
 [node name="Bathroom" type="Node3D"]
 script = ExtResource("1_3t2kx")
@@ -478,54 +520,63 @@ script = ExtResource("12_p2k0u")
 transform = Transform3D(9.16321, 1.24946, -2.01679, -0.992309, 9.32715, 1.26991, 2.15498, -1.01794, 9.1604, 0, 0, -67.5307)
 mesh = ExtResource("13_do3yh")
 skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_hj5r3")
 script = ExtResource("14_olyda")
 
 [node name="Mirror3" type="MeshInstance3D" parent="BackgroundImagery"]
 transform = Transform3D(9.16321, 1.24946, -2.01679, -0.992309, 9.32715, 1.26991, 2.15498, -1.01794, 9.1604, 0, 0, -102.335)
 mesh = ExtResource("13_do3yh")
 skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_8r8fx")
 script = ExtResource("14_olyda")
 
 [node name="Mirror4" type="MeshInstance3D" parent="BackgroundImagery"]
 transform = Transform3D(7.4787, 0.00571436, 5.8019, -0.992309, 9.32715, 1.26991, -5.71641, -1.61162, 7.37009, -90.2567, 0, -102.335)
 mesh = ExtResource("13_do3yh")
 skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_pbohb")
 script = ExtResource("14_olyda")
 
 [node name="Mirror5" type="MeshInstance3D" parent="BackgroundImagery"]
 transform = Transform3D(9.35598, 0.836676, 1.16563, -0.992309, 9.32715, 1.26991, -1.03635, -1.37743, 9.30708, -64.4678, 0, -75.4055)
 mesh = ExtResource("13_do3yh")
 skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_5f6jr")
 script = ExtResource("14_olyda")
 
 [node name="Mirror6" type="MeshInstance3D" parent="BackgroundImagery"]
 transform = Transform3D(9.35598, 0.836676, 1.16563, -0.992309, 9.32715, 1.26991, -1.03635, -1.37743, 9.30708, -137.92, 0, -86.8459)
 mesh = ExtResource("13_do3yh")
 skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_5f6jr")
 script = ExtResource("14_olyda")
 
 [node name="Mirror7" type="MeshInstance3D" parent="BackgroundImagery"]
 transform = Transform3D(7.96003, 1.51306, -4.89302, -0.992309, 9.32715, 1.26991, 5.02457, -0.554984, 8.00242, 32.7398, 0, -96.8057)
 mesh = ExtResource("13_do3yh")
 skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_vwwcd")
 script = ExtResource("14_olyda")
 
 [node name="Mirror8" type="MeshInstance3D" parent="BackgroundImagery"]
 transform = Transform3D(12.5779, 2.62876, -3.36092, -1.56798, 16.2048, 0.872277, 7.93951, -0.964218, 5.49671, 52.8294, 0, -142.197)
 mesh = ExtResource("13_do3yh")
 skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_005lu")
 script = ExtResource("14_olyda")
 
 [node name="Mirror2" type="MeshInstance3D" parent="BackgroundImagery"]
 transform = Transform3D(13.3382, -9.54884, 1.39789, 7.15964, 11.3901, 9.48938, -6.47101, -7.08015, 13.3806, -50.277, 0, -194.096)
 mesh = ExtResource("13_do3yh")
 skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_ffqfw")
 script = ExtResource("14_olyda")
 
 [node name="sink1" type="MeshInstance3D" parent="BackgroundImagery"]
 transform = Transform3D(13.3382, -9.54884, 1.39789, 8.31883, 10.1675, -9.92284, 4.89199, 8.74558, 13.0624, 35.8686, 0, -194.096)
 mesh = ExtResource("15_w2qbg")
 skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_8r0nl")
 script = ExtResource("14_olyda")
 
 [node name="sink2" type="MeshInstance3D" parent="BackgroundImagery"]
@@ -534,6 +585,12 @@ mesh = ExtResource("15_w2qbg")
 skeleton = NodePath("../..")
 surface_material_override/0 = SubResource("StandardMaterial3D_4owc6")
 script = ExtResource("14_olyda")
+
+[node name="Bathtub" type="MeshInstance3D" parent="BackgroundImagery"]
+transform = Transform3D(19.477, 1.92764, -15.5541, -5.57971, 24.0375, -4.00797, 14.6463, 6.59403, 19.1574, -192.986, -6.59945, -278.018)
+mesh = ExtResource("38_kat40")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_q07ne")
 
 [node name="Hints" type="Node3D" parent="."]
 
@@ -570,7 +627,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -63.7226, 63.2027, -1.14912)
 [node name="Background_elements" type="Node3D" parent="."]
 
 [node name="Eye" type="MeshInstance3D" parent="Background_elements"]
-transform = Transform3D(-0.0489752, -0.183595, -0.00800725, -0.120587, 0.025853, 0.144777, -0.138673, 0.0423593, -0.123067, 32.3414, 25.8353, -6.79861)
+transform = Transform3D(-0.0489752, -0.183595, -0.00800725, -0.120587, 0.025853, 0.144777, -0.138673, 0.0423593, -0.123067, 32.3414, 28.4375, -6.79861)
 mesh = SubResource("SphereMesh_ovymh")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Background_elements/Eye"]
@@ -590,7 +647,7 @@ libraries = {
 }
 
 [node name="Eye3" type="MeshInstance3D" parent="Background_elements"]
-transform = Transform3D(-0.0643787, -0.241339, -0.0105257, -0.0418544, 0.000415415, 0.246471, -0.237915, 0.0652322, -0.0405114, 21.2649, 24.6163, -8.98323)
+transform = Transform3D(-0.0643787, -0.241339, -0.0105257, -0.0418544, 0.000415415, 0.246471, -0.237915, 0.0652322, -0.0405114, 32.3414, 28.4375, -6.79861)
 mesh = SubResource("SphereMesh_ovymh")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Background_elements/Eye3"]
@@ -1404,22 +1461,102 @@ skeleton = NodePath("../..")
 surface_material_override/0 = SubResource("StandardMaterial3D_q07ne")
 
 [node name="Sink" type="MeshInstance3D" parent="MoreDecorations"]
-transform = Transform3D(0.0152869, -0.126154, 2.35178, -0.000531691, -3.62712, -0.0817969, 1.02018, 0, -0.0352828, -11.0678, 10.2587, -3.42181)
+transform = Transform3D(0.0152869, -0.126154, 2.35178, -0.000531691, -3.62712, -0.0817969, 1.02018, 0, -0.0352828, -10.9972, 12.2886, -3.42181)
 mesh = ExtResource("15_w2qbg")
 skeleton = NodePath("../..")
 surface_material_override/0 = SubResource("StandardMaterial3D_637la")
+script = ExtResource("14_olyda")
 
 [node name="HairDryer" type="MeshInstance3D" parent="MoreDecorations"]
 transform = Transform3D(3.7696, -1.16628, 3.0708, -1.48888, -4.77315, 0.0148612, 2.92802, -0.925614, -3.94588, -123.012, 29.1854, -2.86582)
 mesh = ExtResource("41_avy3x")
 skeleton = NodePath("../..")
 surface_material_override/0 = SubResource("StandardMaterial3D_o1vpq")
+script = ExtResource("14_olyda")
 
 [node name="HairDryer2" type="MeshInstance3D" parent="MoreDecorations"]
-transform = Transform3D(-3.63665, 0.760552, -3.3461, -1.23128, -4.84017, 0.238047, -3.20293, 0.997137, 3.70769, 19.3543, -39.0604, 3.38737)
+transform = Transform3D(-3.18204, 0.812192, 3.77028, -1.24709, -4.84196, -0.00946711, 3.64958, -0.946402, 3.28404, 19.3543, -39.0604, -87.1338)
 mesh = ExtResource("41_avy3x")
 skeleton = NodePath("../..")
 surface_material_override/0 = SubResource("StandardMaterial3D_o1vpq")
+script = ExtResource("14_olyda")
+
+[node name="HairDryer3" type="MeshInstance3D" parent="MoreDecorations"]
+transform = Transform3D(3.17084, 3.6615, 1.24062, 2.51523, -3.17236, 2.93424, 2.93588, -1.23671, -3.85372, -205.103, -31.2536, -87.1338)
+mesh = ExtResource("41_avy3x")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_o1vpq")
+script = ExtResource("14_olyda")
+
+[node name="toothbrush1" type="MeshInstance3D" parent="MoreDecorations"]
+transform = Transform3D(-7.23761, -4.35282, -5.35442, -5.14112, -1.7743, 8.3917, -4.6028, 8.82637, -0.95367, -88.5332, 8.93927, -12.0415)
+mesh = ExtResource("43_2au8t")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_1r82w")
+script = ExtResource("14_olyda")
+
+[node name="toothbrush2" type="MeshInstance3D" parent="MoreDecorations"]
+transform = Transform3D(-9.28527, 1.93398, 3.16913, 3.60176, 2.62182, 8.95283, 0.900567, 9.4544, -3.13101, -1.98729, 5.92914, -12.0415)
+mesh = ExtResource("43_2au8t")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_1r82w")
+script = ExtResource("14_olyda")
+
+[node name="toothbrush3" type="MeshInstance3D" parent="MoreDecorations"]
+transform = Transform3D(-9.28527, 1.93398, 3.16913, 3.60176, 2.62182, 8.95283, 0.900567, 9.4544, -3.13101, -122.223, 10.1111, 10.4873)
+mesh = ExtResource("43_2au8t")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_1r82w")
+script = ExtResource("14_olyda")
+
+[node name="Toothpaste" type="MeshInstance3D" parent="MoreDecorations"]
+transform = Transform3D(0.410762, -2.58665, -9.65093, -9.6008, -2.77701, 0.335668, -2.7669, 9.25189, -2.59746, -33.0505, 2.60111, -10.1751)
+mesh = ExtResource("46_y1vkv")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_whgaw")
+script = ExtResource("14_olyda")
+
+[node name="Toothpaste2" type="MeshInstance3D" parent="MoreDecorations"]
+transform = Transform3D(-3.1471, 1.68151, 9.34175, 9.07965, 3.40222, 2.44641, -2.7669, 9.25189, -2.59746, -103.42, -29.6775, -10.1751)
+mesh = ExtResource("46_y1vkv")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_whgaw")
+script = ExtResource("14_olyda")
+
+[node name="Toothpaste3" type="MeshInstance3D" parent="MoreDecorations"]
+transform = Transform3D(-3.1471, 1.68151, 9.34175, 9.07965, 3.40222, 2.44641, -2.7669, 9.25189, -2.59746, -59.8674, -55.1068, -10.1751)
+mesh = ExtResource("46_y1vkv")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_whgaw")
+script = ExtResource("14_olyda")
+
+[node name="RolledTowel" type="MeshInstance3D" parent="MoreDecorations"]
+transform = Transform3D(5.85102, -5.94977, 5.5105, 7.90289, 2.65896, -5.52033, 1.81926, 7.58486, 6.25781, -93.8659, -8.99725, -26.3128)
+mesh = ExtResource("48_djth4")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_ufxcq")
+script = ExtResource("14_olyda")
+
+[node name="RolledTowel3" type="MeshInstance3D" parent="MoreDecorations"]
+transform = Transform3D(5.67544, -10.8949, 8.60762, 4.22139, 10.2127, 10.143, -13.2276, -1.41534, 6.9302, -36.5325, -10.9914, -62.6339)
+mesh = ExtResource("48_djth4")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_ufxcq")
+script = ExtResource("14_olyda")
+
+[node name="RolledTowel4" type="MeshInstance3D" parent="MoreDecorations"]
+transform = Transform3D(12.4221, 4.20505, -7.28075, -7.31436, -1.00087, -13.0575, -4.1463, 14.3637, 1.22162, -116.27, -8.21804, -35.1244)
+mesh = ExtResource("48_djth4")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_ufxcq")
+script = ExtResource("14_olyda")
+
+[node name="RolledTowel2" type="MeshInstance3D" parent="MoreDecorations"]
+transform = Transform3D(-2.90774, -12.8266, -7.21276, -14.5597, 1.44071, 3.30752, -2.13551, 7.64221, -12.7293, 11.5138, -12.6625, -41.3961)
+mesh = ExtResource("48_djth4")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_ufxcq")
+script = ExtResource("14_olyda")
 
 [node name="Grass" type="Node3D" parent="."]
 

@@ -10,13 +10,13 @@
 [ext_resource type="Texture2D" uid="uid://dhm4vtuux462g" path="res://Materials/arrow_01.png" id="5_r5rsb"]
 [ext_resource type="PackedScene" uid="uid://crvvpifd7a146" path="res://Scenes/Entities/NPCs/pressure_plate.tscn" id="6_jvxdu"]
 [ext_resource type="PackedScene" uid="uid://dwte3a8axt6kp" path="res://Scenes/Objects/door.tscn" id="7_vtp6s"]
-[ext_resource type="PackedScene" path="res://Scenes/Objects/trigger_volume_win.tscn" id="8_ctuvk"]
+[ext_resource type="PackedScene" uid="uid://eb3wwyaluatx" path="res://Scenes/Objects/trigger_volume_win.tscn" id="8_ctuvk"]
 [ext_resource type="PackedScene" uid="uid://ch0xqdmee1xnu" path="res://WorldEnvironments/sky_and_lighting.tscn" id="8_tngek"]
 [ext_resource type="Shader" uid="uid://cx2ac458h8a83" path="res://Shaders/Cloud_Water.tres" id="9_24d24"]
 [ext_resource type="Texture2D" uid="uid://d2tun4dqdssdx" path="res://Scenes/Maps/Official/BathRoom/level01_mockup_section3.png" id="9_dy6eo"]
 [ext_resource type="Script" path="res://WorldEnvironments/sky_and_lighting_Bathroom.gd" id="9_qwmps"]
 [ext_resource type="PackedScene" uid="uid://ted21c8mecho" path="res://Scenes/Entities/NPCs/switch.tscn" id="10_7ywxi"]
-[ext_resource type="PackedScene" path="res://Scenes/Objects/fall_reset_volume.tscn" id="12_4q8sl"]
+[ext_resource type="PackedScene" uid="uid://cmd16bdree5a7" path="res://Scenes/Objects/fall_reset_volume.tscn" id="12_4q8sl"]
 [ext_resource type="Script" path="res://Scenes/Maps/ReferenceSprite3D.gd" id="12_p2k0u"]
 [ext_resource type="ArrayMesh" uid="uid://bbje4wl4kivx0" path="res://Art/objects/mirror.obj" id="13_do3yh"]
 [ext_resource type="Script" path="res://Scenes/Objects/RandomLazyMotion.gd" id="14_olyda"]
@@ -28,12 +28,12 @@
 [ext_resource type="Curve" uid="uid://ctp0miqywpyoo" path="res://Shaders/Waterdrop.tres" id="26_5djuc"]
 [ext_resource type="Shader" uid="uid://btl5ebnoijhp2" path="res://Shaders/Envi_Water.tres" id="26_yyjx1"]
 [ext_resource type="ArrayMesh" uid="uid://crqdcvpu65qav" path="res://Art/objects/Water_twist2.obj" id="27_fjhtx"]
-[ext_resource type="Shader" uid="uid://hkuj1qssy6ue" path="res://Water_Ground.tres" id="28_d6crc"]
+[ext_resource type="Shader" uid="uid://deoy3clg2jh4q" path="res://Water_Ground.tres" id="28_d6crc"]
 [ext_resource type="Texture2D" uid="uid://b8b3xjek6q7wy" path="res://Art/Foliage/Grass3.png" id="28_pvto1"]
 [ext_resource type="Texture2D" uid="uid://ddaucwcbe7q1y" path="res://Art/Foliage/Mushrooms.png" id="29_420ga"]
 [ext_resource type="Texture2D" uid="uid://b6jmphr0ugk78" path="res://Art/Foliage/Mountains 2.png" id="30_7hnmv"]
 [ext_resource type="Texture2D" uid="uid://1yt0bsisi0p6" path="res://Art/Foliage/Bush_1.png" id="30_a6qsh"]
-[ext_resource type="AudioStream" uid="uid://c75ktirujy5pe" path="res://sfx/Rain.mp3" id="31_mhp4h"]
+[ext_resource type="AudioStream" uid="uid://cj43ny2gxq3d6" path="res://sfx/Rain.mp3" id="31_mhp4h"]
 [ext_resource type="Texture2D" uid="uid://coaanccqd0h8j" path="res://Art/Foliage/Tree.png" id="31_yuwoy"]
 
 [sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_qs5tq"]
@@ -191,6 +191,9 @@ shader_parameter/Vertex_Roughness = 0.1
 shader_parameter/ColorParameter = Color(0.10844, 0.397392, 0.688247, 1)
 shader_parameter/FloatParameter = 0.2
 
+[sub_resource type="Animation" id="Animation_ofael"]
+length = 0.001
+
 [sub_resource type="Animation" id="Animation_jngr1"]
 resource_name = "twist"
 length = 10.0
@@ -207,9 +210,6 @@ tracks/0/keys = {
 "update": 0,
 "values": [Vector3(0, 0, 0), Vector3(0, 6.28319, 0)]
 }
-
-[sub_resource type="Animation" id="Animation_ofael"]
-length = 0.001
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_ce648"]
 _data = {
@@ -369,6 +369,7 @@ shadow_opacity = 0.41
 
 [node name="Sky and Lighting" parent="." instance=ExtResource("8_tngek")]
 script = ExtResource("9_qwmps")
+low_spec_in_editor = true
 
 [node name="Cloud_water" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -38.2472, 0)

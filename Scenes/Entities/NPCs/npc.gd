@@ -16,6 +16,9 @@ extends CharacterBody3D
 
 var path : PathFollow3D
 
+var knockback_magnitude : float = 20.0
+var knockback_time : float
+var knockback_duration : float = 0.6
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
@@ -25,6 +28,9 @@ var current_map
 
 
 @onready var input_controller = $VirtualInputController
+
+enum States { READY, KNOCKBACK, DYING, DEAD }
+var state = States.READY
 
 signal hit
 
@@ -47,9 +53,19 @@ func _ready():
 		$Behaviours/BackAndForth.jump_off_cliffs = jump_off_cliffs
 
 func _physics_process(delta):
-	move(delta)
-	orient_mesh(delta)
+	var time = Time.get_ticks_msec()
+	if state == States.READY:
+		move(delta)
+		orient_mesh(delta)
+	elif state == States.KNOCKBACK:
+		if time > knockback_time + knockback_duration:
+			begin_dying()
+		else:
+			get_knocked_back(delta)
 
+func get_knocked_back(delta):
+	apply_gravity(delta)
+	move_and_slide()
 
 func move(delta):
 	
@@ -140,6 +156,7 @@ func _on_player_sighted(body, originator):
 		
 
 func begin_dying():
+	state = States.DYING
 	# make a noise
 	# play an animation
 	# set a timer for queue_free
@@ -155,12 +172,27 @@ func begin_dying():
 		await get_tree().create_timer(0.5).timeout
 		queue_free()
 		
+func knockback(impactVector):
+	state = States.KNOCKBACK
+	var magnitude = knockback_magnitude
+#	velocity.x = impactVector.x * knockback_magnitude
+#	velocity.y = JUMP_VELOCITY/2.0
 	
+	velocity = Vector3(50, 50, 0)
+	if impactVector.x < 0:
+		velocity.x *= -1
+	
+	#self.move_and_slide()
+	knockback_time = Time.get_ticks_msec()
+
 
 func _on_weak_spot_body_entered(body):
+	if not state in [States.READY]:
+		return
+		
 	if $Visuals/WeakSpot.monitoring and "player" in body.name.to_lower():
 		$HurtSound.start()
-		begin_dying()
+		knockback(global_position - body.global_position)
 		
 func _on_electrocuted(): # from water
 	if electrical:

@@ -8,9 +8,6 @@ func _ready():
 	player = Global.current_player
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
 
 func attempt_ascent(x_direction : int):
 	var magnitude = 1.5

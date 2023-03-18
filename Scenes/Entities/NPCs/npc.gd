@@ -138,11 +138,11 @@ func orient_mesh(_delta):
 
 
 func _on_hurtbox_body_entered(body):
-	
-	if "player" in body.name.to_lower():
-		if not hit.is_connected(body._on_hit) and body.has_method("_on_hit"):
-			hit.connect(body._on_hit)
-		hit.emit(damage, body.global_position - global_position)
+	if state in [ States.READY ]:
+		if "player" in body.name.to_lower():
+			if not hit.is_connected(body._on_hit) and body.has_method("_on_hit"):
+				hit.connect(body._on_hit)
+			hit.emit(damage, body.global_position - global_position)
 
 
 func _on_player_sighted(body, originator): 

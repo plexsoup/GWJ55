@@ -150,6 +150,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.22633, 33.5434, -0.939361)
 
 [node name="DeadlyTile" parent="EnvironmentalHazards" instance=ExtResource("4_o18aw")]
 transform = Transform3D(3.89308, 0, 0, 0, 1.31947, 0, 0, 0, 1.8701, 7.34326, 13.7088, -1.21702)
+max_player_hits = 3
+reset_level_on_max_hits = false
 
 [node name="DeadlyTile4" parent="EnvironmentalHazards" instance=ExtResource("4_o18aw")]
 transform = Transform3D(1.56365, 0, 0, 0, 1.31947, 0, 0, 0, 1.8701, 5.23287, 31.8925, -1.21702)

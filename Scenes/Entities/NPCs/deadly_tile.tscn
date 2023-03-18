@@ -1,7 +1,7 @@
 [gd_scene load_steps=18 format=3 uid="uid://iy2fvk38ehxj"]
 
 [ext_resource type="Script" path="res://Scenes/Entities/NPCs/deadly_tile.gd" id="1_g2r0l"]
-[ext_resource type="Shader" uid="uid://bb4rgj0kgojkh" path="res://Shaders/Water_block.tres" id="1_nxj5v"]
+[ext_resource type="Shader" uid="uid://c6ng2nrnsdbrg" path="res://Shaders/Water_block.tres" id="1_nxj5v"]
 [ext_resource type="PackedScene" uid="uid://cakkghby15ea5" path="res://sfx/temporary_sound.tscn" id="2_32gbh"]
 [ext_resource type="AudioStream" uid="uid://y4ex506uwve7" path="res://sfx/placeholder/splash.wav" id="3_j776o"]
 

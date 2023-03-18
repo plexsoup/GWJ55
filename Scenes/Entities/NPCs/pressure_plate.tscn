@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://Scenes/Entities/NPCs/pressure_plate.gd" id="1_v1kjb"]
 [ext_resource type="Material" uid="uid://nnv0nusw3ic" path="res://Materials/concrete_material.tres" id="2_ns1li"]
-[ext_resource type="Material" uid="uid://dae3xhxbci83k" path="res://Materials/OrangeCarpetMaterial2.tres" id="3_cq5bv"]
+[ext_resource type="Material" uid="uid://cl6nk1r1jggpp" path="res://Materials/OrangeCarpetMaterial2.tres" id="3_cq5bv"]
 [ext_resource type="PackedScene" uid="uid://mbxsqklc6aod" path="res://sfx/random_3d_sound.tscn" id="4_0a3xy"]
 [ext_resource type="AudioStream" uid="uid://bmqhnh0r15m8" path="res://sfx/Pressure Plate/SFX_PressureOn1.wav" id="5_l3n2t"]
 [ext_resource type="PackedScene" uid="uid://cv5h3okghsyd0" path="res://sfx/temporary_3Dsound.tscn" id="6_so3x3"]

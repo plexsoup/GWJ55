@@ -34,21 +34,24 @@ func _on_child_exiting_tree(_node):
 	tween.kill()
 
 func _on_switch_hit():
-	setup_tween()
-	tween.play()
+	if needs_activation:
+		setup_tween()
+		tween.play()
 
 func _on_switch_toggled(pressed):
-	_on_switch_hit()
+	if needs_activation:
+		_on_switch_hit()
 
 func _on_plate_press(pressed):
-	tween.kill()
-	tween = get_tree().create_tween()
-	if pressed:
-		tween.tween_property($StaticBody3D,"global_position",startPos + (target * scale), speed * dist_to_perc())
-		print("moving platform dist_to_perc() == ", dist_to_perc())
-	else:
-		tween.tween_property($StaticBody3D, "global_position", startPos, speed * abs(dist_to_perc()-1))
-		print("moving platform dist_to_perc() == ", dist_to_perc())
+	if needs_activation:
+		tween.kill()
+		tween = get_tree().create_tween()
+		if pressed:
+			tween.tween_property($StaticBody3D,"global_position",startPos + (target * scale), speed * dist_to_perc())
+			print("moving platform dist_to_perc() == ", dist_to_perc())
+		else:
+			tween.tween_property($StaticBody3D, "global_position", startPos, speed * abs(dist_to_perc()-1))
+			print("moving platform dist_to_perc() == ", dist_to_perc())
 
 func dist_to_perc():
 	return (startPos + target * scale).distance_to($StaticBody3D.global_position)/distance

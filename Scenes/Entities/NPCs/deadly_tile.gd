@@ -8,6 +8,8 @@ signal electrocute
 var hit_player_count : int = 0
 @export var max_player_hits : int = 1
 
+@export var reset_level_on_max_hits : bool = true
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass # Replace with function body.
@@ -31,7 +33,8 @@ func _on_area_3d_body_entered(body):
 			$CPUParticles3D.emitting = true
 		else:
 			await get_tree().create_timer(1.5).timeout
-			StageManager.reset_level()
+			if reset_level_on_max_hits:
+				StageManager.reset_level()
 
 	elif "dryer" in body.name.to_lower():
 		if body.has_method("_on_electrocuted"):

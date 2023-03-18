@@ -15,7 +15,8 @@ var target
 func _ready():
 	if not target_node.is_empty():
 		target = get_node(target_node)
-		switch_hit.connect(target._on_switch_toggled)
+		if target.has_method("_on_switch_toggled"):
+			switch_hit.connect(target._on_switch_toggled)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):

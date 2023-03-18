@@ -16,9 +16,10 @@ extends CharacterBody3D
 
 var path : PathFollow3D
 
-var knockback_magnitude : float = 20.0
+var knockback_magnitude : float = 10.0
 var knockback_time : float
-var knockback_duration : float = 0.6
+var knockback_duration : float = 2.2
+var knockback_angular_velocity: float = 0.3
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
@@ -53,19 +54,21 @@ func _ready():
 		$Behaviours/BackAndForth.jump_off_cliffs = jump_off_cliffs
 
 func _physics_process(delta):
-	var time = Time.get_ticks_msec()
+	
 	if state == States.READY:
 		move(delta)
 		orient_mesh(delta)
 	elif state == States.KNOCKBACK:
-		if time > knockback_time + knockback_duration:
-			begin_dying()
-		else:
-			get_knocked_back(delta)
+		get_knocked_back(delta)
 
 func get_knocked_back(delta):
 	apply_gravity(delta)
 	move_and_slide()
+	if Time.get_ticks_msec() > knockback_time + knockback_duration:
+		if is_on_ceiling() or is_on_floor() or is_on_wall():
+			$ThunkSound.start()
+			begin_dying()
+	rotate_z(knockback_angular_velocity * delta)
 
 func move(delta):
 	
@@ -139,7 +142,7 @@ func _on_hurtbox_body_entered(body):
 	if "player" in body.name.to_lower():
 		if not hit.is_connected(body._on_hit) and body.has_method("_on_hit"):
 			hit.connect(body._on_hit)
-		hit.emit(damage)
+		hit.emit(damage, body.global_position - global_position)
 
 
 func _on_player_sighted(body, originator): 
@@ -174,15 +177,22 @@ func begin_dying():
 		
 func knockback(impactVector):
 	state = States.KNOCKBACK
-	var magnitude = knockback_magnitude
-#	velocity.x = impactVector.x * knockback_magnitude
-#	velocity.y = JUMP_VELOCITY/2.0
 	
-	velocity = Vector3(50, 50, 0)
+	knockback_angular_velocity = randf_range(8.0, 20.0)
+	if randf()<0.5 : knockback_angular_velocity *= -1.0
+	
+	velocity = Vector3.ZERO
+	velocity.x = impactVector.x * knockback_magnitude
+	velocity.y = JUMP_VELOCITY * 2.0
+	
 	if impactVector.x < 0:
 		velocity.x *= -1
 	
-	#self.move_and_slide()
+	# disable collisions with player
+	set_collision_layer_value(2, false)
+	set_collision_mask_value(1, false)
+	#print("irritating how empty lines are ignored for breakpoints")
+	self.move_and_slide()
 	knockback_time = Time.get_ticks_msec()
 
 

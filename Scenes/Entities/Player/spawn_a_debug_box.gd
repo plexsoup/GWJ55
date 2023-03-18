@@ -4,8 +4,9 @@ extends Node3D
 
 
 func _unhandled_input(_event):
-	if Input.is_action_just_pressed("spawn_box"):
-		spawn_box()
+	if "spawn_box" in Global.abilities_unlocked:
+		if Input.is_action_just_pressed("spawn_box"):
+			spawn_box()
 		
 func spawn_box():
 	var box = preload("res://Scenes/Objects/RigidBodyBox.tscn").instantiate()

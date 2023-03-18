@@ -145,6 +145,9 @@ func check_climb():
 #		print("climb_side == " + climb_side + ", climb_flip == " + str(climb_flip))
 		
 func handle_dash():
+	if not "dash" in Global.abilities_unlocked:
+		return
+		
 	if Input.is_action_just_pressed("dash") and !dashing and !on_dash_cooldown and dash_usable:
 		var direction = -1
 		if animated_sprite.flip_h:
@@ -238,8 +241,9 @@ func handle_jump():
 			jump()
 		#In air no coyote time with double
 		elif !is_on_floor() and coyote_time.is_stopped() and !double_jump:
-			jump()
-			double_jump = true
+			if "double_jump" in Global.abilities_unlocked:
+				jump()
+				double_jump = true
 		#In air no coyote time no double
 		elif !is_on_floor() and coyote_time.is_stopped() and double_jump:
 			buffered_jump = true

@@ -21,9 +21,9 @@
 [ext_resource type="AudioStream" uid="uid://drkashy2cvi15" path="res://sfx/Jump/SFX_Jump3.wav" id="19_huswm"]
 [ext_resource type="AudioStream" uid="uid://qnxiklywjwf6" path="res://sfx/Jump/SFX_Jump4.wav" id="20_m6wwe"]
 [ext_resource type="AudioStream" uid="uid://qjdq57x4fls1" path="res://sfx/Jump/SFX_Jump5.wav" id="21_c6wpi"]
-[ext_resource type="PackedScene" uid="uid://r3apyeavw2ep" path="res://Scenes/Entities/Player/spawn_a_debug_box.tscn" id="22_40fsj"]
+[ext_resource type="PackedScene" path="res://Scenes/Entities/Player/spawn_a_debug_box.tscn" id="22_40fsj"]
 [ext_resource type="AudioStream" uid="uid://dt6v6xqsueg2t" path="res://sfx/placeholder/angry_cat.wav" id="22_h3gm0"]
-[ext_resource type="PackedScene" uid="uid://qj0sfqvsm2n" path="res://Scenes/Entities/Player/ascend_stairs.tscn" id="23_dcnga"]
+[ext_resource type="PackedScene" path="res://Scenes/Entities/Player/ascend_stairs.tscn" id="23_dcnga"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_gajrw"]
 radius = 1.2

@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://cey6vaorec8ca"]
+[gd_scene load_steps=26 format=3 uid="uid://cey6vaorec8ca"]
 
 [ext_resource type="Script" path="res://Scripts/PlayerMovement.gd" id="1_at8m4"]
 [ext_resource type="SpriteFrames" uid="uid://bkm20v777m12k" path="res://player_sprite_frames.tres" id="2_5te2e"]
@@ -22,6 +22,7 @@
 [ext_resource type="AudioStream" uid="uid://qnxiklywjwf6" path="res://sfx/Jump/SFX_Jump4.wav" id="20_m6wwe"]
 [ext_resource type="AudioStream" uid="uid://qjdq57x4fls1" path="res://sfx/Jump/SFX_Jump5.wav" id="21_c6wpi"]
 [ext_resource type="PackedScene" uid="uid://r3apyeavw2ep" path="res://Scenes/Entities/Player/spawn_a_debug_box.tscn" id="22_40fsj"]
+[ext_resource type="PackedScene" uid="uid://qj0sfqvsm2n" path="res://Scenes/Entities/Player/ascend_stairs.tscn" id="23_dcnga"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_gajrw"]
 radius = 1.2
@@ -148,6 +149,8 @@ stream = ExtResource("21_c6wpi")
 [node name="BonusBehaviours" type="Node3D" parent="."]
 
 [node name="SpawnADebugBox" parent="BonusBehaviours" instance=ExtResource("22_40fsj")]
+
+[node name="AscendStairs" parent="BonusBehaviours" instance=ExtResource("23_dcnga")]
 
 [connection signal="timeout" from="JumpBuffer" to="." method="_on_jump_buffer_timeout"]
 [connection signal="body_entered" from="Camera3D/Area3D" to="Camera3D" method="_on_area_3d_body_entered"]

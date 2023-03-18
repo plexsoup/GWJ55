@@ -38,7 +38,8 @@ func _ready():
 
 func _physics_process(delta):
 	
-	check_climb()	
+	check_climb()
+	check_stairs()
 	set_gravity_states(delta)
 	handle_dash()
 	if !dashing and !on_dash_cooldown:
@@ -73,6 +74,11 @@ func _unhandled_input(_event):
 			set_collision_mask_value(3, true)
 			print("no_clip ghost mode disabled")
 
+
+func check_stairs():
+	if is_on_wall():
+		if has_node("BonusBehaviours/AscendStairs"):
+			$BonusBehaviours/AscendStairs.attempt_ascent(input_dir)
 
 	
 func check_climb():

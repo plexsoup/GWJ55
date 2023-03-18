@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://qj0sfqvsm2n"]
+
+[ext_resource type="Script" path="res://Scenes/Entities/Player/ascend_stairs.gd" id="1_6wm34"]
+
+[node name="AscendStairs" type="Node3D"]
+script = ExtResource("1_6wm34")
+
+[node name="UpperRayCast" type="RayCast3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.781, 0)
+target_position = Vector3(1.5, 0, 0)
+collision_mask = 7

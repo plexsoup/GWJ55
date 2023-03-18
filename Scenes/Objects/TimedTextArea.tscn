@@ -17,12 +17,14 @@ func _ready():
 
 # TimedTextArea body_exited -> _on_timed_text_area_body_exited
 func _on_timed_text_area_body_exited(body):
-	is_in_area = false;
+	if \"player\" in body.name.to_lower():
+		is_in_area = false;
 	
 # Area2d(TimedTextArea) body_entered -> _on_timed_text_area_body_entered
 func _on_timed_text_area_body_entered(body):
-	is_in_area = true;
-	timer.start()
+	if \"player\" in body.name.to_lower():
+		is_in_area = true;
+		timer.start()
 
 # Timer(timeout) timeout -> _on_timer_timeout
 func _on_timer_timeout():
@@ -137,5 +139,5 @@ libraries = {
 [connection signal="body_entered" from="." to="." method="_on_timed_text_area_body_entered"]
 [connection signal="body_exited" from="." to="." method="_on_timed_text_area_body_exited"]
 [connection signal="timeout" from="timeout" to="." method="_on_timer_timeout"]
-[connection signal="animation_finished" from="AnimationPlayer" to="." method="animation_finished"]
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="animation_finished"]

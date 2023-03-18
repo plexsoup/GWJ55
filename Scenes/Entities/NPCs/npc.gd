@@ -16,12 +16,12 @@ extends CharacterBody3D
 
 var path : PathFollow3D
 
-var knockback_magnitude : float = 10.0
+var knockback_magnitude : float = 1.0
 var knockback_time : float
-var knockback_duration : float = 2.2
+var knockback_duration : float = 750 #ms
 var knockback_angular_velocity: float = 0.3
 
-var delay_after_attack : float = 0.8
+var delay_after_attack : float = 2250 # ms
 var time_of_last_attack : float = 0.0
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
@@ -200,7 +200,7 @@ func knockback(impactVector):
 	
 	velocity = Vector3.ZERO
 	velocity.x = impactVector.x * knockback_magnitude
-	velocity.y = JUMP_VELOCITY * 2.0
+	velocity.y = JUMP_VELOCITY
 	
 	if impactVector.x < 0:
 		velocity.x *= -1

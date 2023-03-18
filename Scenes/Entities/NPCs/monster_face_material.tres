@@ -1,7 +1,0 @@
-[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://blly5mllk3bkf"]
-
-[ext_resource type="Texture2D" uid="uid://cx63ijbxf81to" path="res://Scenes/Entities/NPCs/MonsterFace01.png" id="1_umes1"]
-
-[resource]
-transparency = 1
-albedo_texture = ExtResource("1_umes1")

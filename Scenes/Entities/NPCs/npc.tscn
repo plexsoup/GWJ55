@@ -101,6 +101,7 @@ shape = SubResource("BoxShape3D_xi6xj")
 [node name="Behaviours" type="Node3D" parent="."]
 
 [node name="BackAndForth" parent="Behaviours" instance=ExtResource("3_kspxs")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2.38417e-07)
 
 [node name="JumpScare" parent="Behaviours" instance=ExtResource("4_fwjoq")]
 

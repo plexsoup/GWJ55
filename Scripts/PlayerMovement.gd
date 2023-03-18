@@ -41,6 +41,7 @@ var state = States.READY
 
 
 var no_clip_mode : bool = false
+var noclip_speed = 500.0
 
 func _ready():
 	Global.current_player = self
@@ -295,7 +296,7 @@ func execute_knockback(delta):
 	
 
 func move_noclip(delta):
-	var noclip_speed = 200.0
+	
 	velocity = Vector3( Input.get_axis("move_left", "move_right"), Input.get_axis("move_down", "move_up"), 0) * noclip_speed * delta
 	
 

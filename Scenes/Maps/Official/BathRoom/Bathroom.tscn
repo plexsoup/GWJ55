@@ -324,25 +324,25 @@ attributes = SubResource("CameraAttributesPractical_qs5tq")
 [node name="NPCs" type="Node3D" parent="."]
 
 [node name="VacuumCleaner" parent="NPCs" instance=ExtResource("2_wvmyr")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -33.0463, 10.5016, -0.5779)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -33.046, 9.409, -0.8)
 
 [node name="VacuumCleaner2" parent="NPCs" instance=ExtResource("2_wvmyr")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -35.9063, 25.1535, -0.672397)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -35.906, 25.153, -0.8)
 
 [node name="VacuumCleaner3" parent="NPCs" instance=ExtResource("2_wvmyr")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26.1909, 37.5113, -0.907943)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26.191, 37.511, -0.8)
 
 [node name="VacuumCleaner4" parent="NPCs" instance=ExtResource("2_wvmyr")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 36.2493, 50.891, -0.0702057)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 36.249, 50.891, -0.8)
 
 [node name="VacuumCleaner5" parent="NPCs" instance=ExtResource("2_wvmyr")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 54.0975, 82.9028, -0.614047)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 54.097, 82.903, -0.8)
 
 [node name="VacuumCleaner6" parent="NPCs" instance=ExtResource("2_wvmyr")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.06701, 76.5359, 2.08165e-12)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.067, 76.536, -0.8)
 
 [node name="VacuumCleaner7" parent="NPCs" instance=ExtResource("2_wvmyr")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.73434, 76.0831, 2.08165e-12)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.734, 76.083, -0.8)
 
 [node name="Kitten" parent="NPCs" instance=ExtResource("4_he5h7")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.8046, -2.35665, -0.917665)
@@ -353,7 +353,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.8046, -2.35665, -0.917665
 transform = Transform3D(2, 0, 0, 0, 2.846, 0, 0, 0, 1.784, 1.53926, 74.2414, -1.26307)
 
 [node name="DeadlyTile2" parent="EnvironmentalHazards" instance=ExtResource("3_g2pdu")]
-transform = Transform3D(2, 0, 0, 0, 3.939, 0, 0, 0, 2.18, -22.4522, 74.2819, -1.19557)
+transform = Transform3D(2, 0, 0, 0, 1.76709, 0, 0, 0, 1.91141, -22.4522, 73.9403, -1.32727)
 
 [node name="DeadlyTile3" parent="EnvironmentalHazards" instance=ExtResource("3_g2pdu")]
 transform = Transform3D(2.02115, 0, 0, 0, 2.51781, 0, 0, 0, 1.8989, 12.0039, 74.094, -1.31139)
@@ -427,9 +427,6 @@ transform = Transform3D(1.93381, 0, 0, 0, 5.08335, 0, 0, 0, 0.9559, 10.2699, 1.4
 [node name="Door_06" parent="DynamicObjects" instance=ExtResource("7_vtp6s")]
 transform = Transform3D(2.95137, 0, 0, 0, 4.34356, 0, 0, 0, 1.89974, 40.2708, 85.6249, -1.14892)
 
-[node name="Door_08" parent="DynamicObjects" instance=ExtResource("7_vtp6s")]
-transform = Transform3D(4, 0, 0, 0, 6.29502, 0, 0, 0, 5.88684, -64.3452, 4.07695, 0)
-
 [node name="TriggerVolumeWin2" parent="DynamicObjects" instance=ExtResource("8_ctuvk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -73.373, 62.6368, 0)
 next_scene_path = "res://Scenes/Maps/Official/Attic/Attic.tscn"
@@ -454,11 +451,12 @@ target_node = NodePath("Door_02")
 transform = Transform3D(3.11012, 0, 0, 0, 3.77443, 0, 0, 0, 2.83406, 14.6424, 0.0249424, -0.0628264)
 
 [node name="switch_07" parent="DynamicObjects" instance=ExtResource("10_7ywxi")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30.3587, 75.5784, -1.04949)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30.3587, 74.9447, -1.04949)
 target_node = NodePath("Door_07")
 
 [node name="Door_07" parent="DynamicObjects/switch_07" instance=ExtResource("7_vtp6s")]
-transform = Transform3D(4, 0, 0, 0, 5.9898, 0, 0, 0, 5.88684, -36.887, -14.2022, 1.04949)
+transform = Transform3D(4, 0, 0, 0, 6.44158, 0, 0, 0, 2.73247, -36.887, -14.2022, -0.31673)
+open_on_previous_map_name = "attic"
 
 [node name="switch06" parent="DynamicObjects" instance=ExtResource("10_7ywxi")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 62.1553, 69.6934, -1.049)
@@ -553,6 +551,10 @@ CloudKitty!"
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26.6455, 14.2872, 0)
 hint_text = "If only I had CloudKitty.
 They could hold the door."
+
+[node name="TriggerVolumeHint" parent="Hints" instance=ExtResource("21_cgked")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -57.5393, 18.6078, 0)
+hint_text = "I can climb this orange carpet."
 
 [node name="SpawnPoints" type="Node3D" parent="."]
 
@@ -1800,13 +1802,13 @@ alpha_cut = 2
 texture = ExtResource("28_pvto1")
 
 [node name="Sprite3D170" type="Sprite3D" parent="Grass"]
-transform = Transform3D(3.20748, 0, 0, 0, 1.62003, 0, 0, 0, 0.38478, -25.3958, 74.6423, -0.138248)
+transform = Transform3D(3.19408, 0.147926, 0, -0.292876, 1.61326, 0, 0, 0, 0.38478, -27.8292, 74.5723, -0.138248)
 shaded = true
 alpha_cut = 2
 texture = ExtResource("28_pvto1")
 
 [node name="Sprite3D171" type="Sprite3D" parent="Grass"]
-transform = Transform3D(3.20748, 0, 0, 0, 1.62003, 0, 0, 0, 0.38478, -19.5925, 74.6869, -0.160396)
+transform = Transform3D(3.19738, -0.128431, 0, 0.254279, 1.61493, 0, 0, 0, 0.38478, -17.4412, 74.5298, -0.160396)
 shaded = true
 alpha_cut = 2
 texture = ExtResource("28_pvto1")
@@ -1818,7 +1820,7 @@ alpha_cut = 2
 texture = ExtResource("28_pvto1")
 
 [node name="Sprite3D173" type="Sprite3D" parent="Grass"]
-transform = Transform3D(3.20748, 0, 0, 0, 1.62003, 0, 0, 0, 0.38478, -19.735, 74.6423, -0.202578)
+transform = Transform3D(3.20748, 0, 0, 0, 1.62003, 0, 0, 0, 0.38478, -25.3586, 73.833, -3.46284)
 shaded = true
 alpha_cut = 2
 texture = ExtResource("28_pvto1")

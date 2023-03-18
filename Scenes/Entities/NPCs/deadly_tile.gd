@@ -5,6 +5,8 @@ extends MeshInstance3D
 signal hit
 signal electrocute
 
+var hit_player_count : int = 0
+@export var max_player_hits : int = 1
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -19,13 +21,16 @@ func _process(_delta):
 func _on_area_3d_body_entered(body):
 	print("deadly tile hit")
 	if "player" in body.name.to_lower():
+		if hit_player_count < max_player_hits:
+			hit_player_count += 1
 			print("player hit deadly tile")
 			if not hit.is_connected(body._on_hit):
 				hit.connect(body._on_hit)
 			hit.emit(1, Vector3(0, 10, 0))
 			$SplashNoise.start()
 			$CPUParticles3D.emitting = true
-			await get_tree().create_timer(2.5).timeout
+		else:
+			await get_tree().create_timer(1.5).timeout
 			StageManager.reset_level()
 
 	elif "dryer" in body.name.to_lower():

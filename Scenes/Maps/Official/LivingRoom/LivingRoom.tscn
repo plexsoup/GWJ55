@@ -306,7 +306,7 @@ texture = ExtResource("5_p0717")
 
 [node name="ExitToGarden" parent="DynamicObjects" instance=ExtResource("4_jclyg")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -67.0658, 1.22099, 0)
-next_scene_path = "res://Scenes/Maps/Official/BathRoom/Bathroom.tscn"
+next_scene_path = "res://Scenes/Maps/Official/Garden/Garden.tscn"
 
 [node name="Sprite3D" type="Sprite3D" parent="DynamicObjects/ExitToGarden"]
 transform = Transform3D(0.431428, -7.54335e-08, 0, 7.54335e-08, 0.431428, 0, 0, 0, 0.431428, 0.254639, 0.669565, 0.0544531)

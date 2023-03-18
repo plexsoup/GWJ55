@@ -25,15 +25,15 @@
 [ext_resource type="PackedScene" uid="uid://b2tb1owb5nnun" path="res://Scenes/Objects/spawn_point.tscn" id="22_0ifv0"]
 [ext_resource type="Texture2D" uid="uid://bpp08atu8a8u0" path="res://Art/objects/sink.png" id="22_3q82r"]
 [ext_resource type="Texture2D" uid="uid://lmde70nwacgw" path="res://Art/Eye_text.png" id="24_xk33q"]
-[ext_resource type="Curve" uid="uid://ctp0miqywpyoo" path="res://Shaders/Waterdrop.tres" id="26_5djuc"]
+[ext_resource type="Curve" path="res://Shaders/Waterdrop.tres" id="26_5djuc"]
 [ext_resource type="Shader" uid="uid://btl5ebnoijhp2" path="res://Shaders/Envi_Water.tres" id="26_yyjx1"]
 [ext_resource type="ArrayMesh" uid="uid://crqdcvpu65qav" path="res://Art/objects/Water_twist2.obj" id="27_fjhtx"]
-[ext_resource type="Shader" uid="uid://hkuj1qssy6ue" path="res://Water_Ground.tres" id="28_d6crc"]
+[ext_resource type="Shader" uid="uid://deoy3clg2jh4q" path="res://Water_Ground.tres" id="28_d6crc"]
 [ext_resource type="Texture2D" uid="uid://b8b3xjek6q7wy" path="res://Art/Foliage/Grass3.png" id="28_pvto1"]
 [ext_resource type="Texture2D" uid="uid://ddaucwcbe7q1y" path="res://Art/Foliage/Mushrooms.png" id="29_420ga"]
 [ext_resource type="Texture2D" uid="uid://b6jmphr0ugk78" path="res://Art/Foliage/Mountains 2.png" id="30_7hnmv"]
 [ext_resource type="Texture2D" uid="uid://1yt0bsisi0p6" path="res://Art/Foliage/Bush_1.png" id="30_a6qsh"]
-[ext_resource type="AudioStream" uid="uid://c75ktirujy5pe" path="res://sfx/Rain.mp3" id="31_mhp4h"]
+[ext_resource type="AudioStream" path="res://sfx/Rain.mp3" id="31_mhp4h"]
 [ext_resource type="Texture2D" uid="uid://coaanccqd0h8j" path="res://Art/Foliage/Tree.png" id="31_yuwoy"]
 
 [sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_qs5tq"]
@@ -191,6 +191,9 @@ shader_parameter/Vertex_Roughness = 0.1
 shader_parameter/ColorParameter = Color(0.10844, 0.397392, 0.688247, 1)
 shader_parameter/FloatParameter = 0.2
 
+[sub_resource type="Animation" id="Animation_ofael"]
+length = 0.001
+
 [sub_resource type="Animation" id="Animation_jngr1"]
 resource_name = "twist"
 length = 10.0
@@ -207,9 +210,6 @@ tracks/0/keys = {
 "update": 0,
 "values": [Vector3(0, 0, 0), Vector3(0, 6.28319, 0)]
 }
-
-[sub_resource type="Animation" id="Animation_ofael"]
-length = 0.001
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_ce648"]
 _data = {

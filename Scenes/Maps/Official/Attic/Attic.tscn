@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=3 uid="uid://dv6mgvqyrydae"]
+[gd_scene load_steps=52 format=3 uid="uid://dv6mgvqyrydae"]
 
 [ext_resource type="Script" path="res://Scenes/Maps/base_level.gd" id="1_47d15"]
 [ext_resource type="MeshLibrary" uid="uid://dmh5e52qprx6r" path="res://MeshLibraries/cat_tower_plex.tres" id="2_18ox2"]
@@ -26,6 +26,15 @@
 [ext_resource type="Texture2D" uid="uid://cynsdc3oljjuy" path="res://Art/Foliage/Light house.png" id="20_c3rgl"]
 [ext_resource type="PackedScene" uid="uid://b2tb1owb5nnun" path="res://Scenes/Objects/spawn_point.tscn" id="21_47lhw"]
 [ext_resource type="AudioStream" uid="uid://7qiv1uacfw8p" path="res://Music/MUS_TitleV2_9M_7-4_78.mp3" id="23_dcvxg"]
+[ext_resource type="ArrayMesh" uid="uid://vi50biml6jex" path="res://Art/objects/ladder_segment.obj" id="27_lepr5"]
+[ext_resource type="ArrayMesh" uid="uid://bas6wumrtxehk" path="res://Art/objects/chest.obj" id="27_x1lli"]
+[ext_resource type="Texture2D" uid="uid://ds8hm0uoxef7u" path="res://Art/objects/ladder_segment.png" id="28_0cw7w"]
+[ext_resource type="Texture2D" uid="uid://p2svmw54bavp" path="res://Art/objects/chest.png" id="28_scd17"]
+[ext_resource type="ArrayMesh" uid="uid://cf56qx5kpygr8" path="res://Art/objects/couch.obj" id="31_53pdn"]
+[ext_resource type="Script" path="res://Scenes/Objects/RandomLazyMotion.gd" id="31_sibp5"]
+[ext_resource type="Texture2D" uid="uid://cky6muvp26xng" path="res://Art/objects/couch.png" id="32_hhxa8"]
+[ext_resource type="ArrayMesh" uid="uid://d3e882kokc133" path="res://Art/objects/drawer.obj" id="34_npi5m"]
+[ext_resource type="Texture2D" uid="uid://cthlnxbgb425h" path="res://Art/objects/drawer.png" id="35_6rsxr"]
 
 [sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_yla2b"]
 dof_blur_far_enabled = true
@@ -85,6 +94,24 @@ material = SubResource("ShaderMaterial_c4e3k")
 size = Vector2(500, 500)
 subdivide_width = 200
 subdivide_depth = 200
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tvk1j"]
+albedo_texture = ExtResource("32_hhxa8")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_t12jy"]
+albedo_texture = ExtResource("28_scd17")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nr283"]
+albedo_texture = ExtResource("35_6rsxr")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ecvbf"]
+albedo_texture = ExtResource("28_0cw7w")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3hgcl"]
+albedo_texture = ExtResource("28_0cw7w")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_aoqkd"]
+albedo_texture = ExtResource("28_scd17")
 
 [node name="Attic" type="Node3D"]
 script = ExtResource("1_47d15")
@@ -436,6 +463,70 @@ transform = Transform3D(31.2143, 0, 0, 0, 31.2143, 0, 0, 0, 1, 87.6862, 65.1438,
 shaded = true
 alpha_cut = 2
 texture = ExtResource("20_c3rgl")
+
+[node name="Props" type="Node3D" parent="Background elements"]
+
+[node name="Couch" type="MeshInstance3D" parent="Background elements/Props"]
+transform = Transform3D(4.48367, 0.776947, 2.07197, 0, 4.68168, -1.75553, -2.21285, 1.57424, 4.19822, -9.54104, -12.534, -49.2227)
+mesh = ExtResource("31_53pdn")
+skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_tvk1j")
+script = ExtResource("31_sibp5")
+
+[node name="Chest" type="MeshInstance3D" parent="Background elements/Props"]
+transform = Transform3D(-0.108589, 4.99747, -0.116345, -3.40986, -0.159146, -3.65343, -3.65528, -1.26715e-07, 3.41159, -10.233, 31.1298, -16.9234)
+mesh = ExtResource("27_x1lli")
+skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_t12jy")
+script = ExtResource("31_sibp5")
+
+[node name="Chest2" type="MeshInstance3D" parent="Background elements/Props"]
+transform = Transform3D(-0.108589, 4.99747, -0.116345, -3.40986, -0.159146, -3.65343, -3.65528, -1.26715e-07, 3.41159, 67.7067, 7.09377, -16.9234)
+mesh = ExtResource("27_x1lli")
+skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_t12jy")
+script = ExtResource("31_sibp5")
+
+[node name="Drawer" type="MeshInstance3D" parent="Background elements/Props"]
+transform = Transform3D(2.45151, 3.77831, 2.17128, -4.29145, 1.66023, 1.95629, 0.757331, -2.82276, 4.0569, 49.156, 17.446, -37.191)
+mesh = ExtResource("34_npi5m")
+skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_nr283")
+script = ExtResource("31_sibp5")
+
+[node name="LadderSegment" type="MeshInstance3D" parent="Background elements/Props"]
+transform = Transform3D(0.136033, -4.75617, -1.53634, 2.48519, 1.39782, -4.1073, 4.33651, -0.651872, 2.40203, 40.0908, 7.27599, -24.8486)
+mesh = ExtResource("27_lepr5")
+skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_ecvbf")
+script = ExtResource("31_sibp5")
+
+[node name="LadderSegment2" type="MeshInstance3D" parent="Background elements/Props"]
+transform = Transform3D(1.92902, 3.92953, -2.41614, -1.57277, 3.02223, 3.65958, 4.33651, -0.651872, 2.40203, 40.0908, 42.0779, -20.8276)
+mesh = ExtResource("27_lepr5")
+skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_ecvbf")
+script = ExtResource("31_sibp5")
+
+[node name="Background" type="Node3D" parent="Background elements"]
+
+[node name="LadderSegment" type="MeshInstance3D" parent="Background elements/Background"]
+transform = Transform3D(11.9591, -6.0839, -14.8312, 1.77746, 18.8928, -6.31675, 15.9317, 2.45905, 11.8378, 44.8078, -26.6112, -174.571)
+mesh = ExtResource("27_lepr5")
+skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_3hgcl")
+
+[node name="LadderSegment2" type="MeshInstance3D" parent="Background elements/Background"]
+transform = Transform3D(1.06441, 14.5819, -3.35204, 7.98619, 2.28808, 12.4894, 12.6526, -2.67093, -7.6012, 9.86947, -18.0058, -54.2081)
+mesh = ExtResource("27_lepr5")
+skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_3hgcl")
+
+[node name="Chest" type="MeshInstance3D" parent="Background elements/Background"]
+transform = Transform3D(14.3364, 9.72091, -9.9986, -7.9733, 17.4787, 5.5608, 11.4409, 5.96046e-07, 16.4044, 98.6857, -9.67446, -103.29)
+mesh = ExtResource("27_x1lli")
+skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_aoqkd")
 
 [node name="SpawnPoints" type="Node3D" parent="."]
 

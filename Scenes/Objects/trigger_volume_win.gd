@@ -2,6 +2,9 @@ extends Area3D
 
 @export var next_scene_path : String
 
+func _ready():
+	$MeshInstance3D.queue_free()
+
 func _on_body_entered(body):
 	if "player" in body.name.to_lower():
 		

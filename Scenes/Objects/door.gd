@@ -5,6 +5,8 @@ extends Node3D
 @export var duration : float = 0.5
 @export var open_on_previous_map_name : String = ""
 
+@export var door_id : String = ""
+
 var rotation_axis : Vector3 = Vector3(0, 1, 0)
 var starting_rotation : float = 0.0
 var full_rotation : float = PI/2.0 # ninety degrees
@@ -14,6 +16,10 @@ var final_position : Vector3
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	if door_id in Global.doors_open:
+		# hack to open doors between levels (particularly for livingroom:attic)
+		queue_free()
+	
 	starting_position = $Hinge.position
 	var door_length = $Hinge/MeshInstance3D.get_aabb().get_longest_axis_size()
 	final_position = starting_position + Vector3.DOWN * door_length * $Hinge/MeshInstance3D.get_scale().y 
@@ -28,6 +34,10 @@ func _on_switch_toggled(value):
 		close()
 		
 func open():
+	if door_id != "" and door_id != null:
+		if not door_id in Global.doors_open:
+			Global.doors_open.push_back(door_id)
+			
 	$OpenNoises.play_random_sound()
 
 	if queue_free_on_activate:

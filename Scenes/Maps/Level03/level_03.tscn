@@ -12,13 +12,10 @@ data = {
 [node name="player" parent="." index="1"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.29572, 10.4673, 0)
 
-[node name="TriggerVolumeWin" parent="." index="7"]
-next_scene_path = "res://Scenes/Maps/Level04/level_04.tscn"
+[node name="Cloud_water" parent="." index="7"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -35.2345, 0)
 
 [node name="Label3D" type="Label3D" parent="." index="8"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19.8606, 24.1561, 0)
 text = "3"
 font_size = 512
-
-[node name="Cloud_water" parent="." index="11"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -35.2345, 0)

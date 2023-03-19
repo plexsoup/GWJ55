@@ -1,9 +1,16 @@
-[gd_scene load_steps=3 format=3 uid="uid://cmd16bdree5a7"]
+[gd_scene load_steps=5 format=3 uid="uid://cmd16bdree5a7"]
 
 [ext_resource type="Script" path="res://Scenes/Objects/fall_reset_volume.gd" id="1_ank1g"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_5u833"]
 size = Vector3(143.358, 21.6483, 26.7456)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6qkve"]
+transparency = 1
+albedo_color = Color(1, 0.862745, 0.756863, 0.486275)
+
+[sub_resource type="BoxMesh" id="BoxMesh_2c84a"]
+material = SubResource("StandardMaterial3D_6qkve")
 
 [node name="FallResetVolume" type="Area3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -18.47, 0)
@@ -12,5 +19,9 @@ script = ExtResource("1_ank1g")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("BoxShape3D_5u833")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(143.24, 0, 0, 0, 21.1325, 0, 0, 0, 27.2898, 0, 0, 0)
+mesh = SubResource("BoxMesh_2c84a")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

@@ -140,8 +140,14 @@ func check_climb():
 		climb_side = "none"
 		animated_sprite.flip_v = false
 		
+	#debugging prints ... climb_side is always empty "" ?
+#	if Time.get_ticks_msec() % 50 == 0:
+#		print("climb_side == " + climb_side + ", climb_flip == " + str(climb_flip))
 		
 func handle_dash():
+	if not "dash" in Global.abilities_unlocked:
+		return
+		
 	if Input.is_action_just_pressed("dash") and !dashing and !on_dash_cooldown and dash_usable:
 		var direction = -1
 		if animated_sprite.flip_h:
@@ -193,13 +199,19 @@ func animate():
 	animated_sprite.play(animation_state)
 	jumping = false
 	
-
+	# I'm not exactly sure how this all works, but here's some quick and dirty climbing
+	if climb_flip == 1: # right
+		animated_sprite.rotation.z = PI/2
+	elif climb_flip == -1: # left
+		animated_sprite.rotation.z = -PI/2
+	else:
+		animated_sprite.rotation.z = 0.0
 
 func play_audio():
 	if animation_state == "Run":
 		var frame = animated_sprite.get_frame()
 		if frame != previous_animation_frame:
-			if $AnimatedSprite3D.get_frame() in [ 0, 2, 4 ]:
+			if frame in [ 0, 2, 4 ]:
 				$Audio/Footsteps.play_random_noise()
 	elif previous_animation_state == "Fall" and animation_state != "Fall": # landed
 		$Audio/Landing.play_random_noise()
@@ -229,8 +241,9 @@ func handle_jump():
 			jump()
 		#In air no coyote time with double
 		elif !is_on_floor() and coyote_time.is_stopped() and !double_jump:
-			jump()
-			double_jump = true
+			if "double_jump" in Global.abilities_unlocked:
+				jump()
+				double_jump = true
 		#In air no coyote time no double
 		elif !is_on_floor() and coyote_time.is_stopped() and double_jump:
 			buffered_jump = true

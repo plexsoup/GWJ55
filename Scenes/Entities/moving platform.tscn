@@ -5,7 +5,7 @@
 [ext_resource type="Material" uid="uid://nnv0nusw3ic" path="res://Materials/concrete_material.tres" id="2_e6y44"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_my2bd"]
-size = Vector3(2, 1, 2)
+size = Vector3(2, 0.196844, 2)
 
 [sub_resource type="BoxMesh" id="BoxMesh_j46ps"]
 material = ExtResource("2_e6y44")
@@ -137,6 +137,7 @@ collision_layer = 4
 collision_mask = 3
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.4158, 0)
 shape = SubResource("BoxShape3D_my2bd")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D"]

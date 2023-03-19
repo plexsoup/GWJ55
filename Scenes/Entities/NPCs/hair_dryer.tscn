@@ -1,9 +1,14 @@
-[gd_scene load_steps=5 format=3 uid="uid://cbs51rpoxintc"]
+[gd_scene load_steps=8 format=3 uid="uid://cbs51rpoxintc"]
 
 [ext_resource type="PackedScene" uid="uid://bpr26601pqhqe" path="res://Scenes/Entities/NPCs/npc.tscn" id="1_mn5qa"]
+[ext_resource type="ArrayMesh" uid="uid://c2tf7sntjmx84" path="res://Art/objects/hair_dryer.obj" id="2_tn01q"]
+[ext_resource type="Texture2D" uid="uid://ctam1jr2rjkmg" path="res://Art/objects/hair_dryer.png" id="3_tr3pp"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_n46pu"]
 size = Vector3(1, 1, 1.5)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_k8m0j"]
+albedo_texture = ExtResource("3_tr3pp")
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_frniy"]
 
@@ -18,15 +23,23 @@ electrical = true
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 2.15998, 1.36221, 0)
 shape = SubResource("BoxShape3D_n46pu")
 
-[node name="Barrel" type="MeshInstance3D" parent="Visuals" index="2"]
+[node name="HairDryer" type="MeshInstance3D" parent="Visuals" index="2"]
+transform = Transform3D(0.620354, 0.0897149, 0, -0.0897149, 0.620354, 0, 0, 0, 0.626808, -0.29562, 0.80497, 0)
+mesh = ExtResource("2_tn01q")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_k8m0j")
+
+[node name="Barrel" type="MeshInstance3D" parent="Visuals" index="3"]
 transform = Transform3D(-0.146049, 0.989277, 0, -0.989277, -0.146049, 0, 0, 0, 1, 0, 1.59823, 0)
+visible = false
 mesh = SubResource("CylinderMesh_frniy")
 
-[node name="Handle" type="MeshInstance3D" parent="Visuals" index="3"]
+[node name="Handle" type="MeshInstance3D" parent="Visuals" index="4"]
 transform = Transform3D(-0.988078, -0.153952, 0, 0.153952, -0.988078, 0, 0, 0, 0.486423, -1.01969, 1.07578, 0)
+visible = false
 mesh = SubResource("CapsuleMesh_pw2t4")
 
-[node name="WeakSpot" parent="Visuals" index="4"]
+[node name="WeakSpot" parent="Visuals" index="5"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.19615, 2.22885, 0)
 visible = false
 collision_layer = 0

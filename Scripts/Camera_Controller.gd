@@ -7,7 +7,7 @@ extends Camera3D
 
 @export var lerp_speed = 3.0
 
-@export var desired_camera_offset = 15.0
+@export var desired_camera_offset = 10.0
 
 var follow = false
 var starting_position : Vector3

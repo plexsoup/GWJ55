@@ -15,7 +15,7 @@ extends CharacterBody3D
 @onready var throw_point = $ThrowPoint
 
 var kitten = null
-
+var kitten_prefab = "res://Scenes/Entities/Player/cloud_kitten_companion.tscn"
 const SPEED = 11.0
 var buffered_jump = false
 var was_on_floor
@@ -45,6 +45,12 @@ var noclip_speed = 500.0
 
 func _ready():
 	Global.current_player = self
+	if Global.kitty:
+		var cloud_kitty = kitten_prefab.instance()
+		cloud_kitty.target = self
+		cloud_kitty.global_position = global_position
+		cloud_kitty.cam = get_node("Camera3D")
+		
 
 func _physics_process(delta):
 	if state in [ States.READY ]:

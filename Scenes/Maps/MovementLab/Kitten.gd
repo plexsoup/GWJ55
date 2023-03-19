@@ -13,6 +13,7 @@ var cam = null
 var throw_vector = Vector3(0,0,0)
 var max_points = 50
 var render_time = 0.0
+@onready var global = get_node("/root/Global")
 
 func _physics_process(delta):
 	if target and !dropped and !thrown:
@@ -93,6 +94,7 @@ func _on_area_3d_body_entered(body):
 	if body.name == "player" and !dropped:
 		target = body
 		cam = target.get_node("Camera3D")
+		global.kitty = true
 
 func set_movement(speed):
 			var current_location = global_transform.origin

@@ -10,7 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://dhm4vtuux462g" path="res://Materials/arrow_01.png" id="5_r5rsb"]
 [ext_resource type="PackedScene" uid="uid://crvvpifd7a146" path="res://Scenes/Entities/NPCs/pressure_plate.tscn" id="6_jvxdu"]
 [ext_resource type="PackedScene" uid="uid://dwte3a8axt6kp" path="res://Scenes/Objects/door.tscn" id="7_vtp6s"]
-[ext_resource type="PackedScene" path="res://Scenes/Objects/trigger_volume_win.tscn" id="8_ctuvk"]
+[ext_resource type="PackedScene" uid="uid://eb3wwyaluatx" path="res://Scenes/Objects/trigger_volume_win.tscn" id="8_ctuvk"]
 [ext_resource type="PackedScene" uid="uid://ch0xqdmee1xnu" path="res://WorldEnvironments/sky_and_lighting.tscn" id="8_tngek"]
 [ext_resource type="Shader" uid="uid://cx2ac458h8a83" path="res://Shaders/Cloud_Water.tres" id="9_24d24"]
 [ext_resource type="Texture2D" uid="uid://d2tun4dqdssdx" path="res://Scenes/Maps/Official/BathRoom/level01_mockup_section3.png" id="9_dy6eo"]
@@ -391,6 +391,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.734, 76.083, -0.8)
 
 [node name="Kitten" parent="NPCs" instance=ExtResource("4_he5h7")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.8046, -2.35665, -0.917665)
+collision_mask = 2147483652
 
 [node name="EnvironmentalHazards" type="Node3D" parent="."]
 
@@ -430,6 +431,7 @@ shadow_opacity = 0.41
 
 [node name="Sky and Lighting" parent="." instance=ExtResource("8_tngek")]
 script = ExtResource("9_qwmps")
+low_spec_in_editor = true
 
 [node name="Cloud_water" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -38.2472, 0)
@@ -614,9 +616,16 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -60.0076, 66.6066, 0)
 hint_text = "This way to Attic"
 
 [node name="CloudKittyHint1" parent="Hints" instance=ExtResource("21_cgked")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26.6455, -0.457138, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -45.1194, -0.457138, 0)
 hint_text = "It's my good friend!
 CloudKitty!"
+
+[node name="CloudKittyHint3" parent="Hints" instance=ExtResource("21_cgked")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.0474, -0.457138, 0)
+hint_text = "Press and hold mouse to throw cloud kity. 
+Click mouse again to retrieve.
+Right-click to swap places."
+duration = 15.0
 
 [node name="CloudKittyHint2" parent="Hints" instance=ExtResource("21_cgked")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26.6455, 14.2872, 0)

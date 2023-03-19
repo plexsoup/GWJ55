@@ -2916,10 +2916,10 @@ text = "Art
 label_settings = SubResource("LabelSettings_3236e")
 horizontal_alignment = 1
 
-[node name="Kyveri" type="Label" parent="VBoxContainer/AnimationPlayer/Control/Credits"]
+[node name="Kyveri" type="LinkButton" parent="VBoxContainer/AnimationPlayer/Control/Credits"]
 layout_mode = 2
 text = "Kyveri-2D Artist"
-horizontal_alignment = 1
+uri = "https://www.artstation.com/kyveri"
 
 [node name="Snake" type="Label" parent="VBoxContainer/AnimationPlayer/Control/Credits"]
 layout_mode = 2

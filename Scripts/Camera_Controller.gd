@@ -12,7 +12,7 @@ extends Camera3D
 var follow = false
 var starting_position : Vector3
 var starting_fov : float
-
+var previous_target_pos
 var found_player : bool = false
 
 var free_jump_taken : bool = false
@@ -21,20 +21,14 @@ func _ready():
 	top_level = true
 	starting_position = position
 	starting_fov = fov
-	
-	# Trying to figure out why the camera won't center on the player when the player gets moved to a spawnpoint.
-	
-#	# workaround spawn point bug, player moves immediately after level starts
-#	await get_tree().create_timer(0.25).timeout
-#	global_position.x = Global.current_player.global_position.x
-#	global_position.y = Global.current_player.global_position.y
-#	follow = true
-#	found_player = true
+	previous_target_pos = target.global_position
 
 func _physics_process(delta):
-	if Global.current_player != null:
-		global_position = Global.current_player.global_position + Vector3.BACK * desired_camera_offset
-
+	var target_delta = previous_target_pos.distance_to(target.global_position)
+	previous_target_pos = target.global_position
+	if target_delta > 5:
+		global_position.y = target.global_position.y
+		global_position.x = target.global_position.x
 	if follow:
 		#Follow
 		var target_pos = target.global_position
@@ -43,14 +37,13 @@ func _physics_process(delta):
 		
 		#Look Ahead
 		var x_distance_from_player = global_position.x - target_pos.x
-		var target_x_offset = -x_distance_from_player * 3
+		var target_x_offset = -x_distance_from_player * 2.211
 		var lerpX = lerp(h_offset, target_x_offset, lerp_speed * delta)
 		h_offset = lerpX
 	var y = lerp(global_position.y, target.global_position.y, lerp_speed * 10 * delta)
 	global_position.y = y
 		
 func _on_area_3d_body_exited(body):
-	
 	if body == target:
 		follow = true
 

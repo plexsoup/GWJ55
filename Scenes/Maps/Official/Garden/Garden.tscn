@@ -828,7 +828,7 @@ texture = ExtResource("21_qano6")
 
 [node name="ExitToWinScreen" parent="Exits" instance=ExtResource("20_y4p00")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -33.9331, 17.0187, 0)
-next_scene_path = "res://Menus/Credits/credits.tscn"
+next_scene_path = "res://Menus/win_screen.tscn"
 
 [node name="Arrow" type="Sprite3D" parent="Exits/ExitToWinScreen"]
 transform = Transform3D(1.68576, 0, 0, 0, 1.68576, 0, 0, 0, 1.68576, 0, 0, 0)

@@ -95,6 +95,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.6573, 0, -3.6089)
 
 [node name="Cat" type="Sprite3D" parent="Cat Companion"]
 transform = Transform3D(0.668887, 0, 0, 0, 0.668887, 0, 0, 0, 1, 0, 0.121573, 0.242763)
+alpha_cut = 2
 texture = ExtResource("1_t2j8r")
 
 [node name="Cloud" type="Sprite3D" parent="Cat Companion"]

@@ -1,73 +1,286 @@
-[gd_scene load_steps=6 format=3 uid="uid://ivpcuj0u77bl"]
+[gd_scene load_steps=26 format=3 uid="uid://ivpcuj0u77bl"]
 
-[ext_resource type="Texture2D" uid="uid://c7r0ql75cnkow" path="res://Art/Cat_Icon.png" id="1_a5o4u"]
-[ext_resource type="PackedScene" uid="uid://dx20duhdsm1vn" path="res://Menus/Buttons/scene_change_button.tscn" id="2_cllni"]
+[ext_resource type="Texture2D" uid="uid://dhf8h4ijcq6e8" path="res://Art/Lose_screen/Frame 1.png" id="1_mj0kr"]
+[ext_resource type="Texture2D" uid="uid://puhsnkll0x8u" path="res://Art/Lose_screen/Frame2.png" id="2_rjevc"]
+[ext_resource type="Texture2D" uid="uid://ckkiben5vcrxv" path="res://Art/Lose_screen/Frame 3.png" id="3_2m5x6"]
+[ext_resource type="Texture2D" uid="uid://c13v3vxyo6a8f" path="res://Art/Sky.png" id="4_by2qi"]
+[ext_resource type="Texture2D" uid="uid://sa4kdikskiyt" path="res://Art/Lose_screen/Win_Frame1.png" id="4_o1sva"]
+[ext_resource type="Texture2D" uid="uid://dy521sus8bn1i" path="res://Art/Lose_screen/Win_Frame_2.png" id="5_6f8yv"]
+[ext_resource type="Texture2D" uid="uid://coaanccqd0h8j" path="res://Art/Foliage/Tree.png" id="5_fk517"]
+[ext_resource type="Texture2D" uid="uid://ctnp4k1vmbh2f" path="res://Art/Lose_screen/Win_Frame_3.png" id="6_cn1lr"]
+[ext_resource type="SystemFont" uid="uid://cerxxtret1ec2" path="res://TimedTextArea.tres" id="6_u8lk5"]
+[ext_resource type="Texture2D" uid="uid://h7w86d5tru53" path="res://Art/Lose_screen/Win_Frame_4.png" id="7_binq6"]
+[ext_resource type="Texture2D" uid="uid://cbxmyuna3dt3s" path="res://Art/Lose_screen/Win_Frame_5.png" id="8_wolwb"]
+[ext_resource type="Texture2D" uid="uid://dkl25n2gj2v7y" path="res://Art/Lose_screen/Blank_Frame.png" id="9_ox17c"]
 
-[sub_resource type="Gradient" id="Gradient_oaqkf"]
-colors = PackedColorArray(0.60933, 0.60933, 0.60933, 1, 0.505344, 0.505344, 0.505344, 1)
+[sub_resource type="Animation" id="Animation_tdprs"]
+resource_name = "Lose_Screen"
+length = 2.8144
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Cat:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.2, 0.8, 1.6, 2.7),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("1_mj0kr"), ExtResource("2_rjevc"), ExtResource("3_2m5x6"), ExtResource("2_rjevc")]
+}
 
-[sub_resource type="FastNoiseLite" id="FastNoiseLite_3k00f"]
+[sub_resource type="Animation" id="Animation_i2bud"]
+resource_name = "Win"
+length = 3.7406
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Cat:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.8, 1.3, 2.2, 3, 3.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("4_o1sva"), ExtResource("5_6f8yv"), ExtResource("6_cn1lr"), ExtResource("7_binq6"), ExtResource("8_wolwb"), ExtResource("9_ox17c")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Cat:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(2.8, 3.6),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite3D:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(2.8, 3.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Sprite3D:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(2.8),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 2.876)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Label:self_modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(3.3, 3.7),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
 
-[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_lxoil"]
-color_ramp = SubResource("Gradient_oaqkf")
-noise = SubResource("FastNoiseLite_3k00f")
+[sub_resource type="Animation" id="Animation_628fn"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Cat:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite3D:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite3D:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 2.876)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Label:self_modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
 
-[node name="DeathScreen" type="Control"]
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_oarqp"]
+_data = {
+"Lose_Screen": SubResource("Animation_tdprs"),
+"RESET": SubResource("Animation_628fn"),
+"Win": SubResource("Animation_i2bud")
+}
 
-[node name="TextureRect" type="TextureRect" parent="."]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = SubResource("NoiseTexture2D_lxoil")
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_56hef"]
+panorama = ExtResource("4_by2qi")
 
-[node name="MarginContainer" type="MarginContainer" parent="."]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_constants/margin_left = 30
-theme_override_constants/margin_top = 30
-theme_override_constants/margin_right = 30
-theme_override_constants/margin_bottom = 30
+[sub_resource type="Sky" id="Sky_q4xvl"]
+sky_material = SubResource("PanoramaSkyMaterial_56hef")
 
-[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
-layout_mode = 2
+[sub_resource type="Environment" id="Environment_4wjdl"]
+background_mode = 2
+sky = SubResource("Sky_q4xvl")
+glow_enabled = true
+glow_intensity = 2.15
+glow_strength = 1.13
+glow_bloom = 0.31
+glow_hdr_threshold = 1.17
+volumetric_fog_enabled = true
+volumetric_fog_density = 0.0079
+volumetric_fog_albedo = Color(0.686275, 0.0627451, 0.364706, 1)
 
-[node name="LeftImage" type="TextureRect" parent="MarginContainer/HBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-texture = ExtResource("1_a5o4u")
-stretch_mode = 5
-flip_h = true
+[sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_6lunr"]
+dof_blur_far_enabled = true
+dof_blur_far_distance = 13.93
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer"]
-layout_mode = 2
-theme_override_constants/separation = 50
-alignment = 1
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_ubeh1"]
+emission_shape = 1
+emission_sphere_radius = 11.07
+gravity = Vector3(-10, -9.8, 0)
+scale_min = 0.2
+scale_max = 0.3
+turbulence_enabled = true
 
-[node name="CongratulationsText" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 72
-text = "You achieved
-everything... 
-but it was all
-a dream."
-horizontal_alignment = 1
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qwbtc"]
+emission_enabled = true
+emission = Color(0.882353, 0.878431, 0, 1)
 
-[node name="ReturnToMain" parent="MarginContainer/HBoxContainer/VBoxContainer" instance=ExtResource("2_cllni")]
-custom_minimum_size = Vector2(175, 55)
-layout_mode = 2
-size_flags_horizontal = 4
-text = "Main Menu"
-scene_path = "res://main.tscn"
+[sub_resource type="SphereMesh" id="SphereMesh_ddhm7"]
+material = SubResource("StandardMaterial3D_qwbtc")
+radius = 0.1
+height = 0.1
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_1moxp"]
+blend_mode = 1
+light_mode = 1
+particles_animation = true
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="LabelSettings" id="LabelSettings_vrxs0"]
+font = ExtResource("6_u8lk5")
+font_size = 48
+shadow_color = Color(0, 0, 0, 0.698039)
+shadow_offset = Vector2(2.321, 3.968)
+
+[node name="Node2D" type="Node3D"]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.335451, -0.815847, 0.471027, 0, 0.499998, 0.866027, -0.942058, 0.290509, -0.167725, 0, 0, 0)
+light_color = Color(1, 0.458824, 0.45098, 1)
+light_energy = 2.981
+light_indirect_energy = 1.61
+shadow_enabled = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "Win"
+speed_scale = 0.25
+libraries = {
+"": SubResource("AnimationLibrary_oarqp")
+}
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_4wjdl")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 8.12881)
+attributes = SubResource("CameraAttributesPractical_6lunr")
+current = true
+fov = 89.4
+
+[node name="Cat" type="Sprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.100508, 2.87956)
+alpha_cut = 3
+texture = ExtResource("9_ox17c")
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.32387, 7.96709, 7.51639)
+amount = 129
+lifetime = 1.59
+preprocess = 2.17
+speed_scale = 0.25
+visibility_aabb = AABB(-13.1002, -4, -9.45643, 26.2005, 8, 18.9129)
+process_material = SubResource("ParticleProcessMaterial_ubeh1")
+draw_pass_1 = SubResource("SphereMesh_ddhm7")
+
+[node name="Sprite3D2" type="Sprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.50735, -6.9651, 0)
+shaded = true
+texture = ExtResource("5_fk517")
+
+[node name="Sprite3D3" type="Sprite3D" parent="."]
+transform = Transform3D(1.52229, 0, 0, 0, 1.79375, 0, 0, 0, 1, 10.6987, -6.9651, -3.68454)
+shaded = true
+texture = ExtResource("5_fk517")
+
+[node name="Sprite3D4" type="Sprite3D" parent="."]
+transform = Transform3D(1.52229, 0, 0, 0, 1.79375, 0, 0, 0, 1, -17.5024, -6.9651, -3.68454)
+shaded = true
+texture = ExtResource("5_fk517")
+
+[node name="Sprite3D5" type="Sprite3D" parent="."]
+transform = Transform3D(1.52229, 0, 0, 0, 1.79375, 0, 0, 0, 1, -8.50215, -6.9651, 0.131767)
+shaded = true
+texture = ExtResource("5_fk517")
+
+[node name="Label" type="Label" parent="."]
+material = SubResource("CanvasItemMaterial_1moxp")
+offset_left = 187.0
+offset_top = 91.0
+offset_right = 1409.0
+offset_bottom = 143.0
+text = "Dreaming like all good things must end"
+label_settings = SubResource("LabelSettings_vrxs0")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Label"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+fit_content = true
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2.876)
+alpha_cut = 2
+texture = ExtResource("9_ox17c")

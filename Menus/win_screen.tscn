@@ -271,7 +271,7 @@ offset_left = 187.0
 offset_top = 91.0
 offset_right = 1409.0
 offset_bottom = 143.0
-text = "Dreaming like all good things must end"
+text = "Dreaming, like all good things, must end"
 label_settings = SubResource("LabelSettings_vrxs0")
 
 [node name="RichTextLabel" type="RichTextLabel" parent="Label"]

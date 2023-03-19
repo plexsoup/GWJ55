@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dc1xw7abxx516"
-path.s3tc="res://.godot/imported/Cat_push.png-322ea320cdc892edb4b53a02b1d1ffd4.s3tc.ctex"
+uid="uid://puhsnkll0x8u"
+path.s3tc="res://.godot/imported/Frame2.png-d4a860a456cfb1edf6704417091bc84c.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://Art/Cat_push.png"
-dest_files=["res://.godot/imported/Cat_push.png-322ea320cdc892edb4b53a02b1d1ffd4.s3tc.ctex"]
+source_file="res://Art/Lose_screen/Frame2.png"
+dest_files=["res://.godot/imported/Frame2.png-d4a860a456cfb1edf6704417091bc84c.s3tc.ctex"]
 
 [params]
 

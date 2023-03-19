@@ -774,7 +774,6 @@ visible = false
 mesh = SubResource("TubeTrailMesh_76on5")
 
 [node name="foliage" type="Node3D" parent="Background_elements"]
-visible = false
 
 [node name="Sprite3D" type="Sprite3D" parent="Background_elements/foliage"]
 transform = Transform3D(5.09637, 0, 0, 0, 4.89496, 0, 0, 0, 1, -70.0162, 17.9851, -2.17274)

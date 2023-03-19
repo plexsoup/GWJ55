@@ -4,14 +4,15 @@
 [ext_resource type="Texture2D" uid="uid://b4crcvhdviwu" path="res://Materials/dotted_line.png" id="2_nah1j"]
 [ext_resource type="PackedScene" uid="uid://dujwxhrwrkq1q" path="res://Scenes/Entities/NPCs/Cat_Companion.tscn" id="3_022hw"]
 
-[sub_resource type="SphereShape3D" id="SphereShape3D_3mu2f"]
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_tr65j"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_dd3gg"]
+radius = 0.930965
 
 [node name="Kitten" type="CharacterBody3D" groups=["heavy", "kitten"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.79342, 0.959874, 1.02937)
 collision_layer = 2147483664
-collision_mask = 2147483648
+collision_mask = 2147483652
 script = ExtResource("1_e6tne")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
@@ -24,7 +25,8 @@ texture_mode = 1
 [node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-shape = SubResource("SphereShape3D_3mu2f")
+transform = Transform3D(2.5215, 0, 0, 0, -1.19209e-07, -2.5215, 0, 2.5215, -1.19209e-07, 0, 0, 0)
+shape = SubResource("CapsuleShape3D_tr65j")
 
 [node name="Area3D" type="Area3D" parent="."]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
@@ -36,3 +38,5 @@ shape = SubResource("SphereShape3D_dd3gg")
 transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, 0, 0, 0)
 
 [connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
+
+[editable path="kitten_animation"]

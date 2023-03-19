@@ -15,4 +15,6 @@ func _on_body_entered(body):
 			StageManager.change_scene_to_file("res://Menus/death_screen.tscn")
 		else:
 			StageManager.reset_level()
-		
+	elif "kitten" in body.name.to_lower():
+		if body.has_method("teleport_to_player"):
+			body.teleport_to_player()

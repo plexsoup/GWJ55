@@ -95,7 +95,8 @@ func _unhandled_input(_event):
 			set_collision_layer_value(1, true)
 			set_collision_mask_value(3, true)
 			print("no_clip ghost mode disabled")
-
+	if Input.is_action_just_pressed("cheat_spawn_kitten"):
+		spawn_kitty()
 
 func check_stairs():
 	if is_on_wall():

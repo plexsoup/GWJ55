@@ -7,6 +7,8 @@ extends Camera3D
 
 @export var lerp_speed = 3.0
 
+@export var desired_camera_offset = 15.0
+
 var follow = false
 var starting_position : Vector3
 var starting_fov : float
@@ -22,17 +24,16 @@ func _ready():
 	
 	# Trying to figure out why the camera won't center on the player when the player gets moved to a spawnpoint.
 	
-	# workaround spawn point bug, player moves immediately after level starts
-	await get_tree().create_timer(0.25).timeout
-	global_position.x = Global.current_player.global_position.x
-	global_position.y = Global.current_player.global_position.y
-	follow = true
-	found_player = true
+#	# workaround spawn point bug, player moves immediately after level starts
+#	await get_tree().create_timer(0.25).timeout
+#	global_position.x = Global.current_player.global_position.x
+#	global_position.y = Global.current_player.global_position.y
+#	follow = true
+#	found_player = true
 
 func _physics_process(delta):
-	if !found_player:
-		if Global.current_player != null:
-			global_position = Global.current_player.global_position + Vector3.BACK * 20.0
+	if Global.current_player != null:
+		global_position = Global.current_player.global_position + Vector3.BACK * desired_camera_offset
 
 	if follow:
 		#Follow

@@ -94,7 +94,7 @@ func _on_area_3d_body_entered(body):
 	if body.name == "player" and !dropped:
 		target = body
 		cam = target.get_node("Camera3D")
-		global.kitty = true
+		Global.kitty = true
 
 func set_movement(speed):
 			var current_location = global_transform.origin

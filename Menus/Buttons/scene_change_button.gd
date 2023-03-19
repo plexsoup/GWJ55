@@ -13,6 +13,7 @@ func _ready():
 
 func _on_pressed():
 	$ClickNoise.start()
+	MusicController.play_song("MUS_TitleV2_9M_7-4_78")
 	if new_scene != null:
 		StageManager.change_scene_to_packed(new_scene)
 	elif scene_path != "":

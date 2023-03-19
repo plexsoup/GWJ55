@@ -4,13 +4,14 @@ var fade = false
 func _ready() -> void:
 	add_child(Mplayer)
 	stream = load("res://Music/MUS_TitleV2_9M_7-4_78.mp3")
+	volume_db = -12
 	autoplay = true
 	play()
 
 func play_song(Song) ->void:
 	fade = true
 	Mplayer.stream = load("res://Music/" +Song+ ".mp3")
-	Mplayer.volume_db -= -80
+	Mplayer.volume_db = -8
 	bus = "Music"
 	Mplayer.autoplay = true
 	play()

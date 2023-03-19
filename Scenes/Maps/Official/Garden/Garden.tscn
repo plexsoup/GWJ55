@@ -1,4 +1,4 @@
-[gd_scene load_steps=69 format=3 uid="uid://dktfgws3aqlts"]
+[gd_scene load_steps=69 format=3 uid="uid://4jnarx663qyn"]
 
 [ext_resource type="Script" path="res://Scenes/Maps/base_level.gd" id="1_od55u"]
 [ext_resource type="PackedScene" uid="uid://b2tb1owb5nnun" path="res://Scenes/Objects/spawn_point.tscn" id="2_cw7as"]
@@ -23,7 +23,7 @@
 [ext_resource type="PackedScene" uid="uid://eb3wwyaluatx" path="res://Scenes/Objects/trigger_volume_win.tscn" id="20_y4p00"]
 [ext_resource type="Texture2D" uid="uid://dhm4vtuux462g" path="res://Materials/arrow_01.png" id="21_qano6"]
 [ext_resource type="PackedScene" uid="uid://cmd16bdree5a7" path="res://Scenes/Objects/fall_reset_volume.tscn" id="22_k343a"]
-[ext_resource type="PackedScene" uid="uid://dd3fox603os7x" path="res://Scenes/Entities/moving platform.tscn" id="22_t60cp"]
+[ext_resource type="PackedScene" uid="uid://dd3fox603os7x" path="res://Scenes/Entities/Player/moving platform.tscn" id="22_t60cp"]
 [ext_resource type="PackedScene" uid="uid://b3p7s4vjxe0y0" path="res://Scenes/Objects/VolumeTriggerHintThoughtBubble.tscn" id="25_wxohp"]
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_lttmu"]
@@ -601,8 +601,6 @@ shadow_enabled = true
 
 [node name="player" parent="." instance=ExtResource("5_nvlcg")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 341.845, 58.898, 0)
-jump_time_to_peak = 0.33
-jump_time_to_descent = 0.24
 
 [node name="AnimatedSprite3D" parent="player" index="1"]
 shaded = true

@@ -27,3 +27,6 @@ WIP/
 # Mac OS X
 .DS_Store
 
+MeshLibraries/cat_tower_no_light.tres
+MeshLibraries/cat_tower_plex.tres
+Scenes/Maps/GridMap/Mesh.tres

@@ -1,11 +1,9 @@
-[gd_scene load_steps=36 format=3 uid="uid://cey6vaorec8ca"]
+[gd_scene load_steps=27 format=3 uid="uid://cey6vaorec8ca"]
 
 [ext_resource type="Script" path="res://Scripts/PlayerMovement.gd" id="1_at8m4"]
 [ext_resource type="SpriteFrames" uid="uid://bkm20v777m12k" path="res://player_sprite_frames.tres" id="2_5te2e"]
-[ext_resource type="Texture2D" uid="uid://co6pkvr2yea0q" path="res://Art/Tail_ani.png" id="3_fue7i"]
 [ext_resource type="PackedScene" uid="uid://rau1y6yi1xhy" path="res://GUI/player_hud.tscn" id="3_xuxi4"]
 [ext_resource type="Script" path="res://Scripts/Camera_Controller.gd" id="4_bl8cr"]
-[ext_resource type="Texture2D" uid="uid://dx23ywnvcssi1" path="res://Art/Tail_ani_r.png" id="4_hu8f7"]
 [ext_resource type="PackedScene" uid="uid://mbxsqklc6aod" path="res://sfx/random_3d_sound.tscn" id="5_yux1a"]
 [ext_resource type="AudioStream" uid="uid://t6uokry2gah1" path="res://sfx/SFX_Footstep1.wav" id="6_uf3c0"]
 [ext_resource type="PackedScene" uid="uid://cakkghby15ea5" path="res://sfx/temporary_sound.tscn" id="7_ldlsi"]
@@ -18,71 +16,14 @@
 [ext_resource type="AudioStream" uid="uid://ditruj1b3u2pk" path="res://sfx/SFX_Land1.wav" id="14_46cl0"]
 [ext_resource type="AudioStream" uid="uid://dmynp8cwwelhm" path="res://sfx/SFX_Land2.wav" id="15_nhmsw"]
 [ext_resource type="AudioStream" uid="uid://cdqxahytcyu0k" path="res://sfx/SFX_Land3.wav" id="16_cvbh0"]
-[ext_resource type="AudioStream" uid="uid://fm41glpj5nsp" path="res://sfx/Jump/SFX_NewJump1.wav" id="19_05t0d"]
-[ext_resource type="AudioStream" uid="uid://4d71r2gtxjd" path="res://sfx/Jump/SFX_NewJump2.wav" id="20_axoy7"]
+[ext_resource type="AudioStream" uid="uid://36owntkap0lt" path="res://sfx/Jump/SFX_Jump1.wav" id="17_gwshk"]
+[ext_resource type="AudioStream" uid="uid://c8n6cm4g15gdf" path="res://sfx/Jump/SFX_Jump2.wav" id="18_gqegj"]
+[ext_resource type="AudioStream" uid="uid://drkashy2cvi15" path="res://sfx/Jump/SFX_Jump3.wav" id="19_huswm"]
+[ext_resource type="AudioStream" uid="uid://qnxiklywjwf6" path="res://sfx/Jump/SFX_Jump4.wav" id="20_m6wwe"]
+[ext_resource type="AudioStream" uid="uid://qjdq57x4fls1" path="res://sfx/Jump/SFX_Jump5.wav" id="21_c6wpi"]
 [ext_resource type="PackedScene" uid="uid://r3apyeavw2ep" path="res://Scenes/Entities/Player/spawn_a_debug_box.tscn" id="22_40fsj"]
 [ext_resource type="AudioStream" uid="uid://dt6v6xqsueg2t" path="res://sfx/placeholder/angry_cat.wav" id="22_h3gm0"]
 [ext_resource type="PackedScene" uid="uid://qj0sfqvsm2n" path="res://Scenes/Entities/Player/ascend_stairs.tscn" id="23_dcnga"]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_ieyti"]
-atlas = ExtResource("3_fue7i")
-region = Rect2(0, 0, 256, 128)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_1610a"]
-atlas = ExtResource("3_fue7i")
-region = Rect2(256, 0, 256, 128)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_awi81"]
-atlas = ExtResource("3_fue7i")
-region = Rect2(512, 0, 256, 128)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_6fdb1"]
-atlas = ExtResource("3_fue7i")
-region = Rect2(768, 0, 256, 128)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_14fy1"]
-atlas = ExtResource("4_hu8f7")
-region = Rect2(256, 0, 256, 128)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_jlj5t"]
-atlas = ExtResource("4_hu8f7")
-region = Rect2(512, 0, 256, 128)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_fnhbi"]
-atlas = ExtResource("4_hu8f7")
-region = Rect2(768, 0, 256, 128)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_bpcev"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_ieyti")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_1610a")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_awi81")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_ieyti")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_6fdb1")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_14fy1")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_jlj5t")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_fnhbi")
-}],
-"loop": true,
-"name": &"default",
-"speed": 6.0
-}]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_gajrw"]
 radius = 1.2
@@ -90,14 +31,6 @@ height = 2.4
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_oi770"]
 size = Vector3(1.75, 1, 10)
-
-[sub_resource type="Animation" id="Animation_e8lwr"]
-resource_name = "Tail_idle"
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_1kj2u"]
-_data = {
-"Tail_idle": SubResource("Animation_e8lwr")
-}
 
 [node name="player_controller_xrae" type="CharacterBody3D" groups=["heavy"]]
 collision_mask = 47
@@ -115,15 +48,7 @@ pixel_size = 0.005
 alpha_cut = 2
 sprite_frames = ExtResource("2_5te2e")
 animation = &"Idle"
-frame_progress = 0.569172
 speed_scale = 2.0
-
-[node name="Tail" type="AnimatedSprite3D" parent="AnimatedSprite3D"]
-transform = Transform3D(0.403484, 0, 0, 0, 1, 0, 0, 0, 1, 0.560466, -0.301512, -0.042943)
-shaded = true
-alpha_cut = 2
-sprite_frames = SubResource("SpriteFrames_bpcev")
-frame_progress = 0.466773
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("CapsuleShape3D_gajrw")
@@ -208,10 +133,19 @@ stream = ExtResource("16_cvbh0")
 volume_db = -18.0
 
 [node name="TemporarySound" parent="Audio/Jumping" index="0"]
-stream = ExtResource("19_05t0d")
+stream = ExtResource("17_gwshk")
 
 [node name="TemporarySound2" parent="Audio/Jumping" instance=ExtResource("7_ldlsi")]
-stream = ExtResource("20_axoy7")
+stream = ExtResource("18_gqegj")
+
+[node name="TemporarySound3" parent="Audio/Jumping" instance=ExtResource("7_ldlsi")]
+stream = ExtResource("19_huswm")
+
+[node name="TemporarySound4" parent="Audio/Jumping" instance=ExtResource("7_ldlsi")]
+stream = ExtResource("20_m6wwe")
+
+[node name="TemporarySound5" parent="Audio/Jumping" instance=ExtResource("7_ldlsi")]
+stream = ExtResource("21_c6wpi")
 
 [node name="Hurt" parent="Audio" instance=ExtResource("5_yux1a")]
 
@@ -223,11 +157,6 @@ stream = ExtResource("22_h3gm0")
 [node name="SpawnADebugBox" parent="BonusBehaviours" instance=ExtResource("22_40fsj")]
 
 [node name="AscendStairs" parent="BonusBehaviours" instance=ExtResource("23_dcnga")]
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-"": SubResource("AnimationLibrary_1kj2u")
-}
 
 [connection signal="timeout" from="JumpBuffer" to="." method="_on_jump_buffer_timeout"]
 [connection signal="body_entered" from="Camera3D/Area3D" to="Camera3D" method="_on_area_3d_body_entered"]

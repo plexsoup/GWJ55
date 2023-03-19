@@ -321,7 +321,7 @@ collision_layer = 4
 shape = SubResource("ConvexPolygonShape3D_xnaqf")
 
 [node name="Flower17" type="MeshInstance3D" parent="NavigationRegion3D2/FlowerPlatforms"]
-transform = Transform3D(3.10569e-08, 0.317809, 0.733138, 0, 1.18608, -0.196444, 0.7105, -1.38919e-08, -3.20465e-08, -27.5119, 23, 18.9221)
+transform = Transform3D(3.10569e-08, 0.317809, 0.733138, 0, 1.18608, -0.196444, 0.7105, -1.38919e-08, -3.20465e-08, -27.5119, 23, 22.5928)
 mesh = ExtResource("2_y2cj5")
 skeleton = NodePath("../../..")
 surface_material_override/0 = SubResource("ORMMaterial3D_p6qhi")

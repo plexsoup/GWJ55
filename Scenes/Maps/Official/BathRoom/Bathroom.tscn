@@ -413,6 +413,7 @@ transform = Transform3D(1.52259, 0, 0, 0, 9.96751, 0, 0, 0, 2.05156, 0.764902, 5
 [node name="moving platform_03" parent="MovingPlatforms" instance=ExtResource("4_ldbyu")]
 transform = Transform3D(1.81612, 0, 0, 0, 0.657119, 0, 0, 0, 1.81612, 21.7745, 17.6009, 0)
 target = Vector3(11, 0, 0)
+needs_activation = true
 
 [node name="moving platform_04" parent="MovingPlatforms" instance=ExtResource("4_ldbyu")]
 transform = Transform3D(1.82457, 0, 0, 0, 0.660174, 0, 0, 0, 1.82457, -8.37885, 90.1397, 0)
@@ -513,11 +514,6 @@ target_node = NodePath("../Door_06")
 [node name="pressure_plate" parent="DynamicObjects" instance=ExtResource("6_jvxdu")]
 transform = Transform3D(2.05011, 0, 0, 0, 1.02505, 0, 0, 0, 2.05011, -9.88012, 9.14584, -1.19195)
 connected_to = Array[NodePath]([NodePath("../pressure_plate_01/Door_01")])
-
-[node name="switch_cloudkittyzone" parent="DynamicObjects" instance=ExtResource("10_7ywxi")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.654, -4.36444, -0.876854)
-target_node = NodePath("../pressure_plate_01/Door_01")
-function = 4
 
 [node name="ReferenceSprite3D" type="Sprite3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.11905, 40.0068, -3.0423)

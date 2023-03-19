@@ -1,4 +1,4 @@
-[gd_scene load_steps=277 format=3 uid="uid://dmle08crocvd5"]
+[gd_scene load_steps=275 format=3 uid="uid://dmle08crocvd5"]
 
 [ext_resource type="Script" path="res://Menus/Buttons/scene_change_button.gd" id="1_cjbaq"]
 [ext_resource type="Environment" uid="uid://ci3akpxyr1rww" path="res://Shaders/World_Aesthics_title.tres" id="1_clicy"]
@@ -14,15 +14,12 @@
 [ext_resource type="Texture2D" uid="uid://coaanccqd0h8j" path="res://Art/Foliage/Tree.png" id="8_ihbpi"]
 [ext_resource type="Shader" path="res://Shaders/Grass_Shader2.gdshader" id="9_lchov"]
 [ext_resource type="Material" uid="uid://bnjt8h0bq15af" path="res://Shaders/PArticlefortitle.tres" id="10_vu5bx"]
-[ext_resource type="Script" path="res://Menus/Kyveri_Title_Screen_Test/VBoxContainer.gd" id="11_de613"]
 [ext_resource type="Texture2D" uid="uid://csn0kls5m2lw8" path="res://Art/Title_Screen/Play_Button.png" id="11_jkasv"]
 [ext_resource type="Script" path="res://Scenes/Objects/koi_on_path.gd" id="11_lohy3"]
 [ext_resource type="Texture2D" uid="uid://b8b3xjek6q7wy" path="res://Art/Foliage/Grass3.png" id="12_3rdex"]
 [ext_resource type="Texture2D" uid="uid://bwlar2dwge5h" path="res://Art/objects/koifish.png" id="12_r627s"]
 [ext_resource type="Script" path="res://Menus/Kyveri_Title_Screen_Test/Play2.gd" id="13_8e3um"]
 [ext_resource type="Texture2D" uid="uid://dwcthp1hxckqe" path="res://Art/Title_Screen/Start_Sheet.png" id="13_rutlr"]
-[ext_resource type="Script" path="res://Menus/Kyveri_Title_Screen_Test/Start Button.gd" id="14_s7wh6"]
-[ext_resource type="Texture2D" uid="uid://b1dhhb60u1031" path="res://Art/Title_Screen/Settings.png" id="14_vst5u"]
 [ext_resource type="Texture2D" uid="uid://cm1f5wr7yiw70" path="res://Art/Title_Screen/Credits.png" id="15_1v20q"]
 [ext_resource type="Texture2D" uid="uid://ct23i2foo3mil" path="res://Art/Title_Screen/Cat.png" id="16_6bol1"]
 [ext_resource type="Script" path="res://Menus/Kyveri_Title_Screen_Test/Credits.gd" id="16_rbnq8"]
@@ -31,6 +28,7 @@
 [ext_resource type="Script" path="res://Menus/Kyveri_Title_Screen_Test/Return.gd" id="21_hgf50"]
 [ext_resource type="Texture2D" uid="uid://ceb42duow0tj7" path="res://Art/Circle_MAsk.png" id="22_dmaws"]
 [ext_resource type="Script" path="res://Menus/Kyveri_Title_Screen_Test/Testingbutton.gd" id="23_5cif2"]
+[ext_resource type="Script" path="res://Menus/Kyveri_Title_Screen_Test/Quit.gd" id="24_vr0pc"]
 [ext_resource type="Texture2D" uid="uid://decwfdurbbf4" path="res://Art/Title_Screen/Logo.png" id="31_ea12q"]
 [ext_resource type="PackedScene" uid="uid://b16s3dclhkliq" path="res://Menus/testing_menu.tscn" id="31_gc7l3"]
 
@@ -2825,13 +2823,11 @@ libraries = {
 }
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
-visible = false
 offset_left = 953.0
 offset_top = 320.0
 offset_right = 1209.0
 offset_bottom = 699.0
 scale = Vector2(0.6, 0.6)
-script = ExtResource("11_de613")
 
 [node name="Play" type="TextureButton" parent="VBoxContainer"]
 layout_mode = 2
@@ -2839,16 +2835,6 @@ texture_normal = ExtResource("11_jkasv")
 script = ExtResource("13_8e3um")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="VBoxContainer/Play"]
-position = Vector2(128, 41)
-sprite_frames = SubResource("SpriteFrames_w3pg8")
-animation = &"Defult"
-autoplay = "Defult"
-
-[node name="Settings" type="TextureButton" parent="VBoxContainer"]
-layout_mode = 2
-texture_normal = ExtResource("14_vst5u")
-
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="VBoxContainer/Settings"]
 position = Vector2(128, 41)
 sprite_frames = SubResource("SpriteFrames_w3pg8")
 animation = &"Defult"
@@ -2868,6 +2854,7 @@ autoplay = "Defult"
 [node name="Quit" type="TextureButton" parent="VBoxContainer"]
 layout_mode = 2
 texture_normal = ExtResource("16_y5p3y")
+script = ExtResource("24_vr0pc")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="VBoxContainer/Quit"]
 position = Vector2(128, 41)
@@ -3020,14 +3007,15 @@ layout_mode = 2
 text = "xRae-Programmer"
 horizontal_alignment = 1
 
-[node name="Button" type="Button" parent="VBoxContainer"]
+[node name="Lotfi" type="Button" parent="VBoxContainer"]
 layout_mode = 2
 toggle_mode = true
-text = "testing
+text = "Switch to Low-Spec
 "
 script = ExtResource("23_5cif2")
 
 [node name="Start Button" type="TextureButton" parent="."]
+visible = false
 offset_left = 563.0
 offset_top = 444.0
 offset_right = 819.0
@@ -3035,7 +3023,6 @@ offset_bottom = 527.0
 action_mode = 0
 keep_pressed_outside = true
 texture_normal = ExtResource("6_bcu5h")
-script = ExtResource("14_s7wh6")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Start Button"]
 position = Vector2(128, 41)

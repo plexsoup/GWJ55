@@ -4,7 +4,7 @@ extends Node
 var current_map
 var current_player
 var current_hud
-
+var kitty = false
 var low_spec : bool = true
 
 var user_settings = {
@@ -19,9 +19,11 @@ var player_stats = {
 var abilities_unlocked = [
 	"spawn_box",
 	"double_jump",
-	"cloud_kitty",
 	"dash",
 ]
+
+var doors_open = [] # important doors will add themselves to this list, based on door_id parameter.
+
 
 func reset_player():
 	player_stats["health"] = player_stats["health_max"]

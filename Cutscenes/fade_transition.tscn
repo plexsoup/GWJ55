@@ -1,7 +1,6 @@
-[gd_scene load_steps=13 format=3 uid="uid://bhw7qepcfd0js"]
+[gd_scene load_steps=12 format=3 uid="uid://bhw7qepcfd0js"]
 
 [ext_resource type="Script" path="res://Cutscenes/fade_transition.gd" id="1_rgqkt"]
-[ext_resource type="AudioStream" uid="uid://bbwulflg7udn1" path="res://Music/Transition_Music.mp3" id="2_hwwsw"]
 
 [sub_resource type="Gradient" id="Gradient_rtjwa"]
 colors = PackedColorArray(0.294118, 0.176471, 0.219608, 1, 0.972549, 0.52549, 0.45098, 1)
@@ -51,18 +50,6 @@ tracks/1/keys = {
 "update": 0,
 "values": [Color(1, 1, 1, 1)]
 }
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("AudioStreamPlayer:playing")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
 
 [sub_resource type="Animation" id="Animation_ocwb7"]
 resource_name = "fade_in"
@@ -104,18 +91,6 @@ tracks/2/keys = {
 "args": [],
 "method": &"queue_free"
 }]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("AudioStreamPlayer:playing")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
 }
 
 [sub_resource type="Animation" id="Animation_0bwm0"]
@@ -184,6 +159,3 @@ texture = SubResource("NoiseTexture2D_f7gkv")
 libraries = {
 "": SubResource("AnimationLibrary_bj88n")
 }
-
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("2_hwwsw")

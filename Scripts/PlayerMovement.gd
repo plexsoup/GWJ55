@@ -15,7 +15,7 @@ extends CharacterBody3D
 @onready var throw_point = $ThrowPoint
 
 var kitten = null
-
+var kitten_prefab = "res://Scenes/Entities/Player/cloud_kitten_companion.tscn"
 const SPEED = 11.0
 var buffered_jump = false
 var was_on_floor
@@ -45,6 +45,17 @@ var noclip_speed = 500.0
 
 func _ready():
 	Global.current_player = self
+	if Global.kitty:
+		await get_tree().create_timer(0.25).timeout
+		spawn_kitty()
+	
+func spawn_kitty():
+	var cloud_kitty = load(kitten_prefab).instantiate()
+	Global.current_map.add_child(cloud_kitty)
+	cloud_kitty.target = self
+	cloud_kitty.global_position = global_position
+	cloud_kitty.cam = get_node("Camera3D")
+		
 
 func _physics_process(delta):
 	if state in [ States.READY ]:
@@ -84,7 +95,8 @@ func _unhandled_input(_event):
 			set_collision_layer_value(1, true)
 			set_collision_mask_value(3, true)
 			print("no_clip ghost mode disabled")
-
+	if Input.is_action_just_pressed("cheat_spawn_kitten"):
+		spawn_kitty()
 
 func check_stairs():
 	if is_on_wall():

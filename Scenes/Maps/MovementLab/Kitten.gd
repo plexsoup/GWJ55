@@ -13,6 +13,7 @@ var cam = null
 var throw_vector = Vector3(0,0,0)
 var max_points = 50
 var render_time = 0.0
+@onready var global = get_node("/root/Global")
 
 func _physics_process(delta):
 	if target and !dropped and !thrown:
@@ -63,8 +64,12 @@ func _physics_process(delta):
 				dropped = false
 		else:
 			thrown = false
+	if Input.is_action_just_pressed("swap") and (dropped || thrown) and target:
+		var save_pos = global_position
+		global_position = target.global_position
+		target.global_position = save_pos
 		
-			
+		
 func update_trajectory(delta):
 	line.show()
 	var fast_time = delta * 2
@@ -89,6 +94,7 @@ func _on_area_3d_body_entered(body):
 	if body.name == "player" and !dropped:
 		target = body
 		cam = target.get_node("Camera3D")
+		Global.kitty = true
 
 func set_movement(speed):
 			var current_location = global_transform.origin
@@ -96,3 +102,8 @@ func set_movement(speed):
 			var new_velocity = (next_location - current_location).normalized() * speed
 			velocity = new_velocity
 			move_and_slide()
+
+func teleport_to_player(): # on fall reset
+	global_position = target.global_position
+	velocity = Vector3.ZERO
+	

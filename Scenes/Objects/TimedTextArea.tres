@@ -1,0 +1,59 @@
+[gd_resource type="VisualShader" load_steps=6 format=3 uid="uid://biynv4vfo4ht5"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_6ei56"]
+seed = -2
+frequency = 0.003
+fractal_type = 2
+fractal_octaves = 8
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_gqwva"]
+seamless = true
+noise = SubResource("FastNoiseLite_6ei56")
+
+[sub_resource type="VisualShaderNodeTexture" id="VisualShaderNodeTexture_emffu"]
+texture = SubResource("NoiseTexture2D_gqwva")
+
+[sub_resource type="VisualShaderNodeUVFunc" id="VisualShaderNodeUVFunc_rouc1"]
+output_port_for_preview = 0
+default_input_values = [1, Vector2(0.03, 1), 2, Vector2(0.1, 0)]
+
+[sub_resource type="VisualShaderNodeInput" id="VisualShaderNodeInput_qot8k"]
+input_name = "time"
+
+[resource]
+code = "shader_type canvas_item;
+uniform sampler2D tex_frg_2;
+
+
+
+void fragment() {
+// Input:4
+	float n_out4p0 = TIME;
+
+
+// UVFunc:3
+	vec2 n_in3p1 = vec2(0.03000, 1.00000);
+	vec2 n_out3p0 = vec2(n_out4p0) * n_in3p1 + UV;
+
+
+// Texture2D:2
+	vec4 n_out2p0 = texture(tex_frg_2, n_out3p0);
+
+
+// Output:0
+	COLOR.rgb = vec3(n_out2p0.xyz);
+	COLOR.a = n_out2p0.x;
+
+
+}
+"
+graph_offset = Vector2(-852.426, 58.3162)
+mode = 1
+flags/light_only = false
+nodes/fragment/2/node = SubResource("VisualShaderNodeTexture_emffu")
+nodes/fragment/2/position = Vector2(-480, 120)
+nodes/fragment/3/node = SubResource("VisualShaderNodeUVFunc_rouc1")
+nodes/fragment/3/position = Vector2(-760, 160)
+nodes/fragment/4/node = SubResource("VisualShaderNodeInput_qot8k")
+nodes/fragment/4/position = Vector2(-1080, 280)
+nodes/fragment/connections = PackedInt32Array(3, 0, 2, 0, 4, 0, 3, 2, 2, 0, 0, 0, 2, 0, 0, 1)

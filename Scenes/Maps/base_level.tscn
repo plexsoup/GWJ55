@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://Scenes/Maps/base_level.gd" id="1_6w6t1"]
 [ext_resource type="MeshLibrary" uid="uid://dmh5e52qprx6r" path="res://MeshLibraries/cat_tower_plex.tres" id="2_uoilj"]
-[ext_resource type="PackedScene" path="res://Scenes/Objects/fall_reset_volume.tscn" id="6_da3v7"]
+[ext_resource type="PackedScene" uid="uid://cmd16bdree5a7" path="res://Scenes/Objects/fall_reset_volume.tscn" id="6_da3v7"]
 [ext_resource type="PackedScene" uid="uid://ch0xqdmee1xnu" path="res://WorldEnvironments/sky_and_lighting.tscn" id="6_jxpy5"]
 [ext_resource type="Shader" uid="uid://cx2ac458h8a83" path="res://Shaders/Cloud_Water.tres" id="7_ai6nt"]
 [ext_resource type="PackedScene" path="res://Scenes/Objects/trigger_volume_win.tscn" id="7_ed1vt"]

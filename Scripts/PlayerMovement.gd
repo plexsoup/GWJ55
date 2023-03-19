@@ -347,4 +347,4 @@ func _on_hit(damage, impactVector):
 	
 func begin_dying():
 	Global.reset_player()
-	StageManager.change_scene_to_file("res://Menus/death_screen.tscn")
+	StageManager.change_scene_to_file("res://Menus/Lose_screen.tscn")

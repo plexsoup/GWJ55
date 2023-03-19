@@ -19,7 +19,7 @@
 [ext_resource type="Texture2D" uid="uid://p2svmw54bavp" path="res://Art/objects/chest.png" id="14_e4m6l"]
 [ext_resource type="ArrayMesh" uid="uid://bop4i63wjkgln" path="res://Art/objects/rolled_towel.obj" id="15_30gs6"]
 [ext_resource type="Texture2D" uid="uid://dy4suuetjfc5g" path="res://Art/objects/rolled_towel.png" id="16_jcb1o"]
-[ext_resource type="PackedScene" path="res://Scenes/Objects/trigger_volume_win.tscn" id="20_y4p00"]
+[ext_resource type="PackedScene" uid="uid://eb3wwyaluatx" path="res://Scenes/Objects/trigger_volume_win.tscn" id="20_y4p00"]
 [ext_resource type="Texture2D" uid="uid://dhm4vtuux462g" path="res://Materials/arrow_01.png" id="21_qano6"]
 [ext_resource type="PackedScene" uid="uid://cmd16bdree5a7" path="res://Scenes/Objects/fall_reset_volume.tscn" id="22_k343a"]
 [ext_resource type="PackedScene" uid="uid://dd3fox603os7x" path="res://Scenes/Entities/moving platform.tscn" id="22_t60cp"]
@@ -583,6 +583,7 @@ jump_time_to_descent = 0.24
 shaded = true
 
 [node name="Camera3D" parent="player" index="8"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 11)
 attributes = SubResource("CameraAttributesPractical_q1fy7")
 
 [node name="Sky and Lighting" type="WorldEnvironment" parent="."]

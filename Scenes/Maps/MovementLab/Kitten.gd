@@ -102,3 +102,8 @@ func set_movement(speed):
 			var new_velocity = (next_location - current_location).normalized() * speed
 			velocity = new_velocity
 			move_and_slide()
+
+func teleport_to_player(): # on fall reset
+	global_position = target.global_position
+	velocity = Vector3.ZERO
+	

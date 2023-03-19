@@ -16,7 +16,7 @@
 [ext_resource type="Texture2D" uid="uid://d2tun4dqdssdx" path="res://Scenes/Maps/Official/BathRoom/level01_mockup_section3.png" id="9_dy6eo"]
 [ext_resource type="Script" path="res://WorldEnvironments/sky_and_lighting_Bathroom.gd" id="9_qwmps"]
 [ext_resource type="PackedScene" uid="uid://ted21c8mecho" path="res://Scenes/Entities/NPCs/switch.tscn" id="10_7ywxi"]
-[ext_resource type="PackedScene" path="res://Scenes/Objects/fall_reset_volume.tscn" id="12_4q8sl"]
+[ext_resource type="PackedScene" uid="uid://cmd16bdree5a7" path="res://Scenes/Objects/fall_reset_volume.tscn" id="12_4q8sl"]
 [ext_resource type="Script" path="res://Scenes/Maps/ReferenceSprite3D.gd" id="12_p2k0u"]
 [ext_resource type="ArrayMesh" uid="uid://bbje4wl4kivx0" path="res://Art/objects/mirror.obj" id="13_do3yh"]
 [ext_resource type="Script" path="res://Scenes/Objects/RandomLazyMotion.gd" id="14_olyda"]
@@ -753,7 +753,6 @@ visible = false
 mesh = SubResource("TubeTrailMesh_76on5")
 
 [node name="foliage" type="Node3D" parent="Background_elements"]
-visible = false
 
 [node name="Sprite3D" type="Sprite3D" parent="Background_elements/foliage"]
 transform = Transform3D(5.09637, 0, 0, 0, 4.89496, 0, 0, 0, 1, -70.0162, 17.9851, -2.17274)

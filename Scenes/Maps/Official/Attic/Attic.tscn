@@ -12,7 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://crvvpifd7a146" path="res://Scenes/Entities/NPCs/pressure_plate.tscn" id="6_nya5f"]
 [ext_resource type="Script" path="res://WorldEnvironments/sky_and_lighting_Night.gd" id="7_m6huc"]
 [ext_resource type="PackedScene" uid="uid://dwte3a8axt6kp" path="res://Scenes/Objects/door.tscn" id="7_tpc43"]
-[ext_resource type="PackedScene" uid="uid://eb3wwyaluatx" path="res://Scenes/Objects/trigger_volume_win.tscn" id="8_pd66h"]
+[ext_resource type="PackedScene" path="res://Scenes/Objects/trigger_volume_win.tscn" id="8_pd66h"]
 [ext_resource type="PackedScene" uid="uid://ch0xqdmee1xnu" path="res://WorldEnvironments/sky_and_lighting.tscn" id="8_y2inl"]
 [ext_resource type="Shader" uid="uid://cx2ac458h8a83" path="res://Shaders/Cloud_Water.tres" id="10_jqrs5"]
 [ext_resource type="PackedScene" uid="uid://ted21c8mecho" path="res://Scenes/Entities/NPCs/switch.tscn" id="11_gdsl8"]
@@ -82,7 +82,7 @@ shader_parameter/Rim = 20.0
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_yfww1"]
 material = SubResource("ShaderMaterial_c4e3k")
-size = Vector2(500, 500)
+size = Vector2(900, 500)
 subdivide_width = 200
 subdivide_depth = 200
 
@@ -336,7 +336,7 @@ mesh = SubResource("PlaneMesh_yfww1")
 [node name="Skyline" type="Node3D" parent="Background elements"]
 
 [node name="Mountains" type="Sprite3D" parent="Background elements/Skyline"]
-transform = Transform3D(37.094, 0, 0, 0, 37.094, 0, 0, 0, 1, -18.6122, 35.4455, -74.1531)
+transform = Transform3D(52.7127, 0, 0, 0, 62.8076, 0, 0, 0, 1, -18.6122, 35.4455, -74.1531)
 shaded = true
 alpha_cut = 2
 texture = ExtResource("16_own6m")
@@ -348,7 +348,7 @@ alpha_cut = 2
 texture = ExtResource("16_own6m")
 
 [node name="Mountains3" type="Sprite3D" parent="Background elements/Skyline"]
-transform = Transform3D(101.861, 0, 0, 0, 73.3878, 0, 0, 0, 1, -38.059, 34.5701, -54.4256)
+transform = Transform3D(148.468, 0, 0, 0, 125.156, 0, 0, 0, 1, -38.059, 34.5701, -54.4256)
 shaded = true
 alpha_cut = 2
 texture = ExtResource("16_own6m")
@@ -360,7 +360,7 @@ alpha_cut = 2
 texture = ExtResource("16_own6m")
 
 [node name="Mountains2" type="Sprite3D" parent="Background elements/Skyline"]
-transform = Transform3D(37.094, 0, 0, 0, 37.094, 0, 0, 0, 1, 4.3134, 35.4455, -113.951)
+transform = Transform3D(40.9764, 0, 0, 0, 43.0443, 0, 0, 0, 1, 6.60594, 25.1018, -112.429)
 shaded = true
 alpha_cut = 2
 texture = ExtResource("16_own6m")

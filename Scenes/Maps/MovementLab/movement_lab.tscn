@@ -44,12 +44,14 @@ visible = false
 transform = Transform3D(0.927758, 0.27144, 0.256096, 0, -0.68625, 0.727366, 0.373182, -0.67482, -0.636674, 0, 35.7922, 0)
 
 [node name="FallResetVolume" parent="." instance=ExtResource("4_k711y")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 58.2023, -28.3088, 0)
 
 [node name="TriggerVolumeWin" parent="." instance=ExtResource("5_ltb1g")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -27.9109, 31.1969, 5.62351)
 next_scene_path = "res://Scenes/Maps/Level02/level_02.tscn"
 
 [node name="NPCs" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.447802)
 
 [node name="VacuumCleaner" parent="NPCs" instance=ExtResource("5_72utf")]
 transform = Transform3D(0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, 35.9333, 6.71764, 1.6191)

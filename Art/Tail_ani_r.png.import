@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b7smtgd4yoxkp"
-path.s3tc="res://.godot/imported/Cat_Idle.png-9ce41df0e5700c85bd7b9a907fcb0cb0.s3tc.ctex"
+uid="uid://dx23ywnvcssi1"
+path.s3tc="res://.godot/imported/Tail_ani_r.png-98595c4eb0975bc4a63c52d089e6e96d.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://Art/Cat_Idle.png"
-dest_files=["res://.godot/imported/Cat_Idle.png-9ce41df0e5700c85bd7b9a907fcb0cb0.s3tc.ctex"]
+source_file="res://Art/Tail_ani_r.png"
+dest_files=["res://.godot/imported/Tail_ani_r.png-98595c4eb0975bc4a63c52d089e6e96d.s3tc.ctex"]
 
 [params]
 

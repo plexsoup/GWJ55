@@ -452,6 +452,7 @@ transform = Transform3D(2.0931, 0, 0, 0, 1, 0, 0, 0, 1, 0, -46.9851, 0)
 
 [node name="pressure_plate_03" parent="DynamicObjects" instance=ExtResource("6_jvxdu")]
 transform = Transform3D(2.64431, 0, 0, 0, 1.32216, 0, 0, 0, 2.64431, 14.2627, 16.6801, -1.2033)
+connected_to = Array[NodePath]([NodePath("../../MovingPlatforms/moving platform_03")])
 
 [node name="pressure_plate_01" parent="DynamicObjects" instance=ExtResource("6_jvxdu")]
 transform = Transform3D(2.48064, 0, 0, 0, 1.24032, 0, 0, 0, 2.48064, -26.491, 9.06742, -1.2509)

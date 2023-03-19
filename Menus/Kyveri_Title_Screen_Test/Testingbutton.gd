@@ -11,8 +11,10 @@ func _process(_delta):
 	pass
 
 func _pressed():
+	MusicController.play_song("Level_Music_Final")
 	Global.low_spec = true
 	StageManager.change_scene_to_file("res://Scenes/Maps/Official/LivingRoom/LivingRoom.tscn")
+	
 	
 	#$"../../Testing".visible = true
 

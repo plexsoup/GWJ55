@@ -10,7 +10,7 @@ func _ready() -> void:
 func play_song(Song) ->void:
 	fade = true
 	Mplayer.stream = load("res://Music/" +Song+ ".mp3")
-	Mplayer.volume_db = -60
+	Mplayer.volume_db -= -80
 	bus = "Music"
 	Mplayer.autoplay = true
 	play()

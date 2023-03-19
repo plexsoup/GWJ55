@@ -1,4 +1,4 @@
-[gd_scene load_steps=69 format=3 uid="uid://4jnarx663qyn"]
+[gd_scene load_steps=68 format=3 uid="uid://4jnarx663qyn"]
 
 [ext_resource type="Script" path="res://Scenes/Maps/base_level.gd" id="1_od55u"]
 [ext_resource type="PackedScene" uid="uid://b2tb1owb5nnun" path="res://Scenes/Objects/spawn_point.tscn" id="2_cw7as"]
@@ -90,15 +90,6 @@ points = PackedVector3Array(-13.9725, 30.235, -1.73226, -1.36912, -1.26252, -1.2
 albedo_color = Color(0.207843, 0.219608, 0.0823529, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_68mqu"]
-
-[sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_q1fy7"]
-dof_blur_far_enabled = true
-dof_blur_far_distance = 48.38
-dof_blur_far_transition = 436.21
-dof_blur_near_enabled = true
-dof_blur_near_distance = 12.0
-dof_blur_near_transition = -1.0
-dof_blur_amount = 0.03
 
 [sub_resource type="Animation" id="Animation_gsbch"]
 length = 0.001
@@ -602,12 +593,6 @@ shadow_enabled = true
 [node name="player" parent="." instance=ExtResource("5_nvlcg")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 341.845, 58.898, 0)
 
-[node name="AnimatedSprite3D" parent="player" index="1"]
-shaded = true
-
-[node name="Camera3D" parent="player" index="8"]
-attributes = SubResource("CameraAttributesPractical_q1fy7")
-
 [node name="Sky and Lighting" type="WorldEnvironment" parent="."]
 environment = ExtResource("4_ls3og")
 script = ExtResource("2_fine7")
@@ -903,9 +888,3 @@ mesh = SubResource("PlaneMesh_bujfx")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 337.279, 56.1657, 0)
 hint_text = "These jumps are big,
 I might need dash."
-
-[editable path="player"]
-[editable path="player/Audio/Footsteps"]
-[editable path="player/Audio/Landing"]
-[editable path="player/Audio/Jumping"]
-[editable path="player/Audio/Hurt"]

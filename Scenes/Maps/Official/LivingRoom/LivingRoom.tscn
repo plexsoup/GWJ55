@@ -1,10 +1,9 @@
-[gd_scene load_steps=62 format=3 uid="uid://1iy51lohnni2"]
+[gd_scene load_steps=61 format=3 uid="uid://1iy51lohnni2"]
 
 [ext_resource type="Script" path="res://Scenes/Maps/base_level.gd" id="1_3v50y"]
 [ext_resource type="MeshLibrary" uid="uid://dmh5e52qprx6r" path="res://MeshLibraries/cat_tower_plex.tres" id="2_bcvq3"]
 [ext_resource type="PackedScene" uid="uid://cm2o1lkpf6s0w" path="res://Scenes/Entities/NPCs/vacuum_cleaner.tscn" id="3_dl32a"]
 [ext_resource type="Texture2D" uid="uid://tevy8ffg5l6a" path="res://Scenes/Maps/Official/LivingRoom/level01_mockup_section1.png" id="3_f2ifg"]
-[ext_resource type="CameraAttributesPractical" uid="uid://lwejjr4rdbk0" path="res://Shaders/Camera_Shader.tres" id="3_it8qf"]
 [ext_resource type="PackedScene" uid="uid://iy2fvk38ehxj" path="res://Scenes/Entities/NPCs/deadly_tile.tscn" id="3_ixud2"]
 [ext_resource type="PackedScene" uid="uid://cey6vaorec8ca" path="res://Scenes/Entities/Player/player_controller.tscn" id="3_xpv4y"]
 [ext_resource type="PackedScene" uid="uid://eb3wwyaluatx" path="res://Scenes/Objects/trigger_volume_win.tscn" id="4_jclyg"]
@@ -296,13 +295,6 @@ visible = false
 
 [node name="player" parent="." instance=ExtResource("3_xpv4y")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.4158, -16.553, -0.495285)
-
-[node name="AnimatedSprite3D" parent="player" index="1"]
-shaded = true
-
-[node name="Camera3D" parent="player" index="8"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 10.0219)
-attributes = ExtResource("3_it8qf")
 
 [node name="NPCs" type="Node3D" parent="."]
 
@@ -819,9 +811,4 @@ transform = Transform3D(1.27519, 0, 0, 0, -5.57404e-08, -1.27519, 0, 1.27519, -5
 mesh = SubResource("ArrayMesh_ha4fl")
 skeleton = NodePath("../..")
 
-[editable path="player"]
-[editable path="player/Audio/Footsteps"]
-[editable path="player/Audio/Landing"]
-[editable path="player/Audio/Jumping"]
-[editable path="player/Audio/Hurt"]
 [editable path="Background Elements/KoiOnPath"]

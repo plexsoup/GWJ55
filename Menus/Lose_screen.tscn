@@ -152,6 +152,7 @@ text = "Dreaming away as the time passes you by"
 label_settings = SubResource("LabelSettings_vrxs0")
 
 [node name="RichTextLabel" type="RichTextLabel" parent="Label"]
+layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
 fit_content = true

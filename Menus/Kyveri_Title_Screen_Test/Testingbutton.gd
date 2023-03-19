@@ -11,7 +11,10 @@ func _process(_delta):
 	pass
 
 func _pressed():
-	$"../../Testing".visible = true
+	Global.low_spec = true
+	StageManager.change_scene_to_file("res://Scenes/Maps/Official/LivingRoom/LivingRoom.tscn")
+	
+	#$"../../Testing".visible = true
 
 
 	

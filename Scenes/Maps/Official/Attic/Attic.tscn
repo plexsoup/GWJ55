@@ -155,6 +155,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 58.185, 20.7615, 0)
 shaded = true
 
 [node name="Camera3D" parent="player" index="8"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 11)
 attributes = SubResource("CameraAttributesPractical_yla2b")
 
 [node name="SpotLight3D" type="OmniLight3D" parent="player"]

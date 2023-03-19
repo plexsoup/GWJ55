@@ -5,10 +5,10 @@ var current_map
 var current_player
 var current_hud
 var kitty = false
-var low_spec : bool = true
+var low_spec : bool = false
 
 var user_settings = {
-	"graphics":"low",
+	"graphics":"high",
 }
 
 var player_stats = {

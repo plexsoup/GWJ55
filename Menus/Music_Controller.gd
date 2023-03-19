@@ -3,7 +3,7 @@ extends AudioStreamPlayer
 var fade = false 
 func _ready() -> void:
 	add_child(Mplayer)
-	stream = load("res://Music/Level_Music_Final.mp3")
+	stream = load("res://Music/MUS_TitleV2_9M_7-4_78.mp3")
 	autoplay = true
 	play()
 
@@ -11,6 +11,7 @@ func play_song(Song) ->void:
 	fade = true
 	Mplayer.stream = load("res://Music/" +Song+ ".mp3")
 	Mplayer.volume_db = -60
+	bus = "Music"
 	Mplayer.autoplay = true
 	play()
 	

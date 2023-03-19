@@ -578,6 +578,7 @@ font_size = 96
 
 [node name="Nav_Shape" type="CSGBox3D" parent="NavigationRegion3D2"]
 transform = Transform3D(689.313, 0, 0, 0, 1, 4.54747e-13, 0, -3.55271e-15, 131.619, 160.135, -2.05636e-06, -42.8362)
+visible = false
 
 [node name="SpawnPoints" type="Node3D" parent="."]
 

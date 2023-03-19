@@ -1462,6 +1462,7 @@ draw_pass_1 = SubResource("CapsuleMesh_5dvjo")
 stream = ExtResource("31_mhp4h")
 volume_db = -17.396
 autoplay = true
+bus = &"SFX"
 
 [node name="MoreDecorations" type="Node3D" parent="."]
 transform = Transform3D(-0.999396, 0.0347599, 0, -0.0347599, -0.999396, 0, 0, 0, 1, -66.2874, 27.3987, -3.27124)
@@ -2266,6 +2267,7 @@ texture = ExtResource("28_pvto1")
 stream = ExtResource("50_14uur")
 volume_db = -9.0
 autoplay = true
+bus = &"Music"
 
 [editable path="player"]
 [editable path="player/Audio/Footsteps"]

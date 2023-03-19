@@ -553,6 +553,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 62.0675, 20.0949, -0.620568)
 stream = ExtResource("35_ufvgq")
 volume_db = -9.0
 autoplay = true
+bus = &"Music"
 
 [editable path="player"]
 [editable path="player/Audio/Footsteps"]

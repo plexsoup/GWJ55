@@ -645,6 +645,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 26.4085, 15.5292, 0)
 stream = ExtResource("30_7qbsu")
 volume_db = -9.0
 autoplay = true
+bus = &"Music"
 
 [node name="Background Scenery" type="Node3D" parent="."]
 

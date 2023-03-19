@@ -46,7 +46,7 @@ var noclip_speed = 500.0
 func _ready():
 	Global.current_player = self
 	if Global.kitty:
-		var cloud_kitty = kitten_prefab.instance()
+		var cloud_kitty = kitten_prefab.instantiate()
 		cloud_kitty.target = self
 		cloud_kitty.global_position = global_position
 		cloud_kitty.cam = get_node("Camera3D")

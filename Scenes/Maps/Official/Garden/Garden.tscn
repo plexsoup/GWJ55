@@ -586,8 +586,7 @@ text = "Dreams come true."
 font_size = 96
 
 [node name="Nav_Shape" type="CSGBox3D" parent="NavigationRegion3D2"]
-transform = Transform3D(162.8, 0, 0, 0, 1, 0, 0, -3.55271e-15, 64.9912, 0, -6.55651e-07, -13.8268)
-visible = false
+transform = Transform3D(689.313, 0, 0, 0, 1, 4.54747e-13, 0, -3.55271e-15, 131.619, 160.135, -2.05636e-06, -42.8362)
 
 [node name="SpawnPoints" type="Node3D" parent="."]
 

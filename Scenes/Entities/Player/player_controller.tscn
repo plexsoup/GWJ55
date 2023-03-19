@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=3 uid="uid://cey6vaorec8ca"]
+[gd_scene load_steps=36 format=3 uid="uid://cey6vaorec8ca"]
 
 [ext_resource type="Script" path="res://Scripts/PlayerMovement.gd" id="1_at8m4"]
 [ext_resource type="SpriteFrames" uid="uid://bkm20v777m12k" path="res://player_sprite_frames.tres" id="2_5te2e"]
@@ -18,11 +18,8 @@
 [ext_resource type="AudioStream" uid="uid://ditruj1b3u2pk" path="res://sfx/SFX_Land1.wav" id="14_46cl0"]
 [ext_resource type="AudioStream" uid="uid://dmynp8cwwelhm" path="res://sfx/SFX_Land2.wav" id="15_nhmsw"]
 [ext_resource type="AudioStream" uid="uid://cdqxahytcyu0k" path="res://sfx/SFX_Land3.wav" id="16_cvbh0"]
-[ext_resource type="AudioStream" uid="uid://36owntkap0lt" path="res://sfx/Jump/SFX_Jump1.wav" id="17_gwshk"]
-[ext_resource type="AudioStream" uid="uid://c8n6cm4g15gdf" path="res://sfx/Jump/SFX_Jump2.wav" id="18_gqegj"]
-[ext_resource type="AudioStream" uid="uid://drkashy2cvi15" path="res://sfx/Jump/SFX_Jump3.wav" id="19_huswm"]
-[ext_resource type="AudioStream" uid="uid://qnxiklywjwf6" path="res://sfx/Jump/SFX_Jump4.wav" id="20_m6wwe"]
-[ext_resource type="AudioStream" uid="uid://qjdq57x4fls1" path="res://sfx/Jump/SFX_Jump5.wav" id="21_c6wpi"]
+[ext_resource type="AudioStream" uid="uid://c5vtiyas2cd8y" path="res://sfx/Jump/SFX_NewJump1.wav" id="19_05t0d"]
+[ext_resource type="AudioStream" uid="uid://cjo77mtwfnt3n" path="res://sfx/Jump/SFX_NewJump2.wav" id="20_axoy7"]
 [ext_resource type="PackedScene" uid="uid://r3apyeavw2ep" path="res://Scenes/Entities/Player/spawn_a_debug_box.tscn" id="22_40fsj"]
 [ext_resource type="AudioStream" uid="uid://dt6v6xqsueg2t" path="res://sfx/placeholder/angry_cat.wav" id="22_h3gm0"]
 [ext_resource type="PackedScene" uid="uid://qj0sfqvsm2n" path="res://Scenes/Entities/Player/ascend_stairs.tscn" id="23_dcnga"]
@@ -211,19 +208,10 @@ stream = ExtResource("16_cvbh0")
 volume_db = -18.0
 
 [node name="TemporarySound" parent="Audio/Jumping" index="0"]
-stream = ExtResource("17_gwshk")
+stream = ExtResource("19_05t0d")
 
 [node name="TemporarySound2" parent="Audio/Jumping" instance=ExtResource("7_ldlsi")]
-stream = ExtResource("18_gqegj")
-
-[node name="TemporarySound3" parent="Audio/Jumping" instance=ExtResource("7_ldlsi")]
-stream = ExtResource("19_huswm")
-
-[node name="TemporarySound4" parent="Audio/Jumping" instance=ExtResource("7_ldlsi")]
-stream = ExtResource("20_m6wwe")
-
-[node name="TemporarySound5" parent="Audio/Jumping" instance=ExtResource("7_ldlsi")]
-stream = ExtResource("21_c6wpi")
+stream = ExtResource("20_axoy7")
 
 [node name="Hurt" parent="Audio" instance=ExtResource("5_yux1a")]
 

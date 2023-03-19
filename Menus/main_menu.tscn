@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://dx20duhdsm1vn" path="res://Menus/Buttons/scene_change_button.tscn" id="2_do5ro"]
 [ext_resource type="Script" path="res://Menus/LowSpecCheckButton.gd" id="2_n2jg7"]
 [ext_resource type="PackedScene" uid="uid://cgxuckinuwvvi" path="res://Menus/Buttons/quit_button.tscn" id="5_k18lj"]
-[ext_resource type="AudioStream" uid="uid://7qiv1uacfw8p" path="res://Music/MUS_TitleV2_9M_7-4_78.mp3" id="6_j2sin"]
+[ext_resource type="AudioStream" uid="uid://c73j61seb7pn8" path="res://Music/Level_Music_Final.mp3" id="6_bd7ab"]
 
 [node name="MainMenu" type="MarginContainer"]
 anchors_preset = 15
@@ -87,7 +87,7 @@ scene_path = "res://Menus/Credits/credits.tscn"
 layout_mode = 2
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("6_j2sin")
+stream = ExtResource("6_bd7ab")
 autoplay = true
 
 [connection signal="pressed" from="CenterContainer/RightSide/VBoxContainer/GraphicsSpecs" to="CenterContainer/RightSide/VBoxContainer/GraphicsSpecs" method="_on_pressed"]

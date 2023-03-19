@@ -30,7 +30,7 @@ radius = 1.2
 height = 2.4
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_oi770"]
-size = Vector3(1.75, 1, 10)
+size = Vector3(1.5, 1, 50)
 
 [node name="player_controller_xrae" type="CharacterBody3D" groups=["heavy"]]
 collision_mask = 47
@@ -72,7 +72,7 @@ one_shot = true
 [node name="HUD" parent="." instance=ExtResource("3_xuxi4")]
 
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3.5583)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 11)
 v_offset = 1.122
 current = true
 far = 500.0

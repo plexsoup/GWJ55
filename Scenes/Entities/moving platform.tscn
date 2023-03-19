@@ -134,7 +134,7 @@ speed = 3
 
 [node name="StaticBody3D" type="AnimatableBody3D" parent="."]
 collision_layer = 4
-collision_mask = 3
+collision_mask = 19
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.4158, 0)

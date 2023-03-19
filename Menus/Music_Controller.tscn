@@ -1,0 +1,25 @@
+[gd_scene load_steps=6 format=3 uid="uid://dbdejckf5i7du"]
+
+[ext_resource type="Script" path="res://Menus/Music_Controller.gd" id="1_daw36"]
+[ext_resource type="AudioStream" uid="uid://dw48nal0qwd53" path="res://Music/Title Theme.mp3" id="1_i4c2a"]
+[ext_resource type="AudioStream" uid="uid://c73j61seb7pn8" path="res://Music/Level_Music_Final.mp3" id="2_u352n"]
+[ext_resource type="AudioStream" uid="uid://7qiv1uacfw8p" path="res://Music/MUS_TitleV2_9M_7-4_78.mp3" id="3_n3s41"]
+[ext_resource type="AudioStream" uid="uid://bbwulflg7udn1" path="res://Music/Transition_Music.mp3" id="4_rmvmk"]
+
+[node name="Node" type="Node"]
+script = ExtResource("1_daw36")
+
+[node name="Title Theme" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("1_i4c2a")
+
+[node name="Title_Final" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_u352n")
+
+[node name="Title_1" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_n3s41")
+
+[node name="AudioStreamPlayer4" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_rmvmk")
+
+[node name="AudioStreamPlayer5" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_rmvmk")

@@ -1,13 +1,13 @@
-[gd_scene load_steps=57 format=3 uid="uid://1iy51lohnni2"]
+[gd_scene load_steps=56 format=3 uid="uid://1iy51lohnni2"]
 
 [ext_resource type="Script" path="res://Scenes/Maps/base_level.gd" id="1_3v50y"]
 [ext_resource type="MeshLibrary" uid="uid://dmh5e52qprx6r" path="res://MeshLibraries/cat_tower_plex.tres" id="2_bcvq3"]
 [ext_resource type="PackedScene" uid="uid://cm2o1lkpf6s0w" path="res://Scenes/Entities/NPCs/vacuum_cleaner.tscn" id="3_dl32a"]
 [ext_resource type="Texture2D" uid="uid://tevy8ffg5l6a" path="res://Scenes/Maps/Official/LivingRoom/level01_mockup_section1.png" id="3_f2ifg"]
-[ext_resource type="CameraAttributesPractical" path="res://Shaders/Camera_Shader.tres" id="3_it8qf"]
+[ext_resource type="CameraAttributesPractical" uid="uid://lwejjr4rdbk0" path="res://Shaders/Camera_Shader.tres" id="3_it8qf"]
 [ext_resource type="PackedScene" uid="uid://iy2fvk38ehxj" path="res://Scenes/Entities/NPCs/deadly_tile.tscn" id="3_ixud2"]
 [ext_resource type="PackedScene" uid="uid://cey6vaorec8ca" path="res://Scenes/Entities/Player/player_controller.tscn" id="3_xpv4y"]
-[ext_resource type="PackedScene" uid="uid://eb3wwyaluatx" path="res://Scenes/Objects/trigger_volume_win.tscn" id="4_jclyg"]
+[ext_resource type="PackedScene" path="res://Scenes/Objects/trigger_volume_win.tscn" id="4_jclyg"]
 [ext_resource type="Texture2D" uid="uid://dhm4vtuux462g" path="res://Materials/arrow_01.png" id="5_p0717"]
 [ext_resource type="PackedScene" uid="uid://crvvpifd7a146" path="res://Scenes/Entities/NPCs/pressure_plate.tscn" id="6_1r3rs"]
 [ext_resource type="PackedScene" uid="uid://ch0xqdmee1xnu" path="res://WorldEnvironments/sky_and_lighting.tscn" id="7_12lrh"]
@@ -32,7 +32,6 @@
 [ext_resource type="Texture2D" uid="uid://cynsdc3oljjuy" path="res://Art/Foliage/Light house.png" id="20_cip6y"]
 [ext_resource type="Texture2D" uid="uid://byrvn46n7v4ug" path="res://Art/objects/bookshelf.png" id="26_atfjs"]
 [ext_resource type="Shader" uid="uid://d077br6ny4hmu" path="res://Shaders/Clouds_R.tres" id="27_prkw3"]
-[ext_resource type="AudioStream" uid="uid://c73j61seb7pn8" path="res://Music/Level_Music_Final.mp3" id="30_7qbsu"]
 [ext_resource type="PackedScene" uid="uid://c4rndh2lw447j" path="res://Scenes/Objects/koi_on_path.tscn" id="30_gqfgd"]
 [ext_resource type="PackedScene" uid="uid://b3p7s4vjxe0y0" path="res://Scenes/Objects/VolumeTriggerHintThoughtBubble.tscn" id="31_s35qv"]
 [ext_resource type="PackedScene" uid="uid://b2tb1owb5nnun" path="res://Scenes/Objects/spawn_point.tscn" id="32_drfq3"]
@@ -640,12 +639,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -61.8191, 2.41952, -1.07422)
 
 [node name="SpawnPointAttic" parent="SpawnPoints" instance=ExtResource("32_drfq3")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 26.4085, 15.5292, 0)
-
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("30_7qbsu")
-volume_db = -9.0
-autoplay = true
-bus = &"Music"
 
 [node name="Background Scenery" type="Node3D" parent="."]
 

@@ -19,6 +19,7 @@ config/icon="res://Art/Cat_Icon.png"
 
 Global="*res://global.gd"
 StageManager="*res://Scripts/stage_manager.gd"
+MusicController="*res://Menus/Music_Controller.gd"
 
 [display]
 

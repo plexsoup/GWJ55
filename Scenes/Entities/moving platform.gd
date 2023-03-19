@@ -16,7 +16,7 @@ func _ready():
 	setup_tween()
 	
 func setup_tween():
-	tween = get_tree().create_tween()
+	tween = self.create_tween() # changed to self as instructed in bind_node description
 	tween.set_ease(tween.EASE_IN_OUT)
 	tween.tween_property($StaticBody3D,"global_position",startPos + (target * scale), speed)
 	tween.tween_property($StaticBody3D, "global_position", startPos, speed)
@@ -31,7 +31,8 @@ func _process(_delta):
 
 
 func _on_child_exiting_tree(_node):
-	tween.kill()
+	#tween.kill()
+	pass
 
 func _on_switch_hit():
 	if needs_activation:
@@ -56,3 +57,7 @@ func _on_plate_press(pressed):
 func dist_to_perc():
 	return (startPos + target * scale).distance_to($StaticBody3D.global_position)/distance
 
+
+
+func _on_tree_exiting():
+	tween.kill()

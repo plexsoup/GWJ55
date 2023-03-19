@@ -31,13 +31,14 @@ func _on_timed_text_area_body_entered(body):
 # Timer(timeout) timeout -> _on_timer_timeout
 func _on_timer_timeout():
 	if(is_in_area):
-		print(\"player is still in area\")
+		#print(\"player is still in area\")
 		$AnimationPlayer.play('appear')
 		await $AnimationPlayer.animation_finished
-		print(\"now done animation\")
+		#print(\"now done animation\")
 		$AnimationPlayer.play_backwards('appear')
 	else:
-		print(\"player left area before check\")
+		pass
+		#print(\"player left area before check\")
 "
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_optts"]
@@ -77,7 +78,7 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id="Animation_owfk5"]
 resource_name = "appear"
-length = 5.0
+length = 7.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -135,7 +136,7 @@ vertical_alignment = 1
 autowrap_mode = 3
 
 [node name="timeout" type="Timer" parent="."]
-wait_time = 2.0
+wait_time = 1.5
 one_shot = true
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
@@ -161,5 +162,3 @@ environment = SubResource("Environment_mcd0r")
 [connection signal="body_entered" from="." to="." method="_on_timed_text_area_body_entered"]
 [connection signal="body_exited" from="." to="." method="_on_timed_text_area_body_exited"]
 [connection signal="timeout" from="timeout" to="." method="_on_timer_timeout"]
-[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
-[connection signal="animation_finished" from="AnimationPlayer" to="." method="animation_finished"]
